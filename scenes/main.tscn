@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://skwgyslh57ba"]
 
-[ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_h2yge"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(128, 128)
+[ext_resource type="PackedScene" uid="uid://blmwky0ijese4" path="res://scenes/prefab/person.tscn" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(512.2969, -256.47656, 514.6875, 291.7578, -541.6797, 288.25, -129, -75, -129, -260.97656, -397, -75, -493.84375, -263.53906, -397, -262.85938)
@@ -22,19 +19,16 @@ size = Vector2(128, 128)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 
-[node name="Person" type="CharacterBody2D" parent="." unique_id=1205533148]
-input_pickable = true
-script = ExtResource("1_0xm2m")
+[node name="Person" parent="." unique_id=1228245065 instance=ExtResource("1_sugp2")]
 
-[node name="Icon" type="Sprite2D" parent="Person" unique_id=932061386]
-texture = ExtResource("2_h2yge")
+[node name="Person2" parent="." unique_id=1050768934 instance=ExtResource("1_sugp2")]
+position = Vector2(193, 12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Person" unique_id=1410048959]
-shape = SubResource("RectangleShape2D_1bvp3")
+[node name="Person3" parent="." unique_id=786607783 instance=ExtResource("1_sugp2")]
+position = Vector2(44, 158)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Person" unique_id=536536994]
-avoidance_enabled = true
-debug_enabled = true
+[node name="Person4" parent="." unique_id=822955423 instance=ExtResource("1_sugp2")]
+position = Vector2(247, 193)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=642799099]
 navigation_polygon = SubResource("NavigationPolygon_lquwl")
@@ -46,10 +40,10 @@ position = Vector2(-263, -209)
 shape = SubResource("RectangleShape2D_h2yge")
 
 [node name="Icon" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D" unique_id=1453127406]
-texture = ExtResource("2_h2yge")
+texture = ExtResource("2_jyhfs")
 
 [node name="SelectionArea" type="Area2D" parent="." unique_id=849331238]
-script = ExtResource("3_h2yge")
+script = ExtResource("3_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea" unique_id=866812360]
 shape = SubResource("RectangleShape2D_lquwl")
@@ -58,6 +52,3 @@ shape = SubResource("RectangleShape2D_lquwl")
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 1, 1, 0.27058825)
-
-[connection signal="mouse_entered" from="Person" to="Person" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Person" to="Person" method="_on_mouse_exited"]

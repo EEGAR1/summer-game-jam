@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://blmwky0ijese4"]
+
+[ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_bksyk"]
+[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_3rx1w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(128, 128)
+
+[node name="Person" type="CharacterBody2D" unique_id=1228245065]
+input_pickable = true
+script = ExtResource("1_bksyk")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1695131563]
+texture = ExtResource("2_3rx1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1929608735]
+avoidance_enabled = true
+debug_enabled = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

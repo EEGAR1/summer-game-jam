@@ -11,8 +11,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var col_shape_size = collision_shape_2d.shape.get_rect().size
-	collision_shape_2d.position = col_shape_size / 2.0
+	var col_shape_pos = collision_shape_2d.shape.get_rect().position
+	collision_shape_2d.position = col_shape_size / 2.0 * sign(get_global_mouse_position() - global_position)
 	color_rect.size = col_shape_size
+	color_rect.position = col_shape_pos * 2.0
 	
 	if Input.is_action_just_pressed("m1"):
 		global_position = get_global_mouse_position()
@@ -20,7 +22,7 @@ func _process(delta: float) -> void:
 	elif Input.is_action_pressed("m1"):
 		monitoring = true
 		if (col_shape_size.x * col_shape_size.y) > 500.0: visible = true
-		collision_shape_2d.shape.set("size", get_global_mouse_position() - global_position)
+		collision_shape_2d.shape.set("size", abs(get_global_mouse_position() - global_position))
 	elif Input.is_action_just_released("m1"):
 		monitoring = false
 		visible = false
