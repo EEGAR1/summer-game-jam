@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://skwgyslh57ba"]
+
+[ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(128, 128)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
+vertices = PackedVector2Array(572.03906, -316.0625, 574.9531, 351.96094, -607.10156, 348.03125, -548.8281, -323.9297)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-558, -334, 582, -326, 585, 362, -618, 358)])
+
+[node name="Node2D" type="Node2D" unique_id=343001479]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
+
+[node name="Person" type="CharacterBody2D" parent="." unique_id=1205533148]
+input_pickable = true
+script = ExtResource("1_0xm2m")
+
+[node name="Icon" type="Sprite2D" parent="Person" unique_id=932061386]
+texture = ExtResource("2_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Person" unique_id=1410048959]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Person" unique_id=536536994]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=642799099]
+navigation_polygon = SubResource("NavigationPolygon_lquwl")
+
+[connection signal="mouse_entered" from="Person" to="Person" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Person" to="Person" method="_on_mouse_exited"]
