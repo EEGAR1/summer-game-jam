@@ -8,7 +8,7 @@ enum STATE {
 	BUILDING,
 	BUILT
 }
-var current_state := STATE.BUILDING
+var current_state := STATE.PLACING
 
 signal built
 
@@ -19,7 +19,9 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	match current_state:
 		STATE.PLACING:
-			pass
+			global_position = (get_global_mouse_position() / 16) * 16
+			if Input.is_action_just_pressed("m1"):
+				current_state = STATE.BUILDING
 		STATE.BUILDING:
 			for person in get_overlapping_bodies().filter(func(x): return x is Person):
 				person = person as Person

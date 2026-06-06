@@ -25,6 +25,7 @@ shape = SubResource("RectangleShape2D_1bvp3")
 path_desired_distance = 50.0
 target_desired_distance = 50.0
 avoidance_enabled = true
+radius = 8.0
 neighbor_distance = 1000.0
 time_horizon_agents = 15.0
 time_horizon_obstacles = 15.0

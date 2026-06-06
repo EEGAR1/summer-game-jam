@@ -33,8 +33,8 @@ func set_movement_target(movement_target: Vector2):
 	for i in target_positions:
 		if target_positions.find(i) == id:	continue
 		
-		if i.distance_to(movement_target) < 16.0:
-			movement_target += Vector2(cos(rand), sin(rand)) * 16.0
+		if i.distance_to(movement_target) < 10.0:
+			movement_target += Vector2(cos(rand), sin(rand)) * 10.0
 	navigation_agent.target_position = movement_target
 
 var current_path : CustomPath = CustomPath.new()
@@ -130,9 +130,9 @@ func _on_mouse_exited() -> void:
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	if stopped:
-		velocity = Vector2.ZERO
+		velocity = lerp(velocity, Vector2.ZERO, 0.8)
 	else:
-		velocity = safe_velocity.normalized() * 50.0
+		velocity = lerp(velocity, safe_velocity.normalized() * 50.0, 0.8)
 	move_and_slide()
 	
 @onready var building_sense: Area2D = $BuildingSense
