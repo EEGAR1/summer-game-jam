@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		monitoring = false
 		visible = false
 	
-	for person in get_overlapping_bodies().filter(func(x): return x is Person):
+	if monitoring:	for person in get_overlapping_bodies().filter(func(x): return x is Person):
 		person.current_state = Person.STATE.SELECTED
 
 func _draw() -> void:
