@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(512.2969, -256.47656, 514.6328, 277.67188, 454, 189, 454, -79, -129, -260.97656, 186, -79, -129, -75, 186, 189, -493.84375, -263.53906, -397, -262.85938, -397, -75, -540.3594, 272.95313, -15.7578125, 178.84375)
@@ -18,6 +19,9 @@ agent_radius = 70.0
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
+radius = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 
@@ -73,3 +77,9 @@ position = Vector2(-70, -41)
 
 [node name="Person5" parent="." unique_id=2113131330 instance=ExtResource("1_sugp2")]
 position = Vector2(-77, 14)
+
+[node name="Mouse" type="Area2D" parent="." unique_id=1561236064]
+script = ExtResource("5_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse" unique_id=323369792]
+shape = SubResource("CircleShape2D_jyhfs")

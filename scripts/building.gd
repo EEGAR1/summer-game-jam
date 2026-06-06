@@ -19,9 +19,10 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	match current_state:
 		STATE.PLACING:
-			global_position = (get_global_mouse_position() / 16) * 16
+			global_position = round(get_global_mouse_position() / 16) * 16
 			if Input.is_action_just_pressed("m1"):
 				current_state = STATE.BUILDING
+		
 		STATE.BUILDING:
 			for person in get_overlapping_bodies().filter(func(x): return x is Person):
 				person = person as Person
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 			if current_work > work_needed:
 				built.emit()
 				current_state = STATE.BUILT
+		
 		STATE.BUILT:
 			pass
 

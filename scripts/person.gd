@@ -19,7 +19,7 @@ var id := 0
 
 var rand : float
 func _ready():
-	rand = randf_range(-PI, PI)
+	rand = randf_range(0, PI*2)
 	
 	id = len(target_positions)
 	target_positions.append(Vector2.ZERO)
@@ -30,11 +30,13 @@ func _ready():
 	navigation_agent.path_changed.connect(path_postprocess)
 
 func set_movement_target(movement_target: Vector2):
-	for i in target_positions:
-		if target_positions.find(i) == id:	continue
-		
-		if i.distance_to(movement_target) < 10.0:
-			movement_target += Vector2(cos(rand), sin(rand)) * 10.0
+	if not Globals.hover_target: # If we are not hovering a POI, reduce grouping
+		for i in target_positions:
+			if target_positions.find(i) == id:	continue
+			
+			if i.distance_to(movement_target) < 10.0:
+				movement_target += Vector2(cos(rand), sin(rand)) * 20.0
+	
 	navigation_agent.target_position = movement_target
 
 var current_path : CustomPath = CustomPath.new()
@@ -43,7 +45,7 @@ var steps := 1
 func path_postprocess():
 	current_path.clear()
 	current_path.translate(navigation_agent.get_current_navigation_path())
-	current_path.path = [current_path.path[0], current_path.path[len(current_path.path) - 1]]
+	current_path.path = [current_path.path[0], current_path.path[len(current_path.path) - 1]] # Strip path
 	
 	'''
 	for step in range(steps):
@@ -105,6 +107,7 @@ func _physics_process(delta):
 			var next_path_position: Vector2 = current_path.get_next_pos(global_position, velocity)
 
 			var n_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+			#if velocity.length() < 5.0:	n_velocity = -n_velocity
 			navigation_agent.set_velocity(n_velocity)
 		
 		STATE.SELECTED:
@@ -119,8 +122,6 @@ func _physics_process(delta):
 	
 	target_positions.set(id, navigation_agent.target_position)
 
-
-
 var mouse_over := false
 func _on_mouse_entered() -> void:
 	mouse_over = true
@@ -130,9 +131,9 @@ func _on_mouse_exited() -> void:
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	if stopped:
-		velocity = lerp(velocity, Vector2.ZERO, 0.8)
+		velocity = Vector2.ZERO
 	else:
-		velocity = lerp(velocity, safe_velocity.normalized() * 50.0, 0.8)
+		velocity = safe_velocity
 	move_and_slide()
 	
 @onready var building_sense: Area2D = $BuildingSense

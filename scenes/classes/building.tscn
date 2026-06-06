@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ue1vf"]
 size = Vector2(32, 32)
 
-[node name="Building" type="Area2D" unique_id=1116943181]
+[node name="Building" type="Area2D" unique_id=1116943181 groups=["POI"]]
 script = ExtResource("1_m4pv7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649717916]

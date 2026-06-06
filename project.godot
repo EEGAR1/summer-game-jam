@@ -14,9 +14,17 @@ config/name="summer game jam"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*uid://xef8hvfosm0u"
+
 [display]
 
 window/stretch/mode="viewport"
+
+[global_group]
+
+POI=""
 
 [input]
 
