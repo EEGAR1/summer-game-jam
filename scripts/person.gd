@@ -1,5 +1,8 @@
 class_name Person extends CharacterBody2D
 
+@export var max_size := 30.0
+@export var min_size := 8.0
+
 enum STATE {
 	WORKING,
 	SELECTED,
@@ -16,23 +19,91 @@ var id := 0
 
 var rand : float
 func _ready():
-	rand = randf_range(-PI/2, PI/2)
+	rand = randf_range(-PI, PI)
 	
 	id = len(target_positions)
 	target_positions.append(Vector2.ZERO)
 	
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
+	
+	navigation_agent.path_changed.connect(path_postprocess)
 
 func set_movement_target(movement_target: Vector2):
 	for i in target_positions:
 		if target_positions.find(i) == id:	continue
 		
 		if i.distance_to(movement_target) < 16.0:
-			movement_target += Vector2(cos(rand), sin(rand)) * 20.0
+			movement_target += Vector2(cos(rand), sin(rand)) * 16.0
 	navigation_agent.target_position = movement_target
+
+class CustomPath:
+	var path : Array[Vector2]
+	
+	var overall_path : Array[Vector2]
+	
+	func translate(n : PackedVector2Array):
+		for i in n:
+			path.append(i)
+		overall_path = path.duplicate()
+	
+	func clear():
+		path.clear()
+	
+	func set_link(index : int, value : Vector2):
+		path.set(index, value)
+	
+	func get_path() -> Array[Vector2]:
+		return path
+	
+	func get_link(index : int) -> Vector2:
+		return path[index]
+	
+	func add_link(index : int, pos : Vector2):
+		path.insert(index, pos)
+	
+	func get_next_pos(global_position : Vector2, velocity : Vector2) -> Vector2:
+		if len(path) <= 0:	return global_position
+		
+		var p = path[0]
+		if global_position.distance_to(p) < 8.0:
+			reach()
+		
+		return p
+	
+	func reach():
+		path.pop_front()
+
+var current_path : CustomPath = CustomPath.new()
+
+var steps := 12
+func path_postprocess():
+	current_path.clear()
+	current_path.translate(navigation_agent.get_current_navigation_path())
+	
+	for step in range(steps):
+		# Bump path points that go through other agents
+		var last_link := global_position
+		for link in current_path.get_path():
+			var index = current_path.get_path().find(link)
+			
+			var space_state = get_world_2d().direct_space_state
+			var query = PhysicsRayQueryParameters2D.create(link, last_link)
+			query.exclude.append(self.get_rid())
+			var result = space_state.intersect_ray(query)
+			
+			if result != {}:	if result.collider != self:	if result.collider is Person:
+				# Calculate nudge
+				var starting = result.position
+				var other_target = result.collider.global_position
+				var vector = starting - other_target
+				current_path.add_link(index, other_target + vector.normalized() * 18.0)
+			
+			last_link = link
 	
 func _physics_process(delta):
+	queue_redraw()
+	
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	match current_state:
@@ -48,7 +119,7 @@ func _physics_process(delta):
 				return
 			
 			var current_agent_position: Vector2 = global_position
-			var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+			var next_path_position: Vector2 = current_path.get_next_pos(global_position, velocity)
 
 			var n_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 			navigation_agent.set_velocity(n_velocity)
@@ -83,3 +154,7 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func sensing():
 	for building in building_sense.get_overlapping_areas().filter(func(x): return x is Building):
 		set_movement_target(building.global_position)
+
+func _draw() -> void:
+	draw_polyline(current_path.overall_path.map(func(x): return to_local(x)), Color(1.0, 0.0, 0.0, 1.0), 3.0)
+	

@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
-vertices = PackedVector2Array(512.2969, -256.47656, 514.6875, 291.7578, -541.6797, 288.25, -129, -75, -129, -260.97656, -397, -75, -493.84375, -263.53906, -397, -262.85938)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0), PackedInt32Array(3, 0, 2), PackedInt32Array(5, 3, 2), PackedInt32Array(5, 2, 6), PackedInt32Array(6, 7, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-558, -334, 582, -326, 585, 362, -618, 358)])
+vertices = PackedVector2Array(512.2969, -256.47656, 514.6328, 277.67188, 454, 189, 454, -79, -129, -260.97656, 186, -79, -129, -75, 186, 189, -493.84375, -263.53906, -397, -262.85938, -397, -75, -540.3594, 272.95313, -15.7578125, 178.84375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(6, 4, 5), PackedInt32Array(6, 5, 7), PackedInt32Array(8, 9, 10), PackedInt32Array(11, 8, 10), PackedInt32Array(12, 11, 10), PackedInt32Array(12, 10, 6), PackedInt32Array(12, 6, 7), PackedInt32Array(1, 12, 7), PackedInt32Array(1, 7, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-558, -334, 582, -326, 585, 362, -16, 250, -618, 358)])
 sample_partition_type = 1
-cell_size = 366.0
+cell_size = 16.0
 border_size = 2.0
 agent_radius = 70.0
 
@@ -34,6 +34,15 @@ position = Vector2(-263, -209)
 shape = SubResource("RectangleShape2D_h2yge")
 
 [node name="Icon" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D" unique_id=1453127406]
+texture = ExtResource("2_jyhfs")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="NavigationRegion2D" unique_id=710775024]
+position = Vector2(320, 55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D2" unique_id=2101032826]
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Icon" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D2" unique_id=1304518881]
 texture = ExtResource("2_jyhfs")
 
 [node name="SelectionArea" type="Area2D" parent="." unique_id=849331238]
