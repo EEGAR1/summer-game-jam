@@ -37,70 +37,51 @@ func set_movement_target(movement_target: Vector2):
 			movement_target += Vector2(cos(rand), sin(rand)) * 16.0
 	navigation_agent.target_position = movement_target
 
-class CustomPath:
-	var path : Array[Vector2]
-	
-	var overall_path : Array[Vector2]
-	
-	func translate(n : PackedVector2Array):
-		for i in n:
-			path.append(i)
-		overall_path = path.duplicate()
-	
-	func clear():
-		path.clear()
-	
-	func set_link(index : int, value : Vector2):
-		path.set(index, value)
-	
-	func get_path() -> Array[Vector2]:
-		return path
-	
-	func get_link(index : int) -> Vector2:
-		return path[index]
-	
-	func add_link(index : int, pos : Vector2):
-		path.insert(index, pos)
-	
-	func get_next_pos(global_position : Vector2, velocity : Vector2) -> Vector2:
-		if len(path) <= 0:	return global_position
-		
-		var p = path[0]
-		if global_position.distance_to(p) < 8.0:
-			reach()
-		
-		return p
-	
-	func reach():
-		path.pop_front()
-
 var current_path : CustomPath = CustomPath.new()
 
-var steps := 12
+var steps := 1
 func path_postprocess():
 	current_path.clear()
 	current_path.translate(navigation_agent.get_current_navigation_path())
+	current_path.path = [current_path.path[0], current_path.path[len(current_path.path) - 1]]
 	
+	'''
 	for step in range(steps):
 		# Bump path points that go through other agents
 		var last_link := global_position
-		for link in current_path.get_path():
+		for link in current_path.get_path().duplicate():
 			var index = current_path.get_path().find(link)
-			
-			var space_state = get_world_2d().direct_space_state
-			var query = PhysicsRayQueryParameters2D.create(link, last_link)
-			query.exclude.append(self.get_rid())
-			var result = space_state.intersect_ray(query)
-			
-			if result != {}:	if result.collider != self:	if result.collider is Person:
-				# Calculate nudge
-				var starting = result.position
-				var other_target = result.collider.global_position
-				var vector = starting - other_target
-				current_path.add_link(index, other_target + vector.normalized() * 18.0)
+			var results = check_box_intersection(link, last_link, 16.0)
+			for result in results:
+				if result != {}:	if result.collider != self:	if result.collider is Person:
+					# Calculate nudge
+					var other_target = result.collider.global_position
+					var sign_ = sign(link - other_target).x if abs(link.x - other_target.x) > abs(link.y - other_target.y) else sign(link - other_target).y
+					var vector = (link - other_target).rotated(deg_to_rad(90 * sign_))
+					current_path.add_link(index, other_target + vector.normalized() * 18.0)
 			
 			last_link = link
+	'''
+
+func check_box_intersection(from_pos: Vector2, to_pos: Vector2, box_width: float):
+	var center = (from_pos + to_pos) / 2
+	var direction = (to_pos - from_pos)
+	var length = direction.length()
+	var angle = direction.angle()
 	
+	var shape = RectangleShape2D.new()
+	shape.size = Vector2(box_width, length)
+	
+	var query = PhysicsShapeQueryParameters2D.new()
+	query.set_shape(shape)
+	query.transform = Transform2D(angle, center)
+	
+	var space_state = get_world_2d().direct_space_state
+	var result = space_state.intersect_shape(query)
+	
+	return result
+
+var stopped := false
 func _physics_process(delta):
 	queue_redraw()
 	
@@ -108,6 +89,8 @@ func _physics_process(delta):
 	
 	match current_state:
 		STATE.WORKING:
+			stopped = false
+			
 			# Select and move a worker
 			if mouse_over and Input.is_action_just_pressed("m1"):
 				current_state = STATE.SELECTED
@@ -125,14 +108,14 @@ func _physics_process(delta):
 			navigation_agent.set_velocity(n_velocity)
 		
 		STATE.SELECTED:
-			navigation_agent.set_velocity(Vector2.ZERO)
+			stopped = true
 			modulate = Color(1.224, 1.224, 1.224, 1.0)
 			if Input.is_action_just_pressed("m1"):
 				set_movement_target(get_global_mouse_position())
 				current_state = STATE.WORKING
 		
 		STATE.BUILDING:
-			navigation_agent.set_velocity(Vector2.ZERO)
+			stopped = true
 	
 	target_positions.set(id, navigation_agent.target_position)
 
@@ -145,9 +128,11 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	mouse_over = false
 
-
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	velocity = safe_velocity
+	if stopped:
+		velocity = Vector2.ZERO
+	else:
+		velocity = safe_velocity.normalized() * 50.0
 	move_and_slide()
 	
 @onready var building_sense: Area2D = $BuildingSense
