@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bksyk"]
+radius = 25.0
+
 [node name="Person" type="CharacterBody2D" unique_id=1228245065]
 collision_mask = 0
 input_pickable = true
@@ -19,14 +22,20 @@ texture = ExtResource("2_3rx1w")
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1929608735]
-path_desired_distance = 2.0
-target_desired_distance = 1.0
+path_desired_distance = 50.0
+target_desired_distance = 50.0
 avoidance_enabled = true
 radius = 8.0
-neighbor_distance = 50.0
-time_horizon_obstacles = 5.0
+neighbor_distance = 1000.0
+time_horizon_agents = 15.0
+time_horizon_obstacles = 15.0
 max_speed = 50.0
 debug_enabled = true
+
+[node name="BuildingSense" type="Area2D" parent="." unique_id=745415576]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingSense" unique_id=569489146]
+shape = SubResource("CircleShape2D_bksyk")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
