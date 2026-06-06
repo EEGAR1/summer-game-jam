@@ -47,7 +47,7 @@ func _physics_process(delta):
 				current_state = STATE.WORKING
 		
 		STATE.BUILDING:
-			
+			pass
 
 
 
