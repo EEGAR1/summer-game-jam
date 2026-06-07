@@ -14,7 +14,9 @@ func _check_action(delta : float):
 
 func _while_acting(delta : float):
 	for i in overlp:
+		parent.stopped = true
 		i.current_work += delta
 
 func end():
+	parent.stopped = false
 	parent.current_state = Person.STATE.WORKING

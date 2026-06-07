@@ -1,22 +1,18 @@
 [gd_scene format=3 uid="uid://blmwky0ijese4"]
 
 [ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_bksyk"]
-[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_3rx1w"]
+[ext_resource type="Script" uid="uid://d1duynm47ujot" path="res://scripts/person_sprite.gd" id="2_bksyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 16)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bksyk"]
-radius = 25.0
 
 [node name="Person" type="CharacterBody2D" unique_id=1228245065]
 collision_mask = 0
 input_pickable = true
 script = ExtResource("1_bksyk")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1695131563]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_3rx1w")
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1980460130]
+script = ExtResource("2_bksyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
 shape = SubResource("RectangleShape2D_1bvp3")
@@ -32,11 +28,6 @@ time_horizon_agents = 999.0
 time_horizon_obstacles = 1.0
 max_speed = 50.0
 debug_enabled = true
-
-[node name="BuildingSense" type="Area2D" parent="." unique_id=745415576]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingSense" unique_id=569489146]
-shape = SubResource("CircleShape2D_bksyk")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

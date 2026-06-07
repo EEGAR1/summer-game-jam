@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://skwgyslh57ba"]
 
-[ext_resource type="PackedScene" uid="uid://blmwky0ijese4" path="res://scenes/prefab/person.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://3bqytinstyy2" path="res://scenes/people/citizen.tscn" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://de53nuysx1qc2" path="res://scripts/build_action.gd" id="5_tefeu"]
-[ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="5_tipki"]
-[ext_resource type="Script" uid="uid://bujlqmc6lgjlj" path="res://scripts/idle_action.gd" id="6_o6xl0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(100.921875, 51, -101.74219, 51, -99.24219, -48.078125, 100.078125, -49.898438)
@@ -19,12 +16,24 @@ border_size = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o6xl0"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
+
+[node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
+
+[node name="Citizen2" parent="." unique_id=808004829 instance=ExtResource("1_tbgi4")]
+position = Vector2(-25, -25)
+
+[node name="Citizen3" parent="." unique_id=1980203821 instance=ExtResource("1_tbgi4")]
+position = Vector2(-22, 17)
+
+[node name="Citizen4" parent="." unique_id=1246393372 instance=ExtResource("1_tbgi4")]
+position = Vector2(31, -25)
+
+[node name="Citizen5" parent="." unique_id=2042692568 instance=ExtResource("1_tbgi4")]
+position = Vector2(0, -26)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 zoom = Vector2(5, 5)
@@ -45,24 +54,6 @@ position = Vector2(33, 19)
 z_index = -1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jyhfs")
-
-[node name="Person" parent="." unique_id=1228245065 instance=ExtResource("1_sugp2")]
-position = Vector2(-36, -33)
-stress = 20.0
-
-[node name="ActionManager" type="Node2D" parent="Person" unique_id=1220845141]
-script = ExtResource("5_tipki")
-
-[node name="BuildAction" type="Node2D" parent="Person/ActionManager" unique_id=168222454]
-script = ExtResource("5_tefeu")
-
-[node name="BuildArea" type="Area2D" parent="Person/ActionManager/BuildAction" unique_id=2061114698]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Person/ActionManager/BuildAction/BuildArea" unique_id=939304619]
-shape = SubResource("CircleShape2D_o6xl0")
-
-[node name="IdleAction" type="Node2D" parent="Person/ActionManager" unique_id=531507923]
-script = ExtResource("6_o6xl0")
 
 [node name="Mouse" type="Area2D" parent="." unique_id=1561236064]
 script = ExtResource("5_tbgi4")
