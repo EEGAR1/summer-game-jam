@@ -23,13 +23,22 @@ func _process(delta: float) -> void:
 		_check_action(delta)
 	elif is_current_action:
 		_while_acting(delta)
-	
+	else:
+		_no_action(delta)
+
 func _check_action(delta : float) -> void:
 	pass
 
 func _while_acting(delta : float) -> void:
 	pass
 
+func _no_action(delta : float) -> void:
+	pass
+
 func set_action() -> void:
 	parent.current_state = Person.STATE.USINGACTION
 	current_action = self
+
+func remove_action() -> void:
+	if current_action == self:
+		current_action = null

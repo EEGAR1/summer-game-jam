@@ -3,14 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://blmwky0ijese4" path="res://scenes/prefab/person.tscn" id="1_iyw6i"]
 [ext_resource type="SpriteFrames" uid="uid://uxb2x8xqc0wf" path="res://people/citizen1.tres" id="2_5gt71"]
 [ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="2_kd2ci"]
-[ext_resource type="Script" uid="uid://de53nuysx1qc2" path="res://scripts/build_action.gd" id="3_5gt71"]
 [ext_resource type="SpriteFrames" uid="uid://cb26cyxjphsa7" path="res://people/citizen2.tres" id="3_xdauo"]
 [ext_resource type="SpriteFrames" uid="uid://hu62b1iwanub" path="res://people/citizen3.tres" id="4_e2i7i"]
-[ext_resource type="Script" uid="uid://bujlqmc6lgjlj" path="res://scripts/idle_action.gd" id="4_uaqut"]
 [ext_resource type="SpriteFrames" uid="uid://cbca722osa5dh" path="res://people/citizen4.tres" id="5_yj4cy"]
 [ext_resource type="SpriteFrames" uid="uid://djli332dup3k8" path="res://people/citizen5.tres" id="6_n2hx6"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ctjya"]
+[ext_resource type="PackedScene" uid="uid://qt4q5yyc26i" path="res://scenes/actions/build_action.tscn" id="8_xdauo"]
+[ext_resource type="PackedScene" uid="uid://dhvkw4oxxqki5" path="res://scenes/actions/idle_action.tscn" id="9_e2i7i"]
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -22,13 +20,6 @@ options = Array[SpriteFrames]([ExtResource("2_5gt71"), ExtResource("3_xdauo"), E
 [node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
 script = ExtResource("2_kd2ci")
 
-[node name="BuildAction" type="Node2D" parent="ActionManager" index="0" unique_id=971536163]
-script = ExtResource("3_5gt71")
+[node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 instance=ExtResource("8_xdauo")]
 
-[node name="BuildArea" type="Area2D" parent="ActionManager/BuildAction" index="0" unique_id=1288149303]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/BuildAction/BuildArea" index="0" unique_id=1949935800]
-shape = SubResource("CircleShape2D_ctjya")
-
-[node name="IdleAction" type="Node2D" parent="ActionManager" index="1" unique_id=531270226]
-script = ExtResource("4_uaqut")
+[node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]

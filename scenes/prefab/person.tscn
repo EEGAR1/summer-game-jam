@@ -27,7 +27,6 @@ max_neighbors = 1000
 time_horizon_agents = 999.0
 time_horizon_obstacles = 1.0
 max_speed = 50.0
-debug_enabled = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
