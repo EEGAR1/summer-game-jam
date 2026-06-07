@@ -28,7 +28,7 @@ func get_next_pos(global_position : Vector2, velocity : Vector2) -> Vector2:
 	if len(path) <= 0:	return global_position
 	
 	var p = path[0]
-	if global_position.distance_to(p) < 8.0:
+	if global_position.distance_to(p) < 10.0:
 		reach()
 	
 	return p

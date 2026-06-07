@@ -5,20 +5,21 @@
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://de53nuysx1qc2" path="res://scripts/build_action.gd" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="5_tipki"]
+[ext_resource type="Script" uid="uid://bujlqmc6lgjlj" path="res://scripts/idle_action.gd" id="6_o6xl0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
-vertices = PackedVector2Array(512.2969, -256.47656, 514.6328, 277.67188, 454, 189, 454, -79, -129, -260.97656, 186, -79, -129, -75, 186, 189, -493.84375, -263.53906, -397, -262.85938, -397, -75, -540.3594, 272.95313, -15.7578125, 178.84375)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(6, 4, 5), PackedInt32Array(6, 5, 7), PackedInt32Array(8, 9, 10), PackedInt32Array(11, 8, 10), PackedInt32Array(12, 11, 10), PackedInt32Array(12, 10, 6), PackedInt32Array(12, 6, 7), PackedInt32Array(1, 12, 7), PackedInt32Array(1, 7, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-558, -334, 582, -326, 585, 362, -16, 250, -618, 358)])
+vertices = PackedVector2Array(100.921875, 51, -101.74219, 51, -99.24219, -48.078125, 100.078125, -49.898438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-109, -58, 110, -60, 111, 61, -112, 61)])
 sample_partition_type = 1
 cell_size = 16.0
 border_size = 2.0
-agent_radius = 70.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6xl0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -30,24 +31,6 @@ zoom = Vector2(5, 5)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=642799099]
 navigation_polygon = SubResource("NavigationPolygon_lquwl")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D" unique_id=198205666]
-position = Vector2(-263, -209)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D" unique_id=1932644485]
-shape = SubResource("RectangleShape2D_h2yge")
-
-[node name="Icon" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D" unique_id=1453127406]
-texture = ExtResource("2_jyhfs")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="NavigationRegion2D" unique_id=710775024]
-position = Vector2(320, 55)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D2" unique_id=2101032826]
-shape = SubResource("RectangleShape2D_h2yge")
-
-[node name="Icon" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D2" unique_id=1304518881]
-texture = ExtResource("2_jyhfs")
 
 [node name="SelectionArea" type="Area2D" parent="." unique_id=849331238]
 script = ExtResource("3_tbgi4")
@@ -66,17 +49,19 @@ texture = ExtResource("2_jyhfs")
 [node name="Person" parent="." unique_id=1228245065 instance=ExtResource("1_sugp2")]
 position = Vector2(-36, -33)
 
-[node name="Person2" parent="." unique_id=2061796233 instance=ExtResource("1_sugp2")]
-position = Vector2(-40, 6)
+[node name="ActionManager" type="Node2D" parent="Person" unique_id=1220845141]
+script = ExtResource("5_tipki")
 
-[node name="Person3" parent="." unique_id=1278096881 instance=ExtResource("1_sugp2")]
-position = Vector2(18, -38)
+[node name="BuildAction" type="Node2D" parent="Person/ActionManager" unique_id=168222454]
+script = ExtResource("5_tefeu")
 
-[node name="Person4" parent="." unique_id=11295112 instance=ExtResource("1_sugp2")]
-position = Vector2(-70, -41)
+[node name="BuildArea" type="Area2D" parent="Person/ActionManager/BuildAction" unique_id=2061114698]
 
-[node name="Person5" parent="." unique_id=2113131330 instance=ExtResource("1_sugp2")]
-position = Vector2(-77, 14)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Person/ActionManager/BuildAction/BuildArea" unique_id=939304619]
+shape = SubResource("CircleShape2D_o6xl0")
+
+[node name="IdleAction" type="Node2D" parent="Person/ActionManager" unique_id=531507923]
+script = ExtResource("6_o6xl0")
 
 [node name="Mouse" type="Area2D" parent="." unique_id=1561236064]
 script = ExtResource("5_tbgi4")

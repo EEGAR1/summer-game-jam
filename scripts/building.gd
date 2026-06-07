@@ -1,4 +1,4 @@
-class_name Building extends Area2D
+class_name Building extends POI
 
 @export var work_needed := 20.0
 var current_work := 0.0
@@ -16,6 +16,9 @@ signal built
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	building_process(delta)
+
+func building_process(delta : float):
 	queue_redraw()
 	match current_state:
 		STATE.PLACING:
@@ -24,13 +27,6 @@ func _process(delta: float) -> void:
 				current_state = STATE.BUILDING
 		
 		STATE.BUILDING:
-			for person in get_overlapping_bodies().filter(func(x): return x is Person):
-				person = person as Person
-				if person.current_state == Person.STATE.WORKING and collision_shape_2d.shape.get_rect().has_point(to_local(person.navigation_agent.target_position)):
-					person.current_state = Person.STATE.BUILDING
-				elif person.current_state == Person.STATE.BUILDING:
-					current_work += delta
-				
 			if current_work > work_needed:
 				built.emit()
 				current_state = STATE.BUILT

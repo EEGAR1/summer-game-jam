@@ -22,6 +22,7 @@ texture = ExtResource("2_3rx1w")
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1929608735]
+path_desired_distance = 50.0
 path_max_distance = 100000.0
 avoidance_enabled = true
 radius = 8.0

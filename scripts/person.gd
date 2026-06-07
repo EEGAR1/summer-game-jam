@@ -1,12 +1,12 @@
 class_name Person extends CharacterBody2D
 
-@export var max_size := 30.0
-@export var min_size := 8.0
+## STATS
+var stress := 0.0 # The higher the stress, the lower the threshold for action and the higher the speed
 
 enum STATE {
 	WORKING,
 	SELECTED,
-	BUILDING
+	USINGACTION
 }
 var current_state := STATE.WORKING
 
@@ -34,8 +34,8 @@ func set_movement_target(movement_target: Vector2):
 		for i in target_positions:
 			if target_positions.find(i) == id:	continue
 			
-			if i.distance_to(movement_target) < 10.0:
-				movement_target += Vector2(cos(rand), sin(rand)) * 20.0
+			if i.distance_to(movement_target) < 16.0:
+				movement_target += Vector2(cos(rand), sin(rand)) * 16.0
 	
 	navigation_agent.target_position = movement_target
 
@@ -45,7 +45,8 @@ var steps := 1
 func path_postprocess():
 	current_path.clear()
 	current_path.translate(navigation_agent.get_current_navigation_path())
-	current_path.path = [current_path.path[0], current_path.path[len(current_path.path) - 1]] # Strip path
+	#if len(current_path.path) < 0:
+	#	current_path.path = [current_path.path[0], current_path.path[len(current_path.path) - 1]] # Strip path
 	
 	'''
 	for step in range(steps):
@@ -98,9 +99,8 @@ func _physics_process(delta):
 				current_state = STATE.SELECTED
 			
 			# Pathfind to target
-			if navigation_agent.is_navigation_finished():
+			if navigation_agent.is_navigation_finished() or global_position.distance_to(navigation_agent.target_position) < 5.0:
 				navigation_agent.set_velocity(Vector2.ZERO)
-				sensing() # if we are standing still, sense whats around us
 				return
 			
 			var current_agent_position: Vector2 = global_position
@@ -117,7 +117,7 @@ func _physics_process(delta):
 				set_movement_target(get_global_mouse_position())
 				current_state = STATE.WORKING
 		
-		STATE.BUILDING:
+		STATE.USINGACTION:
 			stopped = true
 	
 	target_positions.set(id, navigation_agent.target_position)
