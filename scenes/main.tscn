@@ -48,6 +48,7 @@ texture = ExtResource("2_jyhfs")
 
 [node name="Person" parent="." unique_id=1228245065 instance=ExtResource("1_sugp2")]
 position = Vector2(-36, -33)
+stress = 20.0
 
 [node name="ActionManager" type="Node2D" parent="Person" unique_id=1220845141]
 script = ExtResource("5_tipki")

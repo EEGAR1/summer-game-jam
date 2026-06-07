@@ -1,7 +1,7 @@
 class_name Person extends CharacterBody2D
 
 ## STATS
-var stress := 0.0 # The higher the stress, the lower the threshold for action and the higher the speed
+@export var stress := 0.0 # The higher the stress, the lower the threshold for action and the higher the speed
 
 enum STATE {
 	WORKING,
