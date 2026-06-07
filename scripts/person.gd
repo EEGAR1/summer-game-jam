@@ -1,7 +1,7 @@
 class_name Person extends CharacterBody2D
 
 ## STATS
-var stress := 0.0 # The higher the stress, the lower the threshold for action and the higher the speed
+@export var stress := 0.0 # The higher the stress, the lower the threshold for action and the higher the speed
 
 enum STATE {
 	WORKING,
@@ -13,6 +13,7 @@ var current_state := STATE.WORKING
 var movement_speed: float = 1000.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var icon: AnimatedSprite2D = $Icon
 
 static var target_positions : Array[Vector2]
 var id := 0
@@ -45,26 +46,6 @@ var steps := 1
 func path_postprocess():
 	current_path.clear()
 	current_path.translate(navigation_agent.get_current_navigation_path())
-	#if len(current_path.path) < 0:
-	#	current_path.path = [current_path.path[0], current_path.path[len(current_path.path) - 1]] # Strip path
-	
-	'''
-	for step in range(steps):
-		# Bump path points that go through other agents
-		var last_link := global_position
-		for link in current_path.get_path().duplicate():
-			var index = current_path.get_path().find(link)
-			var results = check_box_intersection(link, last_link, 16.0)
-			for result in results:
-				if result != {}:	if result.collider != self:	if result.collider is Person:
-					# Calculate nudge
-					var other_target = result.collider.global_position
-					var sign_ = sign(link - other_target).x if abs(link.x - other_target.x) > abs(link.y - other_target.y) else sign(link - other_target).y
-					var vector = (link - other_target).rotated(deg_to_rad(90 * sign_))
-					current_path.add_link(index, other_target + vector.normalized() * 18.0)
-			
-			last_link = link
-	'''
 
 func check_box_intersection(from_pos: Vector2, to_pos: Vector2, box_width: float):
 	var center = (from_pos + to_pos) / 2
@@ -90,6 +71,10 @@ func _physics_process(delta):
 	
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
+	# Animations
+	icon.animation = "idle" if velocity.length() < 0.1 or stopped else "run"
+	if velocity.x != 0.0:	icon.flip_h = velocity.x < 0.0
+	
 	match current_state:
 		STATE.WORKING:
 			stopped = false
@@ -107,7 +92,6 @@ func _physics_process(delta):
 			var next_path_position: Vector2 = current_path.get_next_pos(global_position, velocity)
 
 			var n_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
-			#if velocity.length() < 5.0:	n_velocity = -n_velocity
 			navigation_agent.set_velocity(n_velocity)
 		
 		STATE.SELECTED:
@@ -140,7 +124,3 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func sensing():
 	for building in building_sense.get_overlapping_areas().filter(func(x): return x is Building):
 		set_movement_target(building.global_position)
-
-func _draw() -> void:
-	draw_polyline(current_path.overall_path.map(func(x): return to_local(x)), Color(1.0, 0.0, 0.0, 1.0), 3.0)
-	

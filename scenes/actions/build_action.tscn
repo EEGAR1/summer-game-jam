@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://qt4q5yyc26i"]
+
+[ext_resource type="Script" uid="uid://de53nuysx1qc2" path="res://scripts/build_action.gd" id="1_4uawy"]
+[ext_resource type="Texture2D" uid="uid://bi3u53ch4ykua" path="res://art/wrench_placeholder.png" id="2_whvqf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctjya"]
+
+[sub_resource type="Animation" id="Animation_57bkj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.89011794]
+}
+
+[sub_resource type="Animation" id="Animation_vt3ao"]
+resource_name = "building"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.3316862192716736, 0.7627089]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2bwc4"]
+_data = {
+&"RESET": SubResource("Animation_57bkj"),
+&"building": SubResource("Animation_vt3ao")
+}
+
+[node name="BuildAction" type="Node2D" unique_id=1576697744]
+script = ExtResource("1_4uawy")
+
+[node name="BuildArea" type="Area2D" parent="." unique_id=970064320]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildArea" unique_id=252632571]
+shape = SubResource("CircleShape2D_ctjya")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1446348303]
+visible = false
+rotation = -0.89011794
+texture = ExtResource("2_whvqf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=717894620]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_2bwc4")
