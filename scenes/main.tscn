@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(100.921875, 51, -101.74219, 51, -99.24219, -48.078125, 100.078125, -49.898438)
@@ -22,18 +23,23 @@ radius = 5.0
 [node name="Node2D" type="Node2D" unique_id=343001479]
 
 [node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
+stress = 10.0
 
 [node name="Citizen2" parent="." unique_id=808004829 instance=ExtResource("1_tbgi4")]
 position = Vector2(-25, -25)
+stress = 10.0
 
 [node name="Citizen3" parent="." unique_id=1980203821 instance=ExtResource("1_tbgi4")]
 position = Vector2(-22, 17)
+stress = 10.0
 
 [node name="Citizen4" parent="." unique_id=1246393372 instance=ExtResource("1_tbgi4")]
 position = Vector2(31, -25)
+stress = 10.0
 
 [node name="Citizen5" parent="." unique_id=2042692568 instance=ExtResource("1_tbgi4")]
 position = Vector2(0, -26)
+stress = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 zoom = Vector2(5, 5)
@@ -60,3 +66,11 @@ script = ExtResource("5_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse" unique_id=323369792]
 shape = SubResource("CircleShape2D_jyhfs")
+
+[node name="IdlePOI" type="Node2D" parent="." unique_id=1171669346]
+position = Vector2(73, -26)
+script = ExtResource("6_tefeu")
+
+[node name="IdlePOI2" type="Node2D" parent="." unique_id=928350365]
+position = Vector2(73, 8)
+script = ExtResource("6_tefeu")
