@@ -140,7 +140,3 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func sensing():
 	for building in building_sense.get_overlapping_areas().filter(func(x): return x is Building):
 		set_movement_target(building.global_position)
-
-func _draw() -> void:
-	draw_polyline(current_path.overall_path.map(func(x): return to_local(x)), Color(1.0, 0.0, 0.0, 1.0), 3.0)
-	
