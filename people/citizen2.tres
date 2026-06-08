@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://c7g3v4cb4klv3" path="res://people/citizen2.png" id="1_laj85"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_laj85"]
+atlas = ExtResource("1_laj85")
+region = Rect2(0, 32, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2n6nl"]
 atlas = ExtResource("1_laj85")
 region = Rect2(0, 16, 16, 16)
@@ -68,6 +72,14 @@ region = Rect2(48, 0, 16, 16)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laj85")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2n6nl")
