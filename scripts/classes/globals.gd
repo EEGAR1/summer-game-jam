@@ -13,3 +13,4 @@ enum POI_TYPE {
 	OFFICER
 }
 var idle_pois : Array[Node2D] # Pois that people may wander to
+var other_people : Array[Person]

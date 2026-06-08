@@ -29,6 +29,8 @@ func _ready():
 	navigation_agent.target_desired_distance = 4.0
 	
 	navigation_agent.path_changed.connect(path_postprocess)
+	
+	Globals.other_people.append(self)
 
 func set_movement_target(movement_target: Vector2):
 	if not Globals.hover_target: # If we are not hovering a POI, reduce grouping
