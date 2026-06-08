@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
@@ -23,6 +24,28 @@ border_size = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("8_ya4ey")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("8_ya4ey")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8y0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(16, 16)
@@ -74,6 +97,10 @@ script = ExtResource("5_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse" unique_id=323369792]
 shape = SubResource("CircleShape2D_jyhfs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mouse" unique_id=910313142]
+sprite_frames = SubResource("SpriteFrames_a8y0u")
+offset = Vector2(-4, 4)
 
 [node name="IdlePOI" type="Node2D" parent="." unique_id=1171669346]
 position = Vector2(73, -26)
