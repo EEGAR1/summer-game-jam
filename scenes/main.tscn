@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://3bqytinstyy2" path="res://scenes/people/citizen.tscn" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(100.921875, 51, -101.74219, 51, -99.24219, -48.078125, 100.078125, -49.898438)
@@ -19,6 +21,9 @@ border_size = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(16, 16)
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 
@@ -43,6 +48,7 @@ stress = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 zoom = Vector2(5, 5)
+script = ExtResource("2_tipki")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=642799099]
 navigation_polygon = SubResource("NavigationPolygon_lquwl")
@@ -74,3 +80,13 @@ script = ExtResource("6_tefeu")
 [node name="IdlePOI2" type="Node2D" parent="." unique_id=928350365]
 position = Vector2(73, 8)
 script = ExtResource("6_tefeu")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050]
+script = ExtResource("7_o6xl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=206966406]
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=409184284]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_jyhfs")
