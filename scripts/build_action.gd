@@ -20,8 +20,7 @@ func _check_action(delta : float):
 		set_action()
 
 func _while_acting(delta : float):
-	animation_player.play("building")
-	sprite_2d.flip_h = parent.icon.flip_h
+	animation_player.play("buildingLeft" if parent.icon.flip_h else "buildingRight")
 	
 	if overlp == []:	remove_action()
 	
