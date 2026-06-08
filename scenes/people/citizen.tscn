@@ -7,15 +7,20 @@
 [ext_resource type="SpriteFrames" uid="uid://hu62b1iwanub" path="res://people/citizen3.tres" id="4_e2i7i"]
 [ext_resource type="SpriteFrames" uid="uid://cbca722osa5dh" path="res://people/citizen4.tres" id="5_yj4cy"]
 [ext_resource type="SpriteFrames" uid="uid://djli332dup3k8" path="res://people/citizen5.tres" id="6_n2hx6"]
+[ext_resource type="SpriteFrames" uid="uid://yv7kykfk4u1o" path="res://people/citizen6.tres" id="7_g1ei6"]
+[ext_resource type="SpriteFrames" uid="uid://d0plfdrnrtb03" path="res://people/citizen7.tres" id="8_jbnel"]
 [ext_resource type="PackedScene" uid="uid://qt4q5yyc26i" path="res://scenes/actions/build_action.tscn" id="8_xdauo"]
+[ext_resource type="SpriteFrames" uid="uid://ca35kf4f3rygy" path="res://people/citizen8.tres" id="9_caxg1"]
 [ext_resource type="PackedScene" uid="uid://dhvkw4oxxqki5" path="res://scenes/actions/idle_action.tscn" id="9_e2i7i"]
+[ext_resource type="SpriteFrames" uid="uid://dvpak157ewoeo" path="res://people/citizen9.tres" id="10_rvppo"]
+[ext_resource type="SpriteFrames" uid="uid://crq3xkqroamqo" path="res://people/citizen10.tres" id="11_72hwm"]
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
 [node name="Icon" parent="." index="0" unique_id=1980460130]
 sprite_frames = ExtResource("2_5gt71")
 animation = &"run"
-options = Array[SpriteFrames]([ExtResource("2_5gt71"), ExtResource("3_xdauo"), ExtResource("4_e2i7i"), ExtResource("5_yj4cy"), ExtResource("6_n2hx6")])
+options = Array[SpriteFrames]([ExtResource("2_5gt71"), ExtResource("3_xdauo"), ExtResource("4_e2i7i"), ExtResource("5_yj4cy"), ExtResource("6_n2hx6"), ExtResource("6_n2hx6"), ExtResource("7_g1ei6"), ExtResource("8_jbnel"), ExtResource("9_caxg1"), ExtResource("10_rvppo"), ExtResource("11_72hwm")])
 
 [node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
 script = ExtResource("2_kd2ci")
