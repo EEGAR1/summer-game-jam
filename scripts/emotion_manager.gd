@@ -1,4 +1,4 @@
-extends Node2D
+class_name EmotionManager extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimatedSprite2D/AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -16,8 +16,16 @@ var emotions : Dictionary[float, float] # The first float is X.Y where X is the 
 
 func set_emotion(em_id : float, value : float):
 	if abs(value - emotions.get(em_id)) > 5.0:
-		animated_sprite_2d.current_frame = emotion_update_sprites_pos[int(round(em_id))] if value - emotions.get(em_id) > 0.0 else emotion_update_sprites_neg[int(round(em_id))]
-		animation_player.play("show")
+		var emotion := int((em_id - round(em_id)) * 10)
+		show_emotion(emotion, value - emotions.get(em_id) > 0.0)
+	emotions.set(em_id, value)
+
+func show_emotion(emotion : int, is_pos : bool):
+	animated_sprite_2d.frame = emotion_update_sprites_pos[emotion] if is_pos else emotion_update_sprites_neg[emotion]
+	animation_player.play("show")
+
+func get_emotion(person_id : int, em_type : int):
+	return emotions.get(float(person_id) + 0.1*float(em_type))
 
 func _ready() -> void:
 	if is_instance_valid(get_tree()):	await get_tree().process_frame

@@ -1,31 +1,31 @@
 [gd_scene format=3 uid="uid://blmwky0ijese4"]
 
-[ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_bksyk"]
-[ext_resource type="Script" uid="uid://d1duynm47ujot" path="res://scripts/person_sprite.gd" id="2_bksyk"]
-[ext_resource type="Script" uid="uid://dggsapn3rync6" path="res://scripts/emotion_manager.gd" id="3_3rx1w"]
-[ext_resource type="Texture2D" uid="uid://dftjb6qdi54t6" path="res://people/reactions.png" id="4_ikjq7"]
+[ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_83wek"]
+[ext_resource type="Script" uid="uid://d1duynm47ujot" path="res://scripts/person_sprite.gd" id="2_5rrw4"]
+[ext_resource type="Script" uid="uid://dggsapn3rync6" path="res://scripts/emotion_manager.gd" id="3_litvv"]
+[ext_resource type="Texture2D" uid="uid://dftjb6qdi54t6" path="res://people/reactions.png" id="4_ghdxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omjwp"]
-atlas = ExtResource("4_ikjq7")
+atlas = ExtResource("4_ghdxt")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg4x4"]
-atlas = ExtResource("4_ikjq7")
+atlas = ExtResource("4_ghdxt")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrxf2"]
-atlas = ExtResource("4_ikjq7")
+atlas = ExtResource("4_ghdxt")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8dfi"]
-atlas = ExtResource("4_ikjq7")
+atlas = ExtResource("4_ghdxt")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8p0m"]
-atlas = ExtResource("4_ikjq7")
+atlas = ExtResource("4_ghdxt")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tb1cb"]
@@ -115,10 +115,10 @@ _data = {
 [node name="Person" type="CharacterBody2D" unique_id=1228245065]
 collision_mask = 2
 input_pickable = true
-script = ExtResource("1_bksyk")
+script = ExtResource("1_83wek")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1980460130]
-script = ExtResource("2_bksyk")
+script = ExtResource("2_5rrw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
 shape = SubResource("RectangleShape2D_1bvp3")
@@ -132,11 +132,12 @@ max_neighbors = 1000
 time_horizon_agents = 999.0
 time_horizon_obstacles = 1.0
 max_speed = 50.0
+debug_enabled = true
 
 [node name="EmotionManager" type="Node2D" parent="." unique_id=2139621875]
-script = ExtResource("3_3rx1w")
-emotion_update_sprites_pos = Array[int]([2, 2])
-emotion_update_sprites_neg = Array[int]([3, 3])
+script = ExtResource("3_litvv")
+emotion_update_sprites_pos = Array[int]([3, 3])
+emotion_update_sprites_neg = Array[int]([2, 2])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EmotionManager" unique_id=1761644411]
 position = Vector2(0, -17)

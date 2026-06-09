@@ -1,14 +1,31 @@
 class_name Person extends CharacterBody2D
 
-## STATS
-@export var stress := 0.0 # The higher the stress, the lower the threshold for action and the higher the speed
+@export_category("Internal Feelings")
+@export var stress := 0.0 ## The higher the stress, the lower the threshold for action and the higher the speed
+
+@export_category("Physical Traits")
+@export var max_speed := 50.0
 
 enum STATE {
 	WORKING,
 	SELECTED,
-	USINGACTION
+	USINGACTION,
+	DEAD
 }
 var current_state := STATE.WORKING
+
+const BODY = preload("uid://ddaa6cd7rv0ym")
+var dead := false :
+	set(value):
+		dead = value
+		var b = BODY.instantiate()
+		get_parent().add_child(b)
+		b.global_position = global_position
+		icon.animation = "dead"
+		icon.z_index -= 1
+		icon.reparent.call_deferred(b)
+		queue_free.call_deferred()
+	
 
 var movement_speed: float = 1000.0
 
@@ -73,6 +90,8 @@ func _physics_process(delta):
 	
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
+	navigation_agent.max_speed = max_speed + stress
+	
 	# Animations
 	icon.animation = "idle" if velocity.length() < 0.1 or stopped else "run"
 	if velocity.x != 0.0:	icon.flip_h = velocity.x < 0.0
@@ -105,6 +124,7 @@ func _physics_process(delta):
 		
 		STATE.USINGACTION:
 			stopped = true
+		
 	
 	target_positions.set(id, navigation_agent.target_position)
 
