@@ -14,88 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dhvkw4oxxqki5" path="res://scenes/actions/idle_action.tscn" id="9_e2i7i"]
 [ext_resource type="SpriteFrames" uid="uid://dvpak157ewoeo" path="res://people/citizen9.tres" id="10_rvppo"]
 [ext_resource type="SpriteFrames" uid="uid://crq3xkqroamqo" path="res://people/citizen10.tres" id="11_72hwm"]
-[ext_resource type="Script" uid="uid://dujkxqj71i855" path="res://scripts/kill_action.gd" id="15_caxg1"]
-[ext_resource type="Texture2D" uid="uid://daek53w6kd3hb" path="res://items/knife.png" id="16_rvppo"]
-
-[sub_resource type="Animation" id="Animation_72hwm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.033985488, -14.759972)]
-}
-
-[sub_resource type="Animation" id="Animation_teck6"]
-resource_name = "stab"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.76666665, 1),
-"transitions": PackedFloat32Array(3, 1, 3, 1),
-"update": 0,
-"values": [Vector2(-0.034, -6.76), Vector2(-0.033985488, -14.759972), Vector2(-0.033985488, -14.759972), Vector2(0, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"kill"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5k6rt"]
-_data = {
-&"RESET": SubResource("Animation_72hwm"),
-&"stab": SubResource("Animation_teck6")
-}
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_caxg1"]
-radius = 64.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rvppo"]
-radius = 15.0
+[ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_jbnel"]
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -111,28 +30,4 @@ script = ExtResource("2_kd2ci")
 
 [node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]
 
-[node name="KillAction" type="Node2D" parent="ActionManager" index="2" unique_id=1869145096]
-script = ExtResource("15_caxg1")
-
-[node name="Sprite2D" type="Sprite2D" parent="ActionManager/KillAction" index="0" unique_id=51128543]
-visible = false
-rotation = 1.5707964
-texture = ExtResource("16_rvppo")
-offset = Vector2(-0.033985488, -14.759972)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ActionManager/KillAction/Sprite2D" index="0" unique_id=1485667929]
-libraries/ = SubResource("AnimationLibrary_5k6rt")
-
-[node name="SeekArea" type="Area2D" parent="ActionManager/KillAction" index="1" unique_id=973457163]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/KillAction/SeekArea" index="0" unique_id=137352855]
-shape = SubResource("CircleShape2D_caxg1")
-
-[node name="StabArea" type="Area2D" parent="ActionManager/KillAction" index="2" unique_id=1998169371]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/KillAction/StabArea" index="0" unique_id=1664551327]
-shape = SubResource("CircleShape2D_rvppo")
+[node name="KillAction" parent="ActionManager" index="2" unique_id=1662293383 instance=ExtResource("15_jbnel")]
