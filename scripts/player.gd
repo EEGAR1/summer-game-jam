@@ -4,6 +4,13 @@ extends CharacterBody2D
 
 @export var speed := 50.0
 @export var handling := 20.0
+@onready var timer: Timer = $"footstep timer"
+@onready var player: CharacterBody2D = $"."
+
+const dust = preload("res://effects/dust.tscn")
+
+
+var can_spawn_footstep: bool = true
 
 func _ready() -> void:
 	Globals.player = self
@@ -21,6 +28,25 @@ func _physics_process(delta: float) -> void:
 	var target := Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 	target *= speed
 	
-	velocity = lerp(velocity, target, delta * handling)
+	if abs(velocity.x) > 0.1 or abs(velocity.y) > 0.1:
+		if can_spawn_footstep:
+			can_spawn_footstep = false
+			timer.start()
+			var p = dust.instantiate()
+			p.emitting = true
+			$"../CanvasLayer/SubViewportContainer/SubViewport".add_child(p)
+			p.global_position.x = player.global_position.x
+			p.global_position.y = player.global_position.y+9
 
+
+
+
+			
+	velocity = lerp(velocity, target, delta * handling)
+	
+	
 	move_and_slide()
+
+
+func _on_footstep_timer_timeout() -> void:
+	can_spawn_footstep = true

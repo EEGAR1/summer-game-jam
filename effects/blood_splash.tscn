@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://iixrltb01wlu"]
+
+[ext_resource type="Texture2D" uid="uid://c3i3kw28udisf" path="res://effects/blood particle.png" id="1_nwbhp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_trceg"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_a8y0u"]
+_data = [Vector2(0.54964536, 1), 0.0, -0.021647565, 0, 0, Vector2(1, 0), -4.662537, 0.0, 0, 0]
+point_count = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=1313605591]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_trceg")
+emitting = false
+amount = 20
+texture = ExtResource("1_nwbhp")
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(-0.5, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+angle_min = -360.0
+angle_max = 360.0
+scale_amount_min = 1.2
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_a8y0u")
+anim_offset_max = 1.0
