@@ -15,6 +15,11 @@
 [ext_resource type="SpriteFrames" uid="uid://dvpak157ewoeo" path="res://people/citizen9.tres" id="10_rvppo"]
 [ext_resource type="SpriteFrames" uid="uid://crq3xkqroamqo" path="res://people/citizen10.tres" id="11_72hwm"]
 [ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_jbnel"]
+[ext_resource type="Script" uid="uid://cuxps3nej7tgj" path="res://scripts/witness_action.gd" id="16_caxg1"]
+[ext_resource type="Script" uid="uid://dkea7i4agqgtp" path="res://scripts/fov_area_2d.gd" id="17_rvppo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_caxg1"]
+radius = 80.0
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -31,3 +36,12 @@ script = ExtResource("2_kd2ci")
 [node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]
 
 [node name="KillAction" parent="ActionManager" index="2" unique_id=1662293383 instance=ExtResource("15_jbnel")]
+
+[node name="WitnessAction" type="Node2D" parent="ActionManager" index="3" unique_id=1444905977]
+script = ExtResource("16_caxg1")
+
+[node name="Area2D" type="Area2D" parent="ActionManager/WitnessAction" index="0" unique_id=831080005]
+script = ExtResource("17_rvppo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/WitnessAction/Area2D" index="0" unique_id=93901227]
+shape = SubResource("CircleShape2D_caxg1")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddaa6cd7rv0ym"]
 
 [ext_resource type="Texture2D" uid="uid://2qyu7gr50xid" path="res://people/blood pool.png" id="1_pi4pf"]
+[ext_resource type="Script" uid="uid://tfi3ua1rtx6g" path="res://scripts/body.gd" id="1_wrv8k"]
 [ext_resource type="Script" uid="uid://dq3h118u1sas3" path="res://scripts/blood_pool.gd" id="2_wrv8k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h6y3r"]
@@ -39,10 +40,16 @@ animations = [{
 "speed": 0.7
 }]
 
-[node name="Body" type="Node2D" unique_id=880125664]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi4pf"]
+
+[node name="Body" type="Area2D" unique_id=704243674]
+script = ExtResource("1_wrv8k")
 
 [node name="BloodPool" type="AnimatedSprite2D" parent="." unique_id=363065239]
 z_index = -1
 position = Vector2(0, 7)
 sprite_frames = SubResource("SpriteFrames_gv4vk")
 script = ExtResource("2_wrv8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735101094]
+shape = SubResource("RectangleShape2D_pi4pf")

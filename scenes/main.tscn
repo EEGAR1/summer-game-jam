@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://ddaa6cd7rv0ym" path="res://scenes/prefab/body.tscn" id="12_eb6dy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(86, -26, 86, 38, -86, 38, -86, -26)
@@ -121,3 +122,6 @@ shape = SubResource("RectangleShape2D_o6xl0")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
 sprite_frames = ExtResource("10_choun")
 animation = &"idle"
+
+[node name="Body" parent="." unique_id=704243674 instance=ExtResource("12_eb6dy")]
+position = Vector2(-28, -3)
