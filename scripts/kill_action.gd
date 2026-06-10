@@ -1,4 +1,4 @@
-extends Action
+class_name KillAction extends Action
 
 @export var max_love_to_kill := 10.0 ## If someone loves a person this value or less they will kill them
 

@@ -21,6 +21,7 @@ var dead := false :
 		var b = BODY.instantiate()
 		get_parent().add_child(b)
 		b.global_position = global_position
+		b.owner_id = id
 		icon.animation = "dead"
 		icon.z_index -= 1
 		icon.reparent.call_deferred(b)

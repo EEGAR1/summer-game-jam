@@ -14,7 +14,8 @@ enum EMOTION_TYPE {
 var emotions : Dictionary[float, float] # The first float is X.Y where X is the id of the person and Y is the id of the emotion, and obv the second float is the emotion value
 										# Ex: {5.1, 5.0} means that person of id 5 has a trust scale of 5.0
 
-func set_emotion(em_id : float, value : float):
+func set_emotion(person_id : int, em_type : int, value : float):
+	var em_id = float(person_id) + 0.1*float(em_type)
 	if abs(value - emotions.get(em_id)) > 5.0:
 		var emotion := int((em_id - round(em_id)) * 10)
 		show_emotion(emotion, value - emotions.get(em_id) > 0.0)
@@ -22,6 +23,10 @@ func set_emotion(em_id : float, value : float):
 
 func show_emotion(emotion : int, is_pos : bool):
 	animated_sprite_2d.frame = emotion_update_sprites_pos[emotion] if is_pos else emotion_update_sprites_neg[emotion]
+	animation_player.play("show")
+
+func show_emotion_frame(frame : int):
+	animated_sprite_2d.frame = frame
 	animation_player.play("show")
 
 func get_emotion(person_id : int, em_type : int):
