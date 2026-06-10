@@ -10,7 +10,10 @@ extends Action
 var overlp : Array[Area2D] : 
 	get():
 		return build_area.get_overlapping_areas().filter(func(x): return x.is_in_group("POI"))
-		
+
+func _parent_is_ready() -> bool:
+	return parent.current_state == Person.STATE.WORKING
+
 func _check_action(delta : float):
 	animation_player.play("RESET")
 	

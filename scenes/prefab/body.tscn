@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ddaa6cd7rv0ym"]
+
+[ext_resource type="Texture2D" uid="uid://2qyu7gr50xid" path="res://people/blood pool.png" id="1_pi4pf"]
+[ext_resource type="Script" uid="uid://dq3h118u1sas3" path="res://scripts/blood_pool.gd" id="2_wrv8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6y3r"]
+atlas = ExtResource("1_pi4pf")
+region = Rect2(0, 0, 23, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmqi1"]
+atlas = ExtResource("1_pi4pf")
+region = Rect2(23, 0, 23, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0721"]
+atlas = ExtResource("1_pi4pf")
+region = Rect2(46, 0, 23, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecipc"]
+atlas = ExtResource("1_pi4pf")
+region = Rect2(69, 0, 23, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gv4vk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6y3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmqi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0721")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecipc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.7
+}]
+
+[node name="Body" type="Node2D" unique_id=880125664]
+
+[node name="BloodPool" type="AnimatedSprite2D" parent="." unique_id=363065239]
+z_index = -1
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_gv4vk")
+script = ExtResource("2_wrv8k")

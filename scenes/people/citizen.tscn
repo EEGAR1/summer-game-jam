@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3bqytinstyy2"]
 
-[ext_resource type="PackedScene" uid="uid://blmwky0ijese4" path="res://scenes/prefab/person.tscn" id="1_iyw6i"]
+[ext_resource type="PackedScene" uid="uid://blmwky0ijese4" path="res://scenes/classes/person.tscn" id="1_iyw6i"]
 [ext_resource type="SpriteFrames" uid="uid://uxb2x8xqc0wf" path="res://people/citizen1.tres" id="2_5gt71"]
 [ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="2_kd2ci"]
 [ext_resource type="SpriteFrames" uid="uid://cb26cyxjphsa7" path="res://people/citizen2.tres" id="3_xdauo"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dhvkw4oxxqki5" path="res://scenes/actions/idle_action.tscn" id="9_e2i7i"]
 [ext_resource type="SpriteFrames" uid="uid://dvpak157ewoeo" path="res://people/citizen9.tres" id="10_rvppo"]
 [ext_resource type="SpriteFrames" uid="uid://crq3xkqroamqo" path="res://people/citizen10.tres" id="11_72hwm"]
+[ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_jbnel"]
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -28,3 +29,5 @@ script = ExtResource("2_kd2ci")
 [node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 instance=ExtResource("8_xdauo")]
 
 [node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]
+
+[node name="KillAction" parent="ActionManager" index="2" unique_id=1662293383 instance=ExtResource("15_jbnel")]

@@ -4,7 +4,8 @@ extends Area2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position = get_global_mouse_position()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	global_position = lerp(global_position, get_global_mouse_position(), 30 * delta)
 	var overlp = get_overlapping_areas().filter(func(x): return x.is_in_group("POI"))
 	if overlp != [] and overlp != null:	Globals.hover_target = overlp.back()
 	else:	Globals.hover_target = null
