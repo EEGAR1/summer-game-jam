@@ -53,3 +53,8 @@ script = ExtResource("2_wrv8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735101094]
 shape = SubResource("RectangleShape2D_pi4pf")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1509947994]
+radius = 8.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true

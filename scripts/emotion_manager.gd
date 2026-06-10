@@ -16,9 +16,6 @@ var emotions : Dictionary[float, float] # The first float is X.Y where X is the 
 
 func set_emotion(person_id : int, em_type : int, value : float):
 	var em_id = float(person_id) + 0.1*float(em_type)
-	if abs(value - emotions.get(em_id)) > 5.0:
-		var emotion := int((em_id - round(em_id)) * 10)
-		show_emotion(emotion, value - emotions.get(em_id) > 0.0)
 	emotions.set(em_id, value)
 
 func show_emotion(emotion : int, is_pos : bool):

@@ -116,6 +116,8 @@ _data = {
 collision_mask = 2
 input_pickable = true
 script = ExtResource("1_83wek")
+stress = null
+max_speed = null
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1980460130]
 script = ExtResource("2_5rrw4")
@@ -129,7 +131,7 @@ avoidance_enabled = true
 radius = 8.0
 neighbor_distance = 10000.0
 max_neighbors = 1000
-time_horizon_agents = 999.0
+time_horizon_agents = 10.0
 time_horizon_obstacles = 1.0
 max_speed = 50.0
 debug_enabled = true

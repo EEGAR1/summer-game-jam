@@ -89,6 +89,8 @@ var stopped := false
 func _physics_process(delta):
 	queue_redraw()
 	
+	if stress > 0.0: stress -= delta
+	
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	navigation_agent.max_speed = max_speed + stress
