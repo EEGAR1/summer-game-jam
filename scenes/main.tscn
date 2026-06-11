@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
 [ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="13_trceg"]
+[ext_resource type="Script" uid="uid://cngdflq51ni7n" path="res://scripts/kill_item.gd" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://cn472bl2uam0t" path="res://scenes/abilities/visual/possess_ability_visual.tscn" id="14_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://c8c6xdt3daq2m" path="res://scenes/abilities/visual/kill_ability_visual.tscn" id="15_jkv2x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -51,6 +54,9 @@ border_size = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8y0u"]
+radius = 14.0
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 
@@ -233,5 +239,19 @@ horizontal_alignment = 1
 
 [node name="PossessItem" type="Node2D" parent="Player/ItemsManager" unique_id=2127399228]
 script = ExtResource("13_trceg")
+active = true
+cooldown_time = 10.0
+ability_hint = ExtResource("14_jbj1t")
+
+[node name="KillItem" type="Node2D" parent="Player/ItemsManager" unique_id=1896081109]
+script = ExtResource("14_a8y0u")
+active = true
+cooldown_time = 10.0
+ability_hint = ExtResource("15_jkv2x")
+
+[node name="Area2D" type="Area2D" parent="Player/ItemsManager/KillItem" unique_id=1097515510]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemsManager/KillItem/Area2D" unique_id=816578662]
+shape = SubResource("CircleShape2D_a8y0u")
 
 [connection signal="item_selected" from="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
