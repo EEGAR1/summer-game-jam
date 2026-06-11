@@ -44,15 +44,15 @@ func _process(delta: float) -> void:
 			exit_control_item_panel()
 	elif label_showing:
 		# TODO: FIX!!!
-		if Input.is_action_just_pressed("m1") and len(ovrlp) > 0:
-			var victim = ovrlp[0]
+		if Input.is_action_just_pressed("m1"):
+			var victim
+			if len(ovrlp) > 0: victim = ovrlp[0]
 			match select:
 				SELECTION_TYPE.MOVEBUILD:
-					print("MoveHere", target)
-					target.set_movement_target(victim.global_position)
+					target.set_movement_target(get_global_mouse_position())
 					target.current_state = target.STATE.WORKING
 				SELECTION_TYPE.KILL:
-					print("KILL", target, victim)
+					if len(ovrlp) <= 0: return
 					var am = target.get_children().filter(func(x): return x is ActionManager)[0]
 					var kill_action = am.get_children().filter(func(x): return x is KillAction)[0] as KillAction
 					kill_action.set_action()

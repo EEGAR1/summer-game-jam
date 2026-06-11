@@ -22,7 +22,6 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		var kill_action = (action_manager.get_children().filter(func(x): return x is KillAction)[0] as KillAction)
 		var kill_anim_playing = kill_action.animation_player.is_playing()
 		if kill_anim_playing:
-			print("witnessed killing!!!!")
 			# We know that this person killed the body we see
 			for emotion in EmotionManager.EMOTION_TYPE.values():
 				emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - (emotion_manager.get_emotion(seen_bodies.back().owner_id, emotion) - 50.0)) 

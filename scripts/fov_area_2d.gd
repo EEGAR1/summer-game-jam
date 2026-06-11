@@ -27,6 +27,5 @@ func get_fov_overlapping_bodies():
 		var result = space_state.intersect_ray(query)
 		if result == {}:
 			output.append(body)
-			print(output)
 	
 	return output
