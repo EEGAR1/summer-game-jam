@@ -33,7 +33,14 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		else:
 			print("i'm sus of you")
 			pass
-			
+	
+	if Globals.player in area_2d.get_fov_overlapping_bodies():
+		var ki = (Globals.player.items_manager.kill_item as KillItem)
+		if ki.current_time > 0.95 * ki.cooldown_time:
+			print("THE PLAYER DID IT!!!")
+			print(Globals.player.id)
+			parent.emotion_manager.set_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0)
+	
 	remove_action()
 
 func _no_action(delta : float) -> void: # Plays when there is no action

@@ -1,4 +1,4 @@
-extends PlayerItem
+class_name KillItem extends PlayerItem
 
 
 # Called when the node enters the scene tree for the first time.

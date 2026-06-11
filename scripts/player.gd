@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+@onready var items_manager: Node2D = $ItemsManager
+
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 @export var speed := 50.0

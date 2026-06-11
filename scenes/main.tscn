@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
+[ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
 [ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="13_trceg"]
 [ext_resource type="Script" uid="uid://cngdflq51ni7n" path="res://scripts/kill_item.gd" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cn472bl2uam0t" path="res://scenes/abilities/visual/possess_ability_visual.tscn" id="14_jbj1t"]
@@ -237,6 +238,7 @@ text = "SELECT TARGET FOR ACTION"
 horizontal_alignment = 1
 
 [node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
+script = ExtResource("13_muem4")
 
 [node name="PossessItem" type="Node2D" parent="Player/ItemsManager" unique_id=2127399228]
 script = ExtResource("13_trceg")
