@@ -53,7 +53,9 @@ func _process(delta: float) -> void:
 					target.current_state = target.STATE.WORKING
 				SELECTION_TYPE.KILL:
 					print("KILL", target, victim)
-					
+					var am = target.get_children().filter(func(x): return x is ActionManager)[0]
+					var kill_action = am.get_children().filter(func(x): return x is KillAction)[0] as KillAction
+					kill_action.set_action()
 					target.set_movement_target(victim.global_position)
 					target.emotion_manager.set_emotion(victim.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0) # Make them HATE the target
 					target.current_state = target.STATE.WORKING
