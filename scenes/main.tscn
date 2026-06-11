@@ -232,6 +232,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
 text = "SELECT TARGET FOR ACTION"
 horizontal_alignment = 1
 
