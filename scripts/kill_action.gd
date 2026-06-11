@@ -1,5 +1,7 @@
 class_name KillAction extends Action
 
+@export var killing := false
+
 @export var max_love_to_kill := 10.0 ## If someone loves a person this value or less they will kill them
 
 @onready var emotion_manager: EmotionManager = $"../../EmotionManager"
@@ -30,8 +32,7 @@ func _parent_is_ready() -> bool:
 	return (min_love < max_love_to_kill)
 
 func _no_action(delta : float) -> void:
-	animation_player.current_animation = "RESET"
-	animation_player.play("RESET")
+	return
 
 func kill() -> void:
 	target.dead = true

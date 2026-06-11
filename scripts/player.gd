@@ -1,11 +1,15 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 @export var speed := 50.0
 @export var handling := 20.0
 
+var id : int
 func _ready() -> void:
+	id = len(Globals.other_people)
+	Globals.other_people.append(self)
+	
 	Globals.player = self
 
 var dead := false

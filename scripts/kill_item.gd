@@ -11,7 +11,6 @@ var ovrlp : Array :
 		return area_2d.get_overlapping_bodies().filter(func(x): return x is Person)
 
 func _check_active(delta : float) -> bool:
-	print(len(ovrlp) > 0)
 	return len(ovrlp) > 0
 
 func _while_active(delta : float) -> void:
