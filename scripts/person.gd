@@ -19,6 +19,12 @@ static var target_positions : Array[Vector2]
 var id := 0
 
 var rand : float
+
+const dust = preload("res://effects/dust.tscn")
+var can_spawn_footstep: bool = true
+@onready var timer: Timer = $"footstep timer"
+
+
 func _ready():
 	rand = randf_range(0, PI*2)
 	
@@ -67,7 +73,17 @@ func check_box_intersection(from_pos: Vector2, to_pos: Vector2, box_width: float
 
 var stopped := false
 func _physics_process(delta):
+	if abs(velocity.x) > 0.0 or abs(velocity.y) > 0.0:
+		if can_spawn_footstep:
+			can_spawn_footstep = false
+			timer.start()
+			var p = dust.instantiate()
+			p.emitting = true
+			#$"../CanvasLayer/SubViewportContainer/SubViewport".add_child(p)
+			p.global_position.x = self.global_position.x
+			p.global_position.y = self.global_position.y+9
 	queue_redraw()
+
 	
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
@@ -105,6 +121,7 @@ func _physics_process(delta):
 			stopped = true
 	
 	target_positions.set(id, navigation_agent.target_position)
+
 
 var mouse_over := false
 func _on_mouse_entered() -> void:

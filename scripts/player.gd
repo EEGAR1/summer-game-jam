@@ -4,13 +4,11 @@ extends CharacterBody2D
 
 @export var speed := 50.0
 @export var handling := 20.0
-@onready var timer: Timer = $"footstep timer"
-@onready var player: CharacterBody2D = $"."
 
 const dust = preload("res://effects/dust.tscn")
-
-
 var can_spawn_footstep: bool = true
+@onready var timer: Timer = $"footstep timer"
+
 
 func _ready() -> void:
 	Globals.player = self
@@ -35,8 +33,8 @@ func _physics_process(delta: float) -> void:
 			var p = dust.instantiate()
 			p.emitting = true
 			$"../CanvasLayer/SubViewportContainer/SubViewport".add_child(p)
-			p.global_position.x = player.global_position.x
-			p.global_position.y = player.global_position.y+9
+			p.global_position.x = self.global_position.x
+			p.global_position.y = self.global_position.y+9
 
 
 

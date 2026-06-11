@@ -165,7 +165,7 @@ sprite_frames = ExtResource("10_choun")
 animation = &"idle"
 
 [node name="footstep timer" type="Timer" parent="Player" unique_id=2049243705]
-wait_time = 0.3
+wait_time = 0.25
 autostart = true
 
 [connection signal="timeout" from="Player/footstep timer" to="Player" method="_on_footstep_timer_timeout"]
