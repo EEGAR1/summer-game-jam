@@ -21,6 +21,7 @@ var dead := false :
 		var b = BODY.instantiate()
 		get_parent().add_child(b)
 		b.global_position = global_position
+		b.owner_id = id
 		icon.animation = "dead"
 		icon.z_index -= 1
 		icon.reparent.call_deferred(b)
@@ -31,6 +32,7 @@ var movement_speed: float = 1000.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var icon: AnimatedSprite2D = $Icon
+@onready var emotion_manager: EmotionManager = $EmotionManager
 
 static var target_positions : Array[Vector2]
 var id := 0
@@ -87,6 +89,8 @@ func check_box_intersection(from_pos: Vector2, to_pos: Vector2, box_width: float
 var stopped := false
 func _physics_process(delta):
 	queue_redraw()
+	
+	if stress > 0.0: stress -= delta
 	
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	

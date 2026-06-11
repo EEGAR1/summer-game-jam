@@ -112,6 +112,9 @@ _data = {
 &"show": SubResource("Animation_sc4t8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_83wek"]
+radius = 50.0
+
 [node name="Person" type="CharacterBody2D" unique_id=1228245065]
 collision_mask = 2
 input_pickable = true
@@ -124,20 +127,19 @@ script = ExtResource("2_5rrw4")
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1929608735]
+path_desired_distance = 50.0
 path_max_distance = 100000.0
+path_postprocessing = 2
 avoidance_enabled = true
 radius = 8.0
 neighbor_distance = 10000.0
 max_neighbors = 1000
-time_horizon_agents = 999.0
-time_horizon_obstacles = 1.0
 max_speed = 50.0
-debug_enabled = true
 
 [node name="EmotionManager" type="Node2D" parent="." unique_id=2139621875]
 script = ExtResource("3_litvv")
 emotion_update_sprites_pos = Array[int]([3, 3])
-emotion_update_sprites_neg = Array[int]([2, 2])
+emotion_update_sprites_neg = Array[int]([2, 4])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EmotionManager" unique_id=1761644411]
 position = Vector2(0, -17)
@@ -146,6 +148,11 @@ sprite_frames = SubResource("SpriteFrames_tb1cb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EmotionManager/AnimatedSprite2D" unique_id=1178249506]
 libraries/ = SubResource("AnimationLibrary_rduap")
+
+[node name="Lookahead" type="Area2D" parent="." unique_id=1753021922]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lookahead" unique_id=1348849284]
+shape = SubResource("CircleShape2D_83wek")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

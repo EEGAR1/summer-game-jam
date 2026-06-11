@@ -5,22 +5,14 @@
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
 [ext_resource type="TileSet" uid="uid://kwxb77qdlh54" path="res://environment/wall_tiles.tres" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
-vertices = PackedVector2Array(86, -26, 86, 38, -86, 38, -86, -26)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-109, -58, 110, -60, 111, 61, -112, 61)])
-sample_partition_type = 1
-cell_size = 16.0
-border_size = 2.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+[ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="13_trceg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -47,6 +39,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
+vertices = PackedVector2Array(86, -26, 86, 38, -86, 38, -86, -26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-109, -58, 110, -60, 111, 61, -112, 61)])
+sample_partition_type = 1
+cell_size = 16.0
+border_size = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(16, 16)
 
@@ -71,6 +73,23 @@ position = Vector2(73, 21)
 zoom = Vector2(5, 5)
 script = ExtResource("2_tipki")
 
+[node name="MouseLayer" type="CanvasLayer" parent="." unique_id=102101013]
+process_mode = 3
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Mouse" type="Area2D" parent="MouseLayer" unique_id=1561236064]
+process_mode = 3
+input_pickable = false
+script = ExtResource("5_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseLayer/Mouse" unique_id=323369792]
+shape = SubResource("CircleShape2D_jyhfs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MouseLayer/Mouse" unique_id=910313142]
+sprite_frames = SubResource("SpriteFrames_a8y0u")
+offset = Vector2(-4, 4)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=642799099]
 navigation_polygon = SubResource("NavigationPolygon_lquwl")
 
@@ -79,6 +98,7 @@ tile_map_data = PackedByteArray("AAD+//v/AAABAAUAAAD///v/AAABAAUAAAAAAPv/AAABAAU
 tile_set = ExtResource("3_85g3d")
 
 [node name="SelectionArea" type="Area2D" parent="." unique_id=849331238]
+process_mode = 1
 script = ExtResource("3_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea" unique_id=866812360]
@@ -91,16 +111,6 @@ position = Vector2(33, 19)
 z_index = -1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jyhfs")
-
-[node name="Mouse" type="Area2D" parent="." unique_id=1561236064]
-script = ExtResource("5_tbgi4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse" unique_id=323369792]
-shape = SubResource("CircleShape2D_jyhfs")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mouse" unique_id=910313142]
-sprite_frames = SubResource("SpriteFrames_a8y0u")
-offset = Vector2(-4, 4)
 
 [node name="IdlePOI" type="Node2D" parent="." unique_id=1171669346]
 position = Vector2(73, -26)
@@ -121,3 +131,107 @@ shape = SubResource("RectangleShape2D_o6xl0")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
 sprite_frames = ExtResource("10_choun")
 animation = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1861140114]
+
+[node name="Window" type="Control" parent="Player/CanvasLayer" unique_id=1710007104]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlItemPanel" type="Panel" parent="Player/CanvasLayer/Window" unique_id=2011631829]
+process_mode = 3
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -37.5
+offset_right = 150.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Window/ControlItemPanel" unique_id=1926261158]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -23.5
+offset_right = 90.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer" unique_id=637856471]
+layout_mode = 2
+text = "Choose a Control Mode"
+
+[node name="OptionButton" type="OptionButton" parent="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer" unique_id=1540065183]
+layout_mode = 2
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Move/Build"
+popup/item_0/id = 0
+popup/item_1/text = "Kill"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/Window" unique_id=150152732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Window/HBoxContainer" unique_id=1652705918]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Panel" type="Panel" parent="Player/CanvasLayer/Window/HBoxContainer/VBoxContainer" unique_id=330755262]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/Window/HBoxContainer/VBoxContainer/Panel" unique_id=1658385718]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("4_a8y0u")
+
+[node name="ControlItemLabel" type="Label" parent="Player/CanvasLayer/Window" unique_id=139413619]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "SELECT TARGET FOR ACTION"
+horizontal_alignment = 1
+
+[node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
+
+[node name="PossessItem" type="Node2D" parent="Player/ItemsManager" unique_id=2127399228]
+script = ExtResource("13_trceg")
+
+[connection signal="item_selected" from="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
