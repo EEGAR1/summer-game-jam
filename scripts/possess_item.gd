@@ -17,12 +17,16 @@ func _ready() -> void:
 var ovrlp : Array : 
 	get(): 
 		return Globals.mouse.get_overlapping_bodies().filter(func(x): return x is Person)
-		
+
+func _check_active(delta : float) -> bool:
+	return true
+
 var window_open := false
 var label_showing := false
 var target : Person
 var paused := false
-func _process(delta: float) -> void:
+
+func _always(delta : float) -> void:
 	if paused:
 		Engine.time_scale = lerp(Engine.time_scale, 0.05, delta * 5)
 		AudioServer.playback_speed_scale = lerp(AudioServer.playback_speed_scale, 0.05, delta * 5)
@@ -30,12 +34,13 @@ func _process(delta: float) -> void:
 		Engine.time_scale = lerp(Engine.time_scale, 1.0, delta * 5)
 		AudioServer.playback_speed_scale = lerp(AudioServer.playback_speed_scale, 1.0, delta * 5)
 	
+	control_item_panel.visible = window_open
+	control_item_label.visible = label_showing
+
+func _while_active(delta : float) -> void:
 	if len(ovrlp) > 0 and Input.is_action_just_pressed("m2"):
 		window_open = true
 		target = ovrlp[0]
-	
-	control_item_panel.visible = window_open
-	control_item_label.visible = label_showing
 	
 	if window_open:
 		paused = true
@@ -43,7 +48,6 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("esc"):
 			exit_control_item_panel()
 	elif label_showing:
-		# TODO: FIX!!!
 		if Input.is_action_just_pressed("m1"):
 			var victim
 			if len(ovrlp) > 0: victim = ovrlp[0]
@@ -73,6 +77,7 @@ func open_control_item_label():
 func exit_control_item_label():
 	paused = false
 	label_showing = false
+	use()
 
 func _on_option_button_item_selected(index: int) -> void:
 	select = index as SELECTION_TYPE

@@ -4,7 +4,7 @@ class_name FOVArea2D extends Area2D
 
 var excl : Array:
 	get():
-		return get_overlapping_bodies().filter(func(x): return x is Person).map(func(x): return x.get_rid())
+		return Globals.other_people.filter(func(x): return is_instance_valid(x)).map(func(x): return x.get_rid())
 
 func get_fov_overlapping_areas():
 	var output : Array[Area2D]

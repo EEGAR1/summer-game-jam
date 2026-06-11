@@ -20,9 +20,11 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		
 		var action_manager = (person.get_children().filter(func(x): return x is ActionManager)[0] as ActionManager)
 		var kill_action = (action_manager.get_children().filter(func(x): return x is KillAction)[0] as KillAction)
-		var kill_anim_playing = kill_action.animation_player.is_playing()
+		var kill_anim_playing = kill_action.killing
+		print(kill_anim_playing)
 		if kill_anim_playing:
 			# We know that this person killed the body we see
+			print("person of id ", person.id, " (", person, ") did it!")
 			for emotion in EmotionManager.EMOTION_TYPE.values():
 				emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - (emotion_manager.get_emotion(seen_bodies.back().owner_id, emotion) - 50.0)) 
 			emotion_manager.show_emotion_frame(1)
@@ -31,7 +33,14 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		else:
 			print("i'm sus of you")
 			pass
-			
+	
+	if Globals.player in area_2d.get_fov_overlapping_bodies():
+		var ki = (Globals.player.items_manager.kill_item as KillItem)
+		if ki.current_time > 0.95 * ki.cooldown_time:
+			print("THE PLAYER DID IT!!!")
+			print(Globals.player.id)
+			parent.emotion_manager.set_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0)
+	
 	remove_action()
 
 func _no_action(delta : float) -> void: # Plays when there is no action

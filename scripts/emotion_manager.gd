@@ -5,7 +5,7 @@ class_name EmotionManager extends Node2D
 
 var emotion_number := 2
 enum EMOTION_TYPE {
-	LOVE, 
+	LOVE,
 	TRUST
 }
 @export var emotion_update_sprites_pos : Array[int]
