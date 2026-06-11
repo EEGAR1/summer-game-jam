@@ -32,6 +32,7 @@ var movement_speed: float = 1000.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var icon: AnimatedSprite2D = $Icon
+@onready var emotion_manager: EmotionManager = $EmotionManager
 
 static var target_positions : Array[Vector2]
 var id := 0

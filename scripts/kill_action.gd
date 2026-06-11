@@ -30,6 +30,7 @@ func _parent_is_ready() -> bool:
 	return (min_love < max_love_to_kill)
 
 func _no_action(delta : float) -> void:
+	animation_player.current_animation = "RESET"
 	animation_player.play("RESET")
 
 func kill() -> void:
@@ -57,3 +58,4 @@ func _while_acting(delta : float):
 	if parent.current_state != Person.STATE.WORKING:	parent.current_state = Person.STATE.WORKING
 	if len(stab_target) > 0:
 		animation_player.play("stab")
+		remove_action()

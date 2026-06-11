@@ -2,6 +2,8 @@ extends Node2D
 
 # General
 var player : Node
+var mouse : Area2D
+var ability_holder : Node
 
 # Globals for building
 var hover_target

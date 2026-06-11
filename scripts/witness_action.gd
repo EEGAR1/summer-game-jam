@@ -27,6 +27,8 @@ func _while_acting(delta : float) -> void: # Plays while acting
 			for emotion in EmotionManager.EMOTION_TYPE.values():
 				emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - (emotion_manager.get_emotion(seen_bodies.back().owner_id, emotion) - 50.0)) 
 			emotion_manager.show_emotion_frame(1)
+			remove_action()
+			return
 		else:
 			print("i'm sus of you")
 			pass
