@@ -19,7 +19,10 @@
 [ext_resource type="Script" uid="uid://cngdflq51ni7n" path="res://scripts/kill_item.gd" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cn472bl2uam0t" path="res://scenes/abilities/visual/possess_ability_visual.tscn" id="14_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://c8c6xdt3daq2m" path="res://scenes/abilities/visual/kill_ability_visual.tscn" id="15_jkv2x"]
+[ext_resource type="Script" uid="uid://bcamjboov1yrx" path="res://scripts/tooltip.gd" id="15_pm3ni"]
 [ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
+[ext_resource type="Script" uid="uid://cu6q2daishhsy" path="res://scripts/peek_item.gd" id="20_yc10j"]
+[ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="21_jscy8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -294,6 +297,27 @@ text = "YOU LOSE ):"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Tooltip" type="Control" parent="Player/CanvasLayer/Window" unique_id=715801127]
+anchors_preset = 0
+offset_right = 33.0
+offset_bottom = 29.0
+script = ExtResource("15_pm3ni")
+
+[node name="TooltipPanel" type="Panel" parent="Player/CanvasLayer/Window/Tooltip" unique_id=2008791126]
+layout_mode = 0
+offset_top = -153.0
+offset_right = 119.0
+
+[node name="Label" type="Label" parent="Player/CanvasLayer/Window/Tooltip/TooltipPanel" unique_id=1181333344]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello this is a test"
+autowrap_mode = 3
+
 [node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
 script = ExtResource("13_muem4")
 
@@ -313,6 +337,12 @@ ability_hint = ExtResource("15_jkv2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemsManager/KillItem/Area2D" unique_id=816578662]
 shape = SubResource("CircleShape2D_a8y0u")
+
+[node name="PeekItem" type="Node2D" parent="Player/ItemsManager" unique_id=1436780960]
+script = ExtResource("20_yc10j")
+active = true
+cooldown_time = 5.0
+ability_hint = ExtResource("21_jscy8")
 
 [node name="GameManager" type="Node" parent="." unique_id=1195878992]
 script = ExtResource("20_gqmmt")
