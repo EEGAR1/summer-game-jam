@@ -8,6 +8,8 @@ var victory_control : Control
 var defeat_control : Control
 var camera : Camera2D
 var tooltip : Control
+var control_item_panel : Control
+var control_item_label : Control
 
 # Globals for building
 var hover_target

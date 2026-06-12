@@ -1,7 +1,7 @@
 extends PlayerItem
 
-@onready var control_item_panel: Panel = $"../../CanvasLayer/Window/ControlItemPanel"
-@onready var control_item_label: Label = $"../../CanvasLayer/Window/ControlItemLabel"
+var control_item_panel
+var control_item_label
 
 enum SELECTION_TYPE {
 	MOVEBUILD,
@@ -13,6 +13,9 @@ var select : SELECTION_TYPE
 func _ready() -> void:
 	ability_hint = preload("uid://cn472bl2uam0t")
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	control_item_panel = Globals.control_item_panel
+	control_item_label = Globals.control_item_label
 
 var ovrlp : Array : 
 	get(): 
