@@ -10,6 +10,7 @@ var camera : Camera2D
 var tooltip : Control
 var control_item_panel : Control
 var control_item_label : Control
+var dialog : Dialog
 
 # Globals for building
 var hover_target

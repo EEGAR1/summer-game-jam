@@ -382,6 +382,7 @@ anchor_bottom = 1.0
 offset_top = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+allow_reselect = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Window/Dialog" unique_id=1397574493]
 libraries/ = SubResource("AnimationLibrary_2f3dj")
