@@ -20,7 +20,7 @@ func _check_action(delta : float):
 	remove_action()
 	for i in overlp:
 		i = i as Building
-		set_action()
+		if parent.emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) > 75.0: set_action()
 
 func _while_acting(delta : float):
 	animation_player.play("buildingLeft" if parent.icon.flip_h else "buildingRight")

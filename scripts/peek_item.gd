@@ -2,8 +2,6 @@ extends PlayerItem
 
 var tooltip : Control
 func _ready() -> void:
-	ability_hint = preload("uid://cn472bl2uam0t")
-	
 	if is_instance_valid(get_tree()): await get_tree().process_frame
 	tooltip = Globals.tooltip
 	tooltip.hide()
