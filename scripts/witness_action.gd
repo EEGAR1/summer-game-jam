@@ -15,8 +15,7 @@ func _while_acting(delta : float) -> void: # Plays while acting
 	parent.stress += 10.0
 	for person in area_2d.get_fov_overlapping_bodies().filter(func(x): return x is Person):
 		person = person as Person
-		for emotion in EmotionManager.EMOTION_TYPE.values():
-			emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - 8.0) # Trust and love the killer a little less 
+		emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST) * 0.8) # Trust everyone around a little less
 		
 		var action_manager = (person.get_children().filter(func(x): return x is ActionManager)[0] as ActionManager)
 		var kill_action = (action_manager.get_children().filter(func(x): return x is KillAction)[0] as KillAction)
@@ -27,6 +26,8 @@ func _while_acting(delta : float) -> void: # Plays while acting
 			print("person of id ", person.id, " (", person, ") did it!")
 			for emotion in EmotionManager.EMOTION_TYPE.values():
 				emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - (emotion_manager.get_emotion(seen_bodies.back().owner_id, emotion) - 50.0)) 
+			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST) * 0.5) 
+			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE) * 0.5)
 			emotion_manager.show_emotion_frame(1)
 			remove_action()
 			return
