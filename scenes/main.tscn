@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://caet6q8mstv22" path="res://scripts/dialog.gd" id="7_2wyq8"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
@@ -25,6 +26,96 @@
 [ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
 [ext_resource type="Script" uid="uid://cu6q2daishhsy" path="res://scripts/peek_item.gd" id="20_yc10j"]
 [ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="21_jscy8"]
+
+[sub_resource type="Animation" id="Animation_og1vs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2wyq8"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 448), Vector2(0, 650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vxglm"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2f3dj"]
+_data = {
+&"RESET": SubResource("Animation_og1vs"),
+&"close": SubResource("Animation_2wyq8"),
+&"open": SubResource("Animation_vxglm")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -244,6 +335,57 @@ grow_vertical = 2
 text = "Hello this is a test"
 autowrap_mode = 3
 
+[node name="Dialog" type="Panel" parent="CanvasLayer/Window" unique_id=1888146334]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = 0.00018310547
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_2wyq8")
+
+[node name="Text" type="Label" parent="CanvasLayer/Window/Dialog" unique_id=1117471375]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -169.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Person"
+
+[node name="Title" type="Label" parent="CanvasLayer/Window/Dialog" unique_id=736335923]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Person"
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/Window/Dialog" unique_id=707410727]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Window/Dialog" unique_id=1397574493]
+libraries/ = SubResource("AnimationLibrary_2f3dj")
+
 [node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
 position = Vector2(-41, 13)
 
@@ -352,3 +494,4 @@ ability_hint = ExtResource("21_jscy8")
 script = ExtResource("20_gqmmt")
 
 [connection signal="item_selected" from="CanvasLayer/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/Window/Dialog/OptionButton" to="CanvasLayer/Window/Dialog" method="_on_option_button_item_selected"]
