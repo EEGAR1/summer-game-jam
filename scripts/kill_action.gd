@@ -41,7 +41,7 @@ func _is_current_action() -> bool:
 	return current_action == self
 
 func _check_action(delta : float):
-	if randi_range(0, int(5/delta)) == 0:
+	if randi_range(0, int(5/delta)) == 0 or parent.possessed:
 		emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.LOVE, false) # Show the negative emotion of love (anger) when we are about to kill
 		set_action()
 

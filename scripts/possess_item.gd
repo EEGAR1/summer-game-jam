@@ -55,6 +55,7 @@ func _while_active(delta : float) -> void:
 				SELECTION_TYPE.MOVEBUILD:
 					target.set_movement_target(get_global_mouse_position())
 					target.current_state = target.STATE.WORKING
+					target.possessed = true
 				SELECTION_TYPE.KILL:
 					if len(ovrlp) <= 0: return
 					var am = target.get_children().filter(func(x): return x is ActionManager)[0]
@@ -63,6 +64,7 @@ func _while_active(delta : float) -> void:
 					target.set_movement_target(victim.global_position)
 					target.emotion_manager.set_emotion(victim.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0) # Make them HATE the target
 					target.current_state = target.STATE.WORKING
+					target.possessed = true
 					
 			exit_control_item_label()
 

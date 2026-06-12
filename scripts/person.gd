@@ -5,6 +5,7 @@ class_name Person extends CharacterBody2D
 var can_command : bool :
 	get():
 		return emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) > 75.0
+var possessed : bool = false
 
 @export_category("Physical Traits")
 @export var max_speed := 50.0
@@ -114,6 +115,7 @@ func _physics_process(delta):
 			# Pathfind to target
 			if navigation_agent.is_navigation_finished() or global_position.distance_to(navigation_agent.target_position) < 5.0:
 				navigation_agent.set_velocity(Vector2.ZERO)
+				possessed = false
 				return
 			
 			var current_agent_position: Vector2 = global_position
