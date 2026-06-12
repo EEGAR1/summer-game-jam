@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://blmwky0ijese4"]
+
+[ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_83wek"]
+[ext_resource type="Script" uid="uid://d1duynm47ujot" path="res://scripts/person_sprite.gd" id="2_5rrw4"]
+[ext_resource type="Script" uid="uid://dggsapn3rync6" path="res://scripts/emotion_manager.gd" id="3_litvv"]
+[ext_resource type="Texture2D" uid="uid://dftjb6qdi54t6" path="res://people/reactions.png" id="4_ghdxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omjwp"]
+atlas = ExtResource("4_ghdxt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg4x4"]
+atlas = ExtResource("4_ghdxt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrxf2"]
+atlas = ExtResource("4_ghdxt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8dfi"]
+atlas = ExtResource("4_ghdxt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8p0m"]
+atlas = ExtResource("4_ghdxt")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tb1cb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omjwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg4x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrxf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8dfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8p0m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_t64ve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -17)]
+}
+
+[sub_resource type="Animation" id="Animation_sc4t8"]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 4.766667, 5),
+"transitions": PackedFloat32Array(3, 1, 3, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 4.766667, 5),
+"transitions": PackedFloat32Array(3, 1, 3, 1),
+"update": 0,
+"values": [Vector2(0, -9.345), Vector2(0, -17), Vector2(0, -17), Vector2(0, -9.345)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rduap"]
+_data = {
+&"RESET": SubResource("Animation_t64ve"),
+&"show": SubResource("Animation_sc4t8")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83wek"]
+radius = 50.0
+
+[node name="Person" type="CharacterBody2D" unique_id=1228245065]
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_83wek")
+
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1980460130]
+script = ExtResource("2_5rrw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1929608735]
+path_desired_distance = 50.0
+path_max_distance = 100000.0
+path_postprocessing = 2
+avoidance_enabled = true
+radius = 8.0
+neighbor_distance = 10000.0
+max_neighbors = 1000
+max_speed = 50.0
+
+[node name="EmotionManager" type="Node2D" parent="." unique_id=2139621875]
+script = ExtResource("3_litvv")
+emotion_update_sprites_pos = Array[int]([3, 3])
+emotion_update_sprites_neg = Array[int]([2, 4])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EmotionManager" unique_id=1761644411]
+position = Vector2(0, -17)
+scale = Vector2(1e-05, 1e-05)
+sprite_frames = SubResource("SpriteFrames_tb1cb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EmotionManager/AnimatedSprite2D" unique_id=1178249506]
+libraries/ = SubResource("AnimationLibrary_rduap")
+
+[node name="Lookahead" type="Area2D" parent="." unique_id=1753021922]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lookahead" unique_id=1348849284]
+shape = SubResource("CircleShape2D_83wek")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

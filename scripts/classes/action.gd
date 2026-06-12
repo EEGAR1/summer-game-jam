@@ -4,24 +4,16 @@ var parent : Person :
 	get():
 		return get_parent().get_parent() as Person
 
-var parent_is_ready : bool : 
-	get():
-		return parent.current_state == Person.STATE.WORKING and len(parent.current_path.path) == 0
-
 var current_action : Node2D :
 	get():
 		return get_parent().current_action
 	set(value):
 		get_parent().current_action = value
 
-var is_current_action : bool :
-	get():
-		return parent.current_state == Person.STATE.USINGACTION and current_action == self
-
 func _process(delta: float) -> void:
-	if parent_is_ready:
+	if _parent_is_ready():
 		_check_action(delta)
-	elif is_current_action:
+	elif _is_current_action():
 		_while_acting(delta)
 	else:
 		_no_action(delta)
@@ -42,3 +34,9 @@ func set_action() -> void:
 func remove_action() -> void:
 	if current_action == self:
 		current_action = null
+
+func _parent_is_ready() -> bool:
+	return parent.current_state == Person.STATE.WORKING and len(parent.current_path.path) == 0
+
+func _is_current_action() -> bool:
+	return parent.current_state == Person.STATE.USINGACTION and current_action == self

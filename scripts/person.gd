@@ -1,19 +1,38 @@
 class_name Person extends CharacterBody2D
 
-## STATS
-@export var stress := 0.0 # The higher the stress, the lower the threshold for action and the higher the speed
+@export_category("Internal Feelings")
+@export var stress := 0.0 ## The higher the stress, the lower the threshold for action and the higher the speed
+
+@export_category("Physical Traits")
+@export var max_speed := 50.0
 
 enum STATE {
 	WORKING,
 	SELECTED,
-	USINGACTION
+	USINGACTION,
+	DEAD
 }
 var current_state := STATE.WORKING
+
+const BODY = preload("uid://ddaa6cd7rv0ym")
+var dead := false :
+	set(value):
+		dead = value
+		var b = BODY.instantiate()
+		get_parent().add_child(b)
+		b.global_position = global_position
+		b.owner_id = id
+		icon.animation = "dead"
+		icon.z_index -= 1
+		icon.reparent.call_deferred(b)
+		queue_free.call_deferred()
+	
 
 var movement_speed: float = 1000.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var icon: AnimatedSprite2D = $Icon
+@onready var emotion_manager: EmotionManager = $EmotionManager
 
 static var target_positions : Array[Vector2]
 var id := 0
@@ -29,6 +48,8 @@ func _ready():
 	navigation_agent.target_desired_distance = 4.0
 	
 	navigation_agent.path_changed.connect(path_postprocess)
+	
+	Globals.other_people.append(self)
 
 func set_movement_target(movement_target: Vector2):
 	if not Globals.hover_target: # If we are not hovering a POI, reduce grouping
@@ -69,7 +90,11 @@ var stopped := false
 func _physics_process(delta):
 	queue_redraw()
 	
+	if stress > 0.0: stress -= delta
+	
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
+	
+	navigation_agent.max_speed = max_speed + stress
 	
 	# Animations
 	icon.animation = "idle" if velocity.length() < 0.1 or stopped else "run"
@@ -103,6 +128,7 @@ func _physics_process(delta):
 		
 		STATE.USINGACTION:
 			stopped = true
+		
 	
 	target_positions.set(id, navigation_agent.target_position)
 
