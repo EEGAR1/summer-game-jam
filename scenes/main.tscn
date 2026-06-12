@@ -12,11 +12,14 @@
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
+[ext_resource type="Script" uid="uid://7mfn1wk30sl3" path="res://scripts/victory.gd" id="13_dp3eg"]
 [ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
 [ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="13_trceg"]
+[ext_resource type="Script" uid="uid://d0ko8ba4q0715" path="res://scripts/defeat.gd" id="14_0ld40"]
 [ext_resource type="Script" uid="uid://cngdflq51ni7n" path="res://scripts/kill_item.gd" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cn472bl2uam0t" path="res://scenes/abilities/visual/possess_ability_visual.tscn" id="14_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://c8c6xdt3daq2m" path="res://scenes/abilities/visual/kill_ability_visual.tscn" id="15_jkv2x"]
+[ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -46,7 +49,7 @@ animations = [{
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(86, -26, 86, 38, -10, 38, -74, -26, -74, 94, -10, 130, 86, 130, 86, 158, -182, 158, -182, 94)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 3, 2), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 6, 7), PackedInt32Array(5, 7, 8), PackedInt32Array(4, 5, 8), PackedInt32Array(4, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-96, -60, 108, -60, 109, 60, 12, 60, 12, 96, 108, 96, 108, 180, -204, 180, -203, 62, -96, 60)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-96, -60, 108, -60, 108, 60, 12, 60, 12, 96, 108, 96, 108, 180, -204, 180, -204, 60, -96, 60)])
 sample_partition_type = 1
 cell_size = 16.0
 border_size = 2.0
@@ -196,7 +199,7 @@ popup/item_0/id = 0
 popup/item_1/text = "Kill"
 popup/item_1/id = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/Window" unique_id=150152732]
+[node name="ItemHolder" type="HBoxContainer" parent="Player/CanvasLayer/Window" unique_id=150152732]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,17 +210,17 @@ mouse_filter = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Window/HBoxContainer" unique_id=1652705918]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Window/ItemHolder" unique_id=1652705918]
 layout_mode = 2
 mouse_filter = 2
 alignment = 2
 
-[node name="Panel" type="Panel" parent="Player/CanvasLayer/Window/HBoxContainer/VBoxContainer" unique_id=330755262]
+[node name="Panel" type="Panel" parent="Player/CanvasLayer/Window/ItemHolder/VBoxContainer" unique_id=330755262]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/Window/HBoxContainer/VBoxContainer/Panel" unique_id=1658385718]
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/Window/ItemHolder/VBoxContainer/Panel" unique_id=1658385718]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -236,6 +239,60 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
 text = "SELECT TARGET FOR ACTION"
 horizontal_alignment = 1
+
+[node name="Victory!" type="Panel" parent="Player/CanvasLayer/Window" unique_id=1256992699]
+visible = false
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_dp3eg")
+
+[node name="Label" type="Label" parent="Player/CanvasLayer/Window/Victory!" unique_id=279836136]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "YOU WIN!!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Defeat!" type="Panel" parent="Player/CanvasLayer/Window" unique_id=765790872]
+visible = false
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_0ld40")
+
+[node name="Label" type="Label" parent="Player/CanvasLayer/Window/Defeat!" unique_id=415678007]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "YOU LOSE ):"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
 script = ExtResource("13_muem4")
@@ -256,5 +313,8 @@ ability_hint = ExtResource("15_jkv2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemsManager/KillItem/Area2D" unique_id=816578662]
 shape = SubResource("CircleShape2D_a8y0u")
+
+[node name="GameManager" type="Node" parent="." unique_id=1195878992]
+script = ExtResource("20_gqmmt")
 
 [connection signal="item_selected" from="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
