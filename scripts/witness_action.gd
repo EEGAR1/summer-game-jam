@@ -11,6 +11,7 @@ func _check_action(delta : float) -> void: # Should use `set_action()` to set th
 			if not current_action is KillAction: set_action()
 
 func _while_acting(delta : float) -> void: # Plays while acting
+	parent.current_path.clear() # Stop bc we just saw something
 	emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.TRUST, false)
 	parent.stress += 10.0
 	for person in area_2d.get_fov_overlapping_bodies().filter(func(x): return x is Person):
