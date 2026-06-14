@@ -98,6 +98,7 @@ _data = {
 script = ExtResource("1_4uawy")
 
 [node name="BuildArea" type="Area2D" parent="." unique_id=970064320]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildArea" unique_id=252632571]
 shape = SubResource("CircleShape2D_ctjya")

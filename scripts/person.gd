@@ -127,7 +127,6 @@ func _physics_process(delta):
 	target_positions.set(id, navigation_agent.target_position)
 
 func pathfind_process(delta : float):
-	print(stopped)
 	# Pathfind to target
 	if navigation_agent.is_navigation_finished() or global_position.distance_to(navigation_agent.target_position) < 5.0:
 		navigation_agent.set_velocity(Vector2.ZERO)

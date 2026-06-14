@@ -120,6 +120,7 @@ offset = Vector2(-0.033985488, -14.759972)
 libraries/ = SubResource("AnimationLibrary_5k6rt")
 
 [node name="SeekArea" type="Area2D" parent="." unique_id=1974697537]
+visible = false
 collision_layer = 7
 collision_mask = 7
 
@@ -127,6 +128,7 @@ collision_mask = 7
 shape = SubResource("CircleShape2D_caxg1")
 
 [node name="StabArea" type="Area2D" parent="." unique_id=831377512]
+visible = false
 collision_layer = 7
 collision_mask = 7
 
