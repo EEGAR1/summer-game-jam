@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_jbnel"]
 [ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_caxg1"]
 [ext_resource type="PackedScene" uid="uid://bjhucwn4u7rqq" path="res://scenes/actions/player_talk_action.tscn" id="17_rvppo"]
+[ext_resource type="Script" uid="uid://b7m6cxn3nlslv" path="res://scripts/join_leave_action.gd" id="18_72hwm"]
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -37,3 +38,7 @@ script = ExtResource("2_kd2ci")
 [node name="WitnessAction" parent="ActionManager" index="3" unique_id=1896438407 instance=ExtResource("16_caxg1")]
 
 [node name="PlayerTalkAction" parent="ActionManager" index="4" unique_id=1372718739 instance=ExtResource("17_rvppo")]
+
+[node name="JoinLeaveAction" type="Node2D" parent="ActionManager" index="5" unique_id=1944915478]
+script = ExtResource("18_72hwm")
+metadata/_custom_type_script = "uid://dyaahj865ksh8"

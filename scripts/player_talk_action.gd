@@ -1,4 +1,4 @@
-extends Action
+class_name PlayerTalkAction extends Action
 
 enum TALK_TYPE {
 	HEYIMJOINING,
@@ -17,9 +17,11 @@ var callables : Dictionary[TALK_TYPE, Callable] = {
 
 func callback_hey_im_joining(index : int):
 	print("player selected ", index)
+	parent.can_command = true
 
 func callback_hey_im_leaving(index : int):
 	print("player selected ", index)
+	parent.can_command = false
 
 func callback_build_quest(index : int):
 	print("player selected ", index)
