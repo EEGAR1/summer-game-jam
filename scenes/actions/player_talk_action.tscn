@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bjhucwn4u7rqq"]
+
+[ext_resource type="Script" uid="uid://uphb5d7dydpd" path="res://scripts/player_talk_action.gd" id="1_502rs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_72hwm"]
+radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvppo"]
+radius = 18.0
+
+[node name="PlayerTalkAction" type="Node2D" unique_id=1372718739]
+script = ExtResource("1_502rs")
+body_text = Dictionary[int, String]({
+0: "I trust you. You've done a lot for me, so if there's anything I can help you with just let me know.",
+1: "Sorry but I don't trust you enough to keep doing favors for you. Sorry.",
+2: "Can you build this for me?"
+})
+choices = Dictionary[int, Variant]({
+0: ["Ok"],
+1: ["Ok"],
+2: ["Ill make it happen (Accept)", "Go away (Decline)"]
+})
+metadata/_custom_type_script = "uid://dyaahj865ksh8"
+
+[node name="SeekArea" type="Area2D" parent="." unique_id=1640183945]
+visible = false
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeekArea" unique_id=1384693304]
+shape = SubResource("CircleShape2D_72hwm")
+
+[node name="TalkArea" type="Area2D" parent="." unique_id=769170447]
+visible = false
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea" unique_id=1103143836]
+shape = SubResource("CircleShape2D_rvppo")
