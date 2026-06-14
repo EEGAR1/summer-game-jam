@@ -135,6 +135,7 @@ radius = 8.0
 neighbor_distance = 10000.0
 max_neighbors = 1000
 max_speed = 50.0
+debug_enabled = true
 
 [node name="EmotionManager" type="Node2D" parent="." unique_id=2139621875]
 script = ExtResource("3_litvv")

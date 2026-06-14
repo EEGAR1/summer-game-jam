@@ -24,8 +24,6 @@ func callback_hey_im_leaving(index : int):
 func callback_build_quest(index : int):
 	print("player selected ", index)
 
-
-
 @onready var seek_area: Area2D = $SeekArea
 @onready var talk_area: Area2D = $TalkArea
 var seek_ovrlp : Array :
@@ -37,15 +35,16 @@ var talk_ovrlp : Array :
 
 
 func _check_action(delta : float) -> void: # Should use `set_action()` to set this as the current action
-	set_action()
+	pass
 
 func _while_acting(delta : float) -> void: # Plays while acting
 	if len(talk_ovrlp) != 0:
 		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state))
 		remove_action()
-	elif len(seek_ovrlp) != 0:
-		if len(parent.current_path.path) == 0:
+	elif len(seek_ovrlp) != 0: # TODO: BUG. People get a path but dont move to it for some reason??
+		if len(parent.current_path.path) <= 0:
 			parent.set_movement_target(seek_ovrlp[0].global_position)
+			
 
 func _no_action(delta : float) -> void: # Plays when there is no action
 	pass

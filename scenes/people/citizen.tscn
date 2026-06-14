@@ -18,8 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_caxg1"]
 [ext_resource type="Script" uid="uid://uphb5d7dydpd" path="res://scripts/player_talk_action.gd" id="17_rvppo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rvppo"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_72hwm"]
 radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvppo"]
+radius = 18.0
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -58,7 +61,7 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/PlayerTalkAction/SeekArea" index="0" unique_id=1247695233]
-shape = SubResource("CircleShape2D_rvppo")
+shape = SubResource("CircleShape2D_72hwm")
 
 [node name="TalkArea" type="Area2D" parent="ActionManager/PlayerTalkAction" index="1" unique_id=1528439168]
 collision_layer = 5
