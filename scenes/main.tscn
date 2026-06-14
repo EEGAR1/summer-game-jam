@@ -1,15 +1,14 @@
 [gd_scene format=4 uid="uid://skwgyslh57ba"]
 
 [ext_resource type="PackedScene" uid="uid://3bqytinstyy2" path="res://scenes/people/citizen.tscn" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d1i8a0emugm8w" path="res://scenes/buildings/test_building.tscn" id="1_tel4y"]
 [ext_resource type="Script" uid="uid://x8sda044sdxd" path="res://scripts/control_item_panel.gd" id="1_y6deb"]
-[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
 [ext_resource type="TileSet" uid="uid://kwxb77qdlh54" path="res://art/environment/wall_tiles.tres" id="3_85g3d"]
 [ext_resource type="Texture2D" uid="uid://bejrd43fj3mc4" path="res://art/environment/floor tileset.png" id="3_choun"]
 [ext_resource type="Script" uid="uid://ci44xjqb0n1e" path="res://scripts/control_item_label.gd" id="3_og1vs"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://caet6q8mstv22" path="res://scripts/dialog.gd" id="7_2wyq8"]
@@ -29,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="21_jscy8"]
 [ext_resource type="Script" uid="uid://liylgvwtrtrp" path="res://scripts/convince_item.gd" id="25_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://dsonm8gkcwifu" path="res://scenes/abilities/visual/convince_ability_visual.tscn" id="26_yq6so"]
+[ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
+[ext_resource type="Script" uid="uid://gb1gln58al03" path="res://scripts/building_complement.gd" id="31_qkpxi"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
 length = 0.001
@@ -209,6 +210,8 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
+
+[node name="Building" parent="." unique_id=1116943181 instance=ExtResource("1_tel4y")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861140114]
 
@@ -474,19 +477,6 @@ script = ExtResource("3_tbgi4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea" unique_id=866812360]
 shape = SubResource("RectangleShape2D_lquwl")
 
-[node name="Building" parent="." unique_id=1377229593 instance=ExtResource("4_jyhfs")]
-position = Vector2(33, 19)
-
-[node name="Sprite2D" type="Sprite2D" parent="Building" unique_id=360315774]
-z_index = -1
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_jyhfs")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Building" unique_id=855488083]
-z_index = -1
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_jyhfs")
-
 [node name="IdlePOI" type="Node2D" parent="." unique_id=1171669346]
 position = Vector2(73, -26)
 script = ExtResource("6_tefeu")
@@ -558,6 +548,13 @@ shape = SubResource("CircleShape2D_jyhfs")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MouseLayer/Mouse" unique_id=910313142]
 sprite_frames = SubResource("SpriteFrames_a8y0u")
 offset = Vector2(-4, 4)
+
+[node name="QuestManager" type="Node" parent="." unique_id=204504592]
+script = ExtResource("30_tel4y")
+
+[node name="BuildingComplement" type="Area2D" parent="QuestManager" unique_id=1938888861]
+script = ExtResource("31_qkpxi")
+target_building = ExtResource("1_tel4y")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]

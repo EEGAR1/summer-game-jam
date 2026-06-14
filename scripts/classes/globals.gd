@@ -11,6 +11,7 @@ var tooltip : Control
 var control_item_panel : Control
 var control_item_label : Control
 var dialog : Dialog
+var quest_manager : QuestManager
 
 # Globals for building
 var hover_target
