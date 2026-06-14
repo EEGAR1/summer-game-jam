@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_83wek"]
 [ext_resource type="Script" uid="uid://d1duynm47ujot" path="res://scripts/person_sprite.gd" id="2_5rrw4"]
+[ext_resource type="SpriteFrames" uid="uid://uxb2x8xqc0wf" path="res://art/people/citizen1.tres" id="2_litvv"]
 [ext_resource type="Script" uid="uid://dggsapn3rync6" path="res://scripts/emotion_manager.gd" id="3_litvv"]
 [ext_resource type="Texture2D" uid="uid://dftjb6qdi54t6" path="res://art/people/reactions.png" id="4_ghdxt"]
+[ext_resource type="Shader" uid="uid://0x0ctjuax7x3" path="res://shader/outline.gdshader" id="6_ghdxt"]
+[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="7_xugy6"]
+[ext_resource type="Script" uid="uid://ttlootrp3h0k" path="res://scripts/outline.gd" id="8_xugy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 16)
@@ -115,12 +119,24 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_83wek"]
 radius = 50.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6ixd"]
+shader = ExtResource("6_ghdxt")
+shader_parameter/radius = 40.0
+shader_parameter/thickness = 10.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/dash_count = 10.0
+shader_parameter/dash_ratio = 0.5
+shader_parameter/speed = 0.8
+
 [node name="Person" type="CharacterBody2D" unique_id=1228245065]
 collision_mask = 2
 input_pickable = true
 script = ExtResource("1_83wek")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1980460130]
+sprite_frames = ExtResource("2_litvv")
+animation = &"run"
+frame_progress = 0.35062638
 script = ExtResource("2_5rrw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
@@ -153,6 +169,12 @@ libraries/ = SubResource("AnimationLibrary_rduap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lookahead" unique_id=1348849284]
 shape = SubResource("CircleShape2D_83wek")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=1038523518]
+material = SubResource("ShaderMaterial_f6ixd")
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("7_xugy6")
+script = ExtResource("8_xugy6")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
