@@ -2,6 +2,10 @@ class_name Person extends CharacterBody2D
 
 @export_category("Internal Feelings")
 @export var stress := 0.0 ## The higher the stress, the lower the threshold for action and the higher the speed
+var can_command : bool :
+	get():
+		return emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) > 75.0
+var possessed : bool = false
 
 @export_category("Physical Traits")
 @export var max_speed := 50.0
@@ -99,26 +103,14 @@ func _physics_process(delta):
 	# Animations
 	icon.animation = "idle" if velocity.length() < 0.1 or stopped else "run"
 	if velocity.x != 0.0:	icon.flip_h = velocity.x < 0.0
-	
+
 	match current_state:
 		STATE.WORKING:
 			stopped = false
 			
 			# Select and move a worker
-			if mouse_over and Input.is_action_just_pressed("m1"):
+			if mouse_over and Input.is_action_just_pressed("m1") and can_command:
 				current_state = STATE.SELECTED
-			
-			# Pathfind to target
-			if navigation_agent.is_navigation_finished() or global_position.distance_to(navigation_agent.target_position) < 5.0:
-				navigation_agent.set_velocity(Vector2.ZERO)
-				return
-			
-			var current_agent_position: Vector2 = global_position
-			var next_path_position: Vector2 = current_path.get_next_pos(global_position, velocity)
-
-			var n_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
-			navigation_agent.set_velocity(n_velocity)
-		
 		STATE.SELECTED:
 			stopped = true
 			modulate = Color(1.224, 1.224, 1.224, 1.0)
@@ -127,10 +119,27 @@ func _physics_process(delta):
 				current_state = STATE.WORKING
 		
 		STATE.USINGACTION:
-			stopped = true
-		
+			#stopped = true
+			pass
 	
+	pathfind_process(delta)
+		
 	target_positions.set(id, navigation_agent.target_position)
+
+func pathfind_process(delta : float):
+	print(stopped)
+	# Pathfind to target
+	if navigation_agent.is_navigation_finished() or global_position.distance_to(navigation_agent.target_position) < 5.0:
+		navigation_agent.set_velocity(Vector2.ZERO)
+		possessed = false
+		return
+	
+	var current_agent_position: Vector2 = global_position
+	var next_path_position: Vector2 = current_path.get_next_pos(global_position, velocity)
+
+	var n_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+	navigation_agent.set_velocity(n_velocity)
+
 
 var mouse_over := false
 func _on_mouse_entered() -> void:

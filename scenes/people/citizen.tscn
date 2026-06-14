@@ -15,11 +15,14 @@
 [ext_resource type="SpriteFrames" uid="uid://dvpak157ewoeo" path="res://people/citizen9.tres" id="10_rvppo"]
 [ext_resource type="SpriteFrames" uid="uid://crq3xkqroamqo" path="res://people/citizen10.tres" id="11_72hwm"]
 [ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_jbnel"]
-[ext_resource type="Script" uid="uid://cuxps3nej7tgj" path="res://scripts/witness_action.gd" id="16_caxg1"]
-[ext_resource type="Script" uid="uid://dkea7i4agqgtp" path="res://scripts/fov_area_2d.gd" id="17_rvppo"]
+[ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_caxg1"]
+[ext_resource type="Script" uid="uid://uphb5d7dydpd" path="res://scripts/player_talk_action.gd" id="17_rvppo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_caxg1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_72hwm"]
 radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvppo"]
+radius = 18.0
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -37,13 +40,32 @@ script = ExtResource("2_kd2ci")
 
 [node name="KillAction" parent="ActionManager" index="2" unique_id=1662293383 instance=ExtResource("15_jbnel")]
 
-[node name="WitnessAction" type="Node2D" parent="ActionManager" index="3" unique_id=1444905977]
-script = ExtResource("16_caxg1")
+[node name="WitnessAction" parent="ActionManager" index="3" unique_id=1896438407 instance=ExtResource("16_caxg1")]
 
-[node name="Area2D" type="Area2D" parent="ActionManager/WitnessAction" index="0" unique_id=831080005]
+[node name="PlayerTalkAction" type="Node2D" parent="ActionManager" index="4" unique_id=1700318547]
+script = ExtResource("17_rvppo")
+body_text = Dictionary[int, String]({
+0: "I trust you. You've done a lot for me, so if there's anything I can help you with just let me know.",
+1: "Sorry but I don't trust you enough to keep doing favors for you. Sorry.",
+2: "Can you build this for me?"
+})
+choices = Dictionary[int, Variant]({
+0: ["Ok"],
+1: ["Ok"],
+2: ["Ill make it happen (Accept)", "Go away (Decline)"]
+})
+metadata/_custom_type_script = "uid://dyaahj865ksh8"
+
+[node name="SeekArea" type="Area2D" parent="ActionManager/PlayerTalkAction" index="0" unique_id=335915254]
 collision_layer = 5
 collision_mask = 5
-script = ExtResource("17_rvppo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/WitnessAction/Area2D" index="0" unique_id=93901227]
-shape = SubResource("CircleShape2D_caxg1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/PlayerTalkAction/SeekArea" index="0" unique_id=1247695233]
+shape = SubResource("CircleShape2D_72hwm")
+
+[node name="TalkArea" type="Area2D" parent="ActionManager/PlayerTalkAction" index="1" unique_id=1528439168]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/PlayerTalkAction/TalkArea" index="0" unique_id=1441603543]
+shape = SubResource("CircleShape2D_rvppo")

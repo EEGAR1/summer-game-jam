@@ -1,15 +1,18 @@
 [gd_scene format=4 uid="uid://skwgyslh57ba"]
 
 [ext_resource type="PackedScene" uid="uid://3bqytinstyy2" path="res://scenes/people/citizen.tscn" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://x8sda044sdxd" path="res://scripts/control_item_panel.gd" id="1_y6deb"]
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
 [ext_resource type="TileSet" uid="uid://kwxb77qdlh54" path="res://environment/wall_tiles.tres" id="3_85g3d"]
+[ext_resource type="Script" uid="uid://ci44xjqb0n1e" path="res://scripts/control_item_label.gd" id="3_og1vs"]
 [ext_resource type="Texture2D" uid="uid://bejrd43fj3mc4" path="res://environment/floor tileset.png" id="3_choun"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://caet6q8mstv22" path="res://scripts/dialog.gd" id="7_2wyq8"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
@@ -24,6 +27,96 @@
 [ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
 [ext_resource type="Script" uid="uid://cu6q2daishhsy" path="res://scripts/peek_item.gd" id="20_yc10j"]
 [ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="21_jscy8"]
+
+[sub_resource type="Animation" id="Animation_og1vs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2wyq8"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 448), Vector2(0, 650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vxglm"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2f3dj"]
+_data = {
+&"RESET": SubResource("Animation_og1vs"),
+&"close": SubResource("Animation_2wyq8"),
+&"open": SubResource("Animation_vxglm")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -80,6 +173,7 @@ radius = 14.0
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1861140114]
 [node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
 position = Vector2(-41, 13)
 
@@ -148,9 +242,7 @@ shape = SubResource("RectangleShape2D_o6xl0")
 sprite_frames = ExtResource("10_choun")
 animation = &"idle"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1861140114]
-
-[node name="Window" type="Control" parent="Player/CanvasLayer" unique_id=1710007104]
+[node name="Window" type="Control" parent="CanvasLayer" unique_id=1710007104]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,7 +252,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ControlItemPanel" type="Panel" parent="Player/CanvasLayer/Window" unique_id=2011631829]
+[node name="ControlItemPanel" type="Panel" parent="CanvasLayer/Window" unique_id=2011631829]
 process_mode = 3
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 1
@@ -176,8 +268,9 @@ offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_y6deb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Window/ControlItemPanel" unique_id=1926261158]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Window/ControlItemPanel" unique_id=1926261158]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -192,11 +285,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer" unique_id=637856471]
+[node name="Label" type="Label" parent="CanvasLayer/Window/ControlItemPanel/VBoxContainer" unique_id=637856471]
 layout_mode = 2
 text = "Choose a Control Mode"
 
-[node name="OptionButton" type="OptionButton" parent="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer" unique_id=1540065183]
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/Window/ControlItemPanel/VBoxContainer" unique_id=1540065183]
 layout_mode = 2
 allow_reselect = true
 item_count = 2
@@ -205,7 +298,7 @@ popup/item_0/id = 0
 popup/item_1/text = "Kill"
 popup/item_1/id = 1
 
-[node name="ItemHolder" type="HBoxContainer" parent="Player/CanvasLayer/Window" unique_id=150152732]
+[node name="ItemHolder" type="HBoxContainer" parent="CanvasLayer/Window" unique_id=150152732]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,17 +309,17 @@ mouse_filter = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Window/ItemHolder" unique_id=1652705918]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Window/ItemHolder" unique_id=1652705918]
 layout_mode = 2
 mouse_filter = 2
 alignment = 2
 
-[node name="Panel" type="Panel" parent="Player/CanvasLayer/Window/ItemHolder/VBoxContainer" unique_id=330755262]
+[node name="Panel" type="Panel" parent="CanvasLayer/Window/ItemHolder/VBoxContainer" unique_id=330755262]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/Window/ItemHolder/VBoxContainer/Panel" unique_id=1658385718]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Window/ItemHolder/VBoxContainer/Panel" unique_id=1658385718]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -236,7 +329,7 @@ grow_vertical = 2
 alignment = 1
 script = ExtResource("4_a8y0u")
 
-[node name="ControlItemLabel" type="Label" parent="Player/CanvasLayer/Window" unique_id=139413619]
+[node name="ControlItemLabel" type="Label" parent="CanvasLayer/Window" unique_id=139413619]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -245,8 +338,9 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
 text = "SELECT TARGET FOR ACTION"
 horizontal_alignment = 1
+script = ExtResource("3_og1vs")
 
-[node name="Victory!" type="Panel" parent="Player/CanvasLayer/Window" unique_id=1256992699]
+[node name="Victory!" type="Panel" parent="CanvasLayer/Window" unique_id=1256992699]
 visible = false
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 1
@@ -263,7 +357,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("13_dp3eg")
 
-[node name="Label" type="Label" parent="Player/CanvasLayer/Window/Victory!" unique_id=279836136]
+[node name="Label" type="Label" parent="CanvasLayer/Window/Victory!" unique_id=279836136]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -273,7 +367,7 @@ text = "YOU WIN!!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Defeat!" type="Panel" parent="Player/CanvasLayer/Window" unique_id=765790872]
+[node name="Defeat!" type="Panel" parent="CanvasLayer/Window" unique_id=765790872]
 visible = false
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 1
@@ -290,7 +384,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("14_0ld40")
 
-[node name="Label" type="Label" parent="Player/CanvasLayer/Window/Defeat!" unique_id=415678007]
+[node name="Label" type="Label" parent="CanvasLayer/Window/Defeat!" unique_id=415678007]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -300,18 +394,18 @@ text = "YOU LOSE ):"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tooltip" type="Control" parent="Player/CanvasLayer/Window" unique_id=715801127]
+[node name="Tooltip" type="Control" parent="CanvasLayer/Window" unique_id=715801127]
 anchors_preset = 0
 offset_right = 33.0
 offset_bottom = 29.0
 script = ExtResource("15_pm3ni")
 
-[node name="TooltipPanel" type="Panel" parent="Player/CanvasLayer/Window/Tooltip" unique_id=2008791126]
+[node name="TooltipPanel" type="Panel" parent="CanvasLayer/Window/Tooltip" unique_id=2008791126]
 layout_mode = 0
 offset_top = -153.0
 offset_right = 119.0
 
-[node name="Label" type="Label" parent="Player/CanvasLayer/Window/Tooltip/TooltipPanel" unique_id=1181333344]
+[node name="Label" type="Label" parent="CanvasLayer/Window/Tooltip/TooltipPanel" unique_id=1181333344]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -320,6 +414,136 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Hello this is a test"
 autowrap_mode = 3
+
+[node name="Dialog" type="Panel" parent="CanvasLayer/Window" unique_id=1888146334]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = 0.00018310547
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_2wyq8")
+
+[node name="Text" type="Label" parent="CanvasLayer/Window/Dialog" unique_id=1117471375]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -169.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Person"
+
+[node name="Title" type="Label" parent="CanvasLayer/Window/Dialog" unique_id=736335923]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Person"
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/Window/Dialog" unique_id=707410727]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+allow_reselect = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Window/Dialog" unique_id=1397574493]
+libraries/ = SubResource("AnimationLibrary_2f3dj")
+
+[node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
+position = Vector2(-41, 13)
+
+[node name="Citizen2" parent="." unique_id=383556618 instance=ExtResource("1_tbgi4")]
+position = Vector2(-52, -15)
+
+[node name="Citizen3" parent="." unique_id=812543357 instance=ExtResource("1_tbgi4")]
+position = Vector2(49, -11)
+
+[node name="Citizen4" parent="." unique_id=1863117809 instance=ExtResource("1_tbgi4")]
+position = Vector2(0, 26)
+
+[node name="Citizen5" parent="." unique_id=1981682092 instance=ExtResource("1_tbgi4")]
+position = Vector2(73, 21)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
+zoom = Vector2(5, 5)
+script = ExtResource("2_tipki")
+
+[node name="MouseLayer" type="CanvasLayer" parent="." unique_id=102101013]
+process_mode = 3
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Mouse" type="Area2D" parent="MouseLayer" unique_id=1561236064]
+process_mode = 3
+input_pickable = false
+script = ExtResource("5_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseLayer/Mouse" unique_id=323369792]
+shape = SubResource("CircleShape2D_jyhfs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MouseLayer/Mouse" unique_id=910313142]
+sprite_frames = SubResource("SpriteFrames_a8y0u")
+offset = Vector2(-4, 4)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=642799099]
+navigation_polygon = SubResource("NavigationPolygon_lquwl")
+
+[node name="Walls" type="TileMapLayer" parent="NavigationRegion2D" unique_id=642344679]
+tile_map_data = PackedByteArray("AAAAAPv/AAABAAUAAAABAPv/AAABAAUAAAACAPv/AAABAAUAAAADAPv/AAABAAUAAAAEAPv/AAABAAUAAAAHAAQAAAABAAUAAAAGAAQAAAABAAUAAAAFAAQAAAABAAUAAAAEAAQAAAABAAUAAAADAAQAAAABAAUAAAACAAQAAAABAAUAAAABAAQAAAABAAUAAAAAAAQAAAAAAAAAAAAIAAQAAAACAAIAAAAFAPv/AAABAAUAAAAGAPv/AAABAAUAAAAHAPv/AAABAAUAAAAIAPv/AAACAAAAAAAAAPz/AAABAAMAAAAAAP3/AAABAAQAAAABAPz/AAABAAMAAAABAP3/AAABAAQAAAACAPz/AAABAAMAAAACAP3/AAABAAQAAAADAPz/AAABAAMAAAADAP3/AAABAAQAAAAEAPz/AAABAAMAAAAEAP3/AAABAAQAAAAFAPz/AAABAAMAAAAFAP3/AAABAAQAAAAGAPz/AAABAAMAAAAGAP3/AAABAAQAAAAHAPz/AAABAAMAAAAHAP3/AAABAAQAAAAIAPz/AAADAAEAAAAIAP3/AAADAAEAAAAIAAMAAAADAAEAAAAIAAIAAAADAAEAAAAIAAEAAAADAAEAAAAIAAAAAAADAAEAAAAIAP//AAADAAEAAAAIAP7/AAADAAEAAADv/wUAAAAAAAAAAADv/wYAAAADAAEAAADv/wcAAAADAAEAAADv/wgAAAADAAEAAADv/wkAAAADAAEAAADv/woAAAADAAEAAADv/wsAAAADAAEAAADv/wwAAAADAAEAAADv/w0AAAADAAEAAADv/w4AAAAAAAIAAADw/wUAAAABAAUAAADw/wYAAAABAAMAAADw/wcAAAABAAQAAADw/w4AAAABAAUAAADx/wUAAAABAAUAAADx/wYAAAABAAMAAADx/wcAAAABAAQAAADx/w4AAAABAAUAAADy/wUAAAABAAUAAADy/wYAAAABAAMAAADy/wcAAAABAAQAAADy/w4AAAABAAUAAADz/wUAAAABAAUAAADz/wYAAAABAAMAAADz/wcAAAABAAQAAADz/w4AAAABAAUAAAD0/wUAAAABAAUAAAD0/wYAAAABAAMAAAD0/wcAAAABAAQAAAD0/w4AAAABAAUAAAD1/wUAAAABAAUAAAD1/wYAAAABAAMAAAD1/wcAAAABAAQAAAD1/w4AAAABAAUAAAD2/wUAAAABAAUAAAD2/wYAAAABAAMAAAD2/wcAAAABAAQAAAD2/w4AAAABAAUAAAD3/wUAAAABAAUAAAD3/wYAAAABAAMAAAD3/wcAAAABAAQAAAD3/w4AAAABAAUAAAD4/wUAAAACAAIAAAD4/wQAAAADAAEAAAD4/wMAAAADAAEAAAD4/wIAAAADAAEAAAD4/wEAAAADAAEAAAD4/wAAAAADAAEAAAD4////AAADAAEAAAD4//7/AAADAAEAAAD4//3/AAADAAEAAAD4//z/AAADAAEAAAD4//v/AAAAAAAAAAD5//z/AAABAAMAAAD5//3/AAABAAQAAAD6//z/AAABAAMAAAD6//3/AAABAAQAAAD7//z/AAABAAMAAAD7//3/AAABAAQAAAD8//z/AAABAAMAAAD8//3/AAABAAQAAAD9//z/AAABAAMAAAD9//3/AAABAAQAAAD+//z/AAABAAMAAAD+//3/AAABAAQAAAD///z/AAABAAMAAAD///3/AAABAAQAAAD5//v/AAABAAUAAAD6//v/AAABAAUAAAD7//v/AAABAAUAAAD8//v/AAABAAUAAAD9//v/AAABAAUAAAD+//v/AAABAAUAAAD///v/AAABAAUAAAD4/w4AAAABAAUAAAD5/w4AAAABAAUAAAD6/w4AAAABAAUAAAD7/w4AAAABAAUAAAD8/w4AAAABAAUAAAD9/w4AAAABAAUAAAD+/w4AAAABAAUAAAD//w4AAAABAAUAAAAAAA4AAAABAAUAAAABAA4AAAABAAUAAAACAA4AAAABAAUAAAADAA4AAAABAAUAAAAEAA4AAAABAAUAAAAFAA4AAAABAAUAAAAGAA4AAAABAAUAAAAHAA4AAAABAAUAAAAIAA4AAAACAAIAAAAIAA0AAAADAAEAAAAIAAwAAAADAAEAAAAIAAsAAAADAAEAAAAIAAoAAAADAAEAAAAIAAkAAAADAAEAAAAIAAgAAAACAAAAAAAHAAgAAAABAAUAAAAGAAgAAAABAAUAAAAFAAgAAAABAAUAAAAEAAgAAAABAAUAAAADAAgAAAABAAUAAAACAAgAAAABAAUAAAABAAgAAAABAAUAAAAAAAgAAAAAAAIAAAAAAAUAAAADAAEAAAAAAAYAAAADAAEAAAAAAAcAAAADAAEAAAABAAkAAAABAAMAAAABAAoAAAABAAQAAAACAAkAAAABAAMAAAACAAoAAAABAAQAAAADAAkAAAABAAMAAAADAAoAAAABAAQAAAAEAAkAAAABAAMAAAAEAAoAAAABAAQAAAAFAAkAAAABAAMAAAAFAAoAAAABAAQAAAAGAAkAAAABAAMAAAAGAAoAAAABAAQAAAAHAAkAAAABAAMAAAAHAAoAAAABAAQAAAAAAAkAAAAAAAMAAAAAAAoAAAAAAAQAAAD4/wYAAAACAAMAAAD4/wcAAAACAAQAAAA=")
+tile_set = ExtResource("3_85g3d")
+
+[node name="SelectionArea" type="Area2D" parent="." unique_id=849331238]
+process_mode = 1
+script = ExtResource("3_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea" unique_id=866812360]
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Building" parent="." unique_id=1377229593 instance=ExtResource("4_jyhfs")]
+position = Vector2(33, 19)
+
+[node name="Sprite2D" type="Sprite2D" parent="Building" unique_id=360315774]
+z_index = -1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_jyhfs")
+
+[node name="IdlePOI" type="Node2D" parent="." unique_id=1171669346]
+position = Vector2(73, -26)
+script = ExtResource("6_tefeu")
+
+[node name="IdlePOI2" type="Node2D" parent="." unique_id=928350365]
+position = Vector2(73, 8)
+script = ExtResource("6_tefeu")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_o6xl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=206966406]
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
+sprite_frames = ExtResource("10_choun")
+animation = &"idle"
 
 [node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
 script = ExtResource("13_muem4")
@@ -350,4 +574,5 @@ ability_hint = ExtResource("21_jscy8")
 [node name="GameManager" type="Node" parent="." unique_id=1195878992]
 script = ExtResource("20_gqmmt")
 
-[connection signal="item_selected" from="Player/CanvasLayer/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/Window/Dialog/OptionButton" to="CanvasLayer/Window/Dialog" method="_on_option_button_item_selected"]

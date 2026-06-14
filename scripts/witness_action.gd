@@ -3,29 +3,31 @@ extends Action
 @onready var area_2d: FOVArea2D = $Area2D
 @onready var emotion_manager: EmotionManager = $"../../EmotionManager"
 
+func get_kill_anim_playing(person : Person):
+	var action_manager = (person.get_children().filter(func(x): return x is ActionManager)[0] as ActionManager)
+	var kill_action = (action_manager.get_children().filter(func(x): return x is KillAction)[0] as KillAction)
+	return kill_action.killing
+
 var seen_bodies : Array[Body] = []
 func _check_action(delta : float) -> void: # Should use `set_action()` to set this as the current action
 	for body in area_2d.get_fov_overlapping_areas().filter(func(x): return x is Body):
 		if not body in seen_bodies:
 			seen_bodies.append(body)
-			if not current_action is KillAction: set_action()
+			if not get_kill_anim_playing(parent): set_action()
 
 func _while_acting(delta : float) -> void: # Plays while acting
+	parent.current_path.clear() # Stop bc we just saw something
 	emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.TRUST, false)
 	parent.stress += 10.0
 	for person in area_2d.get_fov_overlapping_bodies().filter(func(x): return x is Person):
 		person = person as Person
 		emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST) * 0.8) # Trust everyone around a little less
 		
-		var action_manager = (person.get_children().filter(func(x): return x is ActionManager)[0] as ActionManager)
-		var kill_action = (action_manager.get_children().filter(func(x): return x is KillAction)[0] as KillAction)
-		var kill_anim_playing = kill_action.killing
-		print(kill_anim_playing)
-		if kill_anim_playing:
+		if get_kill_anim_playing(person):
 			# We know that this person killed the body we see
 			print("person of id ", person.id, " (", person, ") did it!")
 			for emotion in EmotionManager.EMOTION_TYPE.values():
-				emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - (emotion_manager.get_emotion(seen_bodies.back().owner_id, emotion) - 50.0)) 
+				emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - (emotion_manager.get_emotion(seen_bodies.back().owner_id, emotion) - 50.0) * 2.0) 
 			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST) * 0.5) 
 			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE) * 0.5)
 			emotion_manager.show_emotion_frame(1)

@@ -1,7 +1,7 @@
 extends PlayerItem
 
-@onready var control_item_panel: Panel = $"../../CanvasLayer/Window/ControlItemPanel"
-@onready var control_item_label: Label = $"../../CanvasLayer/Window/ControlItemLabel"
+var control_item_panel
+var control_item_label
 
 enum SELECTION_TYPE {
 	MOVEBUILD,
@@ -13,6 +13,9 @@ var select : SELECTION_TYPE
 func _ready() -> void:
 	ability_hint = preload("uid://cn472bl2uam0t")
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	control_item_panel = Globals.control_item_panel
+	control_item_label = Globals.control_item_label
 
 var ovrlp : Array : 
 	get(): 
@@ -55,6 +58,7 @@ func _while_active(delta : float) -> void:
 				SELECTION_TYPE.MOVEBUILD:
 					target.set_movement_target(get_global_mouse_position())
 					target.current_state = target.STATE.WORKING
+					target.possessed = true
 				SELECTION_TYPE.KILL:
 					if len(ovrlp) <= 0: return
 					var am = target.get_children().filter(func(x): return x is ActionManager)[0]
@@ -63,6 +67,7 @@ func _while_active(delta : float) -> void:
 					target.set_movement_target(victim.global_position)
 					target.emotion_manager.set_emotion(victim.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0) # Make them HATE the target
 					target.current_state = target.STATE.WORKING
+					target.possessed = true
 					
 			exit_control_item_label()
 

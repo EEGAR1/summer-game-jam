@@ -41,7 +41,7 @@ func _is_current_action() -> bool:
 	return current_action == self
 
 func _check_action(delta : float):
-	if randi_range(0, int(5/delta)) == 0:
+	if randi_range(0, int(5/delta)) == 0 or parent.possessed:
 		emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.LOVE, false) # Show the negative emotion of love (anger) when we are about to kill
 		set_action()
 
@@ -49,6 +49,7 @@ func _while_acting(delta : float):
 	parent.stress += delta
 	if !is_instance_valid(target): 
 		remove_action()
+		parent.current_path.clear()
 		return
 	
 	#var seek_target = seek_area_overlap.filter(func(x): return x == target and x.dead == false)
@@ -60,3 +61,4 @@ func _while_acting(delta : float):
 	if len(stab_target) > 0:
 		animation_player.play("stab")
 		remove_action()
+		parent.current_path.clear()
