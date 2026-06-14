@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8c6xdt3daq2m"]
 
 [ext_resource type="Script" uid="uid://bmgahswgbxgkw" path="res://scripts/ability_visual.gd" id="1_7l7lt"]
-[ext_resource type="Texture2D" uid="uid://daek53w6kd3hb" path="res://items/knife.png" id="1_ho2n8"]
+[ext_resource type="Texture2D" uid="uid://daek53w6kd3hb" path="res://art/items/knife.png" id="1_ho2n8"]
 
 [node name="KillAbilityVisual" type="Panel" unique_id=1600126590]
 custom_minimum_size = Vector2(100, 100)

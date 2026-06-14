@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn472bl2uam0t"]
 
 [ext_resource type="Script" uid="uid://bmgahswgbxgkw" path="res://scripts/ability_visual.gd" id="1_2cc7v"]
-[ext_resource type="Texture2D" uid="uid://c7oakqh5k8q2j" path="res://items/icon_possess.png" id="1_yq84v"]
+[ext_resource type="Texture2D" uid="uid://c7oakqh5k8q2j" path="res://art/items/icon_possess.png" id="1_yq84v"]
 
 [node name="PossessAbilityVisual" type="Panel" unique_id=1600126590]
 custom_minimum_size = Vector2(100, 100)
