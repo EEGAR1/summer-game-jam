@@ -552,9 +552,10 @@ offset = Vector2(-4, 4)
 [node name="QuestManager" type="Node" parent="." unique_id=204504592]
 script = ExtResource("30_tel4y")
 
-[node name="BuildingComplement" type="Area2D" parent="QuestManager" unique_id=1938888861]
+[node name="BuildingComplement" type="Area2D" parent="QuestManager" unique_id=1938888861 node_paths=PackedStringArray("parent")]
 script = ExtResource("31_qkpxi")
 target_building = ExtResource("1_tel4y")
+parent = NodePath("../../Citizen")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
