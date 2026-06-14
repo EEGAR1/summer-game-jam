@@ -18,9 +18,12 @@ func _check_action(delta : float):
 	animation_player.play("RESET")
 	
 	remove_action()
-	for i in overlp:
-		i = i as Building
-		if parent.emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) > 75.0 or parent.possessed: set_action()
+	if len(parent.current_path.path) != 0:
+		build_area.global_position = parent.current_path.path.back()
+	else:
+		for i in overlp:
+			i = i as Building
+			if parent.can_command or parent.possessed: set_action()
 
 func _while_acting(delta : float):
 	animation_player.play("buildingLeft" if parent.icon.flip_h else "buildingRight")
