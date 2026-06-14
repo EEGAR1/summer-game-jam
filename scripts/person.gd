@@ -2,9 +2,7 @@ class_name Person extends CharacterBody2D
 
 @export_category("Internal Feelings")
 @export var stress := 0.0 ## The higher the stress, the lower the threshold for action and the higher the speed
-var can_command : bool :
-	get():
-		return emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) > 75.0
+var can_command := false
 var possessed : bool = false
 
 @export_category("Physical Traits")
