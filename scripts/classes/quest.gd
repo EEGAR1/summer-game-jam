@@ -12,6 +12,7 @@ func internal_ready():
 	quest_manager.current_quests.append(self as Quest)
 
 func complete_quest() -> void:
+	if not is_instance_valid(parent): return
 	parent.emotion_manager.set_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST, parent.emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) + trust_factor)
 	parent.emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.TRUST, true)
 	queue_free.call_deferred()
