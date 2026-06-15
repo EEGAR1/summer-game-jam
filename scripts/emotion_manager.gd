@@ -16,7 +16,7 @@ var emotions : Dictionary[float, float] # The first float is X.Y where X is the 
 
 func set_emotion(person_id : int, em_type : int, value : float):
 	var em_id = float(person_id) + 0.1*float(em_type)
-	emotions.set(em_id, value)
+	emotions.set(em_id, clamp(value, 0.0, 100.0))
 
 func show_emotion(emotion : int, is_pos : bool):
 	animated_sprite_2d.frame = emotion_update_sprites_pos[emotion] if is_pos else emotion_update_sprites_neg[emotion]

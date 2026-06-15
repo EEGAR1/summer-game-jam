@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 Globals="*uid://xef8hvfosm0u"
 
-[display]
-
-window/stretch/mode="viewport"
-
 [global_group]
 
 POI=""

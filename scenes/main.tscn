@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://caet6q8mstv22" path="res://scripts/dialog.gd" id="7_2wyq8"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://dywrxyfs38mlo" path="res://scripts/foldable_container.gd" id="8_dgi5k"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bydn80p3fracr" path="res://scenes/classes/get_building_button.tscn" id="9_5q0nq"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://art/people/player.tres" id="10_choun"]
@@ -465,6 +466,7 @@ layout_mode = 2
 folded = true
 title = "Buildings"
 title_alignment = 1
+script = ExtResource("8_dgi5k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer" unique_id=1545410440]
 visible = false
