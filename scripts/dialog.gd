@@ -10,17 +10,40 @@ func _ready() -> void:
 @onready var option_button: OptionButton = $OptionButton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var callback : Callable
-func show_dialog(title_text : String, body_text : String, options : Array, callback : Callable) -> void:
+class DialogData:
+	var title_text : String
+	var body_text : String
+	var options : Array 
+	var callback : Callable
+	
+	func _init(title_text : String, body_text : String, options : Array, callback : Callable):
+		self.title_text = title_text
+		self.body_text = body_text
+		self.options = options
+		self.callback = callback
+	
+func exec_dialog(dialog : DialogData):
+	if dialog == null:	return
 	animation_player.play("open")
-	title.text = title_text
-	text.text = body_text
+	title.text = dialog.title_text
+	text.text = dialog.body_text
 	
 	option_button.clear()
-	for i in options:	option_button.add_item(i)
+	for i in dialog.options:	option_button.add_item(i)
 	
-	self.callback = callback
+	callbacks.append(dialog.callback)
+
+var dialogs : Array[DialogData]
+
+var callbacks : Array[Callable]
+func show_dialog(title_text : String, body_text : String, options : Array, callback : Callable) -> void:
+	dialogs.append(DialogData.new(title_text, body_text, options, callback))
+	exec_dialog(dialogs.back())
 
 func _on_option_button_item_selected(index: int) -> void:
 	animation_player.play("close")
-	callback.call(index)
+	callbacks.back().call(index)
+	callbacks.pop_back()
+	dialogs.pop_back()
+	exec_dialog(dialogs.back())
+	

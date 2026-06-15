@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://tbtxxel5mkwm"]
+
+[ext_resource type="Script" uid="uid://gb1gln58al03" path="res://scripts/building_complement.gd" id="1_mxclr"]
+[ext_resource type="PackedScene" uid="uid://d1i8a0emugm8w" path="res://scenes/buildings/test_building.tscn" id="2_4yv0p"]
+
+[node name="BuildingComplement" type="Area2D" unique_id=482846638 node_paths=PackedStringArray("parent")]
+script = ExtResource("1_mxclr")
+target_building = ExtResource("2_4yv0p")
+parent = NodePath("")
