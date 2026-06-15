@@ -14,7 +14,9 @@
 [ext_resource type="Script" uid="uid://caet6q8mstv22" path="res://scripts/dialog.gd" id="7_2wyq8"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://bydn80p3fracr" path="res://scenes/classes/get_building_button.tscn" id="9_5q0nq"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://art/people/player.tres" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://d1i8a0emugm8w" path="res://scenes/buildings/test_building.tscn" id="10_dgi5k"]
 [ext_resource type="Script" uid="uid://7mfn1wk30sl3" path="res://scripts/victory.gd" id="13_dp3eg"]
 [ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
 [ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="13_trceg"]
@@ -309,11 +311,12 @@ script = ExtResource("4_a8y0u")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_bottom = 76.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
 text = "SELECT TARGET FOR ACTION"
 horizontal_alignment = 1
+vertical_alignment = 2
 script = ExtResource("3_og1vs")
 
 [node name="Victory!" type="Panel" parent="UI/Window" unique_id=1256992699]
@@ -442,6 +445,45 @@ allow_reselect = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Window/Dialog" unique_id=1397574493]
 libraries/ = SubResource("AnimationLibrary_2f3dj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Window" unique_id=1954126796]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Window/HBoxContainer" unique_id=497104641]
+layout_mode = 2
+
+[node name="FoldableContainer" type="FoldableContainer" parent="UI/Window/HBoxContainer/VBoxContainer" unique_id=226681381]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+folded = true
+title = "Buildings"
+title_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer" unique_id=1545410440]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer" unique_id=110662074]
+layout_mode = 2
+columns = 3
+
+[node name="GetBuildingButton" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=976499015 instance=ExtResource("9_5q0nq")]
+layout_mode = 2
+target_building = ExtResource("10_dgi5k")
+building_name = "Test Building"
+
+[node name="GetBuildingButton2" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=1629588926 instance=ExtResource("9_5q0nq")]
+layout_mode = 2
+target_building = ExtResource("1_yq6so")
+building_name = "O2 Tank"
 
 [node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
 position = Vector2(-41, 13)
