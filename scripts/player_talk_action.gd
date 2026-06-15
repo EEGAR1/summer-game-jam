@@ -52,7 +52,6 @@ func _while_acting(delta : float) -> void: # Plays while acting
 	elif len(seek_ovrlp) != 0:
 		if len(parent.current_path.path) <= 0:
 			parent.set_movement_target(seek_ovrlp[0].global_position)
-			
 
 func _no_action(delta : float) -> void: # Plays when there is no action
 	pass
