@@ -16,3 +16,9 @@ func complete_quest() -> void:
 	parent.emotion_manager.set_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST, parent.emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) + trust_factor)
 	parent.emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.TRUST, true)
 	queue_free.call_deferred()
+
+func incorrect_complete_quest() -> void:
+	if not is_instance_valid(parent): return
+	parent.emotion_manager.set_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST, parent.emotion_manager.get_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.TRUST) - trust_factor)
+	parent.emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.TRUST, false)
+	queue_free.call_deferred()
