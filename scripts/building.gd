@@ -6,7 +6,8 @@ var current_work := 0.0
 enum STATE {
 	PLACING,
 	BUILDING,
-	BUILT
+	BUILT,
+	DAMAGED
 }
 var current_state := STATE.PLACING
 
@@ -18,6 +19,7 @@ signal built
 func _process(delta: float) -> void:
 	building_process(delta)
 
+var damaged := false
 func building_process(delta : float):
 	queue_redraw()
 	match current_state:
@@ -27,12 +29,28 @@ func building_process(delta : float):
 				current_state = STATE.BUILDING
 		
 		STATE.BUILDING:
+			if damaged: damaged_process(delta)
+			
 			if current_work > work_needed:
 				built.emit()
 				current_state = STATE.BUILT
+				damaged = false
 		
 		STATE.BUILT:
+			modulate = Color(1.0, 1.0, 1.0, 1.0)
+			built_process(delta)
 			pass
+		
+		STATE.DAMAGED:
+			modulate = Color(0.194, 0.194, 0.194, 1.0)
+			current_state = STATE.BUILDING
+			damaged = true
+
+func built_process(delta : float) -> void:
+	pass
+
+func damaged_process(delta : float) -> void:
+	pass
 
 func _draw() -> void:
 	if current_state == STATE.BUILDING:
