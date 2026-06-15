@@ -28,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="21_jscy8"]
 [ext_resource type="Script" uid="uid://liylgvwtrtrp" path="res://scripts/convince_item.gd" id="25_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://dsonm8gkcwifu" path="res://scenes/abilities/visual/convince_ability_visual.tscn" id="26_yq6so"]
-[ext_resource type="PackedScene" uid="uid://tbtxxel5mkwm" path="res://scenes/quests/building_complement.tscn" id="30_fv21b"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
@@ -402,16 +401,6 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("7_2wyq8")
 
-[node name="Control" type="Control" parent="UI/Window/Dialog" unique_id=507977362]
-layout_mode = 1
-anchor_top = -2.2399979
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -3.0517578e-05
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="Text" type="Label" parent="UI/Window/Dialog" unique_id=1117471375]
 layout_mode = 1
 anchors_preset = 7
@@ -561,8 +550,6 @@ offset = Vector2(-4, 4)
 
 [node name="QuestManager" type="Node" parent="." unique_id=204504592]
 script = ExtResource("30_tel4y")
-
-[node name="BuildingComplement" parent="QuestManager" unique_id=482846638 instance=ExtResource("30_fv21b")]
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]

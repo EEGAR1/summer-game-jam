@@ -23,8 +23,14 @@ func callback_hey_im_leaving(index : int):
 	print("player selected ", index)
 	parent.can_command = false
 
+const BUILDING_COMPLEMENT = preload("uid://tbtxxel5mkwm")
+@export var building_list : Array[PackedScene] = [preload("uid://d1i8a0emugm8w")]
 func callback_build_quest(index : int):
-	print("player selected ", index)
+	if index == 0:
+		var bc = BUILDING_COMPLEMENT.instantiate()
+		bc.target_building = building_list.pick_random()
+		bc.parent = parent
+		Globals.quest_manager.add_child(bc)
 
 @onready var seek_area: Area2D = $SeekArea
 @onready var talk_area: Area2D = $TalkArea
