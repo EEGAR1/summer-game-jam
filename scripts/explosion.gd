@@ -8,6 +8,7 @@ func _ready() -> void:
 	animation_player.play("explode")
 
 func damage() -> void:
+	Globals.camera.shake = 15.0
 	var buildings = get_fov_overlapping_areas().filter(func(x): return x is Building)
 	var people = get_fov_overlapping_bodies().filter(func(x): return x is Person)
 	
