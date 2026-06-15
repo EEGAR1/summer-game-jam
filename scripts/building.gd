@@ -26,6 +26,7 @@ func building_process(delta : float):
 		STATE.PLACING:
 			global_position = round(get_global_mouse_position() / 16) * 16
 			if Input.is_action_just_pressed("m1"):
+				Globals.camera.shake = 5.0
 				current_state = STATE.BUILDING
 		
 		STATE.BUILDING:

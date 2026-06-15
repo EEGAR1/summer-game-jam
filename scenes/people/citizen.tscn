@@ -182,7 +182,8 @@ options = Array[SpriteFrames]([ExtResource("2_5gt71"), ExtResource("3_xdauo"), E
 [node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
 script = ExtResource("2_kd2ci")
 
-[node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 instance=ExtResource("8_xdauo")]
+[node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 node_paths=PackedStringArray("break_action") instance=ExtResource("8_xdauo")]
+break_action = NodePath("../BreakAction")
 
 [node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]
 

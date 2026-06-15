@@ -39,6 +39,9 @@ func _while_acting(delta : float):
 			i.current_state = Building.STATE.DAMAGED
 			can_break = false
 			remove_action()
+		else:
+			can_break = false
+			remove_action()
 
 func _no_action(delta : float) -> void:
 	animation_player.play("RESET")

@@ -11,5 +11,6 @@ func _check_active(delta : float) -> bool:
 func _while_active(delta : float) -> void:
 	if Input.is_action_just_pressed("break"):
 		var target = ovrlp[0] as Building
-		target.current_state = Building.STATE.DAMAGED
-		use()
+		if target.current_state == Building.STATE.BUILT:
+			target.current_state = Building.STATE.DAMAGED
+			use()
