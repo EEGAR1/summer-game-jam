@@ -17,7 +17,7 @@ func _parent_is_ready() -> bool:
 func _check_action(delta : float):
 	animation_player.play("RESET")
 	
-	remove_action()
+	#remove_action()
 	if len(parent.current_path.path) != 0:
 		build_area.global_position = parent.current_path.path.back()
 	else:

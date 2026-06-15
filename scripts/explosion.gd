@@ -8,9 +8,10 @@ func _ready() -> void:
 	animation_player.play("explode")
 
 func damage() -> void:
-	Globals.camera.shake = 15.0
+	Globals.camera.shake = 5.0
 	var buildings = get_fov_overlapping_areas().filter(func(x): return x is Building)
 	var people = get_fov_overlapping_bodies().filter(func(x): return x is Person)
+	var player = get_fov_overlapping_bodies().filter(func(x): return x is Player)
 	
 	for i in buildings:
 		i = i as Building
@@ -19,3 +20,6 @@ func damage() -> void:
 	for i in people:
 		i = i as Person
 		i.dead = true
+	
+	if len(player) != 0:
+		(player[0] as Player).dead = true

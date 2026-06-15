@@ -5,7 +5,8 @@ var control_item_label
 
 enum SELECTION_TYPE {
 	MOVEBUILD,
-	KILL
+	KILL,
+	DESTROY
 }
 var select : SELECTION_TYPE
 
@@ -55,18 +56,24 @@ func _while_active(delta : float) -> void:
 			var victim
 			if len(ovrlp) > 0: victim = ovrlp[0]
 			match select:
+				# NOTE: Later this will have to decide what is actually possible. Destorying may not be possible for some people, for example, same with building
 				SELECTION_TYPE.MOVEBUILD:
 					target.set_movement_target(get_global_mouse_position())
 					target.current_state = target.STATE.WORKING
 					target.possessed = true
 				SELECTION_TYPE.KILL:
 					if len(ovrlp) <= 0: return
-					var am = target.get_children().filter(func(x): return x is ActionManager)[0]
+					var am = target.action_manager
 					var kill_action = am.get_children().filter(func(x): return x is KillAction)[0] as KillAction
 					kill_action.set_action()
 					target.set_movement_target(victim.global_position)
 					target.emotion_manager.set_emotion(victim.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0) # Make them HATE the target
 					target.current_state = target.STATE.WORKING
+					target.possessed = true
+				SELECTION_TYPE.DESTROY:
+					target.set_movement_target(get_global_mouse_position())
+					target.current_state = target.STATE.WORKING
+					target.action_manager.get_children().filter(func(x): return x is BreakAction)[0].can_break = true
 					target.possessed = true
 					
 			exit_control_item_label()
