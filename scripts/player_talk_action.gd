@@ -23,8 +23,14 @@ func callback_hey_im_leaving(index : int):
 	print("player selected ", index)
 	parent.can_command = false
 
+const BUILDING_COMPLEMENT = preload("uid://tbtxxel5mkwm")
+@export var building_list : Array[PackedScene] = [preload("uid://d1i8a0emugm8w")]
 func callback_build_quest(index : int):
-	print("player selected ", index)
+	if index == 0:
+		var bc = BUILDING_COMPLEMENT.instantiate()
+		bc.target_building = building_list.pick_random()
+		bc.parent = parent
+		Globals.quest_manager.add_child(bc)
 
 @onready var seek_area: Area2D = $SeekArea
 @onready var talk_area: Area2D = $TalkArea
@@ -43,10 +49,9 @@ func _while_acting(delta : float) -> void: # Plays while acting
 	if len(talk_ovrlp) != 0:
 		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state))
 		remove_action()
-	elif len(seek_ovrlp) != 0: # TODO: BUG. People get a path but dont move to it for some reason??
+	elif len(seek_ovrlp) != 0:
 		if len(parent.current_path.path) <= 0:
 			parent.set_movement_target(seek_ovrlp[0].global_position)
-			
 
 func _no_action(delta : float) -> void: # Plays when there is no action
 	pass

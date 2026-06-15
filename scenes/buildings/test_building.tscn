@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d1i8a0emugm8w"]
+
+[ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="1_5ceut"]
+[ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_4ie2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6apu"]
+size = Vector2(32, 32)
+
+[node name="Building" unique_id=1116943181 instance=ExtResource("1_5ceut")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=307647074]
+z_index = -1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_4ie2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1513177027]
+shape = SubResource("RectangleShape2D_s6apu")
