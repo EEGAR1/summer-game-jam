@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://dsonm8gkcwifu" path="res://scenes/abilities/visual/convince_ability_visual.tscn" id="26_yq6so"]
 [ext_resource type="PackedScene" uid="uid://fviorrad880" path="res://scenes/abilities/visual/break_ability_visual.tscn" id="27_tel4y"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
+[ext_resource type="Script" uid="uid://beryfidv60yyk" path="res://scripts/building_point.gd" id="35_j8jky"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
 length = 0.001
@@ -609,6 +610,36 @@ offset = Vector2(-4, 4)
 
 [node name="QuestManager" type="Node" parent="." unique_id=204504592]
 script = ExtResource("30_tel4y")
+
+[node name="BuildingPoint" type="Node2D" parent="." unique_id=1865876475]
+position = Vector2(170, -56)
+script = ExtResource("35_j8jky")
+forwhat = ExtResource("1_yq6so")
+
+[node name="BuildingPoint2" type="Node2D" parent="." unique_id=1308242952]
+position = Vector2(170, -30)
+script = ExtResource("35_j8jky")
+forwhat = ExtResource("1_yq6so")
+
+[node name="BuildingPoint3" type="Node2D" parent="." unique_id=34798948]
+position = Vector2(214, 46)
+script = ExtResource("35_j8jky")
+forwhat = ExtResource("1_yq6so")
+
+[node name="BuildingPoint4" type="Node2D" parent="." unique_id=1384389803]
+position = Vector2(214, 17)
+script = ExtResource("35_j8jky")
+forwhat = ExtResource("1_yq6so")
+
+[node name="BuildingPoint5" type="Node2D" parent="." unique_id=789870987]
+position = Vector2(-77, 30)
+script = ExtResource("35_j8jky")
+forwhat = ExtResource("10_dgi5k")
+
+[node name="BuildingPoint6" type="Node2D" parent="." unique_id=159687694]
+position = Vector2(-77, -7)
+script = ExtResource("35_j8jky")
+forwhat = ExtResource("12_dgi5k")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]

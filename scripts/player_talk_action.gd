@@ -25,12 +25,23 @@ func callback_hey_im_leaving(index : int):
 
 const BUILDING_COMPLEMENT = preload("uid://tbtxxel5mkwm")
 @export var building_list : Array[PackedScene] = [preload("uid://d1i8a0emugm8w")]
+
 func callback_build_quest(index : int):
 	if index == 0:
+		var choice = no_duplicates(Globals.complement_buildings).pick_random()
 		var bc = BUILDING_COMPLEMENT.instantiate()
-		bc.target_building = building_list.pick_random()
+		bc.target_building = choice
 		bc.parent = parent
+		var point = Globals.building_points[Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id).pick_random()]
+		bc.global_position = point.global_position
+		point.queue_free.call_deferred()
 		Globals.quest_manager.add_child(bc)
+
+func no_duplicates(of: Array) -> Array:
+	var dict := {}
+	for i in of:
+		dict.set(i, "something")
+	return dict.keys()
 
 @onready var seek_area: Area2D = $SeekArea
 @onready var talk_area: Area2D = $TalkArea
