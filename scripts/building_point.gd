@@ -7,6 +7,9 @@ extends Node2D
 		if Engine.is_editor_hint():	
 			for i in get_children():	i.queue_free()
 			add_child(forwhat.instantiate())
+@export var lockme : bool :
+	set(value):
+		global_position = round(global_position / 16) * 16
 
 var id : int : 
 	get():
@@ -22,3 +25,5 @@ func _exit_tree() -> void:
 	if Engine.is_editor_hint(): return
 	Globals.building_points.remove_at(id)
 	Globals.complement_buildings.remove_at(id)
+
+	

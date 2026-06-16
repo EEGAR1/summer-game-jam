@@ -57,6 +57,9 @@ func _check_action(delta : float) -> void: # Should use `set_action()` to set th
 	pass
 
 func _while_acting(delta : float) -> void: # Plays while acting
+	if len(Globals.complement_buildings) == 0:
+		remove_action()
+	
 	if len(talk_ovrlp) != 0:
 		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state))
 		remove_action()
