@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qt4q5yyc26i"]
 
 [ext_resource type="Script" uid="uid://de53nuysx1qc2" path="res://scripts/build_action.gd" id="1_4uawy"]
-[ext_resource type="Texture2D" uid="uid://blwuqlk17b28m" path="res://items/wrench.png" id="2_whvqf"]
+[ext_resource type="Texture2D" uid="uid://c20bq1eplyj4h" path="res://art/items/wrench.png" id="2_whvqf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctjya"]
 

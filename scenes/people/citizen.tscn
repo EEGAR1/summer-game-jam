@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3bqytinstyy2"]
 
-[ext_resource type="PackedScene" uid="uid://blmwky0ijese4" path="res://scenes/classes/person.tscn" id="1_iyw6i"]
+[ext_resource type="PackedScene" uid="uid://chk2yeqkco1aj" path="res://scenes/classes/person.tscn" id="1_iyw6i"]
 [ext_resource type="SpriteFrames" uid="uid://uxb2x8xqc0wf" path="res://art/people/citizen1.tres" id="2_5gt71"]
 [ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="2_kd2ci"]
 [ext_resource type="SpriteFrames" uid="uid://cb26cyxjphsa7" path="res://art/people/citizen2.tres" id="3_xdauo"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://b7m6cxn3nlslv" path="res://scripts/join_leave_action.gd" id="18_72hwm"]
 [ext_resource type="Script" uid="uid://rlbsipqdpm07" path="res://scripts/give_quest_action.gd" id="19_teck6"]
 [ext_resource type="Script" uid="uid://ctjy6k4bh4ync" path="res://scripts/break_action.gd" id="20_5k6rt"]
-[ext_resource type="Texture2D" uid="uid://daek53w6kd3hb" path="res://art/items/knife.png" id="21_x1b7b"]
+[ext_resource type="Texture2D" uid="uid://yxqhn2jlspe" path="res://art/items/knife.png" id="21_x1b7b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nac1c"]
 
