@@ -23,13 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://denw4lk7lda6h" path="res://scenes/actions/join_leave_action.tscn" id="21_dg5w8"]
 [ext_resource type="PackedScene" uid="uid://bj062j4upykwd" path="res://scenes/actions/give_quest_action.tscn" id="22_c0mn1"]
 [ext_resource type="PackedScene" uid="uid://hqc23s1v3i7y" path="res://scenes/actions/break_action.tscn" id="23_mk3q7"]
-[ext_resource type="Script" uid="uid://1cn22gri57st" path="res://scripts/talk_action.gd" id="24_bmbdx"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dg5w8"]
-radius = 80.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_c0mn1"]
-radius = 8.0
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -56,18 +49,3 @@ building_list = Array[PackedScene]([ExtResource("19_c0mn1"), ExtResource("20_mk3
 [node name="GiveQuestAction" parent="ActionManager" index="6" unique_id=729581203 instance=ExtResource("22_c0mn1")]
 
 [node name="BreakAction" parent="ActionManager" index="7" unique_id=2077954482 instance=ExtResource("23_mk3q7")]
-
-[node name="TalkAction" type="Node2D" parent="ActionManager" index="8" unique_id=70022518]
-script = ExtResource("24_bmbdx")
-metadata/_custom_type_script = "uid://dyaahj865ksh8"
-
-[node name="SeekArea" type="Area2D" parent="ActionManager/TalkAction" index="0" unique_id=1611809517]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/TalkAction/SeekArea" index="0" unique_id=1222591521]
-shape = SubResource("CircleShape2D_dg5w8")
-
-[node name="TalkArea" type="Area2D" parent="ActionManager/TalkAction" index="1" unique_id=2121971095]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/TalkAction/TalkArea" index="0" unique_id=942183474]
-shape = SubResource("CircleShape2D_c0mn1")

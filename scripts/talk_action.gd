@@ -43,7 +43,7 @@ func _while_acting(delta : float) -> void: # Plays while acting
 			if parent.emotion_manager.get_emotion(id, em_type) < 70.0:	continue
 			target.emotion_manager.set_emotion(id, em_type, target.emotion_manager.get_emotion(id, em_type) + (parent.emotion_manager.get_emotion(id, em_type) - target.emotion_manager.get_emotion(id, em_type)) * delta)
 			print(target.emotion_manager.get_emotion(id, em_type))
-	elif len(seek_area) != 0:
+	elif len(seek_ovrlp) != 0:
 		target = seek_ovrlp[0] as Person
 		if len(parent.current_path.path) == 0:
 			parent.set_movement_target(target.global_position)

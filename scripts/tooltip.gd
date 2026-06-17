@@ -24,10 +24,8 @@ func update(data_ : Dictionary) -> void:
 	item_list.add_item("Love")
 	item_list.add_item("Trust")
 	
-	print(data_)
 	for i in data_.keys().filter(func(x): return round(x) - x == 0.0):
 		var id = int(round(i))
-		print(id)
 
 		item_list.add_item(Globals.other_people[id].name, Globals.other_people[id].get_children().filter(func(x): return x is AnimatedSprite2D)[0].sprite_frames.get_frame_texture("idle", 0))
 		for em in EmotionManager.EMOTION_TYPE.values():
