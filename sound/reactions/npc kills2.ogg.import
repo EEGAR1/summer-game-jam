@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kghn7dn2ol6o"
+path="res://.godot/imported/npc kills2.ogg-d7a3119cce87f48ff4e713d5882cc9b7.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/reactions/npc kills2.ogg"
+dest_files=["res://.godot/imported/npc kills2.ogg-d7a3119cce87f48ff4e713d5882cc9b7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
