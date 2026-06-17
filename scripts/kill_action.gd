@@ -62,7 +62,7 @@ func _while_acting(delta : float):
 	
 	var stab_target = stab_area_overlap.filter(func(x): return x == target)
 	
-	sprite_2d.rotation = atan2(target.global_position.y - global_position.y, target.global_position.x - global_position.x)
+	sprite_2d.rotation = atan2(global_position.y - target.global_position.y, global_position.x - target.global_position.x)
 	if len(parent.current_path.path) == 0:	parent.set_movement_target(target.global_position)
 	if parent.current_state != Person.STATE.WORKING:	parent.current_state = Person.STATE.WORKING
 	if len(stab_target) > 0:
