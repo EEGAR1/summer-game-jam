@@ -26,9 +26,9 @@ func callback_hey_im_leaving(index : int):
 const BUILDING_COMPLEMENT = preload("uid://tbtxxel5mkwm")
 @export var building_list : Array[PackedScene] = [preload("uid://d1i8a0emugm8w")]
 
+var choice
 func callback_build_quest(index : int):
 	if index == 0:
-		var choice = no_duplicates(Globals.complement_buildings).pick_random()
 		var bc = BUILDING_COMPLEMENT.instantiate()
 		bc.target_building = choice
 		bc.parent = parent
@@ -62,7 +62,14 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		return
 	
 	if len(talk_ovrlp) != 0:
-		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state))
+		var texture = null
+		match talk_state:
+			TALK_TYPE.BUILDQUEST:
+				choice = no_duplicates(Globals.complement_buildings).pick_random()
+				texture = choice.instantiate().get_children().filter(func(x): return x is Sprite2D)[0].texture
+				
+		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state), texture)
+	
 		remove_action()
 		return
 	elif len(seek_ovrlp) != 0:

@@ -417,7 +417,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -576.0
 offset_top = -169.0
-offset_right = 576.0
+offset_right = 384.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Person"
@@ -445,6 +445,16 @@ allow_reselect = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Window/Dialog" unique_id=1397574493]
 libraries/ = SubResource("AnimationLibrary_2f3dj")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Window/Dialog" unique_id=1395158139]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8532986
+anchor_top = 0.15500078
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Window" unique_id=1954126796]
 layout_mode = 1

@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="7_xugy6"]
 [ext_resource type="Script" uid="uid://ttlootrp3h0k" path="res://scripts/outline.gd" id="8_xugy6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xugy6"]
+radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omjwp"]
 atlas = ExtResource("4_ghdxt")
@@ -147,7 +147,7 @@ frame_progress = 0.35062638
 script = ExtResource("2_5rrw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
-shape = SubResource("RectangleShape2D_1bvp3")
+shape = SubResource("CircleShape2D_xugy6")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1929608735]
 path_desired_distance = 50.0
