@@ -17,165 +17,19 @@
 [ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_jbnel"]
 [ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_caxg1"]
 [ext_resource type="PackedScene" uid="uid://bjhucwn4u7rqq" path="res://scenes/actions/player_talk_action.tscn" id="17_rvppo"]
-[ext_resource type="Script" uid="uid://b7m6cxn3nlslv" path="res://scripts/join_leave_action.gd" id="18_72hwm"]
 [ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="19_c0mn1"]
-[ext_resource type="Script" uid="uid://rlbsipqdpm07" path="res://scripts/give_quest_action.gd" id="19_teck6"]
-[ext_resource type="Script" uid="uid://ctjy6k4bh4ync" path="res://scripts/break_action.gd" id="20_5k6rt"]
 [ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="20_dg5w8"]
 [ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="20_mk3q7"]
-[ext_resource type="Texture2D" uid="uid://yxqhn2jlspe" path="res://art/items/knife.png" id="21_x1b7b"]
+[ext_resource type="PackedScene" uid="uid://denw4lk7lda6h" path="res://scenes/actions/join_leave_action.tscn" id="21_dg5w8"]
+[ext_resource type="PackedScene" uid="uid://bj062j4upykwd" path="res://scenes/actions/give_quest_action.tscn" id="22_c0mn1"]
+[ext_resource type="PackedScene" uid="uid://hqc23s1v3i7y" path="res://scenes/actions/break_action.tscn" id="23_mk3q7"]
+[ext_resource type="Script" uid="uid://1cn22gri57st" path="res://scripts/talk_action.gd" id="24_bmbdx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nac1c"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg5w8"]
+radius = 80.0
 
-[sub_resource type="Animation" id="Animation_hwo2p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.69464105]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6.2566605, -5.4101553)]
-}
-
-[sub_resource type="Animation" id="Animation_x1b7b"]
-resource_name = "destroy_left"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4.052784, -5.6316304)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [0.46251225, -1.8517944]
-}
-
-[sub_resource type="Animation" id="Animation_dg5w8"]
-resource_name = "destroy_right"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [-0.69464105, 1.4556046]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6.2566605, -5.4101553)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0mn1"]
-_data = {
-&"RESET": SubResource("Animation_hwo2p"),
-&"destroy_left": SubResource("Animation_x1b7b"),
-&"destroy_right": SubResource("Animation_dg5w8")
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0mn1"]
+radius = 8.0
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -186,7 +40,7 @@ options = Array[SpriteFrames]([ExtResource("2_5gt71"), ExtResource("3_xdauo"), E
 script = ExtResource("2_kd2ci")
 
 [node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 node_paths=PackedStringArray("break_action") instance=ExtResource("8_xdauo")]
-break_action = NodePath("../BreakAction")
+break_action = NodePath("")
 
 [node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]
 
@@ -197,29 +51,23 @@ break_action = NodePath("../BreakAction")
 [node name="PlayerTalkAction" parent="ActionManager" index="4" unique_id=1372718739 instance=ExtResource("17_rvppo")]
 building_list = Array[PackedScene]([ExtResource("19_c0mn1"), ExtResource("20_mk3q7"), ExtResource("20_dg5w8")])
 
-[node name="JoinLeaveAction" type="Node2D" parent="ActionManager" index="5" unique_id=1944915478]
-script = ExtResource("18_72hwm")
+[node name="JoinLeaveAction" parent="ActionManager" index="5" unique_id=1020915660 instance=ExtResource("21_dg5w8")]
+
+[node name="GiveQuestAction" parent="ActionManager" index="6" unique_id=729581203 instance=ExtResource("22_c0mn1")]
+
+[node name="BreakAction" parent="ActionManager" index="7" unique_id=2077954482 instance=ExtResource("23_mk3q7")]
+
+[node name="TalkAction" type="Node2D" parent="ActionManager" index="8" unique_id=70022518]
+script = ExtResource("24_bmbdx")
 metadata/_custom_type_script = "uid://dyaahj865ksh8"
 
-[node name="GiveQuestAction" type="Node2D" parent="ActionManager" index="6" unique_id=109620905]
-script = ExtResource("19_teck6")
-
-[node name="BreakAction" type="Node2D" parent="ActionManager" index="7" unique_id=1070964979]
-script = ExtResource("20_5k6rt")
-metadata/_custom_type_script = "uid://dyaahj865ksh8"
-
-[node name="BuildArea" type="Area2D" parent="ActionManager/BreakAction" index="0" unique_id=703692891]
+[node name="SeekArea" type="Area2D" parent="ActionManager/TalkAction" index="0" unique_id=1611809517]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/BreakAction/BuildArea" index="0" unique_id=642121082]
-shape = SubResource("CircleShape2D_nac1c")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/TalkAction/SeekArea" index="0" unique_id=1222591521]
+shape = SubResource("CircleShape2D_dg5w8")
 
-[node name="Sprite2D" type="Sprite2D" parent="ActionManager/BreakAction" index="1" unique_id=1199994306]
-visible = false
-rotation = -0.69464105
-texture = ExtResource("21_x1b7b")
-offset = Vector2(6.2566605, -5.4101553)
-flip_h = true
+[node name="TalkArea" type="Area2D" parent="ActionManager/TalkAction" index="1" unique_id=2121971095]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ActionManager/BreakAction/Sprite2D" index="0" unique_id=2140237985]
-libraries/ = SubResource("AnimationLibrary_c0mn1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/TalkAction/TalkArea" index="0" unique_id=942183474]
+shape = SubResource("CircleShape2D_c0mn1")
