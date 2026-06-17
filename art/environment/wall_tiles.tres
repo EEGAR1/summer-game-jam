@@ -1,7 +1,12 @@
 [gd_resource type="TileSet" format=3 uid="uid://kwxb77qdlh54"]
 
+<<<<<<< HEAD:art/environment/wall_tiles.tres
 [ext_resource type="Texture2D" uid="uid://bd1rf466ln56" path="res://art/environment/wall tileset 12x12.png" id="1_21fj1"]
 [ext_resource type="Texture2D" uid="uid://caapnk5ap7vs4" path="res://art/environment/bathroom tileset 12x12.png" id="2_3wigi"]
+=======
+[ext_resource type="Texture2D" uid="uid://bqplo7kwpylne" path="res://environment/wall tileset 12x12.png" id="1_21fj1"]
+[ext_resource type="Texture2D" uid="uid://juou58d568ht" path="res://environment/bathroom tileset 12x12.png" id="2_3wigi"]
+>>>>>>> ee4f79f17f711c4f0e005b838550883d4c709dea:environment/wall_tiles.tres
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wigi"]
 texture = ExtResource("1_21fj1")
