@@ -12,7 +12,10 @@ func _process(delta: float) -> void:
 
 
 
-
-func _on_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
-	$"..".emitting = true
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		$"..".emitting = true
+		if randi() % 2 == 0:
+			$"../CPUParticles2D".emitting = true
+		if randi() % 2 == 0:
+			$"../CPUParticles2D2".emitting = true

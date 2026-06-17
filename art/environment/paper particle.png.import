@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3i4121h7bhad"
-path="res://.godot/imported/sattelite.png-ad0c86f0e5a0f8c0a69859d821173923.ctex"
+uid="uid://bvyij3gjvb3s0"
+path="res://.godot/imported/paper particle.png-447b157c8fb5170ab300de1509858111.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/sattelite.png"
-dest_files=["res://.godot/imported/sattelite.png-ad0c86f0e5a0f8c0a69859d821173923.ctex"]
+source_file="res://art/environment/paper particle.png"
+dest_files=["res://.godot/imported/paper particle.png-447b157c8fb5170ab300de1509858111.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btbwpkms7583y"]
 
-[ext_resource type="Texture2D" uid="uid://bq0kdtauignw2" path="res://environment/paper particle.png" id="1_04yva"]
-[ext_resource type="Script" uid="uid://bi865a38rdlx3" path="res://scenes/particle_trigger.gd" id="2_b0fpf"]
+[ext_resource type="Texture2D" uid="uid://bvyij3gjvb3s0" path="res://art/environment/paper particle.png" id="1_04yva"]
+[ext_resource type="Script" uid="uid://bi865a38rdlx3" path="res://particle_trigger.gd" id="2_b0fpf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m335s"]
 particles_animation = true
@@ -14,12 +14,13 @@ offsets = PackedFloat32Array(0, 0.07647908, 0.8109668, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m335s"]
+size = Vector2(12, 12)
 
 [node name="CPUParticles2D" type="CPUParticles2D" unique_id=1829849536]
 z_index = 2
 material = SubResource("CanvasItemMaterial_m335s")
 emitting = false
-amount = 4
+amount = 1
 texture = ExtResource("1_04yva")
 lifetime = 2.0
 one_shot = true
@@ -39,9 +40,59 @@ color_ramp = SubResource("Gradient_4b7dj")
 anim_offset_max = 1.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1744598656]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("2_b0fpf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=254658142]
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_m335s")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=386842462]
+z_index = 2
+material = SubResource("CanvasItemMaterial_m335s")
+emitting = false
+amount = 1
+texture = ExtResource("1_04yva")
+lifetime = 2.5
+one_shot = true
+explosiveness = 0.71
+direction = Vector2(0, -1)
+spread = 43.62
+gravity = Vector2(0, 60)
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+angular_velocity_min = -153.19
+angular_velocity_max = 162.2
+linear_accel_min = -15.96
+linear_accel_max = -15.96
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_4b7dj")
+anim_offset_max = 1.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=56295227]
+z_index = 2
+material = SubResource("CanvasItemMaterial_m335s")
+emitting = false
+amount = 1
+texture = ExtResource("1_04yva")
+lifetime = 2.5
+one_shot = true
+explosiveness = 0.71
+direction = Vector2(0, -1)
+spread = 43.62
+gravity = Vector2(0, 60)
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+angular_velocity_min = -153.19
+angular_velocity_max = 162.2
+linear_accel_min = -15.96
+linear_accel_max = -15.96
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_4b7dj")
+anim_offset_max = 1.0
+
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

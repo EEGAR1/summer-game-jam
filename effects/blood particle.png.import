@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kr241w3iufbv"
-path="res://.godot/imported/window.png-8b2dbd4c388c1fe95fa17ea8dd6f214d.ctex"
+uid="uid://ci2vobdk0br1x"
+path="res://.godot/imported/blood particle.png-48a6916589ee6446923c18144b7e07e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/window.png"
-dest_files=["res://.godot/imported/window.png-8b2dbd4c388c1fe95fa17ea8dd6f214d.ctex"]
+source_file="res://effects/blood particle.png"
+dest_files=["res://.godot/imported/blood particle.png-48a6916589ee6446923c18144b7e07e3.ctex"]
 
 [params]
 

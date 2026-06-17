@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rn4jsf2b4qgi"
-path="res://.godot/imported/shadow.png-25c6a197bdfb1affa6d806380a11e8ed.ctex"
+uid="uid://8uumi0otxkof"
+path="res://.godot/imported/sunflower particle.png-2dd348f4bd2d1b1a201e153ec6dfa8b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/shadow.png"
-dest_files=["res://.godot/imported/shadow.png-25c6a197bdfb1affa6d806380a11e8ed.ctex"]
+source_file="res://art/environment/sunflower particle.png"
+dest_files=["res://.godot/imported/sunflower particle.png-2dd348f4bd2d1b1a201e153ec6dfa8b5.ctex"]
 
 [params]
 
