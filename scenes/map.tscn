@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://desyf36yf145p" path="res://environment/screen animation.png" id="13_4o3w1"]
 [ext_resource type="Texture2D" uid="uid://doalxkycatcr7" path="res://environment/big screen flash.png" id="13_6ek7f"]
 [ext_resource type="PackedScene" uid="uid://btbwpkms7583y" path="res://scenes/paper particle.tscn" id="19_6k6j1"]
+[ext_resource type="Texture2D" uid="uid://d4ljhdo87behp" path="res://environment/washing machine spin.png" id="20_2cfcp"]
 [ext_resource type="Texture2D" uid="uid://d0h4gyj4e7kxs" path="res://environment/placeable items.png" id="20_m335s"]
 [ext_resource type="PackedScene" uid="uid://i2pbbw5xqo3b" path="res://scenes/leaf particle.tscn" id="20_sq6bu"]
 [ext_resource type="PackedScene" uid="uid://vublmk7otm8t" path="res://scenes/flower particle.tscn" id="21_sq6bu"]
@@ -3625,6 +3626,47 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cfcp"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_pfb0u")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_521t8")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_8bpgt")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_54sr3")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_y8qgh")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_o6pjl")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_dp2xw")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_jvymk")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_nopys")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_5g3sy")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_6ob85")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_y2ir2"]
 animations = [{
 "frames": [{
@@ -3934,6 +3976,62 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqng6"]
+atlas = ExtResource("20_2cfcp")
+region = Rect2(0, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s138g"]
+atlas = ExtResource("20_2cfcp")
+region = Rect2(4, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n04y3"]
+atlas = ExtResource("20_2cfcp")
+region = Rect2(8, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4kk8"]
+atlas = ExtResource("20_2cfcp")
+region = Rect2(12, 0, 4, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vx6e7"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gqng6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_s138g")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n04y3")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_k4kk8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tqt57"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_gqng6")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_s138g")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_n04y3")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_k4kk8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Map" type="Node2D" unique_id=550863854]
 y_sort_enabled = true
 
@@ -3984,7 +4082,7 @@ tile_set = SubResource("TileSet_0cso3")
 position = Vector2(1611, 645)
 sprite_frames = SubResource("SpriteFrames_gqng6")
 autoplay = "default"
-frame_progress = 0.41200447
+frame_progress = 0.20565858
 
 [node name="sattelite2" type="AnimatedSprite2D" parent="animations" unique_id=669163897]
 position = Vector2(1260, 879)
@@ -4014,7 +4112,7 @@ frame_progress = 0.7551689
 position = Vector2(2757, 238)
 sprite_frames = SubResource("SpriteFrames_gqng6")
 autoplay = "default"
-frame_progress = 0.74430585
+frame_progress = 0.5379642
 
 [node name="tv_mars" type="AnimatedSprite2D" parent="animations" unique_id=1099922223]
 z_index = 1
@@ -4129,6 +4227,41 @@ position = Vector2(1320, -177)
 sprite_frames = SubResource("SpriteFrames_rdlqv")
 autoplay = "default"
 frame_progress = 0.32029286
+
+[node name="screen animation17" type="AnimatedSprite2D" parent="animations" unique_id=622255418]
+z_index = 1
+position = Vector2(1930, -114)
+sprite_frames = SubResource("SpriteFrames_rdlqv")
+autoplay = "default"
+frame_progress = 0.32029286
+
+[node name="screen animation18" type="AnimatedSprite2D" parent="animations" unique_id=2045687105]
+z_index = 1
+position = Vector2(2002, -114)
+sprite_frames = SubResource("SpriteFrames_rdlqv")
+autoplay = "default"
+frame_progress = 0.32029286
+
+[node name="screen animation19" type="AnimatedSprite2D" parent="animations" unique_id=232210412]
+z_index = 1
+position = Vector2(2026, -133)
+sprite_frames = SubResource("SpriteFrames_rdlqv")
+autoplay = "default"
+frame_progress = 0.32029286
+
+[node name="screen animation20" type="AnimatedSprite2D" parent="animations" unique_id=1016846886]
+z_index = 1
+position = Vector2(2026, -114)
+sprite_frames = SubResource("SpriteFrames_2cfcp")
+autoplay = "default"
+frame_progress = 0.3156365
+
+[node name="screen animation21" type="AnimatedSprite2D" parent="animations" unique_id=1322459339]
+z_index = 1
+position = Vector2(1930, -114)
+sprite_frames = SubResource("SpriteFrames_2cfcp")
+autoplay = "default"
+frame_progress = 0.25478256
 
 [node name="screen animation14" type="AnimatedSprite2D" parent="animations" unique_id=1436790203]
 z_index = 1
@@ -4342,6 +4475,36 @@ position = Vector2(1847, 352)
 texture = ExtResource("20_m335s")
 hframes = 4
 frame = 2
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="animations" unique_id=2001163624]
+position = Vector2(1960, -106)
+sprite_frames = SubResource("SpriteFrames_vx6e7")
+frame_progress = 0.54598206
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="animations" unique_id=410939976]
+position = Vector2(2000, -125)
+sprite_frames = SubResource("SpriteFrames_vx6e7")
+frame_progress = 0.2685973
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="animations" unique_id=1148458694]
+position = Vector2(2024, -125)
+sprite_frames = SubResource("SpriteFrames_vx6e7")
+frame_progress = 0.2685973
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="animations" unique_id=1980509614]
+position = Vector2(2048, -125)
+sprite_frames = SubResource("SpriteFrames_vx6e7")
+frame_progress = 0.2685973
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="animations" unique_id=1290423375]
+position = Vector2(2000, -106)
+sprite_frames = SubResource("SpriteFrames_tqt57")
+frame_progress = 0.36795464
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="animations" unique_id=1942301025]
+position = Vector2(2048, -106)
+sprite_frames = SubResource("SpriteFrames_tqt57")
+frame_progress = 0.27110195
 
 [node name="particles" type="Node2D" parent="animations" unique_id=1291627564]
 
