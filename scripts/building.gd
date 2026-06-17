@@ -26,7 +26,7 @@ func building_process(delta : float):
 	match current_state:
 		STATE.PLACING:
 			sprite_2d.modulate = Color(0.0, 1.0, 0.0, 1.0)
-			global_position = round(get_global_mouse_position() / 16) * 16
+			global_position = round(get_global_mouse_position() / 8) * 8
 			if len(get_overlapping_bodies().filter(func(x): return x.is_in_group("Wall"))) != 0 or len(get_overlapping_areas().filter(func(x): return x is Building)) > 1:
 					# Cant place
 					sprite_2d.modulate = Color(1.0, 0.0, 0.0, 1.0)

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dmxg0cgysfubt"]
+
+[ext_resource type="Script" uid="uid://beryfidv60yyk" path="res://scripts/building_point.gd" id="1_c8cfh"]
+[ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="2_036h2"]
+
+[node name="BuildingPoint" type="Node2D" unique_id=120138806]
+script = ExtResource("1_c8cfh")
+forwhat = ExtResource("2_036h2")

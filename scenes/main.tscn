@@ -1,11 +1,11 @@
-[gd_scene format=4 uid="uid://skwgyslh57ba"]
+[gd_scene format=3 uid="uid://skwgyslh57ba"]
 
 [ext_resource type="PackedScene" uid="uid://3bqytinstyy2" path="res://scenes/people/citizen.tscn" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://x8sda044sdxd" path="res://scripts/control_item_panel.gd" id="1_y6deb"]
 [ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="1_yq6so"]
+[ext_resource type="PackedScene" uid="uid://drowwofke7tsu" path="res://scenes/prefab/idle_poi.tscn" id="2_j8jky"]
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
-[ext_resource type="TileSet" uid="uid://kwxb77qdlh54" path="res://art/environment/wall_tiles.tres" id="3_85g3d"]
-[ext_resource type="Texture2D" uid="uid://d3l3y0jl65ejl" path="res://art/environment/floor tileset.png" id="3_choun"]
+[ext_resource type="PackedScene" uid="uid://dmxg0cgysfubt" path="res://scenes/prefab/building_point.tscn" id="3_kmb1v"]
 [ext_resource type="Script" uid="uid://ci44xjqb0n1e" path="res://scripts/control_item_label.gd" id="3_og1vs"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://dsonm8gkcwifu" path="res://scenes/abilities/visual/convince_ability_visual.tscn" id="26_yq6so"]
 [ext_resource type="PackedScene" uid="uid://fviorrad880" path="res://scenes/abilities/visual/break_ability_visual.tscn" id="27_tel4y"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
-[ext_resource type="Script" uid="uid://beryfidv60yyk" path="res://scripts/building_point.gd" id="35_j8jky"]
+[ext_resource type="PackedScene" uid="uid://bpivoc3i35858" path="res://scenes/map.tscn" id="32_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="36_kmb1v"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
@@ -126,61 +126,6 @@ _data = {
 &"open": SubResource("Animation_vxglm")
 }
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_vxglm"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_2f3dj"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_yq6so"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_fv21b"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_tel4y"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_qkpxi"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
-texture = ExtResource("3_choun")
-0:0/0 = 0
-0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vxglm")
-1:0/0 = 0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_yq6so")
-2:0/0 = 0
-2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tel4y")
-0:1/0 = 0
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2f3dj")
-1:1/0 = 0
-1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fv21b")
-2:1/0 = 0
-2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qkpxi")
-
-[sub_resource type="TileSet" id="TileSet_eb6dy"]
-navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_ya4ey")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
@@ -215,6 +160,54 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
+
+[node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
+position = Vector2(1127, 151)
+
+[node name="Citizen2" parent="." unique_id=664325087 instance=ExtResource("1_tbgi4")]
+position = Vector2(984, 103)
+
+[node name="Citizen3" parent="." unique_id=961311435 instance=ExtResource("1_tbgi4")]
+position = Vector2(1193, 233)
+
+[node name="IdlePOI" parent="." unique_id=1156854468 instance=ExtResource("2_j8jky")]
+position = Vector2(1119, 91)
+
+[node name="IdlePOI2" parent="." unique_id=1076342099 instance=ExtResource("2_j8jky")]
+position = Vector2(1389, -96)
+
+[node name="BuildingPoint" parent="." unique_id=120138806 instance=ExtResource("3_kmb1v")]
+position = Vector2(2496, 240)
+
+[node name="BuildingPoint2" parent="." unique_id=792987372 instance=ExtResource("3_kmb1v")]
+position = Vector2(2496, 192)
+
+[node name="BuildingPoint3" parent="." unique_id=420295791 instance=ExtResource("3_kmb1v")]
+position = Vector2(2544, 224)
+
+[node name="BuildingPoint4" parent="." unique_id=1943556343 instance=ExtResource("3_kmb1v")]
+position = Vector2(2040, 368)
+forwhat = ExtResource("12_dgi5k")
+
+[node name="BuildingPoint5" parent="." unique_id=699330721 instance=ExtResource("3_kmb1v")]
+position = Vector2(2088, 368)
+forwhat = ExtResource("12_dgi5k")
+
+[node name="BuildingPoint6" parent="." unique_id=1433209140 instance=ExtResource("3_kmb1v")]
+position = Vector2(2160, 360)
+forwhat = ExtResource("12_dgi5k")
+
+[node name="BuildingPoint7" parent="." unique_id=245101240 instance=ExtResource("3_kmb1v")]
+position = Vector2(1944, 544)
+forwhat = ExtResource("12_dgi5k")
+
+[node name="BuildingPoint8" parent="." unique_id=706227428 instance=ExtResource("3_kmb1v")]
+position = Vector2(2552, 384)
+forwhat = ExtResource("36_kmb1v")
+
+[node name="BuildingPoint9" parent="." unique_id=1201940401 instance=ExtResource("3_kmb1v")]
+position = Vector2(2480, 384)
+forwhat = ExtResource("36_kmb1v")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861140114]
 
@@ -476,11 +469,13 @@ mouse_filter = 2
 [node name="FoldableContainer" type="FoldableContainer" parent="UI/Window/HBoxContainer/VBoxContainer" unique_id=226681381]
 custom_minimum_size = Vector2(600, 300)
 layout_mode = 2
+folded = true
 title = "Buildings"
 title_alignment = 1
 script = ExtResource("8_dgi5k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer" unique_id=1545410440]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
@@ -508,40 +503,9 @@ target_building = ExtResource("12_dgi5k")
 building_name = "Bed"
 descr = "Lets people get good sleep. Lures people to an area."
 
-[node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(-41, 13)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen2" parent="." unique_id=383556618 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(-52, -15)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen3" parent="." unique_id=812543357 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(49, -11)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen4" parent="." unique_id=1863117809 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(0, 26)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen5" parent="." unique_id=1981682092 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(73, 21)
-control_parent = NodePath("../UI/Window")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 zoom = Vector2(5, 5)
 script = ExtResource("2_tipki")
-
-[node name="floor tiles" type="TileMapLayer" parent="." unique_id=1640666117]
-z_index = -10
-tile_map_data = PackedByteArray("AAAEAAIAAAABAAAAAAAOAAMAAAABAAEAAAANAAMAAAABAAEAAAAMAAMAAAABAAEAAAALAAMAAAABAAEAAAAKAAIAAAABAAEAAAAJAAIAAAABAAEAAAALAAIAAAABAAEAAAAMAAIAAAABAAEAAAANAAIAAAABAAEAAAAOAAIAAAABAAEAAAAKAAMAAAABAAEAAAAJAAMAAAABAAEAAAAKAAEAAAABAAEAAAALAAEAAAABAAEAAAAMAAEAAAABAAEAAAANAAEAAAABAAEAAAAOAAEAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAJAAEAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAALAP//AAABAAEAAAAMAP//AAABAAEAAAANAP//AAABAAEAAAAOAP7/AAABAAEAAAAOAAAAAAABAAEAAAALAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAP//AAABAAEAAAAKAP7/AAABAAEAAAALAP7/AAABAAEAAAAMAP7/AAABAAEAAAANAP7/AAABAAEAAAAOAP//AAABAAEAAAAOAPz/AAABAAEAAAANAP3/AAABAAEAAAANAPz/AAABAAEAAAAMAPz/AAABAAEAAAALAPz/AAABAAEAAAAKAPz/AAABAAEAAAAKAP3/AAABAAEAAAAMAP3/AAABAAEAAAAOAP3/AAABAAEAAAALAP3/AAABAAEAAAAJAPz/AAABAAEAAAAJAP3/AAABAAEAAAAJAP7/AAABAAEAAAAKAP//AAABAAEAAAAGAAAAAAABAAEAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAHAAEAAAABAAEAAAAIAAEAAAABAAEAAAAGAAEAAAABAAEAAAAHAAAAAAABAAEAAAAFAAAAAAABAAAAAAAFAP//AAABAAAAAAAEAP//AAABAAAAAAADAP//AAABAAAAAAACAP//AAABAAAAAAABAP//AAABAAAAAAAAAP//AAABAAAAAAD//wAAAAABAAAAAAD+/wAAAAABAAAAAAD9/wEAAAABAAAAAAD8/wEAAAABAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAP7/AAABAAAAAAACAP7/AAABAAAAAAD7//7/AAABAAAAAAD6//7/AAABAAAAAAD6/wEAAAABAAAAAAD7/wAAAAABAAAAAAD8/wAAAAABAAAAAAD9/wAAAAABAAAAAAD+////AAABAAAAAAD/////AAABAAAAAAAAAP7/AAABAAAAAAD///7/AAABAAAAAAD8//7/AAABAAAAAAD9//7/AAABAAAAAAD+//7/AAABAAAAAAABAP7/AAABAAAAAAAFAP7/AAABAAAAAAAEAP7/AAABAAAAAAD9////AAABAAAAAAD8////AAABAAAAAAD6/wAAAAABAAAAAAD6////AAABAAAAAAD7/wEAAAABAAAAAAADAAAAAAABAAAAAAACAAEAAAABAAAAAAABAAEAAAABAAAAAAAAAAEAAAABAAAAAAD7////AAABAAAAAAACAAIAAAABAAAAAAADAAIAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAABAAAAAAAEAAAAAAABAAAAAAD+/wIAAAABAAAAAAAAAAIAAAABAAAAAAD//wIAAAABAAAAAAD9/wIAAAABAAAAAAD8/wIAAAABAAAAAAD7/wIAAAABAAAAAAD6/wIAAAABAAAAAAABAAIAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_eb6dy")
-y_sort_origin = -1
-
-[node name="Walls" type="TileMapLayer" parent="." unique_id=642344679 groups=["Wall"]]
-tile_map_data = PackedByteArray("AAD+//v/AAABAAUAAAD///v/AAABAAUAAAAAAPv/AAABAAUAAAABAPv/AAABAAUAAAACAPv/AAABAAUAAAADAPv/AAABAAUAAAAEAPv/AAABAAUAAAD3/wQAAAAAAAIAAAAHAAQAAAABAAUAAAAGAAQAAAABAAUAAAAFAAQAAAABAAUAAAAEAAQAAAABAAUAAAADAAQAAAABAAUAAAACAAQAAAABAAUAAAABAAQAAAABAAUAAAAAAAQAAAABAAUAAAD//wQAAAABAAUAAAD+/wQAAAABAAUAAAD9/wQAAAABAAUAAAD8/wQAAAABAAUAAAD7/wQAAAABAAUAAAD6/wQAAAABAAUAAAD5/wQAAAABAAUAAAD4/wQAAAABAAUAAAAIAAQAAAACAAIAAAD3//v/AAAAAAAAAAD4//v/AAABAAUAAAD5//v/AAABAAUAAAD6//v/AAABAAUAAAD7//v/AAABAAUAAAAFAPv/AAABAAUAAAAGAPv/AAABAAUAAAAHAPv/AAABAAUAAAAIAPv/AAACAAAAAAD8//v/AAABAAUAAAD9//v/AAABAAUAAAD4//z/AAABAAMAAAD4//3/AAABAAQAAAD5//z/AAABAAMAAAD5//3/AAABAAQAAAD6//z/AAABAAMAAAD6//3/AAABAAQAAAD7//z/AAABAAMAAAD7//3/AAABAAQAAAD8//z/AAABAAMAAAD8//3/AAABAAQAAAD9//z/AAABAAMAAAD9//3/AAABAAQAAAD+//z/AAABAAMAAAD+//3/AAABAAQAAAD///z/AAABAAMAAAD///3/AAABAAQAAAAAAPz/AAABAAMAAAAAAP3/AAABAAQAAAABAPz/AAABAAMAAAABAP3/AAABAAQAAAACAPz/AAABAAMAAAACAP3/AAABAAQAAAADAPz/AAABAAMAAAADAP3/AAABAAQAAAAEAPz/AAABAAMAAAAEAP3/AAABAAQAAAAFAPz/AAABAAMAAAAFAP3/AAABAAQAAAAGAPz/AAABAAMAAAAGAP3/AAABAAQAAAAHAPz/AAABAAMAAAAHAP3/AAABAAQAAAAIAPz/AAADAAEAAAAIAP3/AAADAAEAAAD3//z/AAADAAEAAAD3//3/AAADAAEAAAD3//7/AAADAAEAAAD3////AAADAAEAAAD3/wAAAAADAAEAAAD3/wEAAAADAAEAAAD3/wIAAAADAAEAAAD3/wMAAAADAAEAAAAIAAMAAAADAAEAAAAIAAIAAAAAAAAAAAD3/wUAAAAAAAMAAAD3/wYAAAAAAAQAAAD4/wUAAAABAAMAAAD4/wYAAAABAAQAAAD5/wUAAAABAAMAAAD5/wYAAAABAAQAAAD6/wUAAAABAAMAAAD6/wYAAAABAAQAAAD7/wUAAAABAAMAAAD7/wYAAAABAAQAAAD8/wUAAAABAAMAAAD8/wYAAAABAAQAAAD9/wUAAAABAAMAAAD9/wYAAAABAAQAAAD+/wUAAAABAAMAAAD+/wYAAAABAAQAAAD//wUAAAABAAMAAAD//wYAAAABAAQAAAAAAAUAAAABAAMAAAAAAAYAAAABAAQAAAABAAUAAAABAAMAAAABAAYAAAABAAQAAAACAAUAAAABAAMAAAACAAYAAAABAAQAAAADAAUAAAABAAMAAAADAAYAAAABAAQAAAAEAAUAAAABAAMAAAAEAAYAAAABAAQAAAAFAAUAAAABAAMAAAAFAAYAAAABAAQAAAAGAAUAAAABAAMAAAAGAAYAAAABAAQAAAAHAAUAAAABAAMAAAAHAAYAAAABAAQAAAAIAAUAAAACAAMAAAAIAAYAAAACAAQAAAAJAP7/AAABAAUAAAAKAP7/AAACAAUAAAALAP7/AQADAAIAAAAJAAIAAAABAAUAAAAKAAIAAAACAAUAAAALAAIAAQADAAAAAAALAAMAAQADAAEAAAALAAQAAQADAAEAAAALAAUAAQAAAAIAAAALAP3/AQADAAEAAAALAPz/AQADAAEAAAALAPv/AQADAAEAAAALAPr/AQADAAEAAAALAPn/AQADAAEAAAALAPj/AQAAAAAAAAAMAPj/AQABAAUAAAANAPj/AQABAAUAAAAOAPj/AQABAAUAAAAPAPj/AQABAAUAAAAQAPj/AQABAAUAAAARAPj/AQABAAUAAAASAPj/AQABAAUAAAATAPj/AQABAAUAAAAUAPj/AQACAAAAAAAUAPn/AQADAAEAAAAUAPr/AQADAAEAAAAUAPv/AQADAAEAAAAUAPz/AQADAAEAAAAUAP3/AQADAAEAAAAUAP7/AQADAAEAAAAUAP//AQADAAEAAAAUAAAAAQADAAEAAAAUAAEAAQADAAEAAAAUAAIAAQADAAEAAAAUAAMAAQADAAEAAAAUAAQAAQADAAEAAAAUAAUAAQACAAIAAAATAAUAAQABAAUAAAASAAUAAQABAAUAAAARAAUAAQABAAUAAAAQAAUAAQABAAUAAAAPAAUAAQABAAUAAAAOAAUAAQABAAUAAAANAAUAAQABAAUAAAAMAAUAAQABAAUAAAAMAPn/AQABAAYAAAAMAPr/AQABAAcAAAANAPn/AQABAAYAAAANAPr/AQABAAcAAAAOAPn/AQABAAYAAAAOAPr/AQABAAcAAAAPAPn/AQABAAYAAAAPAPr/AQABAAcAAAAQAPn/AQABAAYAAAAQAPr/AQABAAcAAAARAPn/AQABAAYAAAARAPr/AQABAAcAAAASAPn/AQABAAYAAAASAPr/AQABAAcAAAATAPn/AQABAAYAAAATAPr/AQABAAcAAAAMAAYAAQABAAYAAAAMAAcAAQABAAcAAAANAAYAAQABAAYAAAANAAcAAQABAAcAAAAOAAYAAQABAAYAAAAOAAcAAQABAAcAAAAPAAYAAQABAAYAAAAPAAcAAQABAAcAAAAQAAYAAQABAAYAAAAQAAcAAQABAAcAAAARAAYAAQABAAYAAAARAAcAAQABAAcAAAASAAYAAQABAAYAAAASAAcAAQABAAcAAAATAAYAAQABAAYAAAATAAcAAQABAAcAAAAUAAYAAQACAAYAAAAUAAcAAQACAAcAAAALAAYAAQAAAAYAAAALAAcAAQAAAAcAAAAKAAMAAAACAAMAAAAKAAQAAAACAAQAAAAJAAMAAAABAAMAAAAJAAQAAAABAAQAAAAKAP//AAACAAMAAAAKAAAAAAACAAQAAAAJAP//AAABAAMAAAAJAAAAAAABAAQAAAALAP//AQADAAMAAAALAAAAAQADAAQAAAAIAP7/AAAAAAIAAAAIAP//AAAAAAMAAAAIAAAAAAAAAAQAAAA=")
-tile_set = ExtResource("3_85g3d")
-y_sort_origin = 2
 
 [node name="SelectionArea" type="Area2D" parent="." unique_id=849331238]
 process_mode = 1
@@ -551,6 +515,7 @@ script = ExtResource("3_tbgi4")
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050]
+position = Vector2(1089, 160)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("7_o6xl0")
@@ -629,35 +594,7 @@ offset = Vector2(-4, 4)
 [node name="QuestManager" type="Node" parent="." unique_id=204504592]
 script = ExtResource("30_tel4y")
 
-[node name="BuildingPoint" type="Node2D" parent="." unique_id=1865876475]
-position = Vector2(176, -48)
-script = ExtResource("35_j8jky")
-forwhat = ExtResource("1_yq6so")
-
-[node name="BuildingPoint2" type="Node2D" parent="." unique_id=1308242952]
-position = Vector2(176, -16)
-script = ExtResource("35_j8jky")
-forwhat = ExtResource("1_yq6so")
-
-[node name="BuildingPoint3" type="Node2D" parent="." unique_id=34798948]
-position = Vector2(208, 48)
-script = ExtResource("35_j8jky")
-forwhat = ExtResource("1_yq6so")
-
-[node name="BuildingPoint4" type="Node2D" parent="." unique_id=1384389803]
-position = Vector2(208, 16)
-script = ExtResource("35_j8jky")
-forwhat = ExtResource("1_yq6so")
-
-[node name="BuildingPoint5" type="Node2D" parent="." unique_id=789870987]
-position = Vector2(80, -16)
-script = ExtResource("35_j8jky")
-forwhat = ExtResource("36_kmb1v")
-
-[node name="BuildingPoint6" type="Node2D" parent="." unique_id=159687694]
-position = Vector2(-80, -16)
-script = ExtResource("35_j8jky")
-forwhat = ExtResource("12_dgi5k")
+[node name="Map" parent="." unique_id=550863854 instance=ExtResource("32_qkpxi")]
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]

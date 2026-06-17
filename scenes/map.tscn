@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://04sokpqs1e88" path="res://art/environment/tv screen2_84frames.png" id="9_2cfcp"]
 [ext_resource type="Texture2D" uid="uid://b3i4121h7bhad" path="res://environment/sattelite.png" id="9_4b7dj"]
 [ext_resource type="Texture2D" uid="uid://cwic6eoqk6s5d" path="res://art/environment/tv screen2_35frames.png" id="10_5u2yt"]
-[ext_resource type="Texture2D" uid="uid://mx8xeaheyvwg" path="res://art/environment/small screen flash.png" id="10_y2ir2"]
 [ext_resource type="Texture2D" uid="uid://mx8xeaheyvwg" path="res://art/environment/small screen flash.png" id="12_mkblt"]
 [ext_resource type="Texture2D" uid="uid://be31e7yvbtmr" path="res://art/environment/screen animation.png" id="13_4o3w1"]
 [ext_resource type="Texture2D" uid="uid://ccks6wc45t1bt" path="res://art/environment/big screen flash.png" id="13_6ek7f"]
@@ -42,16 +41,59 @@ texture = ExtResource("1_4xfga")
 4:1/0 = 0
 4:2/0 = 0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4b7dj"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2cfcp"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y2ir2"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5u2yt"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_30iet"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mkblt"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lpho"]
 texture = ExtResource("2_2klcf")
 0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4b7dj")
 1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_y2ir2")
 2:0/0 = 0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_30iet")
 0:1/0 = 0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2cfcp")
 1:1/0 = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_5u2yt")
 2:1/0 = 0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_mkblt")
 
 [sub_resource type="TileSet" id="TileSet_gldc4"]
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_paxxb")
 sources/1 = SubResource("TileSetAtlasSource_2lpho")
 
@@ -3542,47 +3584,47 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfb0u"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(0, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_521t8"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(6, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bpgt"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(12, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54sr3"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(18, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8qgh"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(24, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6pjl"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(30, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp2xw"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(36, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvymk"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(42, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nopys"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(48, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5g3sy"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(54, 0, 6, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ob85"]
-atlas = ExtResource("10_y2ir2")
+atlas = ExtResource("12_mkblt")
 region = Rect2(60, 0, 6, 2)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rdlqv"]

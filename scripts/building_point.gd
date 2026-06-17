@@ -9,7 +9,7 @@ extends Node2D
 			add_child(forwhat.instantiate())
 @export var lockme : bool :
 	set(value):
-		global_position = round(global_position / 16) * 16
+		global_position = round(global_position / 8) * 8
 
 var id : int : 
 	get():
