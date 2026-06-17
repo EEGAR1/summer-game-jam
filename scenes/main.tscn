@@ -508,20 +508,25 @@ target_building = ExtResource("12_dgi5k")
 building_name = "Bed"
 descr = "Lets people get good sleep. Lures people to an area."
 
-[node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
+[node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(-41, 13)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen2" parent="." unique_id=383556618 instance=ExtResource("1_tbgi4")]
+[node name="Citizen2" parent="." unique_id=383556618 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(-52, -15)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen3" parent="." unique_id=812543357 instance=ExtResource("1_tbgi4")]
+[node name="Citizen3" parent="." unique_id=812543357 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(49, -11)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen4" parent="." unique_id=1863117809 instance=ExtResource("1_tbgi4")]
+[node name="Citizen4" parent="." unique_id=1863117809 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(0, 26)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen5" parent="." unique_id=1981682092 instance=ExtResource("1_tbgi4")]
+[node name="Citizen5" parent="." unique_id=1981682092 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(73, 21)
+control_parent = NodePath("../UI/Window")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 zoom = Vector2(5, 5)

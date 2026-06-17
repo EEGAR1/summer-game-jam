@@ -8,6 +8,9 @@ var possessed : bool = false
 @export_category("Physical Traits")
 @export var max_speed := 50.0
 
+@export_category("Other")
+@export var control_parent : Control
+
 enum STATE {
 	WORKING,
 	SELECTED,
@@ -41,6 +44,7 @@ static var target_positions : Array[Vector2]
 var id := 0
 
 var rand : float
+const NAME = preload("uid://dwg2gbpigfghm")
 func _ready():
 	rand = randf_range(0, PI*2)
 	
@@ -53,6 +57,13 @@ func _ready():
 	navigation_agent.path_changed.connect(path_postprocess)
 	
 	Globals.other_people.append(self)
+	
+	if control_parent != null:
+		var n = NAME.instantiate()
+		control_parent.add_child(n)
+		n.target = self
+		print(n)
+		
 
 func set_movement_target(movement_target: Vector2):
 	if not Globals.hover_target: # If we are not hovering a POI, reduce grouping
