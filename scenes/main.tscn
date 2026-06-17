@@ -4,14 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
 [ext_resource type="TileSet" uid="uid://kwxb77qdlh54" path="res://environment/wall_tiles.tres" id="3_85g3d"]
-[ext_resource type="Texture2D" uid="uid://bejrd43fj3mc4" path="res://environment/floor tileset.png" id="3_choun"]
+[ext_resource type="Texture2D" uid="uid://cdtkiyy0l3lmf" path="res://environment/floor tileset.png" id="3_choun"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://people/player.tres" id="10_choun"]
 [ext_resource type="Script" uid="uid://7mfn1wk30sl3" path="res://scripts/victory.gd" id="13_dp3eg"]
 [ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
@@ -24,31 +22,6 @@
 [ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
 [ext_resource type="Script" uid="uid://cu6q2daishhsy" path="res://scripts/peek_item.gd" id="20_yc10j"]
 [ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="21_jscy8"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
-radius = 5.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
-atlas = ExtResource("8_ya4ey")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
-atlas = ExtResource("8_ya4ey")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_a8y0u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eb6dy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trceg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("3_choun")
@@ -73,7 +46,7 @@ border_size = 2.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
-size = Vector2(16, 16)
+size = Vector2(7, 5.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8y0u"]
 radius = 14.0
@@ -142,6 +115,7 @@ collision_mask = 2
 script = ExtResource("7_o6xl0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=206966406]
+position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
