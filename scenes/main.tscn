@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://d3nujmbyie2x6" path="res://scenes/classes/get_building_button.tscn" id="9_5q0nq"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://art/people/player.tres" id="10_choun"]
-[ext_resource type="PackedScene" uid="uid://d1i8a0emugm8w" path="res://scenes/buildings/test_building.tscn" id="10_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="12_dgi5k"]
 [ext_resource type="Script" uid="uid://7mfn1wk30sl3" path="res://scripts/victory.gd" id="13_dp3eg"]
 [ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
@@ -35,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://fviorrad880" path="res://scenes/abilities/visual/break_ability_visual.tscn" id="27_tel4y"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
 [ext_resource type="Script" uid="uid://beryfidv60yyk" path="res://scripts/building_point.gd" id="35_j8jky"]
+[ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="36_kmb1v"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
 length = 0.001
@@ -494,7 +494,7 @@ columns = 3
 
 [node name="GetBuildingButton" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=976499015 instance=ExtResource("9_5q0nq")]
 layout_mode = 2
-target_building = ExtResource("10_dgi5k")
+target_building = ExtResource("36_kmb1v")
 building_name = "Test Building"
 
 [node name="GetBuildingButton2" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=1629588926 instance=ExtResource("9_5q0nq")]
@@ -627,37 +627,31 @@ script = ExtResource("30_tel4y")
 position = Vector2(176, -48)
 script = ExtResource("35_j8jky")
 forwhat = ExtResource("1_yq6so")
-lockme = null
 
 [node name="BuildingPoint2" type="Node2D" parent="." unique_id=1308242952]
 position = Vector2(176, -16)
 script = ExtResource("35_j8jky")
 forwhat = ExtResource("1_yq6so")
-lockme = null
 
 [node name="BuildingPoint3" type="Node2D" parent="." unique_id=34798948]
 position = Vector2(208, 48)
 script = ExtResource("35_j8jky")
 forwhat = ExtResource("1_yq6so")
-lockme = null
 
 [node name="BuildingPoint4" type="Node2D" parent="." unique_id=1384389803]
 position = Vector2(208, 16)
 script = ExtResource("35_j8jky")
 forwhat = ExtResource("1_yq6so")
-lockme = null
 
 [node name="BuildingPoint5" type="Node2D" parent="." unique_id=789870987]
-position = Vector2(64, 0)
+position = Vector2(80, -16)
 script = ExtResource("35_j8jky")
-forwhat = ExtResource("10_dgi5k")
-lockme = null
+forwhat = ExtResource("36_kmb1v")
 
 [node name="BuildingPoint6" type="Node2D" parent="." unique_id=159687694]
 position = Vector2(-80, -16)
 script = ExtResource("35_j8jky")
 forwhat = ExtResource("12_dgi5k")
-lockme = null
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]

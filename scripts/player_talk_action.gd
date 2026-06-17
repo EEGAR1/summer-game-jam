@@ -66,8 +66,6 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		match talk_state:
 			TALK_TYPE.BUILDQUEST:
 				choice = no_duplicates(Globals.complement_buildings).pick_random()
-				print(choice)
-				print(Globals.building_points.filter(func(x): return x.forwhat == choice), Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id))
 				point = Globals.building_points[Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id).pick_random()]
 				pos = point.global_position
 				point.queue_free.call_deferred()

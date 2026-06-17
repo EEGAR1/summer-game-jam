@@ -18,10 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_caxg1"]
 [ext_resource type="PackedScene" uid="uid://bjhucwn4u7rqq" path="res://scenes/actions/player_talk_action.tscn" id="17_rvppo"]
 [ext_resource type="Script" uid="uid://b7m6cxn3nlslv" path="res://scripts/join_leave_action.gd" id="18_72hwm"]
-[ext_resource type="PackedScene" uid="uid://d1i8a0emugm8w" path="res://scenes/buildings/test_building.tscn" id="18_dg5w8"]
 [ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="19_c0mn1"]
 [ext_resource type="Script" uid="uid://rlbsipqdpm07" path="res://scripts/give_quest_action.gd" id="19_teck6"]
 [ext_resource type="Script" uid="uid://ctjy6k4bh4ync" path="res://scripts/break_action.gd" id="20_5k6rt"]
+[ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="20_dg5w8"]
 [ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="20_mk3q7"]
 [ext_resource type="Texture2D" uid="uid://yxqhn2jlspe" path="res://art/items/knife.png" id="21_x1b7b"]
 
@@ -195,7 +195,7 @@ break_action = NodePath("../BreakAction")
 [node name="WitnessAction" parent="ActionManager" index="3" unique_id=1896438407 instance=ExtResource("16_caxg1")]
 
 [node name="PlayerTalkAction" parent="ActionManager" index="4" unique_id=1372718739 instance=ExtResource("17_rvppo")]
-building_list = Array[PackedScene]([ExtResource("18_dg5w8"), ExtResource("19_c0mn1"), ExtResource("20_mk3q7")])
+building_list = Array[PackedScene]([ExtResource("19_c0mn1"), ExtResource("20_mk3q7"), ExtResource("20_dg5w8")])
 
 [node name="JoinLeaveAction" type="Node2D" parent="ActionManager" index="5" unique_id=1944915478]
 script = ExtResource("18_72hwm")
