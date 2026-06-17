@@ -495,7 +495,7 @@ columns = 3
 [node name="GetBuildingButton" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=976499015 instance=ExtResource("9_5q0nq")]
 layout_mode = 2
 target_building = ExtResource("36_kmb1v")
-building_name = "Test Building"
+building_name = "Reactor"
 
 [node name="GetBuildingButton2" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=1629588926 instance=ExtResource("9_5q0nq")]
 layout_mode = 2
