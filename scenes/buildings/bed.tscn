@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ysjk7x1ndl35"]
+
+[ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="1_mdnvq"]
+[ext_resource type="Script" uid="uid://y1hfk7wlh8c7" path="res://scripts/bed.gd" id="2_1s0ve"]
+[ext_resource type="Texture2D" uid="uid://bhh3hln671c6p" path="res://art/environment/placeable/bed.png" id="3_mdnvq"]
+[ext_resource type="PackedScene" uid="uid://drowwofke7tsu" path="res://scenes/prefab/idle_poi.tscn" id="4_1s0ve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6apu"]
+size = Vector2(22, 38)
+
+[node name="Building" unique_id=1116943181 instance=ExtResource("1_mdnvq")]
+script = ExtResource("2_1s0ve")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=307647074]
+z_index = -1
+texture = ExtResource("3_mdnvq")
+region_rect = Rect2(144, 21, 48, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1513177027]
+shape = SubResource("RectangleShape2D_s6apu")
+
+[node name="IdlePOI" parent="." index="2" unique_id=1156854468 instance=ExtResource("4_1s0ve")]

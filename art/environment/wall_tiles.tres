@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://kwxb77qdlh54"]
 
-[ext_resource type="Texture2D" uid="uid://bqplo7kwpylne" path="res://art/environment/wall tileset 12x12.png" id="1_21fj1"]
-[ext_resource type="Texture2D" uid="uid://ca2pu4axx0yd2" path="res://art/environment/bathroom tileset 12x12.png" id="2_3wigi"]
+[ext_resource type="Texture2D" uid="uid://bd1rf466ln56" path="res://art/environment/wall tileset 12x12.png" id="1_21fj1"]
+[ext_resource type="Texture2D" uid="uid://caapnk5ap7vs4" path="res://art/environment/bathroom tileset 12x12.png" id="2_3wigi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wigi"]
 texture = ExtResource("1_21fj1")
@@ -151,13 +151,21 @@ texture_region_size = Vector2i(12, 12)
 7:3/0 = 0
 7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
 0:4/0 = 0
+0:4/0/z_index = -2
 1:4/0 = 0
+1:4/0/z_index = -2
 2:4/0 = 0
+2:4/0/z_index = -2
 3:4/0 = 0
+3:4/0/z_index = -2
 4:4/0 = 0
+4:4/0/z_index = -2
 5:4/0 = 0
+5:4/0/z_index = -2
 6:4/0 = 0
+6:4/0/z_index = -2
 7:4/0 = 0
+7:4/0/z_index = -2
 0:5/0 = 0
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
 1:5/0 = 0
@@ -191,13 +199,21 @@ texture_region_size = Vector2i(12, 12)
 7:6/0 = 0
 7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
 0:7/0 = 0
+0:7/0/z_index = -2
 1:7/0 = 0
+1:7/0/z_index = -2
 2:7/0 = 0
+2:7/0/z_index = -2
 3:7/0 = 0
+3:7/0/z_index = -2
 4:7/0 = 0
+4:7/0/z_index = -2
 5:7/0 = 0
+5:7/0/z_index = -2
 6:7/0 = 0
+6:7/0/z_index = -2
 7:7/0 = 0
+7:7/0/z_index = -2
 
 [resource]
 tile_size = Vector2i(12, 12)

@@ -24,3 +24,7 @@ enum POI_TYPE {
 }
 var idle_pois : Array[Node2D] # Pois that people may wander to
 var other_people : Array[Node2D]
+
+# Globals for buildings
+var building_points : Array[Node2D]
+var complement_buildings : Array[PackedScene]

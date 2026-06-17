@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ddk8ynb2tv0kp"]
+
+[ext_resource type="PackedScene" uid="uid://bp32hw1hxcqfr" path="res://scenes/classes/building.tscn" id="1_m364g"]
+[ext_resource type="Script" uid="uid://tqp82bhi1xh2" path="res://scripts/building_o_2_tank.gd" id="2_prk2r"]
+[ext_resource type="Texture2D" uid="uid://dyq8xum6rh2jn" path="res://art/environment/placeable/o2.png" id="3_prk2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6apu"]
+size = Vector2(48, 17)
+
+[node name="Building" unique_id=1116943181 instance=ExtResource("1_m364g")]
+script = ExtResource("2_prk2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=307647074]
+z_index = -1
+texture = ExtResource("3_prk2r")
+region_rect = Rect2(144, 21, 48, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1513177027]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_s6apu")

@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://blmwky0ijese4"]
+[gd_scene format=3 uid="uid://chk2yeqkco1aj"]
 
 [ext_resource type="Script" uid="uid://c8o6wetbjlfeo" path="res://scripts/person.gd" id="1_83wek"]
 [ext_resource type="Script" uid="uid://d1duynm47ujot" path="res://scripts/person_sprite.gd" id="2_5rrw4"]
 [ext_resource type="SpriteFrames" uid="uid://uxb2x8xqc0wf" path="res://art/people/citizen1.tres" id="2_litvv"]
 [ext_resource type="Script" uid="uid://dggsapn3rync6" path="res://scripts/emotion_manager.gd" id="3_litvv"]
-[ext_resource type="Texture2D" uid="uid://dftjb6qdi54t6" path="res://art/people/reactions.png" id="4_ghdxt"]
+[ext_resource type="Texture2D" uid="uid://bnopfnw6j4nqf" path="res://art/people/reactions.png" id="4_ghdxt"]
 [ext_resource type="Shader" uid="uid://0x0ctjuax7x3" path="res://shader/outline.gdshader" id="6_ghdxt"]
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="7_xugy6"]
 [ext_resource type="Script" uid="uid://ttlootrp3h0k" path="res://scripts/outline.gd" id="8_xugy6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xugy6"]
+radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omjwp"]
 atlas = ExtResource("4_ghdxt")
@@ -32,6 +32,10 @@ region = Rect2(48, 0, 16, 16)
 atlas = ExtResource("4_ghdxt")
 region = Rect2(64, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xugy6"]
+atlas = ExtResource("4_ghdxt")
+region = Rect2(80, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tb1cb"]
 animations = [{
 "frames": [{
@@ -49,6 +53,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u8p0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xugy6")
 }],
 "loop": true,
 "name": &"default",
@@ -140,7 +147,7 @@ frame_progress = 0.35062638
 script = ExtResource("2_5rrw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
-shape = SubResource("RectangleShape2D_1bvp3")
+shape = SubResource("CircleShape2D_xugy6")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1929608735]
 path_desired_distance = 50.0

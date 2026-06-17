@@ -6,6 +6,7 @@ extends Action
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var build_speed := 1.0
+@export var break_action : BreakAction
 
 var overlp : Array[Area2D] : 
 	get():
@@ -17,12 +18,13 @@ func _parent_is_ready() -> bool:
 func _check_action(delta : float):
 	animation_player.play("RESET")
 	
-	remove_action()
+	#remove_action()
 	if len(parent.current_path.path) != 0:
 		build_area.global_position = parent.current_path.path.back()
 	else:
 		for i in overlp:
 			i = i as Building
+			if break_action != null:	if break_action.can_break:	return
 			if parent.can_command or parent.possessed: set_action()
 
 func _while_acting(delta : float):

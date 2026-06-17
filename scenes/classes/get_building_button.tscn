@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d3nujmbyie2x6"]
+
+[ext_resource type="Script" uid="uid://dbigf76h73mbn" path="res://scripts/get_building_button.gd" id="1_hkftl"]
+[ext_resource type="Texture2D" uid="uid://bhh3hln671c6p" path="res://art/environment/placeable/bed.png" id="2_cqeao"]
+
+[node name="GetBuildingButton" type="Button" unique_id=976499015]
+custom_minimum_size = Vector2(125, 250)
+script = ExtResource("1_hkftl")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1789591360]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("2_cqeao")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1139075533]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 21
+text = "namehere"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=935555320]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "GIVE ME A DESCR YOU IDIOT! GIVE ME A DESCR YOU IDIOT!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

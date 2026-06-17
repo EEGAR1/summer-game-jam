@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://drowwofke7tsu"]
+
+[ext_resource type="Script" uid="uid://cvrw3024dw4cg" path="res://scripts/idle_poi.gd" id="1_76oxy"]
+
+[node name="IdlePOI" type="Node2D" unique_id=1156854468]
+script = ExtResource("1_76oxy")

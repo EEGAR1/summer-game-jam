@@ -25,12 +25,23 @@ func callback_hey_im_leaving(index : int):
 
 const BUILDING_COMPLEMENT = preload("uid://tbtxxel5mkwm")
 @export var building_list : Array[PackedScene] = [preload("uid://d1i8a0emugm8w")]
+
+var choice
+var point
+var pos
 func callback_build_quest(index : int):
 	if index == 0:
 		var bc = BUILDING_COMPLEMENT.instantiate()
-		bc.target_building = building_list.pick_random()
+		bc.target_building = choice
 		bc.parent = parent
+		bc.global_position = pos
 		Globals.quest_manager.add_child(bc)
+
+func no_duplicates(of: Array) -> Array:
+	var dict := {}
+	for i in of:
+		dict.set(i, "something")
+	return dict.keys()
 
 @onready var seek_area: Area2D = $SeekArea
 @onready var talk_area: Area2D = $TalkArea
@@ -46,12 +57,29 @@ func _check_action(delta : float) -> void: # Should use `set_action()` to set th
 	pass
 
 func _while_acting(delta : float) -> void: # Plays while acting
-	if len(talk_ovrlp) != 0:
-		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state))
+	if len(Globals.complement_buildings) == 0:
 		remove_action()
+		return
+	
+	if len(talk_ovrlp) != 0:
+		var texture = null
+		match talk_state:
+			TALK_TYPE.BUILDQUEST:
+				choice = no_duplicates(Globals.complement_buildings).pick_random()
+				point = Globals.building_points[Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id).pick_random()]
+				pos = point.global_position
+				point.queue_free.call_deferred()
+				texture = choice.instantiate().get_children().filter(func(x): return x is Sprite2D)[0].texture
+				
+		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state), texture)
+	
+		remove_action()
+		return
 	elif len(seek_ovrlp) != 0:
 		if len(parent.current_path.path) <= 0:
 			parent.set_movement_target(seek_ovrlp[0].global_position)
+	
+	parent.emotion_manager.show_emotion_frame(5)
 
 func _no_action(delta : float) -> void: # Plays when there is no action
 	pass

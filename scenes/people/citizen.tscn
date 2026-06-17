@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3bqytinstyy2"]
 
-[ext_resource type="PackedScene" uid="uid://blmwky0ijese4" path="res://scenes/classes/person.tscn" id="1_iyw6i"]
+[ext_resource type="PackedScene" uid="uid://chk2yeqkco1aj" path="res://scenes/classes/person.tscn" id="1_iyw6i"]
 [ext_resource type="SpriteFrames" uid="uid://uxb2x8xqc0wf" path="res://art/people/citizen1.tres" id="2_5gt71"]
 [ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="2_kd2ci"]
 [ext_resource type="SpriteFrames" uid="uid://cb26cyxjphsa7" path="res://art/people/citizen2.tres" id="3_xdauo"]
@@ -18,7 +18,164 @@
 [ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_caxg1"]
 [ext_resource type="PackedScene" uid="uid://bjhucwn4u7rqq" path="res://scenes/actions/player_talk_action.tscn" id="17_rvppo"]
 [ext_resource type="Script" uid="uid://b7m6cxn3nlslv" path="res://scripts/join_leave_action.gd" id="18_72hwm"]
+[ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="19_c0mn1"]
 [ext_resource type="Script" uid="uid://rlbsipqdpm07" path="res://scripts/give_quest_action.gd" id="19_teck6"]
+[ext_resource type="Script" uid="uid://ctjy6k4bh4ync" path="res://scripts/break_action.gd" id="20_5k6rt"]
+[ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="20_dg5w8"]
+[ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="20_mk3q7"]
+[ext_resource type="Texture2D" uid="uid://yxqhn2jlspe" path="res://art/items/knife.png" id="21_x1b7b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nac1c"]
+
+[sub_resource type="Animation" id="Animation_hwo2p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.69464105]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6.2566605, -5.4101553)]
+}
+
+[sub_resource type="Animation" id="Animation_x1b7b"]
+resource_name = "destroy_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.052784, -5.6316304)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [0.46251225, -1.8517944]
+}
+
+[sub_resource type="Animation" id="Animation_dg5w8"]
+resource_name = "destroy_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [-0.69464105, 1.4556046]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6.2566605, -5.4101553)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0mn1"]
+_data = {
+&"RESET": SubResource("Animation_hwo2p"),
+&"destroy_left": SubResource("Animation_x1b7b"),
+&"destroy_right": SubResource("Animation_dg5w8")
+}
 
 [node name="Citizen" unique_id=1228245065 instance=ExtResource("1_iyw6i")]
 
@@ -28,7 +185,8 @@ options = Array[SpriteFrames]([ExtResource("2_5gt71"), ExtResource("3_xdauo"), E
 [node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
 script = ExtResource("2_kd2ci")
 
-[node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 instance=ExtResource("8_xdauo")]
+[node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 node_paths=PackedStringArray("break_action") instance=ExtResource("8_xdauo")]
+break_action = NodePath("../BreakAction")
 
 [node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]
 
@@ -37,6 +195,7 @@ script = ExtResource("2_kd2ci")
 [node name="WitnessAction" parent="ActionManager" index="3" unique_id=1896438407 instance=ExtResource("16_caxg1")]
 
 [node name="PlayerTalkAction" parent="ActionManager" index="4" unique_id=1372718739 instance=ExtResource("17_rvppo")]
+building_list = Array[PackedScene]([ExtResource("19_c0mn1"), ExtResource("20_mk3q7"), ExtResource("20_dg5w8")])
 
 [node name="JoinLeaveAction" type="Node2D" parent="ActionManager" index="5" unique_id=1944915478]
 script = ExtResource("18_72hwm")
@@ -44,3 +203,23 @@ metadata/_custom_type_script = "uid://dyaahj865ksh8"
 
 [node name="GiveQuestAction" type="Node2D" parent="ActionManager" index="6" unique_id=109620905]
 script = ExtResource("19_teck6")
+
+[node name="BreakAction" type="Node2D" parent="ActionManager" index="7" unique_id=1070964979]
+script = ExtResource("20_5k6rt")
+metadata/_custom_type_script = "uid://dyaahj865ksh8"
+
+[node name="BuildArea" type="Area2D" parent="ActionManager/BreakAction" index="0" unique_id=703692891]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionManager/BreakAction/BuildArea" index="0" unique_id=642121082]
+shape = SubResource("CircleShape2D_nac1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="ActionManager/BreakAction" index="1" unique_id=1199994306]
+visible = false
+rotation = -0.69464105
+texture = ExtResource("21_x1b7b")
+offset = Vector2(6.2566605, -5.4101553)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActionManager/BreakAction/Sprite2D" index="0" unique_id=2140237985]
+libraries/ = SubResource("AnimationLibrary_c0mn1")

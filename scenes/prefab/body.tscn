@@ -46,7 +46,7 @@ animations = [{
 script = ExtResource("1_wrv8k")
 
 [node name="BloodPool" type="AnimatedSprite2D" parent="." unique_id=363065239]
-z_index = -1
+z_index = -2
 position = Vector2(0, 7)
 sprite_frames = SubResource("SpriteFrames_gv4vk")
 script = ExtResource("2_wrv8k")
