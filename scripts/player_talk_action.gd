@@ -59,13 +59,17 @@ func _check_action(delta : float) -> void: # Should use `set_action()` to set th
 func _while_acting(delta : float) -> void: # Plays while acting
 	if len(Globals.complement_buildings) == 0:
 		remove_action()
+		return
 	
 	if len(talk_ovrlp) != 0:
 		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state))
 		remove_action()
+		return
 	elif len(seek_ovrlp) != 0:
 		if len(parent.current_path.path) <= 0:
 			parent.set_movement_target(seek_ovrlp[0].global_position)
+	
+	parent.emotion_manager.show_emotion_frame(5)
 
 func _no_action(delta : float) -> void: # Plays when there is no action
 	pass
