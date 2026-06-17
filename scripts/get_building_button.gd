@@ -2,10 +2,12 @@ extends Button
 
 @export var target_building : PackedScene
 @export var building_name := "NAME ME YOU IDIOT!!!"
+@export var descr := "GIVE ME A DESCR YOU IDIOT!!!"
 
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var foldable_container: FoldableContainer = $"../../.."
 @onready var label: Label = $Label
+@onready var label_2: Label = $Label2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +17,7 @@ func _ready() -> void:
 			texture_rect.texture = i.texture
 	
 	label.text = building_name
+	label_2.text = descr
 	
 	pressed.connect(_pressed)
 	

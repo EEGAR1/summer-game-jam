@@ -476,13 +476,11 @@ mouse_filter = 2
 [node name="FoldableContainer" type="FoldableContainer" parent="UI/Window/HBoxContainer/VBoxContainer" unique_id=226681381]
 custom_minimum_size = Vector2(600, 300)
 layout_mode = 2
-folded = true
 title = "Buildings"
 title_alignment = 1
 script = ExtResource("8_dgi5k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer" unique_id=1545410440]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
@@ -496,16 +494,19 @@ columns = 3
 layout_mode = 2
 target_building = ExtResource("36_kmb1v")
 building_name = "Reactor"
+descr = "Supplies power. Explodes and damages buildings on damage."
 
 [node name="GetBuildingButton2" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=1629588926 instance=ExtResource("9_5q0nq")]
 layout_mode = 2
 target_building = ExtResource("1_yq6so")
 building_name = "O2 Tank"
+descr = "Extra O2 Reserves. Explodes and kills people on damage."
 
 [node name="GetBuildingButton3" parent="UI/Window/HBoxContainer/VBoxContainer/FoldableContainer/HBoxContainer/GridContainer" unique_id=1095447016 instance=ExtResource("9_5q0nq")]
 layout_mode = 2
 target_building = ExtResource("12_dgi5k")
 building_name = "Bed"
+descr = "Lets people get good sleep. Lures people to an area."
 
 [node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
 position = Vector2(-41, 13)
