@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dm5ieuyu7ohio"]
+
+[ext_resource type="PackedScene" uid="uid://chk2yeqkco1aj" path="res://scenes/classes/person.tscn" id="1_spfmp"]
+[ext_resource type="SpriteFrames" uid="uid://gyjmb3ykc6yp" path="res://art/people/engineer1.tres" id="2_x65q2"]
+[ext_resource type="SpriteFrames" uid="uid://c8pxeunsuks1h" path="res://art/people/engineer2.tres" id="3_uvsk2"]
+[ext_resource type="SpriteFrames" uid="uid://jsixsw6nc2q1" path="res://art/people/engineer3.tres" id="4_lg4eh"]
+[ext_resource type="SpriteFrames" uid="uid://bk6qja2qx4utf" path="res://art/people/engineer4.tres" id="5_iphem"]
+[ext_resource type="SpriteFrames" uid="uid://dotdvywyoxhv4" path="res://art/people/engineer5.tres" id="6_jcj2m"]
+[ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="12_i1igf"]
+[ext_resource type="PackedScene" uid="uid://qt4q5yyc26i" path="res://scenes/actions/build_action.tscn" id="13_1pxpe"]
+[ext_resource type="PackedScene" uid="uid://dhvkw4oxxqki5" path="res://scenes/actions/idle_action.tscn" id="14_dgi4x"]
+[ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_7wjkf"]
+[ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_dicbo"]
+[ext_resource type="PackedScene" uid="uid://bjhucwn4u7rqq" path="res://scenes/actions/player_talk_action.tscn" id="17_drp36"]
+[ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="18_hkf6w"]
+[ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="19_bnwu6"]
+[ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="20_n4fb0"]
+[ext_resource type="PackedScene" uid="uid://denw4lk7lda6h" path="res://scenes/actions/join_leave_action.tscn" id="21_rrc8m"]
+[ext_resource type="PackedScene" uid="uid://bj062j4upykwd" path="res://scenes/actions/give_quest_action.tscn" id="22_mfrtp"]
+[ext_resource type="PackedScene" uid="uid://hqc23s1v3i7y" path="res://scenes/actions/break_action.tscn" id="23_msjin"]
+
+[node name="Engineer" unique_id=1228245065 instance=ExtResource("1_spfmp")]
+
+[node name="Icon" parent="." index="0" unique_id=1980460130]
+sprite_frames = ExtResource("2_x65q2")
+frame_progress = 0.0
+options = Array[SpriteFrames]([ExtResource("2_x65q2"), ExtResource("3_uvsk2"), ExtResource("4_lg4eh"), ExtResource("5_iphem"), ExtResource("6_jcj2m")])
+
+[node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
+script = ExtResource("12_i1igf")
+
+[node name="BuildAction" parent="ActionManager" index="0" unique_id=1576697744 instance=ExtResource("13_1pxpe")]
+build_speed = 2.5
+
+[node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("14_dgi4x")]
+
+[node name="KillAction" parent="ActionManager" index="2" unique_id=1662293383 instance=ExtResource("15_7wjkf")]
+
+[node name="WitnessAction" parent="ActionManager" index="3" unique_id=1896438407 instance=ExtResource("16_dicbo")]
+
+[node name="PlayerTalkAction" parent="ActionManager" index="4" unique_id=1372718739 instance=ExtResource("17_drp36")]
+building_list = Array[PackedScene]([ExtResource("18_hkf6w"), ExtResource("19_bnwu6"), ExtResource("20_n4fb0")])
+
+[node name="JoinLeaveAction" parent="ActionManager" index="5" unique_id=1020915660 instance=ExtResource("21_rrc8m")]
+
+[node name="GiveQuestAction" parent="ActionManager" index="6" unique_id=729581203 instance=ExtResource("22_mfrtp")]
+
+[node name="BreakAction" parent="ActionManager" index="7" unique_id=2077954482 instance=ExtResource("23_msjin")]
