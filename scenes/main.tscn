@@ -373,19 +373,21 @@ offset_bottom = 29.0
 script = ExtResource("15_pm3ni")
 
 [node name="TooltipPanel" type="Panel" parent="UI/Window/Tooltip" unique_id=2008791126]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_top = -153.0
-offset_right = 119.0
+offset_right = 200.0
 
-[node name="Label" type="Label" parent="UI/Window/Tooltip/TooltipPanel" unique_id=1181333344]
+[node name="ItemList" type="ItemList" parent="UI/Window/Tooltip/TooltipPanel" unique_id=484221425]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Hello this is a test"
-autowrap_mode = 3
+item_count = 3
+max_columns = 3
+item_0/text = "Name"
 
 [node name="Dialog" type="Panel" parent="UI/Window" unique_id=1888146334]
 visible = false
