@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mcsndbtwiqno"]
 
-[ext_resource type="Texture2D" uid="uid://dpy4kldgjbkln" path="res://environment/shower.png" id="1_x6k2h"]
-[ext_resource type="Script" uid="uid://8d5g8wm8n207" path="res://scenes/area_2d.gd" id="2_mq4iw"]
+[ext_resource type="Texture2D" uid="uid://hylh4h1wnjtl" path="res://art/environment/shower.png" id="1_x6k2h"]
+[ext_resource type="Script" uid="uid://8d5g8wm8n207" path="res://shower.gd" id="2_x6k2h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rl4u"]
 atlas = ExtResource("1_x6k2h")
@@ -104,7 +104,7 @@ sprite_frames = SubResource("SpriteFrames_s138g")
 animation = &"on"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2013876469]
-script = ExtResource("2_mq4iw")
+script = ExtResource("2_x6k2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=416528748]
 position = Vector2(-1, 16)

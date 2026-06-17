@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bcs1rcdino1q0"]
+
+[ext_resource type="Script" path="res://scripts/name.gd" id="1_gkayp"]
+
+[node name="Name" type="Label" unique_id=1379152542]
+offset_right = 79.0
+offset_bottom = 23.0
+text = "TestName"
+horizontal_alignment = 1
+script = ExtResource("1_gkayp")
