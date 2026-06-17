@@ -27,14 +27,14 @@ const BUILDING_COMPLEMENT = preload("uid://tbtxxel5mkwm")
 @export var building_list : Array[PackedScene] = [preload("uid://d1i8a0emugm8w")]
 
 var choice
+var point
+var pos
 func callback_build_quest(index : int):
 	if index == 0:
 		var bc = BUILDING_COMPLEMENT.instantiate()
 		bc.target_building = choice
 		bc.parent = parent
-		var point = Globals.building_points[Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id).pick_random()]
-		bc.global_position = point.global_position
-		point.queue_free.call_deferred()
+		bc.global_position = pos
 		Globals.quest_manager.add_child(bc)
 
 func no_duplicates(of: Array) -> Array:
@@ -66,6 +66,11 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		match talk_state:
 			TALK_TYPE.BUILDQUEST:
 				choice = no_duplicates(Globals.complement_buildings).pick_random()
+				print(choice)
+				print(Globals.building_points.filter(func(x): return x.forwhat == choice), Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id))
+				point = Globals.building_points[Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id).pick_random()]
+				pos = point.global_position
+				point.queue_free.call_deferred()
 				texture = choice.instantiate().get_children().filter(func(x): return x is Sprite2D)[0].texture
 				
 		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state), texture)

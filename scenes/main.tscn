@@ -447,13 +447,15 @@ allow_reselect = true
 libraries/ = SubResource("AnimationLibrary_2f3dj")
 
 [node name="TextureRect" type="TextureRect" parent="UI/Window/Dialog" unique_id=1395158139]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.8532986
-anchor_top = 0.15500078
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
 stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Window" unique_id=1954126796]

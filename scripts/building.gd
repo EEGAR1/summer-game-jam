@@ -37,7 +37,7 @@ func building_process(delta : float):
 				current_state = STATE.BUILDING
 		
 		STATE.BUILDING:
-			sprite_2d.modulate = Color(0.784, 0.784, 0.784, 0.329)
+			sprite_2d.modulate = Color(0.194, 0.194, 0.194, 1.0) if damaged else Color(0.784, 0.784, 0.784, 0.329)
 			if damaged: damaged_process(delta)
 			
 			if current_work > work_needed:
@@ -54,6 +54,7 @@ func building_process(delta : float):
 			sprite_2d.modulate = Color(0.194, 0.194, 0.194, 1.0)
 			current_state = STATE.BUILDING
 			damaged = true
+			current_work = 0.0
 
 func built_process(delta : float) -> void:
 	pass
