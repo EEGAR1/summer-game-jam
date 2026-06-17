@@ -1,6 +1,12 @@
-extends FOVArea2D
+class_name Explosion extends FOVArea2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+enum DAMAGE_TYPE {
+	BUILDINGS,
+	PEOPLE
+}
+var damage_type : DAMAGE_TYPE
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,13 +19,15 @@ func damage() -> void:
 	var people = get_fov_overlapping_bodies().filter(func(x): return x is Person)
 	var player = get_fov_overlapping_bodies().filter(func(x): return x is Player)
 	
-	for i in buildings:
-		i = i as Building
-		i.current_state = Building.STATE.DAMAGED
-	
-	for i in people:
-		i = i as Person
-		i.dead = true
+	match damage_type:
+		DAMAGE_TYPE.BUILDINGS:
+			for i in buildings:
+				i = i as Building
+				i.current_state = Building.STATE.DAMAGED
+		DAMAGE_TYPE.PEOPLE:
+			for i in people:
+				i = i as Person
+				i.dead = true
 	
 	if len(player) != 0:
 		(player[0] as Player).dead = true

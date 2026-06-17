@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0u67intsldg8"]
 
 [ext_resource type="Script" uid="uid://0wuvib40bt2" path="res://scripts/explosion.gd" id="1_i2skm"]
-[ext_resource type="Texture2D" uid="uid://hgbyqwoyg1o7" path="res://art/placehold/glow.png" id="2_60daf"]
+[ext_resource type="Texture2D" uid="uid://c6xlbp3etdbjo" path="res://art/placehold/glow.png" id="2_60daf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_60daf"]
 radius = 48.0
