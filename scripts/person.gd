@@ -44,7 +44,7 @@ static var target_positions : Array[Vector2]
 var id := 0
 
 var rand : float
-const NAME = preload("uid://dwg2gbpigfghm")
+const NAME = preload("uid://bcs1rcdino1q0")
 func _ready():
 	rand = randf_range(0, PI*2)
 	
@@ -168,3 +168,7 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func sensing():
 	for building in building_sense.get_overlapping_areas().filter(func(x): return x is Building):
 		set_movement_target(building.global_position)
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.
