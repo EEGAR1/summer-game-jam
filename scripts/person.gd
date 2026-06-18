@@ -9,6 +9,12 @@ var possessed : bool = false
 @export var max_speed := 50.0
 
 @export_category("Other")
+enum TYPE {
+	CIT,
+	ENG,
+	POL
+}
+@export var type : TYPE
 @export var control_parent : Control
 
 enum STATE {
@@ -44,7 +50,7 @@ static var target_positions : Array[Vector2]
 var id := 0
 
 var rand : float
-const NAME = preload("uid://dwg2gbpigfghm")
+const NAME = preload("uid://bcs1rcdino1q0")
 func _ready():
 	rand = randf_range(0, PI*2)
 	

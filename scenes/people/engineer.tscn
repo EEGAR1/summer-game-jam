@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://hqc23s1v3i7y" path="res://scenes/actions/break_action.tscn" id="23_msjin"]
 
 [node name="Engineer" unique_id=1228245065 instance=ExtResource("1_spfmp")]
+type = 1
 
 [node name="Icon" parent="." index="0" unique_id=1980460130]
 sprite_frames = ExtResource("2_x65q2")
