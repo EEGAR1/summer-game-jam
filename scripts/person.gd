@@ -9,6 +9,12 @@ var possessed : bool = false
 @export var max_speed := 50.0
 
 @export_category("Other")
+enum TYPE {
+	CIT,
+	ENG,
+	POL
+}
+@export var type : TYPE
 @export var control_parent : Control
 
 enum STATE {

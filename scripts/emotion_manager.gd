@@ -29,6 +29,10 @@ func show_emotion_frame(frame : int):
 func get_emotion(person_id : int, em_type : int):
 	return emotions.get(float(person_id) + 0.1*float(em_type))
 
+var parent : Person :
+	get():
+		return get_parent() as Person
+
 func _ready() -> void:
 	if is_instance_valid(get_tree()):	await get_tree().process_frame
 	
@@ -36,3 +40,12 @@ func _ready() -> void:
 		for emotion in EMOTION_TYPE.values():
 			emotions.set(float(i.id) + 0.1*float(emotion), 50.0)
 	
+	for i in Globals.other_people:
+		if i is Player: continue
+		i = i as Person
+		if i.type == parent.type:
+			for em in EmotionManager.EMOTION_TYPE.values():
+				parent.emotion_manager.set_emotion(i.id, em, randf_range(35.0, 90.0))
+		else:
+			for em in EmotionManager.EMOTION_TYPE.values():
+				parent.emotion_manager.set_emotion(i.id, em, randf_range(20.0, 65.0))

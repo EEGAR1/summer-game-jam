@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bjhucwn4u7rqq"]
 
 [ext_resource type="Script" uid="uid://uphb5d7dydpd" path="res://scripts/player_talk_action.gd" id="1_502rs"]
+[ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="2_qwim8"]
+[ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="3_4qcrn"]
+[ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="4_1bhj4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_72hwm"]
 radius = 80.0
@@ -13,13 +16,16 @@ script = ExtResource("1_502rs")
 body_text = Dictionary[int, String]({
 0: "I trust you. You've done a lot for me, so if there's anything I can help you with just let me know.",
 1: "Sorry but I don't trust you enough to keep doing favors for you. Sorry.",
-2: "Can you build this for me?"
+2: "Can you build this for me?",
+3: "Can you give this to someone?"
 })
 choices = Dictionary[int, Variant]({
 0: ["Ok"],
 1: ["Ok"],
-2: ["Ill make it happen (Accept)", "Go away (Decline)"]
+2: ["Ill make it happen (Accept)", "Go away (Decline)"],
+3: ["Sure! (Accept)", "No. (Decline)"]
 })
+building_list = Array[PackedScene]([ExtResource("2_qwim8"), ExtResource("3_4qcrn"), ExtResource("4_1bhj4")])
 metadata/_custom_type_script = "uid://dyaahj865ksh8"
 
 [node name="SeekArea" type="Area2D" parent="." unique_id=1640183945]

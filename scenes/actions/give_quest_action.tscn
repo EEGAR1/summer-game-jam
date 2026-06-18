@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bj062j4upykwd"]
+
+[ext_resource type="Script" uid="uid://rlbsipqdpm07" path="res://scripts/give_quest_action.gd" id="1_x45m0"]
+
+[node name="GiveQuestAction" type="Node2D" unique_id=729581203]
+script = ExtResource("1_x45m0")

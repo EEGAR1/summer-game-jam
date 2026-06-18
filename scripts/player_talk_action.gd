@@ -3,7 +3,8 @@ class_name PlayerTalkAction extends Action
 enum TALK_TYPE {
 	HEYIMJOINING,
 	HEYIMLEAVING,
-	BUILDQUEST
+	BUILDQUEST,
+	GIVEQUEST
 }
 var talk_state : TALK_TYPE
 
@@ -12,7 +13,8 @@ var talk_state : TALK_TYPE
 var callables : Dictionary[TALK_TYPE, Callable] = {
 	TALK_TYPE.HEYIMJOINING : callback_hey_im_joining, # Defaults
 	TALK_TYPE.HEYIMLEAVING : callback_hey_im_leaving,
-	TALK_TYPE.BUILDQUEST : callback_build_quest
+	TALK_TYPE.BUILDQUEST : callback_build_quest,
+	TALK_TYPE.GIVEQUEST : callback_letter_quest
 }
 
 func callback_hey_im_joining(index : int):
@@ -36,6 +38,26 @@ func callback_build_quest(index : int):
 		bc.parent = parent
 		bc.global_position = pos
 		Globals.quest_manager.add_child(bc)
+		
+const LETTER_ITEM = preload("uid://ddjg8caagspb2")
+@onready var give_quest_action: Node2D = $"../GiveQuestAction"
+var to
+func callback_letter_quest(index : int):
+	give_quest_action.giving_givequest = false
+	if index == 0:
+		var li = LETTER_ITEM.instantiate() as LetterPlayerItem
+		li.from = parent
+		var max = 0
+		var ind = -1
+		var what_index = 0
+		for i in parent.emotion_manager.emotions.values():
+			ind += 1
+			if abs(50.0 - i) > max:
+				max = abs(50.0 - i)
+				what_index = ind
+		li.type = LetterPlayerItem.TYPES.GOOD if parent.emotion_manager.emotions.values()[what_index] >= 50.0 else LetterPlayerItem.TYPES.BAD
+		li.to = to
+		(Globals.player.get_child(2) as ItemsManager).add_child(li)
 
 func no_duplicates(of: Array) -> Array:
 	var dict := {}
@@ -70,7 +92,17 @@ func _while_acting(delta : float) -> void: # Plays while acting
 				pos = point.global_position
 				point.queue_free.call_deferred()
 				texture = choice.instantiate().get_children().filter(func(x): return x is Sprite2D)[0].texture
-				
+			TALK_TYPE.GIVEQUEST:
+				var max = 0
+				var ind = -1
+				var what_index = 0
+				for i in parent.emotion_manager.emotions.values():
+					ind += 1
+					if abs(50.0 - i) > max:
+						max = abs(50.0 - i)
+						what_index = ind
+				to = Globals.other_people[int(round(parent.emotion_manager.emotions.keys()[what_index]))]
+				texture = (to.get_child(2) as AnimatedSprite2D).sprite_frames.get_frame_texture("idle", 0)
 		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state), texture)
 	
 		remove_action()

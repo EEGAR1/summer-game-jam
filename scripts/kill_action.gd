@@ -2,11 +2,12 @@ class_name KillAction extends Action
 
 @export var killing := false
 
-@export var max_love_to_kill := 10.0 ## If someone loves a person this value or less they will kill them
+@export var max_love_to_kill := 15.0 ## If someone loves a person this value or less they will kill them
 
 @onready var emotion_manager: EmotionManager = $"../../EmotionManager"
-@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $Node2D/Sprite2D/AnimationPlayer
+@export var pivot: Node2D
+@export var otherway := false
 
 @onready var seek_area: Area2D = $SeekArea
 var seek_area_overlap : Array[Node2D] :
@@ -21,15 +22,24 @@ var stab_area_overlap : Array[Node2D] :
 var target : CharacterBody2D = null
 func _parent_is_ready() -> bool:
 	if _is_current_action(): return false
+
+	return update_target()
+
+func update_target() -> bool:
+	target = null
+	var t : CharacterBody2D
 	
 	var min_love := 9e9
 	for person in seek_area_overlap:
-		#person = person as Person
 		var e = emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE)
 		if e < min_love and person != parent:
 			min_love = e
-			target = person
-	return (min_love < max_love_to_kill)
+			t = person
+	
+	if min_love < max_love_to_kill:
+		target = t
+		return true
+	return false
 
 func _no_action(delta : float) -> void:
 	return
@@ -52,13 +62,12 @@ func _while_acting(delta : float):
 		parent.current_path.clear()
 		return
 	
-	#var seek_target = seek_area_overlap.filter(func(x): return x == target and x.dead == false)
-	var stab_target = stab_area_overlap.filter(func(x): return x == target)
+	pivot.rotation = (global_position - target.global_position).normalized().angle() + PI if otherway else 0.0
 	
-	sprite_2d.rotation = target.global_position.angle_to(global_position)
 	if len(parent.current_path.path) == 0:	parent.set_movement_target(target.global_position)
 	if parent.current_state != Person.STATE.WORKING:	parent.current_state = Person.STATE.WORKING
-	if len(stab_target) > 0:
+	if target in stab_area_overlap:
+		print(parent.emotion_manager.emotions, target)
 		animation_player.play("stab")
 		remove_action()
 		parent.current_path.clear()

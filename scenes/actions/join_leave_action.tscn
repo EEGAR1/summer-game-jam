@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://denw4lk7lda6h"]
+
+[ext_resource type="Script" uid="uid://b7m6cxn3nlslv" path="res://scripts/join_leave_action.gd" id="1_1u06c"]
+
+[node name="JoinLeaveAction" type="Node2D" unique_id=1020915660]
+script = ExtResource("1_1u06c")
+metadata/_custom_type_script = "uid://dyaahj865ksh8"

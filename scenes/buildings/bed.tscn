@@ -20,3 +20,4 @@ region_rect = Rect2(144, 21, 48, 26)
 shape = SubResource("RectangleShape2D_s6apu")
 
 [node name="IdlePOI" parent="." index="2" unique_id=1156854468 instance=ExtResource("4_1s0ve")]
+enabled = false

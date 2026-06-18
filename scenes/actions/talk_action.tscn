@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dd6c2w7kknwh6"]
+
+[ext_resource type="Script" uid="uid://1cn22gri57st" path="res://scripts/talk_action.gd" id="1_0ucsn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg5w8"]
+radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0mn1"]
+radius = 8.0
+
+[node name="TalkAction" type="Node2D" unique_id=1930237897]
+script = ExtResource("1_0ucsn")
+metadata/_custom_type_script = "uid://dyaahj865ksh8"
+
+[node name="SeekArea" type="Area2D" parent="." unique_id=1372136758]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeekArea" unique_id=1190554390]
+shape = SubResource("CircleShape2D_dg5w8")
+
+[node name="TalkArea" type="Area2D" parent="." unique_id=1230754073]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea" unique_id=821823879]
+shape = SubResource("CircleShape2D_c0mn1")
