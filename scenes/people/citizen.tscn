@@ -28,6 +28,7 @@
 
 [node name="Icon" parent="." index="0" unique_id=1980460130]
 options = Array[SpriteFrames]([ExtResource("2_5gt71"), ExtResource("3_xdauo"), ExtResource("4_e2i7i"), ExtResource("5_yj4cy"), ExtResource("6_n2hx6"), ExtResource("7_g1ei6"), ExtResource("8_jbnel"), ExtResource("9_caxg1"), ExtResource("10_rvppo"), ExtResource("11_72hwm")])
+genders = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 1, 1])
 
 [node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
 script = ExtResource("2_kd2ci")

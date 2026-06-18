@@ -26,6 +26,7 @@ type = 1
 sprite_frames = ExtResource("2_x65q2")
 frame_progress = 0.0
 options = Array[SpriteFrames]([ExtResource("2_x65q2"), ExtResource("3_uvsk2"), ExtResource("4_lg4eh"), ExtResource("5_iphem"), ExtResource("6_jcj2m")])
+genders = Array[int]([1, 1, 0, 1, 0, 0])
 
 [node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
 script = ExtResource("12_i1igf")

@@ -161,20 +161,25 @@ animations = [{
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 
-[node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
+[node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1127, 151)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen2" parent="." unique_id=664325087 instance=ExtResource("1_tbgi4")]
+[node name="Citizen2" parent="." unique_id=664325087 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(984, 103)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen3" parent="." unique_id=961311435 instance=ExtResource("1_tbgi4")]
+[node name="Citizen3" parent="." unique_id=961311435 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1193, 233)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen4" parent="." unique_id=1215606505 instance=ExtResource("1_tbgi4")]
+[node name="Citizen4" parent="." unique_id=1215606505 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1164, 230)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen5" parent="." unique_id=1719604961 instance=ExtResource("1_tbgi4")]
+[node name="Citizen5" parent="." unique_id=1719604961 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1143, 213)
+control_parent = NodePath("../UI/Window")
 
 [node name="IdlePOI" parent="." unique_id=1156854468 instance=ExtResource("2_j8jky")]
 position = Vector2(1119, 91)

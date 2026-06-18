@@ -145,6 +145,10 @@ sprite_frames = ExtResource("2_litvv")
 animation = &"run"
 frame_progress = 0.35062638
 script = ExtResource("2_5rrw4")
+gender_names = Dictionary[int, Array]({
+0: ["Alfred", "Bernie", "Carl", "Eric", "Fred", "Harold", "John", "Larry", "Oliver", "Perry", "Steven"],
+1: ["Annie", "Bella", "Cary", "El", "Hanna", "Iggy", "Jane", "Laura", "Mely", "Sara", "Winnie"]
+})
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802108318]
 shape = SubResource("CircleShape2D_xugy6")
