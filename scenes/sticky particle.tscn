@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://chf3l1rgsdakp"]
+
+[ext_resource type="Texture2D" uid="uid://daynd1sm7kl86" path="res://effects/stickynote particle.png" id="1_t0s5x"]
+[ext_resource type="Script" uid="uid://bi865a38rdlx3" path="res://particle_trigger.gd" id="2_t0s5x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lun3d"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_4b7dj"]
+offsets = PackedFloat32Array(0, 0.07647908, 0.8109668, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m335s"]
+size = Vector2(17.499998, 37.25)
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=1829849536]
+z_index = 2
+material = SubResource("CanvasItemMaterial_lun3d")
+emitting = false
+amount = 1
+texture = ExtResource("1_t0s5x")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.71
+direction = Vector2(0, -1)
+spread = 38.88
+gravity = Vector2(0, 40)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+angular_velocity_min = -153.19
+angular_velocity_max = 162.2
+linear_accel_min = -8.07
+linear_accel_max = -8.07
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_4b7dj")
+anim_offset_max = 1.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1744598656]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_t0s5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=254658142]
+position = Vector2(-1.7881393e-07, 15.099998)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_m335s")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=386842462]
+z_index = 2
+material = SubResource("CanvasItemMaterial_lun3d")
+emitting = false
+amount = 1
+texture = ExtResource("1_t0s5x")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.71
+direction = Vector2(0, -1)
+spread = 38.88
+gravity = Vector2(0, 40)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+angular_velocity_min = -153.19
+angular_velocity_max = 162.2
+linear_accel_min = -8.07
+linear_accel_max = -8.07
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_4b7dj")
+anim_offset_max = 1.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=56295227]
+z_index = 2
+material = SubResource("CanvasItemMaterial_lun3d")
+emitting = false
+amount = 1
+texture = ExtResource("1_t0s5x")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.71
+direction = Vector2(0, -1)
+spread = 38.88
+gravity = Vector2(0, 40)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+angular_velocity_min = -153.19
+angular_velocity_max = 162.2
+linear_accel_min = -8.07
+linear_accel_max = -8.07
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_4b7dj")
+anim_offset_max = 1.0
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
