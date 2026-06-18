@@ -517,7 +517,7 @@ script = ExtResource("3_tbgi4")
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050 groups=["player"]]
-position = Vector2(1089, 160)
+position = Vector2(1645, -94)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("7_o6xl0")
@@ -579,6 +579,9 @@ shape = SubResource("CircleShape2D_a8y0u")
 wait_time = 0.25
 autostart = true
 script = ExtResource("31_kmb1v")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=1722974427]
+current = true
 
 [node name="GameManager" type="Node" parent="." unique_id=1195878992]
 script = ExtResource("20_gqmmt")

@@ -14,7 +14,7 @@ offsets = PackedFloat32Array(0, 0.07647908, 0.8109668, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m335s"]
-size = Vector2(17.499998, 37.25)
+size = Vector2(17.499998, 31)
 
 [node name="CPUParticles2D" type="CPUParticles2D" unique_id=1829849536]
 z_index = 2
@@ -27,7 +27,7 @@ one_shot = true
 explosiveness = 0.71
 direction = Vector2(0, -1)
 spread = 38.88
-gravity = Vector2(0, 40)
+gravity = Vector2(0, 50)
 initial_velocity_min = 25.0
 initial_velocity_max = 25.0
 angular_velocity_min = -153.19
@@ -45,7 +45,7 @@ collision_mask = 4
 script = ExtResource("2_t0s5x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=254658142]
-position = Vector2(-1.7881393e-07, 15.099998)
+position = Vector2(-1.7881393e-07, 12.599998)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_m335s")
 
@@ -83,7 +83,7 @@ one_shot = true
 explosiveness = 0.71
 direction = Vector2(0, -1)
 spread = 38.88
-gravity = Vector2(0, 40)
+gravity = Vector2(0, 60)
 initial_velocity_min = 25.0
 initial_velocity_max = 25.0
 angular_velocity_min = -153.19

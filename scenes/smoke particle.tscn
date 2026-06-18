@@ -14,7 +14,7 @@ offsets = PackedFloat32Array(0.49411765, 1)
 colors = PackedColorArray(1, 1, 1, 0.13725491, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m335s"]
-size = Vector2(14.999998, 41)
+size = Vector2(14.999998, 36)
 
 [node name="CPUParticles2D" type="CPUParticles2D" unique_id=1829849536]
 z_index = 20
@@ -47,7 +47,7 @@ collision_mask = 4
 script = ExtResource("2_vwx37")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=254658142]
-position = Vector2(1.7881393e-07, 16.599998)
+position = Vector2(1.7881393e-07, 14.599998)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_m335s")
 
