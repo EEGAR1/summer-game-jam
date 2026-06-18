@@ -68,6 +68,7 @@ func _while_active(delta : float) -> void:
 					var kill_action = am.get_children().filter(func(x): return x is KillAction)[0] as KillAction
 					kill_action.update_target()
 					kill_action.set_action()
+					kill_action.target = ovrlp[0]
 					
 					target.set_movement_target(victim.global_position)
 					target.stopped = false
@@ -78,7 +79,12 @@ func _while_active(delta : float) -> void:
 				SELECTION_TYPE.DESTROY:
 					target.set_movement_target(get_global_mouse_position())
 					target.current_state = target.STATE.WORKING
-					target.action_manager.get_children().filter(func(x): return x is BreakAction)[0].can_break = true
+					var break_action = target.action_manager.get_children().filter(func(x): return x is BreakAction)
+					if break_action:
+						break_action = break_action[0]
+					else:
+						return
+					break_action.can_break = true
 					target.possessed = true
 					
 			exit_control_item_label()

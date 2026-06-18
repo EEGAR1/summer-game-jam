@@ -117,10 +117,10 @@ tracks/3/path = NodePath("../Line2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -141,7 +141,7 @@ tracks/5/path = NodePath("../..")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.06666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -159,6 +159,7 @@ _data = {
 script = ExtResource("1_0775k")
 max_love_to_kill = 25.0
 pivot = NodePath("Node2D")
+otherway = true
 
 [node name="SeekArea" type="Area2D" parent="." unique_id=1974697537]
 visible = false

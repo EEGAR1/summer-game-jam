@@ -127,9 +127,6 @@ _data = {
 &"open": SubResource("Animation_vxglm")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j8jky"]
-viewport_path = NodePath("UI/SubViewport")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
@@ -523,16 +520,6 @@ target_building = ExtResource("12_dgi5k")
 building_name = "Bed"
 descr = "Lets people get good sleep. Lures people to an area."
 
-[node name="Minimap" type="TextureRect" parent="UI/Window" unique_id=481681478]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-texture = SubResource("ViewportTexture_j8jky")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 zoom = Vector2(5, 5)
 script = ExtResource("2_tipki")
@@ -626,8 +613,13 @@ script = ExtResource("30_tel4y")
 
 [node name="Map" parent="." unique_id=550863854 instance=ExtResource("32_qkpxi")]
 
-[node name="Officer" parent="." unique_id=327215805 instance=ExtResource("36_fuf3a")]
+[node name="Officer" parent="." unique_id=327215805 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
 position = Vector2(1059, 182)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer2" parent="." unique_id=1157027537 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1106, 145)
+control_parent = NodePath("../UI/Window")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]

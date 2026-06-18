@@ -29,7 +29,9 @@ func update() -> void:
 	
 	for i in data.keys().filter(func(x): return round(x) - x == 0.0):
 		var id = int(round(i))
-
+		
+		if not is_instance_valid(Globals.other_people[id]): continue
+		
 		item_list.add_item(Globals.other_people[id].name, Globals.other_people[id].get_children().filter(func(x): return x is AnimatedSprite2D)[0].sprite_frames.get_frame_texture("idle", 0))
 		for em in EmotionManager.EMOTION_TYPE.values():
 			if data.get(i + 0.1 * em) > 70.0:

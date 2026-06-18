@@ -7,6 +7,7 @@ class_name KillAction extends Action
 @onready var emotion_manager: EmotionManager = $"../../EmotionManager"
 @onready var animation_player: AnimationPlayer = $Node2D/Sprite2D/AnimationPlayer
 @export var pivot: Node2D
+@export var otherway := false
 
 @onready var seek_area: Area2D = $SeekArea
 var seek_area_overlap : Array[Node2D] :
@@ -25,6 +26,7 @@ func _parent_is_ready() -> bool:
 	return update_target()
 
 func update_target() -> bool:
+	target = null
 	var t : CharacterBody2D
 	
 	var min_love := 9e9
@@ -62,7 +64,8 @@ func _while_acting(delta : float):
 	
 	var stab_target = stab_area_overlap.filter(func(x): return x == target)
 	
-	pivot.rotation = atan2(global_position.y - target.global_position.y, global_position.x - target.global_position.x)
+	pivot.rotation = (global_position - target.global_position).normalized().angle() + PI if otherway else 0.0
+	
 	if len(parent.current_path.path) == 0:	parent.set_movement_target(target.global_position)
 	if parent.current_state != Person.STATE.WORKING:	parent.current_state = Person.STATE.WORKING
 	if len(stab_target) > 0:

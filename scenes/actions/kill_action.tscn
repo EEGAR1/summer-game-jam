@@ -131,7 +131,7 @@ shape = SubResource("CircleShape2D_rvppo")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1310157352]
 visible = false
-rotation = 4.712389
+rotation = 1.5707964
 texture = ExtResource("2_tqb26")
 offset = Vector2(-0.033985488, -14.759972)
 
