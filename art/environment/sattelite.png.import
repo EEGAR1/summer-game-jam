@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kr241w3iufbv"
-path="res://.godot/imported/window.png-8b2dbd4c388c1fe95fa17ea8dd6f214d.ctex"
+uid="uid://b3i4121h7bhad"
+path="res://.godot/imported/sattelite.png-b96bcf54a3df74155aa5383bd5107a32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/window.png"
-dest_files=["res://.godot/imported/window.png-8b2dbd4c388c1fe95fa17ea8dd6f214d.ctex"]
+source_file="res://art/environment/sattelite.png"
+dest_files=["res://.godot/imported/sattelite.png-b96bcf54a3df74155aa5383bd5107a32.ctex"]
 
 [params]
 

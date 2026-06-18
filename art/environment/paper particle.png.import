@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvyij3gjvb3s0"
-path="res://.godot/imported/paper particle.png-022ab0202b3fdc0d473511a73b4561eb.ctex"
+path="res://.godot/imported/paper particle.png-447b157c8fb5170ab300de1509858111.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/paper particle.png"
-dest_files=["res://.godot/imported/paper particle.png-022ab0202b3fdc0d473511a73b4561eb.ctex"]
+source_file="res://art/environment/paper particle.png"
+dest_files=["res://.godot/imported/paper particle.png-447b157c8fb5170ab300de1509858111.ctex"]
 
 [params]
 

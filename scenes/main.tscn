@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dylgbj0kkuudt" path="res://scenes/abilities/convince_item.tscn" id="24_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://2ytxo4fgje7j" path="res://scenes/abilities/break_item.tscn" id="25_j8jky"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
+[ext_resource type="Script" uid="uid://22k0cdh0wu0" path="res://scenes/timer.gd" id="31_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://bpivoc3i35858" path="res://scenes/map.tscn" id="32_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://dwfvmnjfly5kw" path="res://scenes/people/police.tscn" id="36_fuf3a"]
 [ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="36_kmb1v"]
@@ -162,7 +163,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
-size = Vector2(16, 16)
+size = Vector2(9, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -190,6 +191,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
+y_sort_enabled = true
 
 [node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1127, 151)
@@ -577,16 +579,18 @@ script = ExtResource("3_tbgi4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea" unique_id=866812360]
 shape = SubResource("RectangleShape2D_lquwl")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050]
-position = Vector2(1089, 160)
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050 groups=["player"]]
+position = Vector2(1645, -94)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("7_o6xl0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=206966406]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=206966406 groups=["player"]]
+position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
+texture_filter = 1
 sprite_frames = ExtResource("10_choun")
 animation = &"idle"
 
@@ -602,6 +606,14 @@ script = ExtResource("13_muem4")
 [node name="ConvinceItem" parent="Player/ItemsManager" unique_id=1841449537 instance=ExtResource("24_dgi5k")]
 
 [node name="BreakItem" parent="Player/ItemsManager" unique_id=1163805183 instance=ExtResource("25_j8jky")]
+
+[node name="Timer" type="Timer" parent="Player" unique_id=10195831]
+wait_time = 0.25
+autostart = true
+script = ExtResource("31_kmb1v")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=1722974427]
+current = true
 
 [node name="GameManager" type="Node" parent="." unique_id=1195878992]
 script = ExtResource("20_gqmmt")
@@ -638,3 +650,5 @@ control_parent = NodePath("../UI/Window")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Dialog/GridContainer" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
