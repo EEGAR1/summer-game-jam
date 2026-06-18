@@ -26,10 +26,23 @@ enum STATE {
 var current_state := STATE.WORKING
 
 const BODY = preload("uid://ddaa6cd7rv0ym")
+const BLOOD_BIG = preload("uid://dewsrgbxekfjk")
+const BLOOD_SPLASH = preload("uid://iixrltb01wlu")
 var dead := false :
 	set(value):
 		dead = value
 		var b = BODY.instantiate()
+		var bb = BLOOD_BIG.instantiate() as CPUParticles2D
+		var bs = BLOOD_SPLASH.instantiate() as CPUParticles2D
+		
+		get_parent().add_child(bb)
+		bb.global_position = global_position
+		bb.emitting = true
+		
+		get_parent().add_child(bs)
+		bs.global_position = global_position
+		bs.emitting = true
+		
 		get_parent().add_child(b)
 		b.global_position = global_position
 		b.owner_id = id

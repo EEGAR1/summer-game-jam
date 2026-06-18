@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://iixrltb01wlu"]
 
-[ext_resource type="Texture2D" uid="uid://c3i3kw28udisf" path="res://effects/blood particle.png" id="1_nwbhp"]
+[ext_resource type="Texture2D" uid="uid://ci2vobdk0br1x" path="res://effects/blood particle.png" id="1_nwbhp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_trceg"]
 particles_animation = true
