@@ -42,7 +42,6 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		var ki = (Globals.player.items_manager.kill_item as KillItem)
 		if ki.current_time > 0.95 * ki.cooldown_time:
 			print("THE PLAYER DID IT!!!")
-			print(Globals.player.id)
 			parent.emotion_manager.set_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0)
 	
 	remove_action()

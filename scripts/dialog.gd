@@ -5,11 +5,11 @@ class_name Dialog extends Panel
 func _ready() -> void:
 	Globals.dialog = self
 
-@onready var text: Label = $Text
+@onready var text: Label = $Title/Text
 @onready var title: Label = $Title
-@onready var option_button: OptionButton = $OptionButton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
+@onready var option_button: CustomGridContainer = $GridContainer
 
 class DialogData:
 	var title_text : String
@@ -47,6 +47,7 @@ func show_dialog(title_text : String, body_text : String, options : Array, callb
 
 func _on_option_button_item_selected(index: int) -> void:
 	animation_player.play("close")
+	print(callbacks)
 	callbacks.back().call(index)
 	callbacks.pop_back()
 	dialogs.pop_back()

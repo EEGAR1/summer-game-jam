@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dkea7i4agqgtp" path="res://scripts/fov_area_2d.gd" id="2_ct7kn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_caxg1"]
-radius = 80.0
+radius = 160.0
 
 [node name="WitnessAction" type="Node2D" unique_id=1896438407]
 script = ExtResource("1_oc7em")

@@ -170,6 +170,7 @@ collision_mask = 7
 shape = SubResource("CircleShape2D_caxg1")
 
 [node name="StabArea" type="Area2D" parent="." unique_id=831377512]
+visible = false
 collision_layer = 7
 collision_mask = 7
 

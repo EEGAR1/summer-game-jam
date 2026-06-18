@@ -17,9 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://ctg1rxdx5dxg0" path="res://scenes/actions/kill_action.tscn" id="15_jbnel"]
 [ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="16_caxg1"]
 [ext_resource type="PackedScene" uid="uid://bjhucwn4u7rqq" path="res://scenes/actions/player_talk_action.tscn" id="17_rvppo"]
-[ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="19_c0mn1"]
-[ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="20_dg5w8"]
-[ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="20_mk3q7"]
 [ext_resource type="PackedScene" uid="uid://denw4lk7lda6h" path="res://scenes/actions/join_leave_action.tscn" id="21_dg5w8"]
 [ext_resource type="PackedScene" uid="uid://bj062j4upykwd" path="res://scenes/actions/give_quest_action.tscn" id="22_c0mn1"]
 [ext_resource type="PackedScene" uid="uid://hqc23s1v3i7y" path="res://scenes/actions/break_action.tscn" id="23_mk3q7"]
@@ -42,7 +39,6 @@ script = ExtResource("2_kd2ci")
 [node name="WitnessAction" parent="ActionManager" index="3" unique_id=1896438407 instance=ExtResource("16_caxg1")]
 
 [node name="PlayerTalkAction" parent="ActionManager" index="4" unique_id=1372718739 instance=ExtResource("17_rvppo")]
-building_list = Array[PackedScene]([ExtResource("19_c0mn1"), ExtResource("20_mk3q7"), ExtResource("20_dg5w8")])
 
 [node name="JoinLeaveAction" parent="ActionManager" index="5" unique_id=1020915660 instance=ExtResource("21_dg5w8")]
 

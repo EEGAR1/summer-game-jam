@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ddjg8caagspb2"]
+
+[ext_resource type="Script" uid="uid://b7ox8u51ncdx3" path="res://scripts/letter_item.gd" id="1_q475i"]
+[ext_resource type="Texture2D" uid="uid://dyq8xum6rh2jn" path="res://art/environment/placeable/o2.png" id="2_h8fi3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5q0nq"]
+radius = 14.0
+
+[node name="LetterItem" type="Node2D" unique_id=22427367]
+script = ExtResource("1_q475i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1293503419]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1433558920]
+shape = SubResource("CircleShape2D_5q0nq")
+
+[node name="Pointer" type="Node2D" parent="." unique_id=1243580664]
+
+[node name="Line2D" type="Line2D" parent="Pointer" unique_id=864481530]
+points = PackedVector2Array(0, 0, 5, 0)
+width = 2.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Pointer/Line2D" unique_id=941951686]
+position = Vector2(5, 0)
+polygon = PackedVector2Array(3, 0, 0, 2, 0, 0, 0, -2)
+
+[node name="TextureRect" type="TextureRect" parent="Pointer/Line2D" unique_id=1705604301]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -8.0
+offset_right = 26.0
+offset_bottom = 8.0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("2_h8fi3")
+expand_mode = 1
+stretch_mode = 5

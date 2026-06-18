@@ -19,19 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="12_dgi5k"]
 [ext_resource type="Script" uid="uid://7mfn1wk30sl3" path="res://scripts/victory.gd" id="13_dp3eg"]
 [ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
-[ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="13_trceg"]
+[ext_resource type="Script" uid="uid://chsjyis441343" path="res://scripts/custom_grid_container.gd" id="13_qkpxi"]
 [ext_resource type="Script" uid="uid://d0ko8ba4q0715" path="res://scripts/defeat.gd" id="14_0ld40"]
-[ext_resource type="Script" uid="uid://cngdflq51ni7n" path="res://scripts/kill_item.gd" id="14_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://cn472bl2uam0t" path="res://scenes/abilities/visual/possess_ability_visual.tscn" id="14_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://c8c6xdt3daq2m" path="res://scenes/abilities/visual/kill_ability_visual.tscn" id="15_jkv2x"]
 [ext_resource type="Script" uid="uid://bcamjboov1yrx" path="res://scripts/tooltip.gd" id="15_pm3ni"]
 [ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
-[ext_resource type="Script" uid="uid://cu6q2daishhsy" path="res://scripts/peek_item.gd" id="20_yc10j"]
-[ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="21_jscy8"]
-[ext_resource type="Script" uid="uid://liylgvwtrtrp" path="res://scripts/convince_item.gd" id="25_2f3dj"]
-[ext_resource type="Script" uid="uid://dsfl5v7k56ejh" path="res://scripts/break_item.gd" id="26_fv21b"]
-[ext_resource type="PackedScene" uid="uid://dsonm8gkcwifu" path="res://scenes/abilities/visual/convince_ability_visual.tscn" id="26_yq6so"]
-[ext_resource type="PackedScene" uid="uid://fviorrad880" path="res://scenes/abilities/visual/break_ability_visual.tscn" id="27_tel4y"]
+[ext_resource type="PackedScene" uid="uid://6awb77ljv4yt" path="res://scenes/abilities/possess_item.tscn" id="21_tel4y"]
+[ext_resource type="PackedScene" uid="uid://c875efa3f5jim" path="res://scenes/abilities/kill_item.tscn" id="22_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://7a3r4eb3ndjo" path="res://scenes/abilities/peek_item.tscn" id="23_5q0nq"]
+[ext_resource type="PackedScene" uid="uid://dylgbj0kkuudt" path="res://scenes/abilities/convince_item.tscn" id="24_dgi5k"]
+[ext_resource type="PackedScene" uid="uid://2ytxo4fgje7j" path="res://scenes/abilities/break_item.tscn" id="25_j8jky"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
 [ext_resource type="PackedScene" uid="uid://bpivoc3i35858" path="res://scenes/map.tscn" id="32_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://dwfvmnjfly5kw" path="res://scenes/people/police.tscn" id="36_fuf3a"]
@@ -42,26 +38,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 448)]
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(326, 448)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ItemHolder:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_2wyq8"]
@@ -70,26 +78,38 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 448), Vector2(0, 650)]
+"update": 1,
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(326, 448), Vector2(326, 650)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ItemHolder:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_vxglm"]
@@ -98,26 +118,38 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 650), Vector2(0, 448)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(326, 650), Vector2(326, 448)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ItemHolder:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2f3dj"]
@@ -131,9 +163,6 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(16, 16)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_a8y0u"]
-radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 radius = 5.0
@@ -406,52 +435,42 @@ item_0/text = "Name"
 
 [node name="Dialog" type="Panel" parent="UI/Window" unique_id=1888146334]
 visible = false
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = 0.00018310547
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("7_2wyq8")
-
-[node name="Text" type="Label" parent="UI/Window/Dialog" unique_id=1117471375]
+custom_minimum_size = Vector2(500, 200)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -169.0
-offset_right = 384.0
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Person"
+pivot_offset = Vector2(250, 200)
+script = ExtResource("7_2wyq8")
 
 [node name="Title" type="Label" parent="UI/Window/Dialog" unique_id=736335923]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 0.17
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Person"
 metadata/_edit_use_anchors_ = true
 
-[node name="OptionButton" type="OptionButton" parent="UI/Window/Dialog" unique_id=707410727]
+[node name="Text" type="Label" parent="UI/Window/Dialog/Title" unique_id=1117471375]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -20.0
+offset_top = 1.0
+offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 0
-allow_reselect = true
+text = "Person"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Window/Dialog" unique_id=1397574493]
 libraries/ = SubResource("AnimationLibrary_2f3dj")
@@ -467,6 +486,33 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 stretch_mode = 5
+
+[node name="Control" type="Control" parent="UI/Window/Dialog" unique_id=826240509]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="UI/Window/Dialog" unique_id=366701571]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 2
+script = ExtResource("13_qkpxi")
+
+[node name="Button" type="Button" parent="UI/Window/Dialog/GridContainer" unique_id=1770203851]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="Button2" type="Button" parent="UI/Window/Dialog/GridContainer" unique_id=556147223]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Window" unique_id=1954126796]
 layout_mode = 1
@@ -521,7 +567,7 @@ building_name = "Bed"
 descr = "Lets people get good sleep. Lures people to an area."
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
-zoom = Vector2(5, 5)
+zoom = Vector2(3.5, 3.5)
 script = ExtResource("2_tipki")
 
 [node name="SelectionArea" type="Area2D" parent="." unique_id=849331238]
@@ -547,46 +593,15 @@ animation = &"idle"
 [node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
 script = ExtResource("13_muem4")
 
-[node name="PossessItem" type="Node2D" parent="Player/ItemsManager" unique_id=2127399228]
-script = ExtResource("13_trceg")
-active = true
-cooldown_time = 10.0
-ability_hint = ExtResource("14_jbj1t")
+[node name="PossessItem" parent="Player/ItemsManager" unique_id=277441308 instance=ExtResource("21_tel4y")]
 
-[node name="KillItem" type="Node2D" parent="Player/ItemsManager" unique_id=1896081109]
-script = ExtResource("14_a8y0u")
-active = true
-cooldown_time = 10.0
-ability_hint = ExtResource("15_jkv2x")
+[node name="KillItem" parent="Player/ItemsManager" unique_id=1759975545 instance=ExtResource("22_qkpxi")]
 
-[node name="Area2D" type="Area2D" parent="Player/ItemsManager/KillItem" unique_id=1097515510]
+[node name="PeekItem" parent="Player/ItemsManager" unique_id=1934014488 instance=ExtResource("23_5q0nq")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemsManager/KillItem/Area2D" unique_id=816578662]
-shape = SubResource("CircleShape2D_a8y0u")
+[node name="ConvinceItem" parent="Player/ItemsManager" unique_id=1841449537 instance=ExtResource("24_dgi5k")]
 
-[node name="PeekItem" type="Node2D" parent="Player/ItemsManager" unique_id=1436780960]
-script = ExtResource("20_yc10j")
-active = true
-cooldown_time = 5.0
-ability_hint = ExtResource("21_jscy8")
-
-[node name="ConvinceItem" type="Node2D" parent="Player/ItemsManager" unique_id=1671005715]
-script = ExtResource("25_2f3dj")
-active = true
-cooldown_time = 1.0
-ability_hint = ExtResource("26_yq6so")
-
-[node name="BreakItem" type="Node2D" parent="Player/ItemsManager" unique_id=1265553342]
-script = ExtResource("26_fv21b")
-active = true
-cooldown_time = 15.0
-ability_hint = ExtResource("27_tel4y")
-metadata/_custom_type_script = "uid://r5xxm26e48cy"
-
-[node name="Area2D" type="Area2D" parent="Player/ItemsManager/BreakItem" unique_id=340669721]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemsManager/BreakItem/Area2D" unique_id=1681544296]
-shape = SubResource("CircleShape2D_a8y0u")
+[node name="BreakItem" parent="Player/ItemsManager" unique_id=1163805183 instance=ExtResource("25_j8jky")]
 
 [node name="GameManager" type="Node" parent="." unique_id=1195878992]
 script = ExtResource("20_gqmmt")
@@ -622,4 +637,4 @@ position = Vector2(1106, 145)
 control_parent = NodePath("../UI/Window")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
-[connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
+[connection signal="_on_option_button_item_selected" from="UI/Window/Dialog/GridContainer" to="UI/Window/Dialog" method="_on_option_button_item_selected"]

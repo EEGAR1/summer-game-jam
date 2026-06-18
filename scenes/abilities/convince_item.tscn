@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dylgbj0kkuudt"]
+
+[ext_resource type="Script" uid="uid://liylgvwtrtrp" path="res://scripts/convince_item.gd" id="1_bdv0n"]
+[ext_resource type="PackedScene" uid="uid://dsonm8gkcwifu" path="res://scenes/abilities/visual/convince_ability_visual.tscn" id="2_iacyd"]
+
+[node name="ConvinceItem" type="Node2D" unique_id=1841449537]
+script = ExtResource("1_bdv0n")
+active = true
+cooldown_time = 1.0
+ability_hint = ExtResource("2_iacyd")

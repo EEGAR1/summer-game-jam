@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://7a3r4eb3ndjo"]
+
+[ext_resource type="Script" uid="uid://cu6q2daishhsy" path="res://scripts/peek_item.gd" id="1_yr62b"]
+[ext_resource type="PackedScene" uid="uid://8s30sa6w3oaw" path="res://scenes/abilities/visual/peek_ability_visual.tscn" id="2_l8nt5"]
+
+[node name="PeekItem" type="Node2D" unique_id=1934014488]
+script = ExtResource("1_yr62b")
+active = true
+cooldown_time = 5.0
+ability_hint = ExtResource("2_l8nt5")

@@ -25,8 +25,6 @@ func update() -> void:
 	item_list.add_item("Love")
 	item_list.add_item("Trust")
 	
-	print(data)
-	
 	for i in data.keys().filter(func(x): return round(x) - x == 0.0):
 		var id = int(round(i))
 		

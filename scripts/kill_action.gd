@@ -62,13 +62,11 @@ func _while_acting(delta : float):
 		parent.current_path.clear()
 		return
 	
-	var stab_target = stab_area_overlap.filter(func(x): return x == target)
-	
 	pivot.rotation = (global_position - target.global_position).normalized().angle() + PI if otherway else 0.0
 	
 	if len(parent.current_path.path) == 0:	parent.set_movement_target(target.global_position)
 	if parent.current_state != Person.STATE.WORKING:	parent.current_state = Person.STATE.WORKING
-	if len(stab_target) > 0:
+	if target in stab_area_overlap:
 		print(parent.emotion_manager.emotions, target)
 		animation_player.play("stab")
 		remove_action()

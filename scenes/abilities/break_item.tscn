@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://2ytxo4fgje7j"]
+
+[ext_resource type="Script" uid="uid://dsfl5v7k56ejh" path="res://scripts/break_item.gd" id="1_d2lpg"]
+[ext_resource type="PackedScene" uid="uid://fviorrad880" path="res://scenes/abilities/visual/break_ability_visual.tscn" id="2_te5en"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8y0u"]
+radius = 14.0
+
+[node name="BreakItem" type="Node2D" unique_id=1163805183]
+script = ExtResource("1_d2lpg")
+active = true
+cooldown_time = 15.0
+ability_hint = ExtResource("2_te5en")
+metadata/_custom_type_script = "uid://r5xxm26e48cy"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=841791850]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=440254672]
+shape = SubResource("CircleShape2D_a8y0u")

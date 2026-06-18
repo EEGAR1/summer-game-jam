@@ -83,6 +83,7 @@ func _while_active(delta : float) -> void:
 					if break_action:
 						break_action = break_action[0]
 					else:
+						exit_control_item_panel()
 						return
 					break_action.can_break = true
 					target.possessed = true

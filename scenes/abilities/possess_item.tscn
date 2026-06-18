@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://6awb77ljv4yt"]
+
+[ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="1_i4ma2"]
+[ext_resource type="PackedScene" uid="uid://cn472bl2uam0t" path="res://scenes/abilities/visual/possess_ability_visual.tscn" id="2_o0km7"]
+
+[node name="PossessItem" type="Node2D" unique_id=277441308]
+script = ExtResource("1_i4ma2")
+active = true
+cooldown_time = 10.0
+ability_hint = ExtResource("2_o0km7")
