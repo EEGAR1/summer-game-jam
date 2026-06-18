@@ -5,8 +5,8 @@ class_name KillAction extends Action
 @export var max_love_to_kill := 15.0 ## If someone loves a person this value or less they will kill them
 
 @onready var emotion_manager: EmotionManager = $"../../EmotionManager"
-@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $Node2D/Sprite2D/AnimationPlayer
+@export var pivot: Node2D
 
 @onready var seek_area: Area2D = $SeekArea
 var seek_area_overlap : Array[Node2D] :
@@ -62,7 +62,7 @@ func _while_acting(delta : float):
 	
 	var stab_target = stab_area_overlap.filter(func(x): return x == target)
 	
-	sprite_2d.rotation = atan2(global_position.y - target.global_position.y, global_position.x - target.global_position.x)
+	pivot.rotation = atan2(global_position.y - target.global_position.y, global_position.x - target.global_position.x)
 	if len(parent.current_path.path) == 0:	parent.set_movement_target(target.global_position)
 	if parent.current_state != Person.STATE.WORKING:	parent.current_state = Person.STATE.WORKING
 	if len(stab_target) > 0:
