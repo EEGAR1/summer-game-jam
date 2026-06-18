@@ -174,3 +174,7 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func sensing():
 	for building in building_sense.get_overlapping_areas().filter(func(x): return x is Building):
 		set_movement_target(building.global_position)
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

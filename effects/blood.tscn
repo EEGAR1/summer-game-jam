@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b7gr7tykrta5f"]
+
+[ext_resource type="PackedScene" uid="uid://iixrltb01wlu" path="res://effects/blood_splash.tscn" id="1_4337f"]
+[ext_resource type="PackedScene" uid="uid://dewsrgbxekfjk" path="res://effects/blood_big.tscn" id="2_53cnx"]
+
+[node name="blood" type="Node2D" unique_id=798217752]
+
+[node name="CPUParticles2D" parent="." unique_id=1313605591 instance=ExtResource("1_4337f")]
+
+[node name="CPUParticles2D2" parent="." unique_id=880658494 instance=ExtResource("2_53cnx")]

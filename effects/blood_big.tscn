@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dewsrgbxekfjk"]
+
+[ext_resource type="Texture2D" uid="uid://ceb8uyiv5x1xh" path="res://effects/single pixel.png" id="1_exsai"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jkv2x"]
+
+[sub_resource type="Curve" id="Curve_a8y0u"]
+_data = [Vector2(0.54964536, 1), 0.0, -0.021647565, 0, 0, Vector2(1, 0), -4.662537, 0.0, 0, 0]
+point_count = 2
+
+[node name="CPUParticles2D2" type="CPUParticles2D" unique_id=880658494]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_jkv2x")
+emitting = false
+amount = 10
+texture = ExtResource("1_exsai")
+lifetime = 0.9
+one_shot = true
+explosiveness = 0.42
+direction = Vector2(-0.5, -1)
+spread = 36.58
+gravity = Vector2(0, 100)
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_a8y0u")
+color = Color(0.78039217, 0.25882354, 0.30980393, 1)

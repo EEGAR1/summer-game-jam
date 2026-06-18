@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vublmk7otm8t"]
 
-[ext_resource type="Texture2D" uid="uid://bvy8bp0hc33jp" path="res://environment/sunflower particle.png" id="1_uv8g7"]
+[ext_resource type="Texture2D" uid="uid://8uumi0otxkof" path="res://art/environment/sunflower particle.png" id="1_uv8g7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kd6ih"]
 particles_animation = true
