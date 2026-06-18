@@ -13,11 +13,13 @@ offsets = PackedFloat32Array(0.49411765, 1)
 colors = PackedColorArray(1, 1, 1, 0.13725491, 1, 1, 1, 0)
 
 [node name="footstep dust" type="CPUParticles2D" unique_id=156608864]
+z_index = 20
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_jbj1t")
 emitting = false
-amount = 2
+amount = 1
 texture = ExtResource("1_ufmsk")
+lifetime = 1.3
 one_shot = true
 speed_scale = 1.1
 explosiveness = 0.06
@@ -32,7 +34,6 @@ damping_min = 2.0
 damping_max = 8.0
 scale_amount_min = 0.4
 scale_amount_max = 1.1
-color = Color(0.42745098, 0.42745098, 0.42745098, 1)
 color_ramp = SubResource("Gradient_jkv2x")
 anim_speed_min = 1.0
 anim_speed_max = 1.0

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://exosu1su0nqw"]
+
+[ext_resource type="Texture2D" uid="uid://ceb8uyiv5x1xh" path="res://effects/single pixel.png" id="1_gby7b"]
+[ext_resource type="Script" uid="uid://bi865a38rdlx3" path="res://particle_trigger.gd" id="2_gby7b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r3n7o"]
+
+[sub_resource type="Gradient" id="Gradient_jkv2x"]
+offsets = PackedFloat32Array(0.7295082, 1)
+colors = PackedColorArray(1, 1, 1, 0.6666667, 1, 1, 1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m335s"]
+size = Vector2(24.999996, 14.999998)
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=1829849536]
+z_index = 20
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_r3n7o")
+emitting = false
+amount = 2
+texture = ExtResource("1_gby7b")
+one_shot = true
+speed_scale = 1.1
+explosiveness = 0.83
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 44.9
+gravity = Vector2(0, 120)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+damping_min = 2.0
+damping_max = 8.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.38039216, 0.6039216, 0.7019608, 1)
+color_ramp = SubResource("Gradient_jkv2x")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1744598656]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_gby7b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=254658142]
+position = Vector2(2.3841858e-07, 2.3841858e-07)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_m335s")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=386842462]
+z_index = 20
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_r3n7o")
+emitting = false
+amount = 1
+texture = ExtResource("1_gby7b")
+one_shot = true
+speed_scale = 1.1
+explosiveness = 0.83
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+damping_min = 2.0
+damping_max = 8.0
+color = Color(0.38039216, 0.6039216, 0.7019608, 1)
+color_ramp = SubResource("Gradient_jkv2x")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=56295227]
+z_index = 20
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_r3n7o")
+emitting = false
+amount = 2
+texture = ExtResource("1_gby7b")
+one_shot = true
+speed_scale = 1.1
+explosiveness = 0.83
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 25.0
+initial_velocity_max = 40.0
+damping_min = 2.0
+damping_max = 8.0
+color = Color(0.38039216, 0.6039216, 0.7019608, 1)
+color_ramp = SubResource("Gradient_jkv2x")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

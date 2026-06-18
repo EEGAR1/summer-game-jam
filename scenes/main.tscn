@@ -517,7 +517,6 @@ script = ExtResource("3_tbgi4")
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050 groups=["player"]]
-y_sort_enabled = true
 position = Vector2(1089, 160)
 collision_layer = 4
 collision_mask = 2
@@ -528,6 +527,7 @@ position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
+texture_filter = 1
 sprite_frames = ExtResource("10_choun")
 animation = &"idle"
 
@@ -576,7 +576,7 @@ metadata/_custom_type_script = "uid://r5xxm26e48cy"
 shape = SubResource("CircleShape2D_a8y0u")
 
 [node name="Timer" type="Timer" parent="Player" unique_id=10195831]
-wait_time = 0.2
+wait_time = 0.25
 autostart = true
 script = ExtResource("31_kmb1v")
 
@@ -607,4 +607,4 @@ script = ExtResource("30_tel4y")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
-[connection signal="timeout" from="Player/Timer" to="Player/Timer" method="_on_timeout"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

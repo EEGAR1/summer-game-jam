@@ -4,14 +4,13 @@ class_name Player extends CharacterBody2D
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
-@onready var player: Player = $"."
 
-@export var speed := 50.0
+@export var speed := 60.0
 @export var handling := 20.0
 
 const dust = preload("res://effects/dust.tscn")
 
-var can_spawn_footstep : bool = false
+var can_spawn_footstep : bool = true
 
 var id : int
 func _ready() -> void:
@@ -42,12 +41,25 @@ func _physics_process(delta: float) -> void:
 			timer.start()
 			var p = dust.instantiate()
 			p.emitting = true
-			#$".".add_child(p)
-			p.global_position.x = player.global_position.x
-			p.global_position.y = player.global_position.y+9
+			$".".add_child(p)
+			p.global_position.x = $".".global_position.x
+			p.global_position.y = $".".global_position.y+9
+			if randf() < .33:
+				for i in range(2):
+					print("for")
+					var a = dust.instantiate()
+					a.emitting = true
+					$".".add_child(a)
+					a.global_position.x = $".".global_position.x
+					a.global_position.y = $".".global_position.y+9
+					
 	move_and_slide()
 
-			
+	
 
 	
 	
+
+
+func _on_timer_timeout() -> void:
+	can_spawn_footstep = true
