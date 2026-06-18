@@ -56,6 +56,8 @@ func _check_action(delta : float):
 		set_action()
 
 func _while_acting(delta : float):
+	update_target()
+	
 	parent.stress += delta
 	if !is_instance_valid(target): 
 		remove_action()

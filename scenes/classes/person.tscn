@@ -5,9 +5,25 @@
 [ext_resource type="SpriteFrames" uid="uid://uxb2x8xqc0wf" path="res://art/people/citizen1.tres" id="2_litvv"]
 [ext_resource type="Script" uid="uid://dggsapn3rync6" path="res://scripts/emotion_manager.gd" id="3_litvv"]
 [ext_resource type="Texture2D" uid="uid://bnopfnw6j4nqf" path="res://art/people/reactions.png" id="4_ghdxt"]
+[ext_resource type="AudioStream" uid="uid://cqv8jqwuoebtg" path="res://sound/reactions/game jam stems sus.wav" id="5_5r7o6"]
 [ext_resource type="Shader" uid="uid://0x0ctjuax7x3" path="res://shader/outline.gdshader" id="6_ghdxt"]
+[ext_resource type="AudioStream" uid="uid://ds4be74hb1k2y" path="res://sound/reactions/game jam stems witness.wav" id="6_l6y1i"]
+[ext_resource type="AudioStream" uid="uid://d2gvgpn6hla2a" path="res://sound/reactions/game jam stems anger.wav" id="7_l7p7p"]
 [ext_resource type="Texture2D" uid="uid://doq1x2fpw5cvq" path="res://icon.svg" id="7_xugy6"]
+[ext_resource type="AudioStream" uid="uid://b51mkyq7gw8bu" path="res://sound/reactions/game jam stems happiness.wav" id="8_m6dwi"]
 [ext_resource type="Script" uid="uid://ttlootrp3h0k" path="res://scripts/outline.gd" id="8_xugy6"]
+[ext_resource type="AudioStream" uid="uid://c136bhaaq0sys" path="res://sound/reactions/fear.ogg" id="9_1doqr"]
+[ext_resource type="Script" uid="uid://dinh2jcyxwde0" path="res://scripts/footsteps_manager.gd" id="9_f6ixd"]
+[ext_resource type="AudioStream" uid="uid://cp5sk8a3sdcwt" path="res://sound/footstep npc/Footsteps_Rock_Walk_01.wav" id="10_8worx"]
+[ext_resource type="AudioStream" uid="uid://chh6852l5751u" path="res://sound/use item.wav" id="10_l6y1i"]
+[ext_resource type="AudioStream" uid="uid://b1wplpunstxlx" path="res://sound/footstep npc/Footsteps_Rock_Walk_02.wav" id="11_21ywj"]
+[ext_resource type="AudioStream" uid="uid://dsv3tooetd8k6" path="res://sound/footstep npc/Footsteps_Rock_Walk_03.wav" id="12_sjo8j"]
+[ext_resource type="AudioStream" uid="uid://mbc0tvncuky0" path="res://sound/footstep npc/Footsteps_Rock_Walk_04.wav" id="13_v80bg"]
+[ext_resource type="AudioStream" uid="uid://d0do8cq8al7c5" path="res://sound/footstep npc/Footsteps_Rock_Walk_05.wav" id="14_e3bt4"]
+[ext_resource type="AudioStream" uid="uid://bmcvvsibs0ooy" path="res://sound/footstep npc/Footsteps_Rock_Walk_06.wav" id="15_5r7o6"]
+[ext_resource type="AudioStream" uid="uid://q8hogtsgfqky" path="res://sound/footstep npc/Footsteps_Rock_Walk_07.wav" id="16_l6y1i"]
+[ext_resource type="AudioStream" uid="uid://bb4inolmrob2p" path="res://sound/footstep npc/Footsteps_Rock_Walk_08.wav" id="17_l7p7p"]
+[ext_resource type="AudioStream" uid="uid://cmr366pfr4pqc" path="res://sound/footstep npc/Footsteps_Rock_Walk_09.wav" id="18_m6dwi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xugy6"]
 radius = 8.0
@@ -142,8 +158,7 @@ script = ExtResource("1_83wek")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1980460130]
 sprite_frames = ExtResource("2_litvv")
-animation = &"run"
-frame_progress = 0.35062638
+animation = &"idle"
 script = ExtResource("2_5rrw4")
 gender_names = Dictionary[int, Array]({
 0: ["Alfred", "Bernie", "Carl", "Eric", "Fred", "Harold", "John", "Larry", "Oliver", "Perry", "Steven"],
@@ -167,6 +182,7 @@ debug_enabled = true
 script = ExtResource("3_litvv")
 emotion_update_sprites_pos = Array[int]([3, 3])
 emotion_update_sprites_neg = Array[int]([2, 4])
+emotion_update_sounds_per_frame = Array[AudioStream]([ExtResource("5_5r7o6"), ExtResource("6_l6y1i"), ExtResource("7_l7p7p"), ExtResource("8_m6dwi"), ExtResource("9_1doqr"), ExtResource("10_l6y1i")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EmotionManager" unique_id=1761644411]
 position = Vector2(0, -17)
@@ -186,6 +202,12 @@ material = SubResource("ShaderMaterial_f6ixd")
 scale = Vector2(0.14, 0.14)
 texture = ExtResource("7_xugy6")
 script = ExtResource("8_xugy6")
+
+[node name="FootstepsManager" type="Node2D" parent="." unique_id=982893545 node_paths=PackedStringArray("icon")]
+script = ExtResource("9_f6ixd")
+length = 0.167
+streams = Array[AudioStreamWAV]([ExtResource("10_8worx"), ExtResource("11_21ywj"), ExtResource("12_sjo8j"), ExtResource("13_v80bg"), ExtResource("14_e3bt4"), ExtResource("15_5r7o6"), ExtResource("16_l6y1i"), ExtResource("17_l7p7p"), ExtResource("18_m6dwi")])
+icon = NodePath("../Icon")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dto5axtml4opp"]
 
 [ext_resource type="Script" uid="uid://bmgahswgbxgkw" path="res://scripts/ability_visual.gd" id="1_e1swh"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1yg22"]
+[ext_resource type="Texture2D" uid="uid://dp5cmcv5uq6m2" path="res://art/items/hate_letter.png" id="2_e1swh"]
 
 [node name="PossessAbilityVisual" type="Panel" unique_id=1600126590]
 custom_minimum_size = Vector2(100, 100)
@@ -15,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_1yg22")
+texture = ExtResource("2_e1swh")
 
 [node name="Control" type="Label" parent="." unique_id=336308720]
 layout_mode = 1

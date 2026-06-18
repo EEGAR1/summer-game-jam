@@ -15,6 +15,7 @@ func _check_action(delta : float) -> void: # Should use `set_action()` to set th
 			seen_bodies.append(body)
 			if not get_kill_anim_playing(parent): set_action()
 
+const SPOTTED = preload("uid://b7dckra4acc41")
 func _while_acting(delta : float) -> void: # Plays while acting
 	parent.current_path.clear() # Stop bc we just saw something
 	emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.TRUST, false)
@@ -41,6 +42,7 @@ func _while_acting(delta : float) -> void: # Plays while acting
 	if Globals.player in area_2d.get_fov_overlapping_bodies():
 		var ki = (Globals.player.items_manager.kill_item as KillItem)
 		if ki.current_time > 0.95 * ki.cooldown_time:
+			Globals.play_sound(global_position, SPOTTED)
 			print("THE PLAYER DID IT!!!")
 			parent.emotion_manager.set_emotion(Globals.player.id, EmotionManager.EMOTION_TYPE.LOVE, 0.0)
 	

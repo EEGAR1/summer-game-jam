@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://8s30sa6w3oaw"]
 
 [ext_resource type="Script" uid="uid://bmgahswgbxgkw" path="res://scripts/ability_visual.gd" id="1_6m3d8"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3i5br"]
+[ext_resource type="Texture2D" uid="uid://dhduog1wtc8cu" path="res://art/items/read_mind.png" id="2_6m3d8"]
 
 [node name="PossessAbilityVisual" type="Panel" unique_id=1600126590]
 custom_minimum_size = Vector2(100, 100)
@@ -15,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_3i5br")
+texture = ExtResource("2_6m3d8")
 
 [node name="Control" type="Label" parent="." unique_id=336308720]
 layout_mode = 1
@@ -25,7 +24,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
-text = "R"
+text = "Hold R"
 horizontal_alignment = 2
 
 [node name="Name" type="Label" parent="." unique_id=1606283665]
@@ -37,7 +36,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "peek"
+text = "read mind"
 horizontal_alignment = 1
 
 [node name="CooldownPanel" type="Panel" parent="." unique_id=497820218]

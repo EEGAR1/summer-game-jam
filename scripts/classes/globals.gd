@@ -28,3 +28,12 @@ var other_people : Array[Node2D]
 # Globals for buildings
 var building_points : Array[Node2D]
 var complement_buildings : Array[PackedScene]
+
+func play_sound(pos : Vector2, audio : AudioStream, pitchshift := 1.0):
+	pitchshift *= randf_range(0.95, 1.05)
+	var a = AudioStreamPlayer2D.new()
+	a.autoplay = true
+	a.pitch_scale = pitchshift
+	a.stream = audio
+	add_child(a)
+	a.global_position = pos

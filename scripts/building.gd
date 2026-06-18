@@ -19,6 +19,8 @@ signal built
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	building_process(delta)
+	
+const PLACE = preload("uid://dsmebawnxgdg5")
 
 var damaged := false
 func building_process(delta : float):
@@ -33,6 +35,7 @@ func building_process(delta : float):
 					return
 			
 			if Input.is_action_just_pressed("m1"):
+				Globals.play_sound(global_position, PLACE)
 				Globals.camera.shake = 5.0
 				current_state = STATE.BUILDING
 		

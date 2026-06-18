@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dhuvflyd5rgxu"]
 
 [ext_resource type="Script" uid="uid://bmgahswgbxgkw" path="res://scripts/ability_visual.gd" id="1_28jpo"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3un0t"]
+[ext_resource type="Texture2D" uid="uid://bjufkexrpt8qt" path="res://art/items/love_letter.png" id="2_28jpo"]
 
 [node name="PossessAbilityVisual" type="Panel" unique_id=1600126590]
 custom_minimum_size = Vector2(100, 100)
@@ -15,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_3un0t")
+texture = ExtResource("2_28jpo")
 
 [node name="Control" type="Label" parent="." unique_id=336308720]
 layout_mode = 1
