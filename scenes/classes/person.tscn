@@ -14,16 +14,22 @@
 [ext_resource type="Script" uid="uid://ttlootrp3h0k" path="res://scripts/outline.gd" id="8_xugy6"]
 [ext_resource type="AudioStream" uid="uid://c136bhaaq0sys" path="res://sound/reactions/fear.ogg" id="9_1doqr"]
 [ext_resource type="Script" uid="uid://dinh2jcyxwde0" path="res://scripts/footsteps_manager.gd" id="9_f6ixd"]
-[ext_resource type="AudioStream" uid="uid://cp5sk8a3sdcwt" path="res://sound/footstep npc/Footsteps_Rock_Walk_01.wav" id="10_8worx"]
 [ext_resource type="AudioStream" uid="uid://chh6852l5751u" path="res://sound/use item.wav" id="10_l6y1i"]
-[ext_resource type="AudioStream" uid="uid://b1wplpunstxlx" path="res://sound/footstep npc/Footsteps_Rock_Walk_02.wav" id="11_21ywj"]
-[ext_resource type="AudioStream" uid="uid://dsv3tooetd8k6" path="res://sound/footstep npc/Footsteps_Rock_Walk_03.wav" id="12_sjo8j"]
-[ext_resource type="AudioStream" uid="uid://mbc0tvncuky0" path="res://sound/footstep npc/Footsteps_Rock_Walk_04.wav" id="13_v80bg"]
-[ext_resource type="AudioStream" uid="uid://d0do8cq8al7c5" path="res://sound/footstep npc/Footsteps_Rock_Walk_05.wav" id="14_e3bt4"]
-[ext_resource type="AudioStream" uid="uid://bmcvvsibs0ooy" path="res://sound/footstep npc/Footsteps_Rock_Walk_06.wav" id="15_5r7o6"]
-[ext_resource type="AudioStream" uid="uid://q8hogtsgfqky" path="res://sound/footstep npc/Footsteps_Rock_Walk_07.wav" id="16_l6y1i"]
-[ext_resource type="AudioStream" uid="uid://bb4inolmrob2p" path="res://sound/footstep npc/Footsteps_Rock_Walk_08.wav" id="17_l7p7p"]
-[ext_resource type="AudioStream" uid="uid://cmr366pfr4pqc" path="res://sound/footstep npc/Footsteps_Rock_Walk_09.wav" id="18_m6dwi"]
+[ext_resource type="AudioStream" uid="uid://k3i3bmqlwwiq" path="res://sound/footstep player/Footsteps_MetalV2_Walk_01.wav" id="16_0em65"]
+[ext_resource type="AudioStream" uid="uid://cakixpst234o4" path="res://sound/footstep player/Footsteps_MetalV2_Walk_02.wav" id="17_pswd1"]
+[ext_resource type="AudioStream" uid="uid://csbxwe8c0ym16" path="res://sound/footstep player/Footsteps_MetalV2_Walk_03.wav" id="18_o4fge"]
+[ext_resource type="AudioStream" uid="uid://bpo51tqfsydng" path="res://sound/footstep player/Footsteps_MetalV2_Walk_04.wav" id="19_w2yvn"]
+[ext_resource type="AudioStream" uid="uid://dsaruac4o14kb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_05.wav" id="20_yhu0g"]
+[ext_resource type="AudioStream" uid="uid://c4mjphpun6d51" path="res://sound/footstep player/Footsteps_MetalV2_Walk_06.wav" id="21_jomu8"]
+[ext_resource type="AudioStream" uid="uid://ckdiwvtvgtr8x" path="res://sound/footstep player/Footsteps_MetalV2_Walk_07.wav" id="22_sxqj6"]
+[ext_resource type="AudioStream" uid="uid://dy0oi3tt4ghnr" path="res://sound/footstep player/Footsteps_MetalV2_Walk_08.wav" id="23_frqdx"]
+[ext_resource type="AudioStream" uid="uid://boj6mfeu3kljl" path="res://sound/footstep player/Footsteps_MetalV2_Walk_09.wav" id="24_f4ii2"]
+[ext_resource type="AudioStream" uid="uid://dkf5i2ohg7uvb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_10.wav" id="25_7i5ti"]
+[ext_resource type="AudioStream" uid="uid://7tbksyrskg0a" path="res://sound/footstep player/Footsteps_MetalV2_Walk_11.wav" id="26_r6pht"]
+[ext_resource type="AudioStream" uid="uid://bgh0knrrx1ffb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_12.wav" id="27_dsy7f"]
+[ext_resource type="AudioStream" uid="uid://dc14yby00c364" path="res://sound/footstep player/Footsteps_MetalV2_Walk_13.wav" id="28_eu05o"]
+[ext_resource type="AudioStream" uid="uid://cnky33lnlrjp2" path="res://sound/footstep player/Footsteps_MetalV2_Walk_14.wav" id="29_eiyv1"]
+[ext_resource type="AudioStream" uid="uid://divsfjr4bfgj0" path="res://sound/footstep player/Footsteps_MetalV2_Walk_15.wav" id="30_t012m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xugy6"]
 radius = 8.0
@@ -210,7 +216,7 @@ script = ExtResource("8_xugy6")
 [node name="FootstepsManager" type="Node2D" parent="." unique_id=982893545 node_paths=PackedStringArray("icon")]
 script = ExtResource("9_f6ixd")
 length = 0.167
-streams = Array[AudioStreamWAV]([ExtResource("10_8worx"), ExtResource("11_21ywj"), ExtResource("12_sjo8j"), ExtResource("13_v80bg"), ExtResource("14_e3bt4"), ExtResource("15_5r7o6"), ExtResource("16_l6y1i"), ExtResource("17_l7p7p"), ExtResource("18_m6dwi")])
+streams = Array[AudioStreamWAV]([ExtResource("16_0em65"), ExtResource("17_pswd1"), ExtResource("18_o4fge"), ExtResource("19_w2yvn"), ExtResource("20_yhu0g"), ExtResource("21_jomu8"), ExtResource("22_sxqj6"), ExtResource("23_frqdx"), ExtResource("24_f4ii2"), ExtResource("25_7i5ti"), ExtResource("26_r6pht"), ExtResource("27_dsy7f"), ExtResource("28_eu05o"), ExtResource("29_eiyv1"), ExtResource("30_t012m")])
 icon = NodePath("../Icon")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

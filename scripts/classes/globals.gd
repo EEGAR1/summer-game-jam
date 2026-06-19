@@ -35,8 +35,8 @@ func play_sound(pos : Vector2, audio : AudioStream, pitchshift := 1.0):
 	a.autoplay = true
 	a.pitch_scale = pitchshift
 	a.stream = audio
-	a.max_distance = 250
-	a.volume_db = -10
+	a.max_distance = 64
+	a.volume_db = 0.0
 
 	add_child(a)
 	a.global_position = pos
