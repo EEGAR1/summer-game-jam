@@ -11,6 +11,7 @@ enum EMOTION_TYPE {
 @export var emotion_update_sprites_pos : Array[int]
 @export var emotion_update_sprites_neg : Array[int]
 @export var emotion_update_sounds_per_frame : Array[AudioStream]
+@export var care := true # Should start holding opinions about others
 
 var emotions : Dictionary[float, float] # The first float is X.Y where X is the id of the person and Y is the id of the emotion, and obv the second float is the emotion value
 										# Ex: {5.1, 5.0} means that person of id 5 has a trust scale of 5.0
@@ -48,12 +49,13 @@ func _ready() -> void:
 		for emotion in EMOTION_TYPE.values():
 			emotions.set(float(i.id) + 0.1*float(emotion), 50.0)
 	
-	for i in Globals.other_people:
-		if i is Player: continue
-		i = i as Person
-		if i.type == parent.type:
-			for em in EmotionManager.EMOTION_TYPE.values():
-				parent.emotion_manager.set_emotion(i.id, em, randf_range(35.0, 90.0))
-		else:
-			for em in EmotionManager.EMOTION_TYPE.values():
-				parent.emotion_manager.set_emotion(i.id, em, randf_range(20.0, 65.0))
+	if care:
+		for i in Globals.other_people:
+			if i is Player: continue
+			i = i as Person
+			if i.type == parent.type:
+				for em in EmotionManager.EMOTION_TYPE.values():
+					parent.emotion_manager.set_emotion(i.id, em, randf_range(35.0, 90.0))
+			else:
+				for em in EmotionManager.EMOTION_TYPE.values():
+					parent.emotion_manager.set_emotion(i.id, em, randf_range(20.0, 65.0))

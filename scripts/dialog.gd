@@ -1,6 +1,7 @@
 class_name Dialog extends Panel
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.dialog = self
@@ -10,6 +11,9 @@ func _ready() -> void:
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var option_button: CustomGridContainer = $GridContainer
+
+func _process(delta: float) -> void:
+	custom_minimum_size.y = title.size.y + text.size.y + 20.0
 
 class DialogData:
 	var title_text : String

@@ -19,12 +19,24 @@ func _ready() -> void:
 	
 	Globals.player = self
 
+var awake := false :
+	set(value):
+		if value != awake:
+			_on_wake()
+		awake = value
+
+func _on_wake():
+	Globals.dialog.show_dialog("Note Inside Shoe", "Alright, you're in. Get past this guard by whatever means. Do nice things for people so they build dangerous buildings for you or just stab them. I don't care how it gets done. Signed: P.S.Y.O.P. & Killing Co.", ["Got it. (Close)"], func(x): return x)
+
 var dead := false
 func _process(delta: float) -> void:
+	if velocity.length() > 0.25:
+		awake = true
+	
 	sprite_2d.play(sprite_2d.animation)
 	if dead:
 		sprite_2d.play("dead")
-	else:
+	elif awake:
 		sprite_2d.animation = "idle" if velocity.length() < 10 else "run"
 		if velocity.x != 0:	sprite_2d.flip_h = velocity.x < 0
 
