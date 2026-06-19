@@ -29,20 +29,26 @@
 [ext_resource type="PackedScene" uid="uid://7a3r4eb3ndjo" path="res://scenes/abilities/peek_item.tscn" id="23_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://2ytxo4fgje7j" path="res://scenes/abilities/break_item.tscn" id="25_j8jky"]
 [ext_resource type="Script" uid="uid://dinh2jcyxwde0" path="res://scripts/footsteps_manager.gd" id="27_5q0nq"]
-[ext_resource type="AudioStream" uid="uid://cp5sk8a3sdcwt" path="res://sound/footstep npc/Footsteps_Rock_Walk_01.wav" id="30_cjqg0"]
+[ext_resource type="AudioStream" uid="uid://k3i3bmqlwwiq" path="res://sound/footstep player/Footsteps_MetalV2_Walk_01.wav" id="28_nvyfr"]
+[ext_resource type="AudioStream" uid="uid://cakixpst234o4" path="res://sound/footstep player/Footsteps_MetalV2_Walk_02.wav" id="29_ty1g6"]
+[ext_resource type="AudioStream" uid="uid://csbxwe8c0ym16" path="res://sound/footstep player/Footsteps_MetalV2_Walk_03.wav" id="30_j2jfr"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
+[ext_resource type="AudioStream" uid="uid://bpo51tqfsydng" path="res://sound/footstep player/Footsteps_MetalV2_Walk_04.wav" id="31_bjg73"]
 [ext_resource type="Script" uid="uid://22k0cdh0wu0" path="res://scenes/timer.gd" id="31_kmb1v"]
-[ext_resource type="AudioStream" uid="uid://b1wplpunstxlx" path="res://sound/footstep npc/Footsteps_Rock_Walk_02.wav" id="31_vchkt"]
+[ext_resource type="AudioStream" uid="uid://dsaruac4o14kb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_05.wav" id="32_bu4jf"]
 [ext_resource type="PackedScene" uid="uid://bpivoc3i35858" path="res://scenes/map.tscn" id="32_qkpxi"]
-[ext_resource type="AudioStream" uid="uid://dsv3tooetd8k6" path="res://sound/footstep npc/Footsteps_Rock_Walk_03.wav" id="32_txyw0"]
-[ext_resource type="AudioStream" uid="uid://mbc0tvncuky0" path="res://sound/footstep npc/Footsteps_Rock_Walk_04.wav" id="33_vc5cj"]
-[ext_resource type="AudioStream" uid="uid://d0do8cq8al7c5" path="res://sound/footstep npc/Footsteps_Rock_Walk_05.wav" id="34_nvyfr"]
-[ext_resource type="AudioStream" uid="uid://bmcvvsibs0ooy" path="res://sound/footstep npc/Footsteps_Rock_Walk_06.wav" id="35_ty1g6"]
+[ext_resource type="AudioStream" uid="uid://c4mjphpun6d51" path="res://sound/footstep player/Footsteps_MetalV2_Walk_06.wav" id="33_o7ddy"]
+[ext_resource type="AudioStream" uid="uid://ckdiwvtvgtr8x" path="res://sound/footstep player/Footsteps_MetalV2_Walk_07.wav" id="34_0loja"]
+[ext_resource type="AudioStream" uid="uid://dy0oi3tt4ghnr" path="res://sound/footstep player/Footsteps_MetalV2_Walk_08.wav" id="35_ids8r"]
+[ext_resource type="AudioStream" uid="uid://boj6mfeu3kljl" path="res://sound/footstep player/Footsteps_MetalV2_Walk_09.wav" id="36_dnhof"]
 [ext_resource type="PackedScene" uid="uid://dwfvmnjfly5kw" path="res://scenes/people/police.tscn" id="36_fuf3a"]
-[ext_resource type="AudioStream" uid="uid://q8hogtsgfqky" path="res://sound/footstep npc/Footsteps_Rock_Walk_07.wav" id="36_j2jfr"]
 [ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="36_kmb1v"]
-[ext_resource type="AudioStream" uid="uid://bb4inolmrob2p" path="res://sound/footstep npc/Footsteps_Rock_Walk_08.wav" id="37_bjg73"]
-[ext_resource type="AudioStream" uid="uid://cmr366pfr4pqc" path="res://sound/footstep npc/Footsteps_Rock_Walk_09.wav" id="38_bu4jf"]
+[ext_resource type="AudioStream" uid="uid://dkf5i2ohg7uvb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_10.wav" id="37_1v6qk"]
+[ext_resource type="AudioStream" uid="uid://7tbksyrskg0a" path="res://sound/footstep player/Footsteps_MetalV2_Walk_11.wav" id="38_augu2"]
+[ext_resource type="AudioStream" uid="uid://bgh0knrrx1ffb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_12.wav" id="39_tm6hj"]
+[ext_resource type="AudioStream" uid="uid://dc14yby00c364" path="res://sound/footstep player/Footsteps_MetalV2_Walk_13.wav" id="40_kf5aa"]
+[ext_resource type="AudioStream" uid="uid://cnky33lnlrjp2" path="res://sound/footstep player/Footsteps_MetalV2_Walk_14.wav" id="41_t5ykj"]
+[ext_resource type="AudioStream" uid="uid://divsfjr4bfgj0" path="res://sound/footstep player/Footsteps_MetalV2_Walk_15.wav" id="42_e755i"]
 [ext_resource type="PackedScene" uid="uid://d08xir1bcev4p" path="res://scenes/people/special/police_stander.tscn" id="43_chjal"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
@@ -611,7 +617,7 @@ current = true
 [node name="FootstepsManager" type="Node2D" parent="Player" unique_id=1445877256 node_paths=PackedStringArray("icon")]
 script = ExtResource("27_5q0nq")
 length = 0.167
-streams = Array[AudioStreamWAV]([ExtResource("30_cjqg0"), ExtResource("31_vchkt"), ExtResource("32_txyw0"), ExtResource("33_vc5cj"), ExtResource("34_nvyfr"), ExtResource("35_ty1g6"), ExtResource("36_j2jfr"), ExtResource("37_bjg73"), ExtResource("38_bu4jf")])
+streams = Array[AudioStreamWAV]([ExtResource("28_nvyfr"), ExtResource("29_ty1g6"), ExtResource("30_j2jfr"), ExtResource("31_bjg73"), ExtResource("32_bu4jf"), ExtResource("33_o7ddy"), ExtResource("34_0loja"), ExtResource("35_ids8r"), ExtResource("36_dnhof"), ExtResource("37_1v6qk"), ExtResource("38_augu2"), ExtResource("39_tm6hj"), ExtResource("40_kf5aa"), ExtResource("41_t5ykj"), ExtResource("42_e755i")])
 icon = NodePath("../Sprite2D")
 
 [node name="GameManager" type="Node" parent="." unique_id=1195878992]

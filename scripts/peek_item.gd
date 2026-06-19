@@ -11,7 +11,7 @@ var ovrlp : Array :
 		return Globals.mouse.get_overlapping_bodies().filter(func(x): return x is Person)
 
 func _check_active(delta : float) -> bool:
-	return true
+	return len(ovrlp) != 0
 
 var window_open := false
 var label_showing := false
@@ -19,12 +19,12 @@ var target : Person
 var paused := false
 
 func _always(delta : float) -> void:
-	pass
-
-func _while_active(delta : float) -> void:
-	if Input.is_action_pressed("peek") and len(ovrlp) != 0:
-		tooltip.visible = true
-		tooltip.data = (ovrlp[0] as Person).emotion_manager.emotions
 	if Input.is_action_just_released("peek"):
 		tooltip.hide()
 		use()
+
+func _while_active(delta : float) -> void:
+	if Input.is_action_pressed("peek"):
+		tooltip.visible = true
+		tooltip.data = (ovrlp[0] as Person).emotion_manager.emotions
+	

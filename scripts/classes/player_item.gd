@@ -2,7 +2,7 @@ class_name PlayerItem extends Node2D
 
 @export var active := false
 @export var cooldown_time := 0.0
-@onready var current_time = cooldown_time
+@onready var current_time = 0.0
 @export var ability_hint : PackedScene
 
 func _init() -> void:

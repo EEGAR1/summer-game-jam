@@ -42,13 +42,15 @@ func _while_active(delta : float) -> void:
 		match type:
 			TYPES.GOOD:
 				if not is_instance_valid(from): return
-				target.emotion_manager.set_emotion(from.id, EmotionManager.EMOTION_TYPE.LOVE, 80.0)
-				target.emotion_manager.set_emotion(from.id, EmotionManager.EMOTION_TYPE.TRUST, 75.0)
+				if not is_instance_valid(target): return
+				target.emotion_manager.set_emotion(from.id + 1, EmotionManager.EMOTION_TYPE.LOVE, 80.0)
+				target.emotion_manager.set_emotion(from.id + 1, EmotionManager.EMOTION_TYPE.TRUST, 75.0)
 				target.emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.LOVE, true)
 			TYPES.BAD:
 				if not is_instance_valid(from): return
-				target.emotion_manager.set_emotion(from.id, EmotionManager.EMOTION_TYPE.LOVE, target.emotion_manager.get_emotion(from.id, EmotionManager.EMOTION_TYPE.LOVE) - 20.0)
-				target.emotion_manager.set_emotion(from.id, EmotionManager.EMOTION_TYPE.TRUST, target.emotion_manager.get_emotion(from.id, EmotionManager.EMOTION_TYPE.LOVE) - 50.0)
+				if not is_instance_valid(target): return
+				target.emotion_manager.set_emotion(from.id + 1, EmotionManager.EMOTION_TYPE.LOVE, target.emotion_manager.get_emotion(from.id, EmotionManager.EMOTION_TYPE.LOVE) - 20.0)
+				target.emotion_manager.set_emotion(from.id + 1, EmotionManager.EMOTION_TYPE.TRUST, target.emotion_manager.get_emotion(from.id, EmotionManager.EMOTION_TYPE.TRUST) - 50.0)
 				target.emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.LOVE, false)
 			
 		use()
