@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="summer game jam"
-run/main_scene="uid://skwgyslh57ba"
+run/main_scene="uid://88jh5lp24f7u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

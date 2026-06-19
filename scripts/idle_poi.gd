@@ -11,3 +11,6 @@ class_name IdlePOI extends Node2D
 
 func _ready() -> void:
 	if enabled:	enabled = true
+
+func _exit_tree() -> void:
+	Globals.idle_pois.remove_at(Globals.idle_pois.find(self))

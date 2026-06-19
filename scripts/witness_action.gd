@@ -19,7 +19,7 @@ const SPOTTED = preload("uid://b7dckra4acc41")
 func _while_acting(delta : float) -> void: # Plays while acting
 	parent.current_path.clear() # Stop bc we just saw something
 	emotion_manager.show_emotion(EmotionManager.EMOTION_TYPE.TRUST, false)
-	parent.stress += 30.0
+	parent.stress += 20.0
 	for person in area_2d.get_fov_overlapping_bodies().filter(func(x): return x is Person):
 		person = person as Person
 		emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST) * 0.8) # Trust everyone around a little less

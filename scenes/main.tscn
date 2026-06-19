@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://3bqytinstyy2" path="res://scenes/people/citizen.tscn" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://x8sda044sdxd" path="res://scripts/control_item_panel.gd" id="1_y6deb"]
 [ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="1_yq6so"]
-[ext_resource type="PackedScene" uid="uid://drowwofke7tsu" path="res://scenes/prefab/idle_poi.tscn" id="2_j8jky"]
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
-[ext_resource type="PackedScene" uid="uid://dmxg0cgysfubt" path="res://scenes/prefab/building_point.tscn" id="3_kmb1v"]
 [ext_resource type="Script" uid="uid://ci44xjqb0n1e" path="res://scripts/control_item_label.gd" id="3_og1vs"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://d2c0ikgwlh3iy" path="res://scripts/time_panel.gd" id="3_vchkt"]
 [ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://caet6q8mstv22" path="res://scripts/dialog.gd" id="7_2wyq8"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://mbspbigngnrj" path="res://scripts/button_change_scene.gd" id="7_txyw0"]
 [ext_resource type="Script" uid="uid://dywrxyfs38mlo" path="res://scripts/foldable_container.gd" id="8_dgi5k"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://d3nujmbyie2x6" path="res://scenes/classes/get_building_button.tscn" id="9_5q0nq"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dhfc0hdhapis0" path="res://sound/talk.wav" id="13_ty1g6"]
 [ext_resource type="Script" uid="uid://d0ko8ba4q0715" path="res://scripts/defeat.gd" id="14_0ld40"]
 [ext_resource type="Script" uid="uid://bcamjboov1yrx" path="res://scripts/tooltip.gd" id="15_pm3ni"]
+[ext_resource type="Script" uid="uid://mqg1sj4cs33" path="res://scripts/text.gd" id="16_cjqg0"]
 [ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://6awb77ljv4yt" path="res://scenes/abilities/possess_item.tscn" id="21_tel4y"]
 [ext_resource type="PackedScene" uid="uid://c875efa3f5jim" path="res://scenes/abilities/kill_item.tscn" id="22_qkpxi"]
@@ -44,96 +45,96 @@
 [ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="36_kmb1v"]
 [ext_resource type="AudioStream" uid="uid://bb4inolmrob2p" path="res://sound/footstep npc/Footsteps_Rock_Walk_08.wav" id="37_bjg73"]
 [ext_resource type="AudioStream" uid="uid://cmr366pfr4pqc" path="res://sound/footstep npc/Footsteps_Rock_Walk_09.wav" id="38_bu4jf"]
+[ext_resource type="PackedScene" uid="uid://d08xir1bcev4p" path="res://scenes/people/special/police_stander.tscn" id="43_chjal"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("../../ItemHolder:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(326, 448)]
+"update": 1,
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../ItemHolder:visible")
+tracks/2/path = NodePath("..:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
+tracks/3/path = NodePath("..:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0009999999),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_2wyq8"]
 resource_name = "close"
-length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("../../ItemHolder:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("..:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(326, 448), Vector2(326, 650)]
+"values": [Vector2(0, 0), Vector2(0, 649.315)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../ItemHolder:visible")
+tracks/2/path = NodePath("..:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_vxglm"]
@@ -142,11 +143,11 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.16666667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -154,35 +155,35 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("../../ItemHolder:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(326, 650), Vector2(326, 448)]
+"update": 1,
+"values": [false, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../ItemHolder:visible")
+tracks/2/path = NodePath("..:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, false]
+"update": 0,
+"values": [Vector2(0, 649.315), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
+tracks/3/path = NodePath("..:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.06666667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -227,65 +228,6 @@ animations = [{
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 y_sort_enabled = true
-
-[node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1127, 151)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen2" parent="." unique_id=664325087 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(984, 103)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen3" parent="." unique_id=961311435 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1193, 233)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen4" parent="." unique_id=1215606505 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1164, 230)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen5" parent="." unique_id=1719604961 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1143, 213)
-control_parent = NodePath("../UI/Window")
-
-[node name="IdlePOI" parent="." unique_id=1156854468 instance=ExtResource("2_j8jky")]
-position = Vector2(1119, 91)
-
-[node name="IdlePOI2" parent="." unique_id=1076342099 instance=ExtResource("2_j8jky")]
-position = Vector2(1389, -96)
-
-[node name="BuildingPoint" parent="." unique_id=120138806 instance=ExtResource("3_kmb1v")]
-position = Vector2(2496, 240)
-
-[node name="BuildingPoint2" parent="." unique_id=792987372 instance=ExtResource("3_kmb1v")]
-position = Vector2(2496, 192)
-
-[node name="BuildingPoint3" parent="." unique_id=420295791 instance=ExtResource("3_kmb1v")]
-position = Vector2(2544, 224)
-
-[node name="BuildingPoint4" parent="." unique_id=1943556343 instance=ExtResource("3_kmb1v")]
-position = Vector2(2040, 368)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint5" parent="." unique_id=699330721 instance=ExtResource("3_kmb1v")]
-position = Vector2(2088, 368)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint6" parent="." unique_id=1433209140 instance=ExtResource("3_kmb1v")]
-position = Vector2(2160, 360)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint7" parent="." unique_id=245101240 instance=ExtResource("3_kmb1v")]
-position = Vector2(1944, 544)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint8" parent="." unique_id=706227428 instance=ExtResource("3_kmb1v")]
-position = Vector2(2552, 384)
-forwhat = ExtResource("36_kmb1v")
-
-[node name="BuildingPoint9" parent="." unique_id=1201940401 instance=ExtResource("3_kmb1v")]
-position = Vector2(2480, 384)
-forwhat = ExtResource("36_kmb1v")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861140114]
 
@@ -366,6 +308,22 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 2
 
+[node name="TimePanel" type="Panel" parent="UI/Window/ItemHolder/VBoxContainer" unique_id=2104175880]
+custom_minimum_size = Vector2(0, 26.85)
+layout_mode = 2
+script = ExtResource("3_vchkt")
+
+[node name="Label" type="Label" parent="UI/Window/ItemHolder/VBoxContainer/TimePanel" unique_id=73541084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Panel" type="Panel" parent="UI/Window/ItemHolder/VBoxContainer" unique_id=330755262]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
@@ -395,7 +353,7 @@ script = ExtResource("3_og1vs")
 
 [node name="Victory!" type="Panel" parent="UI/Window" unique_id=1256992699]
 visible = false
-custom_minimum_size = Vector2(138.32, 30.715)
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -421,9 +379,52 @@ text = "YOU WIN!!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TimePanel" type="Panel" parent="UI/Window/Victory!" unique_id=1679331923]
+custom_minimum_size = Vector2(0, 26.85)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_vchkt")
+
+[node name="Label" type="Label" parent="UI/Window/Victory!/TimePanel" unique_id=1979077531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="VBoxContainer" parent="UI/Window/Victory!" unique_id=940459777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Main Menu" type="Button" parent="UI/Window/Victory!/Control" unique_id=232890010]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("7_txyw0")
+next_scene = "uid://88jh5lp24f7u"
+
+[node name="Restart" type="Button" parent="UI/Window/Victory!/Control" unique_id=539047690]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("7_txyw0")
+next_scene = "uid://skwgyslh57ba"
+
 [node name="Defeat!" type="Panel" parent="UI/Window" unique_id=765790872]
 visible = false
-custom_minimum_size = Vector2(159.83, 0)
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -448,6 +449,27 @@ grow_horizontal = 2
 text = "YOU LOSE ):"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" type="VBoxContainer" parent="UI/Window/Defeat!" unique_id=1396205662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Main Menu" type="Button" parent="UI/Window/Defeat!/Control" unique_id=421531412]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("7_txyw0")
+next_scene = "uid://88jh5lp24f7u"
+
+[node name="Restart" type="Button" parent="UI/Window/Defeat!/Control" unique_id=314086356]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("7_txyw0")
+next_scene = "uid://skwgyslh57ba"
 
 [node name="Tooltip" type="Control" parent="UI/Window" unique_id=715801127]
 anchors_preset = 0
@@ -475,90 +497,6 @@ item_count = 3
 max_columns = 3
 same_column_width = true
 item_0/text = "Name"
-
-[node name="Dialog" type="Panel" parent="UI/Window" unique_id=1888146334]
-visible = false
-custom_minimum_size = Vector2(500, 200)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -200.0
-offset_right = 372.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(250, 200)
-script = ExtResource("7_2wyq8")
-
-[node name="Title" type="Label" parent="UI/Window/Dialog" unique_id=736335923]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.17
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 24
-text = "Person"
-metadata/_edit_use_anchors_ = true
-
-[node name="Text" type="Label" parent="UI/Window/Dialog/Title" unique_id=1117471375]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 93.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Person"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Window/Dialog" unique_id=1397574493]
-libraries/ = SubResource("AnimationLibrary_2f3dj")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Window/Dialog/AnimationPlayer" unique_id=31697297]
-stream = ExtResource("13_ty1g6")
-
-[node name="TextureRect" type="TextureRect" parent="UI/Window/Dialog" unique_id=1395158139]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 0
-grow_vertical = 2
-stretch_mode = 5
-
-[node name="Control" type="Control" parent="UI/Window/Dialog" unique_id=826240509]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="GridContainer" type="GridContainer" parent="UI/Window/Dialog" unique_id=366701571]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -31.0
-grow_horizontal = 2
-grow_vertical = 0
-columns = 2
-script = ExtResource("13_qkpxi")
-
-[node name="Button" type="Button" parent="UI/Window/Dialog/GridContainer" unique_id=1770203851]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Yes"
-
-[node name="Button2" type="Button" parent="UI/Window/Dialog/GridContainer" unique_id=556147223]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "No"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Window" unique_id=1954126796]
 layout_mode = 1
@@ -614,6 +552,95 @@ target_building = ExtResource("12_dgi5k")
 building_name = "Bed"
 descr = "Lets people get good sleep. Lures people to an area."
 
+[node name="Control" type="Control" parent="UI/Window" unique_id=715235876]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 0.0007324219
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dialog" type="Panel" parent="UI/Window/Control" unique_id=1888146334]
+custom_minimum_size = Vector2(650, 200)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -200.0
+offset_right = 325.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 1)
+script = ExtResource("7_2wyq8")
+
+[node name="Title" type="Label" parent="UI/Window/Control/Dialog" unique_id=736335923]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.17
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Person"
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="UI/Window/Control/Dialog/Title" unique_id=1117471375]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.999634
+offset_bottom = 175.99963
+grow_horizontal = 2
+text = "Person  kajsldk jaslkd jaslk djk
+Person sadkjaskldjaslkdjalskdjlkajdlkasjdklajsdlajslkdj sadas dasd asd asd asd asd asd asd asd asd asd asd asdasd asd asd asd asd asd asd aklsdjalksdjlkasjdlkasjdlkasjdlkasjldkajlkdjaslkdjalksdjlaskdjl kajsldk jaslkd jaslk djk"
+autowrap_mode = 3
+script = ExtResource("16_cjqg0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Window/Control/Dialog" unique_id=1397574493]
+libraries/ = SubResource("AnimationLibrary_2f3dj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Window/Control/Dialog/AnimationPlayer" unique_id=31697297]
+stream = ExtResource("13_ty1g6")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Window/Control/Dialog" unique_id=1395158139]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="UI/Window/Control/Dialog" unique_id=826240509]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="UI/Window/Control/Dialog" unique_id=366701571]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("13_qkpxi")
+
+[node name="Button" type="Button" parent="UI/Window/Control/Dialog/GridContainer" unique_id=1770203851]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493783764]
 zoom = Vector2(3.5, 3.5)
 script = ExtResource("2_tipki")
@@ -627,7 +654,7 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050 groups=["player"]]
-position = Vector2(1040, 154)
+position = Vector2(1473, 751)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("7_o6xl0")
@@ -639,19 +666,21 @@ shape = SubResource("RectangleShape2D_o6xl0")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
 texture_filter = 1
 sprite_frames = ExtResource("10_choun")
-animation = &"run"
-frame_progress = 0.44662786
+animation = &"dead"
 
 [node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
 script = ExtResource("13_muem4")
 
 [node name="PossessItem" parent="Player/ItemsManager" unique_id=277441308 instance=ExtResource("21_tel4y")]
+cooldown_time = 15.0
 
 [node name="KillItem" parent="Player/ItemsManager" unique_id=1759975545 instance=ExtResource("22_qkpxi")]
+cooldown_time = 20.0
 
 [node name="PeekItem" parent="Player/ItemsManager" unique_id=1934014488 instance=ExtResource("23_5q0nq")]
 
 [node name="BreakItem" parent="Player/ItemsManager" unique_id=1163805183 instance=ExtResource("25_j8jky")]
+cooldown_time = 5.0
 
 [node name="Timer" type="Timer" parent="Player" unique_id=10195831]
 wait_time = 0.25
@@ -692,14 +721,22 @@ script = ExtResource("30_tel4y")
 
 [node name="Map" parent="." unique_id=550863854 instance=ExtResource("32_qkpxi")]
 
-[node name="Officer" parent="." unique_id=327215805 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1059, 182)
+[node name="Officer" parent="." unique_id=254502889 node_paths=PackedStringArray("control_parent") instance=ExtResource("43_chjal")]
+position = Vector2(1328, 728)
 control_parent = NodePath("../UI/Window")
 
-[node name="Officer2" parent="." unique_id=1157027537 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1106, 145)
+[node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
+position = Vector2(1188, 656)
+control_parent = NodePath("../UI/Window")
+
+[node name="Citizen2" parent="." unique_id=221124025 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
+position = Vector2(1196, 639)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer2" parent="." unique_id=1969541906 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1200, 600)
 control_parent = NodePath("../UI/Window")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
-[connection signal="_on_option_button_item_selected" from="UI/Window/Dialog/GridContainer" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
+[connection signal="_on_option_button_item_selected" from="UI/Window/Control/Dialog/GridContainer" to="UI/Window/Control/Dialog" method="_on_option_button_item_selected"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

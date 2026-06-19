@@ -7,7 +7,11 @@ var buttons : Array[Button]
 func _ready() -> void:
 	clear()
 
+func _process(delta: float) -> void:
+	columns = len(buttons)
+
 func clear():
+	columns = 0
 	buttons.clear()
 	for i in get_children():
 		i.queue_free.call_deferred()

@@ -1,6 +1,6 @@
 extends Action
 
-@export var freq := 1
+@export var freq := 20.0
 @export var time := 3.0
 
 @onready var seek_area: Area2D = $SeekArea
@@ -14,7 +14,7 @@ var talk_ovrlp : Array :
 
 
 func _check_action(delta : float) -> void: # Should use `set_action()` to set this as the current action
-	var rand = randi_range(0, int(freq/(delta * (parent.stress * 2.0 + 1))))
+	var rand = randi_range(0, int(freq/(delta * (parent.stress * 1.5 + 1))))
 	if rand == 0:
 		var vals = parent.emotion_manager.emotions.values()
 		if vals.min() < 30.0 or vals.max() > 70.0:  
@@ -41,8 +41,7 @@ func _while_acting(delta : float) -> void: # Plays while acting
 			var id = int(round(i))
 			var em_type = int((i-int(round(i))) * 10)
 			if parent.emotion_manager.get_emotion(id, em_type) < 70.0:	continue
-			target.emotion_manager.set_emotion(id, em_type, target.emotion_manager.get_emotion(id, em_type) + (parent.emotion_manager.get_emotion(id, em_type) - target.emotion_manager.get_emotion(id, em_type)) * delta)
-			print(target.emotion_manager.get_emotion(id, em_type))
+	
 	elif len(seek_ovrlp) != 0:
 		target = seek_ovrlp[0] as Person
 		if len(parent.current_path.path) == 0:

@@ -1,6 +1,7 @@
 class_name Dialog extends Panel
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.dialog = self
@@ -10,6 +11,9 @@ func _ready() -> void:
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var option_button: CustomGridContainer = $GridContainer
+
+func _process(delta: float) -> void:
+	custom_minimum_size.y = title.size.y + text.size.y + option_button.size.y + 30.0
 
 class DialogData:
 	var title_text : String
@@ -49,6 +53,7 @@ func _on_option_button_item_selected(index: int) -> void:
 	animation_player.play("close")
 	if len(callbacks) == 0:	return
 	if callbacks.back() == null: return
+	# BUG: If someone dies while talking to you, this breaks
 	callbacks.back().call(index)
 	callbacks.pop_back()
 	dialogs.pop_back()

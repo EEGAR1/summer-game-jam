@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d08xir1bcev4p"]
+
+[ext_resource type="PackedScene" uid="uid://chk2yeqkco1aj" path="res://scenes/classes/person.tscn" id="1_50pvp"]
+[ext_resource type="SpriteFrames" uid="uid://cmkcgb4pp6xyt" path="res://art/people/officer1.tres" id="2_4jsjo"]
+[ext_resource type="SpriteFrames" uid="uid://dxgvrh7cm3spr" path="res://art/people/officer2.tres" id="3_i2db2"]
+[ext_resource type="SpriteFrames" uid="uid://1r4txy5beoc8" path="res://art/people/officer3.tres" id="4_ysip5"]
+[ext_resource type="SpriteFrames" uid="uid://5p3ioo0psts5" path="res://art/people/officer4.tres" id="5_jrokx"]
+[ext_resource type="SpriteFrames" uid="uid://4xh3e7t37csl" path="res://art/people/officer5.tres" id="6_rhdx7"]
+[ext_resource type="Script" uid="uid://b0jvs8432phj" path="res://scripts/action_manager.gd" id="7_boun8"]
+[ext_resource type="PackedScene" uid="uid://go7g6dcptfyk" path="res://scenes/actions/gun_kill_action.tscn" id="9_48ly0"]
+[ext_resource type="PackedScene" uid="uid://dwee3cnhxdk61" path="res://scenes/actions/witness_action.tscn" id="10_upxqe"]
+
+[node name="Officer" unique_id=1228245065 instance=ExtResource("1_50pvp")]
+collision_layer = 3
+collision_mask = 3
+type = 1
+
+[node name="Icon" parent="." index="0" unique_id=1980460130]
+sprite_frames = ExtResource("2_4jsjo")
+animation = &"dead"
+options = Array[SpriteFrames]([ExtResource("2_4jsjo"), ExtResource("3_i2db2"), ExtResource("4_ysip5"), ExtResource("5_jrokx"), ExtResource("6_rhdx7")])
+genders = Array[int]([0, 1, 0, 0, 0])
+
+[node name="ActionManager" type="Node2D" parent="." index="3" unique_id=1036402641]
+script = ExtResource("7_boun8")
+
+[node name="GunKillAction" parent="ActionManager" index="0" unique_id=1662293383 instance=ExtResource("9_48ly0")]
+
+[node name="WitnessAction" parent="ActionManager" index="1" unique_id=1896438407 instance=ExtResource("10_upxqe")]
+
+[node name="EmotionManager" parent="." index="4" unique_id=2139621875]
+care = false
