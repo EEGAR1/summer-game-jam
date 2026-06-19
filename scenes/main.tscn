@@ -3,9 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://3bqytinstyy2" path="res://scenes/people/citizen.tscn" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://x8sda044sdxd" path="res://scripts/control_item_panel.gd" id="1_y6deb"]
 [ext_resource type="PackedScene" uid="uid://ddk8ynb2tv0kp" path="res://scenes/buildings/o2_tank.tscn" id="1_yq6so"]
-[ext_resource type="PackedScene" uid="uid://drowwofke7tsu" path="res://scenes/prefab/idle_poi.tscn" id="2_j8jky"]
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
-[ext_resource type="PackedScene" uid="uid://dmxg0cgysfubt" path="res://scenes/prefab/building_point.tscn" id="3_kmb1v"]
 [ext_resource type="Script" uid="uid://ci44xjqb0n1e" path="res://scripts/control_item_label.gd" id="3_og1vs"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
@@ -40,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://mbc0tvncuky0" path="res://sound/footstep npc/Footsteps_Rock_Walk_04.wav" id="33_vc5cj"]
 [ext_resource type="AudioStream" uid="uid://d0do8cq8al7c5" path="res://sound/footstep npc/Footsteps_Rock_Walk_05.wav" id="34_nvyfr"]
 [ext_resource type="AudioStream" uid="uid://bmcvvsibs0ooy" path="res://sound/footstep npc/Footsteps_Rock_Walk_06.wav" id="35_ty1g6"]
+[ext_resource type="PackedScene" uid="uid://dwfvmnjfly5kw" path="res://scenes/people/police.tscn" id="36_fuf3a"]
 [ext_resource type="AudioStream" uid="uid://q8hogtsgfqky" path="res://sound/footstep npc/Footsteps_Rock_Walk_07.wav" id="36_j2jfr"]
 [ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="36_kmb1v"]
 [ext_resource type="AudioStream" uid="uid://bb4inolmrob2p" path="res://sound/footstep npc/Footsteps_Rock_Walk_08.wav" id="37_bjg73"]
@@ -227,45 +226,6 @@ animations = [{
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 y_sort_enabled = true
-
-[node name="IdlePOI" parent="." unique_id=1156854468 instance=ExtResource("2_j8jky")]
-position = Vector2(1119, 91)
-
-[node name="IdlePOI2" parent="." unique_id=1076342099 instance=ExtResource("2_j8jky")]
-position = Vector2(1389, -96)
-
-[node name="BuildingPoint" parent="." unique_id=120138806 instance=ExtResource("3_kmb1v")]
-position = Vector2(2496, 240)
-
-[node name="BuildingPoint2" parent="." unique_id=792987372 instance=ExtResource("3_kmb1v")]
-position = Vector2(2496, 192)
-
-[node name="BuildingPoint3" parent="." unique_id=420295791 instance=ExtResource("3_kmb1v")]
-position = Vector2(2544, 224)
-
-[node name="BuildingPoint4" parent="." unique_id=1943556343 instance=ExtResource("3_kmb1v")]
-position = Vector2(2040, 368)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint5" parent="." unique_id=699330721 instance=ExtResource("3_kmb1v")]
-position = Vector2(2088, 368)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint6" parent="." unique_id=1433209140 instance=ExtResource("3_kmb1v")]
-position = Vector2(2160, 360)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint7" parent="." unique_id=245101240 instance=ExtResource("3_kmb1v")]
-position = Vector2(1944, 544)
-forwhat = ExtResource("12_dgi5k")
-
-[node name="BuildingPoint8" parent="." unique_id=706227428 instance=ExtResource("3_kmb1v")]
-position = Vector2(2552, 384)
-forwhat = ExtResource("36_kmb1v")
-
-[node name="BuildingPoint9" parent="." unique_id=1201940401 instance=ExtResource("3_kmb1v")]
-position = Vector2(2480, 384)
-forwhat = ExtResource("36_kmb1v")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861140114]
 
@@ -630,12 +590,15 @@ animation = &"dead"
 script = ExtResource("13_muem4")
 
 [node name="PossessItem" parent="Player/ItemsManager" unique_id=277441308 instance=ExtResource("21_tel4y")]
+cooldown_time = 15.0
 
 [node name="KillItem" parent="Player/ItemsManager" unique_id=1759975545 instance=ExtResource("22_qkpxi")]
+cooldown_time = 20.0
 
 [node name="PeekItem" parent="Player/ItemsManager" unique_id=1934014488 instance=ExtResource("23_5q0nq")]
 
 [node name="BreakItem" parent="Player/ItemsManager" unique_id=1163805183 instance=ExtResource("25_j8jky")]
+cooldown_time = 5.0
 
 [node name="Timer" type="Timer" parent="Player" unique_id=10195831]
 wait_time = 0.25
@@ -684,6 +647,9 @@ position = Vector2(1188, 656)
 
 [node name="Citizen2" parent="." unique_id=221124025 instance=ExtResource("1_tbgi4")]
 position = Vector2(1196, 639)
+
+[node name="Officer2" parent="." unique_id=1969541906 instance=ExtResource("36_fuf3a")]
+position = Vector2(1200, 600)
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Control/Dialog/GridContainer" to="UI/Window/Control/Dialog" method="_on_option_button_item_selected"]

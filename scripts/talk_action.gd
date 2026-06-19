@@ -14,7 +14,7 @@ var talk_ovrlp : Array :
 
 
 func _check_action(delta : float) -> void: # Should use `set_action()` to set this as the current action
-	var rand = randi_range(0, int(freq/(delta * (parent.stress * 2.0 + 1))))
+	var rand = randi_range(0, int(freq/(delta * (parent.stress * 1.5 + 1))))
 	if rand == 0:
 		var vals = parent.emotion_manager.emotions.values()
 		if vals.min() < 30.0 or vals.max() > 70.0:  

@@ -24,6 +24,7 @@ genders = Array[int]([0, 1, 0, 0, 0])
 script = ExtResource("7_xy44m")
 
 [node name="IdleAction" parent="ActionManager" index="0" unique_id=230576655 instance=ExtResource("9_3s04u")]
+freq = 20
 
 [node name="GunKillAction" parent="ActionManager" index="1" unique_id=1662293383 instance=ExtResource("9_fxn7k")]
 
