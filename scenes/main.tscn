@@ -639,17 +639,21 @@ script = ExtResource("30_tel4y")
 
 [node name="Map" parent="." unique_id=550863854 instance=ExtResource("32_qkpxi")]
 
-[node name="Officer" parent="." unique_id=254502889 instance=ExtResource("43_chjal")]
+[node name="Officer" parent="." unique_id=254502889 node_paths=PackedStringArray("control_parent") instance=ExtResource("43_chjal")]
 position = Vector2(1328, 728)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen" parent="." unique_id=1228245065 instance=ExtResource("1_tbgi4")]
+[node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1188, 656)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen2" parent="." unique_id=221124025 instance=ExtResource("1_tbgi4")]
+[node name="Citizen2" parent="." unique_id=221124025 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1196, 639)
+control_parent = NodePath("../UI/Window")
 
-[node name="Officer2" parent="." unique_id=1969541906 instance=ExtResource("36_fuf3a")]
+[node name="Officer2" parent="." unique_id=1969541906 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
 position = Vector2(1200, 600)
+control_parent = NodePath("../UI/Window")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Control/Dialog/GridContainer" to="UI/Window/Control/Dialog" method="_on_option_button_item_selected"]
