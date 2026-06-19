@@ -39,4 +39,4 @@ func update() -> void:
 			elif data.get(i + 0.1 * em) < 30.0:
 				item_list.add_item("X")
 			else:
-				item_list.add_item("~")
+				pass # Skip

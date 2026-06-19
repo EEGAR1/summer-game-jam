@@ -138,4 +138,3 @@ position = Vector2(-1699, -264)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1039470370]
 stream = SubResource("AudioStreamWAV_v86rl")
-autoplay = true
