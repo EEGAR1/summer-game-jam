@@ -1,0 +1,50 @@
+[gd_resource type="Theme" format=3 uid="uid://dx6u58owewcb8"]
+
+[ext_resource type="Texture2D" uid="uid://biuhwvnkc7xn" path="res://ui/9 patch_hover.png" id="1_iqtc0"]
+[ext_resource type="Texture2D" uid="uid://cgl58o087w0we" path="res://ui/9 patch.png" id="1_jf26r"]
+[ext_resource type="FontFile" uid="uid://dikmaol4wil77" path="res://ui/BetterPixels.ttf" id="1_rqugq"]
+[ext_resource type="Texture2D" uid="uid://c686vl81pqioi" path="res://ui/9 patch_press.png" id="3_7any1"]
+[ext_resource type="Texture2D" uid="uid://cwvyknurs8pwr" path="res://ui/grabber.png" id="4_y5ki2"]
+[ext_resource type="Texture2D" uid="uid://i74tb1gp8bn3" path="res://ui/grabber highlight.png" id="5_rtqkv"]
+[ext_resource type="Texture2D" uid="uid://c4mkku5pbwkf6" path="res://ui/line.png" id="6_47c11"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6lx7k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fgq6"]
+texture = ExtResource("1_iqtc0")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jf26r"]
+texture = ExtResource("1_jf26r")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5ki2"]
+texture = ExtResource("3_7any1")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j8s8"]
+texture = ExtResource("6_47c11")
+
+[resource]
+default_font = ExtResource("1_rqugq")
+default_font_size = 32
+Button/colors/font_color = Color(0.15, 0.0465, 0.15, 1)
+Button/colors/font_hover_color = Color(0.23921569, 0, 0.23921569, 1)
+Button/colors/font_hover_pressed_color = Color(0.23921569, 0, 0.23921569, 1)
+Button/colors/font_pressed_color = Color(0.53333336, 0.49019608, 0.5529412, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_6lx7k")
+Button/styles/hover = SubResource("StyleBoxTexture_3fgq6")
+Button/styles/normal = SubResource("StyleBoxTexture_jf26r")
+Button/styles/pressed = SubResource("StyleBoxTexture_y5ki2")
+HSlider/icons/grabber = ExtResource("4_y5ki2")
+HSlider/icons/grabber_highlight = ExtResource("5_rtqkv")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_2j8s8")

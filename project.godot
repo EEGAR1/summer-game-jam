@@ -30,6 +30,10 @@ POI=""
 Wall=""
 player=""
 
+[gui]
+
+theme/custom_font="uid://dikmaol4wil77"
+
 [input]
 
 m1={
