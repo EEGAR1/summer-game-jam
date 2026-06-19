@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbigf76h73mbn" path="res://scripts/get_building_button.gd" id="1_hkftl"]
 [ext_resource type="Texture2D" uid="uid://bhh3hln671c6p" path="res://art/environment/placeable/bed.png" id="2_cqeao"]
+[ext_resource type="Theme" uid="uid://dx6u58owewcb8" path="res://ui/theme.tres" id="3_cqeao"]
 
 [node name="GetBuildingButton" type="Button" unique_id=976499015]
 custom_minimum_size = Vector2(125, 250)
@@ -30,6 +31,7 @@ offset_top = -150.0
 offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.08627451, 0.011764706, 0.08627451, 1)
 theme_override_font_sizes/font_size = 21
 text = "namehere"
 horizontal_alignment = 1
@@ -41,10 +43,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_left = 4.0
+offset_top = -136.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 14
+theme = ExtResource("3_cqeao")
+theme_override_colors/font_color = Color(0.08627451, 0.011764706, 0.08627451, 1)
+theme_override_font_sizes/font_size = 17
 text = "GIVE ME A DESCR YOU IDIOT! GIVE ME A DESCR YOU IDIOT!"
 horizontal_alignment = 1
 vertical_alignment = 1
