@@ -46,6 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://bb4inolmrob2p" path="res://sound/footstep npc/Footsteps_Rock_Walk_08.wav" id="37_bjg73"]
 [ext_resource type="AudioStream" uid="uid://cmr366pfr4pqc" path="res://sound/footstep npc/Footsteps_Rock_Walk_09.wav" id="38_bu4jf"]
 [ext_resource type="PackedScene" uid="uid://d08xir1bcev4p" path="res://scenes/people/special/police_stander.tscn" id="43_chjal"]
+[ext_resource type="PackedScene" uid="uid://dm5ieuyu7ohio" path="res://scenes/people/engineer.tscn" id="47_nvyfr"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
 length = 0.001
@@ -726,16 +727,92 @@ position = Vector2(1328, 728)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1188, 656)
+position = Vector2(1191, 571)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen2" parent="." unique_id=221124025 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1196, 639)
+position = Vector2(1204, 499)
 control_parent = NodePath("../UI/Window")
 
 [node name="Officer2" parent="." unique_id=1969541906 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1200, 600)
+position = Vector2(1200, 400)
 control_parent = NodePath("../UI/Window")
+
+[node name="Engineer" parent="." unique_id=714034631 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(2440, 225)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer2" parent="." unique_id=691378461 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(2462, 410)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer3" parent="." unique_id=1101418258 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(2339, 224)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer4" parent="." unique_id=1772773774 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(2488, 411)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer5" parent="." unique_id=740698881 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(2394, -127)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer6" parent="." unique_id=1638296943 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(1188, -75)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer3" parent="." unique_id=578923087 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1622, 179)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer4" parent="." unique_id=891316956 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1326, -103)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer5" parent="." unique_id=1105623729 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1021, 562)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer6" parent="." unique_id=931152714 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1650, -278)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer9" parent="." unique_id=1840287890 instance=ExtResource("47_nvyfr")]
+position = Vector2(2205, 158)
+
+[node name="Engineer10" parent="." unique_id=1990921634 instance=ExtResource("47_nvyfr")]
+position = Vector2(2172, 218)
+
+[node name="Citizen3" parent="." unique_id=988135414 instance=ExtResource("1_tbgi4")]
+position = Vector2(1927, 370)
+
+[node name="Citizen4" parent="." unique_id=1702038454 instance=ExtResource("1_tbgi4")]
+position = Vector2(1829, 371)
+
+[node name="Citizen5" parent="." unique_id=329623130 instance=ExtResource("1_tbgi4")]
+position = Vector2(1808, 545)
+
+[node name="Citizen6" parent="." unique_id=1660233879 instance=ExtResource("1_tbgi4")]
+position = Vector2(1943, 544)
+
+[node name="Citizen7" parent="." unique_id=1568533202 instance=ExtResource("1_tbgi4")]
+position = Vector2(2048, 546)
+
+[node name="Citizen8" parent="." unique_id=207460723 instance=ExtResource("1_tbgi4")]
+position = Vector2(2065, 371)
+
+[node name="Citizen9" parent="." unique_id=2108250655 instance=ExtResource("1_tbgi4")]
+position = Vector2(2181, 547)
+
+[node name="Citizen10" parent="." unique_id=1343936751 instance=ExtResource("1_tbgi4")]
+position = Vector2(2184, 455)
+
+[node name="Citizen11" parent="." unique_id=420276546 instance=ExtResource("1_tbgi4")]
+position = Vector2(1558, 476)
+
+[node name="Citizen12" parent="." unique_id=1478214215 instance=ExtResource("1_tbgi4")]
+position = Vector2(1399, 495)
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Control/Dialog/GridContainer" to="UI/Window/Control/Dialog" method="_on_option_button_item_selected"]
