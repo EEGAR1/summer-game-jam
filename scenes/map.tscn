@@ -6357,28 +6357,28 @@ max_distance = 150.0
 position = Vector2(1473, 751)
 
 [node name="IdlePOI" parent="idle_pois" unique_id=1156854468 instance=ExtResource("41_qcc5i")]
-position = Vector2(351, -380)
+position = Vector2(-453, -195)
 
 [node name="IdlePOI2" parent="idle_pois" unique_id=1622767254 instance=ExtResource("41_qcc5i")]
-position = Vector2(471, -380)
+position = Vector2(-11, -252)
 
 [node name="IdlePOI3" parent="idle_pois" unique_id=1081408153 instance=ExtResource("41_qcc5i")]
-position = Vector2(590, -380)
+position = Vector2(30, -586)
 
 [node name="IdlePOI4" parent="idle_pois" unique_id=1897862111 instance=ExtResource("41_qcc5i")]
-position = Vector2(711, -370)
+position = Vector2(-584, -245)
 
 [node name="IdlePOI5" parent="idle_pois" unique_id=1848307402 instance=ExtResource("41_qcc5i")]
-position = Vector2(351, -211)
+position = Vector2(147, -557)
 
 [node name="IdlePOI6" parent="idle_pois" unique_id=1990534794 instance=ExtResource("41_qcc5i")]
-position = Vector2(471, -246)
+position = Vector2(227, -532)
 
 [node name="IdlePOI7" parent="idle_pois" unique_id=1393357162 instance=ExtResource("41_qcc5i")]
-position = Vector2(590, -206)
+position = Vector2(112, -481)
 
 [node name="IdlePOI8" parent="idle_pois" unique_id=1453562727 instance=ExtResource("41_qcc5i")]
-position = Vector2(712, -207)
+position = Vector2(-353, -347)
 
 [node name="IdlePOI9" parent="idle_pois" unique_id=1162196764 instance=ExtResource("41_qcc5i")]
 position = Vector2(1039, -338)
