@@ -151,6 +151,9 @@ func _physics_process(delta):
 			#stopped = true
 			pass
 	
+	if stopped:
+		current_path.clear()
+	
 	pathfind_process(delta)
 		
 	target_positions.set(id, navigation_agent.target_position)
