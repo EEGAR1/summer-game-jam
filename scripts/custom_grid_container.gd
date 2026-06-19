@@ -19,8 +19,10 @@ func add_item(i : String):
 	add_child(b)
 	b.pressed.connect(_clicked)
 	buttons.append(b)
-
+	
+const CLICK = preload("uid://dj7bbikjp2ba2")
 func _clicked():
+	Globals.play_sound(Globals.player.global_position, CLICK)
 	var index := -1
 	for i in get_children():
 		index += 1

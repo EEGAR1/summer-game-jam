@@ -48,7 +48,7 @@ func show_dialog(title_text : String, body_text : String, options : Array, callb
 func _on_option_button_item_selected(index: int) -> void:
 	animation_player.play("close")
 	if len(callbacks) == 0:	return
-	if not is_instance_valid(callbacks.back()): return
+	if callbacks.back() == null: return
 	callbacks.back().call(index)
 	callbacks.pop_back()
 	dialogs.pop_back()

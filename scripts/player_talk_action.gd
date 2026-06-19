@@ -36,8 +36,8 @@ func callback_build_quest(index : int):
 		var bc = BUILDING_COMPLEMENT.instantiate()
 		bc.target_building = choice
 		bc.parent = parent
-		bc.global_position = pos
 		Globals.quest_manager.add_child(bc)
+		bc.global_position = pos
 		
 const LETTER_ITEM = preload("uid://ddjg8caagspb2")
 @onready var give_quest_action: Node2D = $"../GiveQuestAction"
@@ -57,7 +57,7 @@ func callback_letter_quest(index : int):
 				what_index = ind
 		li.type = LetterPlayerItem.TYPES.GOOD if parent.emotion_manager.emotions.values()[what_index] >= 50.0 else LetterPlayerItem.TYPES.BAD
 		li.to = to
-		(Globals.player.get_child(2) as ItemsManager).add_child(li)
+		(Globals.player.items_manager).add_child(li)
 
 func no_duplicates(of: Array) -> Array:
 	var dict := {}

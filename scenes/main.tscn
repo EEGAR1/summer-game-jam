@@ -623,7 +623,7 @@ script = ExtResource("3_tbgi4")
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050 groups=["player"]]
-position = Vector2(1645, -94)
+position = Vector2(1040, 154)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("7_o6xl0")
