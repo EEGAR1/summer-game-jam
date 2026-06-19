@@ -5979,6 +5979,7 @@ max_distance = 50.0
 [node name="AmbianceStreamCalmLoopStereo" type="AudioStreamPlayer2D" parent="sound" unique_id=1066375450]
 position = Vector2(2364, -185)
 stream = ExtResource("32_qcc5i")
+volume_db = -20.0
 autoplay = true
 max_distance = 200.0
 
@@ -6038,14 +6039,14 @@ max_distance = 80.0
 [node name="RetroComputerBeepMx1" type="AudioStreamPlayer2D" parent="sound" unique_id=132398071]
 position = Vector2(2117, 165)
 stream = ExtResource("31_12q1p")
-volume_db = -15.0
+volume_db = -5.0
 autoplay = true
 max_distance = 200.0
 
 [node name="RetroComputerBeepMx2" type="AudioStreamPlayer2D" parent="sound" unique_id=1785597164]
 position = Vector2(2042, 167)
 stream = ExtResource("31_12q1p")
-volume_db = -15.0
+volume_db = -5.0
 autoplay = true
 max_distance = 100.0
 
@@ -6221,6 +6222,7 @@ max_distance = 180.0
 [node name="VentAirflow7" type="AudioStreamPlayer2D" parent="sound" unique_id=27676457]
 position = Vector2(2401, 208)
 stream = ExtResource("28_081xv")
+volume_db = 5.0
 autoplay = true
 max_distance = 180.0
 

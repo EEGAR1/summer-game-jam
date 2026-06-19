@@ -99,7 +99,7 @@ animations = [{
 size = Vector2(36, 32)
 
 [node name="shower" type="AnimatedSprite2D" unique_id=1718835138]
-z_index = 1
+z_index = -1
 sprite_frames = SubResource("SpriteFrames_s138g")
 animation = &"on"
 
