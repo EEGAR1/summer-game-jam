@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Globals="*uid://xef8hvfosm0u"
 
+[display]
+
+window/size/viewport_width=2304
+window/size/viewport_height=1296
+
 [global_group]
 
 POI=""
