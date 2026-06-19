@@ -45,3 +45,7 @@ func _while_acting(delta : float):
 
 func _no_action(delta : float) -> void:
 	animation_player.play("RESET")
+	
+const WRENCH = preload("uid://dhfrig368iqjo")
+func play_sound():
+	Globals.play_sound(global_position, WRENCH)

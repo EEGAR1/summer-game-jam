@@ -23,16 +23,18 @@ func _ready() -> void:
 		i = i as Sprite2D
 		i.modulate = Color(3.046, 0.395, 0.395, 0.596)
 		
-@onready var pointer: Node2D = $Pointer
-@onready var texture_rect: TextureRect = $Pointer/Line2D/TextureRect
-@onready var line_2d: Line2D = $Pointer/Line2D
+@onready var pointer: Node2D = $CanvasLayer/Pointer
+@onready var texture_rect: TextureRect = $CanvasLayer/Pointer/Sprite2D/TextureRect
+@onready var line_2d: Sprite2D = $CanvasLayer/Pointer/Sprite2D
 
 func _process(delta: float) -> void:
 	if Globals.player != null:
 		pointer.global_position = Globals.player.global_position
 		pointer.rotation = (global_position - Globals.player.global_position).normalized().angle()
 		line_2d.position.x = sqrt(global_position.distance_to(Globals.player.global_position) if global_position.distance_to(Globals.player.global_position) != 0 else 0.0000000001) * 2.25
-		texture_rect.rotation = -pointer.rotation
+		texture_rect.rotation = -pointer.rotation - deg_to_rad(45)
+	else:
+		print("player is missing")
 		
 	if len(overlp) > 0:
 		if (overlp[0] as Building).sprite_2d.texture != sprite_2d.texture:	incorrect_complete_quest()

@@ -12,8 +12,10 @@ var damage_type : DAMAGE_TYPE
 func _ready() -> void:
 	if is_instance_valid(get_tree()): await get_tree().process_frame
 	animation_player.play("explode")
-
+	
+const EXPLODE = preload("uid://c0x7pkon3ett8")
 func damage() -> void:
+	Globals.play_sound(global_position, EXPLODE)
 	Globals.camera.shake = 5.0
 	var buildings = get_fov_overlapping_areas().filter(func(x): return x is Building)
 	var people = get_fov_overlapping_bodies().filter(func(x): return x is Person)

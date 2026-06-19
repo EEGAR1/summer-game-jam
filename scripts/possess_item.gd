@@ -97,10 +97,15 @@ func exit_control_item_panel():
 func open_control_item_label():
 	paused = true
 	label_showing = true
-
+	
+const EYEBALL = preload("uid://65on2f00kbh0")
 func exit_control_item_label():
 	paused = false
 	label_showing = false
+	var e = EYEBALL.instantiate()
+	get_tree().current_scene.add_child(e)
+	e.global_position = Globals.player.global_position
+	e.target = Globals.mouse.global_position
 	use()
 
 func _on_option_button_item_selected(index: int) -> void:

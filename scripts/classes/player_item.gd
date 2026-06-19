@@ -40,6 +40,8 @@ func _while_active(delta : float) -> void:
 func _always(delta : float) -> void:
 	pass
 
+const USE_ITEM = preload("uid://chh6852l5751u")
 func use() -> void:
 	active = false
 	current_time = cooldown_time
+	Globals.play_sound(Globals.player.global_position, USE_ITEM)

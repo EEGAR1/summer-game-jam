@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqv8jqwuoebtg"
+path="res://.godot/imported/game jam stems sus.wav-089682f2629c00c513be780dbca6e305.sample"
+
+[deps]
+
+source_file="res://sound/reactions/game jam stems sus.wav"
+dest_files=["res://.godot/imported/game jam stems sus.wav-089682f2629c00c513be780dbca6e305.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

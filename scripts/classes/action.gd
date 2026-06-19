@@ -33,6 +33,7 @@ func set_action() -> void:
 
 func remove_action() -> void:
 	if current_action == self:
+		parent.current_state = Person.STATE.WORKING
 		current_action = null
 
 func _parent_is_ready() -> bool:

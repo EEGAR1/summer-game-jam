@@ -20,19 +20,35 @@
 [ext_resource type="Script" uid="uid://7mfn1wk30sl3" path="res://scripts/victory.gd" id="13_dp3eg"]
 [ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
 [ext_resource type="Script" uid="uid://chsjyis441343" path="res://scripts/custom_grid_container.gd" id="13_qkpxi"]
+[ext_resource type="AudioStream" uid="uid://dhfc0hdhapis0" path="res://sound/talk.wav" id="13_ty1g6"]
 [ext_resource type="Script" uid="uid://d0ko8ba4q0715" path="res://scripts/defeat.gd" id="14_0ld40"]
 [ext_resource type="Script" uid="uid://bcamjboov1yrx" path="res://scripts/tooltip.gd" id="15_pm3ni"]
 [ext_resource type="Script" uid="uid://by11c4t44sja7" path="res://scripts/game_manager.gd" id="20_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://6awb77ljv4yt" path="res://scenes/abilities/possess_item.tscn" id="21_tel4y"]
 [ext_resource type="PackedScene" uid="uid://c875efa3f5jim" path="res://scenes/abilities/kill_item.tscn" id="22_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://7a3r4eb3ndjo" path="res://scenes/abilities/peek_item.tscn" id="23_5q0nq"]
-[ext_resource type="PackedScene" uid="uid://dylgbj0kkuudt" path="res://scenes/abilities/convince_item.tscn" id="24_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://2ytxo4fgje7j" path="res://scenes/abilities/break_item.tscn" id="25_j8jky"]
+[ext_resource type="Script" uid="uid://dinh2jcyxwde0" path="res://scripts/footsteps_manager.gd" id="27_5q0nq"]
+[ext_resource type="AudioStream" uid="uid://k3i3bmqlwwiq" path="res://sound/footstep player/Footsteps_MetalV2_Walk_01.wav" id="28_nvyfr"]
+[ext_resource type="AudioStream" uid="uid://cakixpst234o4" path="res://sound/footstep player/Footsteps_MetalV2_Walk_02.wav" id="29_ty1g6"]
+[ext_resource type="AudioStream" uid="uid://csbxwe8c0ym16" path="res://sound/footstep player/Footsteps_MetalV2_Walk_03.wav" id="30_j2jfr"]
 [ext_resource type="Script" uid="uid://dgodlmeijhjf4" path="res://scripts/quest_manager.gd" id="30_tel4y"]
+[ext_resource type="AudioStream" uid="uid://bpo51tqfsydng" path="res://sound/footstep player/Footsteps_MetalV2_Walk_04.wav" id="31_bjg73"]
 [ext_resource type="Script" uid="uid://22k0cdh0wu0" path="res://scenes/timer.gd" id="31_kmb1v"]
+[ext_resource type="AudioStream" uid="uid://dsaruac4o14kb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_05.wav" id="32_bu4jf"]
 [ext_resource type="PackedScene" uid="uid://bpivoc3i35858" path="res://scenes/map.tscn" id="32_qkpxi"]
+[ext_resource type="AudioStream" uid="uid://c4mjphpun6d51" path="res://sound/footstep player/Footsteps_MetalV2_Walk_06.wav" id="33_o7ddy"]
+[ext_resource type="AudioStream" uid="uid://ckdiwvtvgtr8x" path="res://sound/footstep player/Footsteps_MetalV2_Walk_07.wav" id="34_0loja"]
+[ext_resource type="AudioStream" uid="uid://dy0oi3tt4ghnr" path="res://sound/footstep player/Footsteps_MetalV2_Walk_08.wav" id="35_ids8r"]
+[ext_resource type="AudioStream" uid="uid://boj6mfeu3kljl" path="res://sound/footstep player/Footsteps_MetalV2_Walk_09.wav" id="36_dnhof"]
 [ext_resource type="PackedScene" uid="uid://dwfvmnjfly5kw" path="res://scenes/people/police.tscn" id="36_fuf3a"]
 [ext_resource type="PackedScene" uid="uid://dcuqyfggh8sfj" path="res://scenes/buildings/reactor.tscn" id="36_kmb1v"]
+[ext_resource type="AudioStream" uid="uid://dkf5i2ohg7uvb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_10.wav" id="37_1v6qk"]
+[ext_resource type="AudioStream" uid="uid://7tbksyrskg0a" path="res://sound/footstep player/Footsteps_MetalV2_Walk_11.wav" id="38_augu2"]
+[ext_resource type="AudioStream" uid="uid://bgh0knrrx1ffb" path="res://sound/footstep player/Footsteps_MetalV2_Walk_12.wav" id="39_tm6hj"]
+[ext_resource type="AudioStream" uid="uid://dc14yby00c364" path="res://sound/footstep player/Footsteps_MetalV2_Walk_13.wav" id="40_kf5aa"]
+[ext_resource type="AudioStream" uid="uid://cnky33lnlrjp2" path="res://sound/footstep player/Footsteps_MetalV2_Walk_14.wav" id="41_t5ykj"]
+[ext_resource type="AudioStream" uid="uid://divsfjr4bfgj0" path="res://sound/footstep player/Footsteps_MetalV2_Walk_15.wav" id="42_e755i"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
 length = 0.001
@@ -67,6 +83,18 @@ tracks/2/path = NodePath("../ItemHolder:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -151,6 +179,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2f3dj"]
@@ -477,6 +517,9 @@ text = "Person"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Window/Dialog" unique_id=1397574493]
 libraries/ = SubResource("AnimationLibrary_2f3dj")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Window/Dialog/AnimationPlayer" unique_id=31697297]
+stream = ExtResource("13_ty1g6")
+
 [node name="TextureRect" type="TextureRect" parent="UI/Window/Dialog" unique_id=1395158139]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
@@ -580,7 +623,7 @@ script = ExtResource("3_tbgi4")
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1447796050 groups=["player"]]
-position = Vector2(1645, -94)
+position = Vector2(1040, 154)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("7_o6xl0")
@@ -592,7 +635,8 @@ shape = SubResource("RectangleShape2D_o6xl0")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=499369816]
 texture_filter = 1
 sprite_frames = ExtResource("10_choun")
-animation = &"idle"
+animation = &"run"
+frame_progress = 0.44662786
 
 [node name="ItemsManager" type="Node2D" parent="Player" unique_id=639049556]
 script = ExtResource("13_muem4")
@@ -603,8 +647,6 @@ script = ExtResource("13_muem4")
 
 [node name="PeekItem" parent="Player/ItemsManager" unique_id=1934014488 instance=ExtResource("23_5q0nq")]
 
-[node name="ConvinceItem" parent="Player/ItemsManager" unique_id=1841449537 instance=ExtResource("24_dgi5k")]
-
 [node name="BreakItem" parent="Player/ItemsManager" unique_id=1163805183 instance=ExtResource("25_j8jky")]
 
 [node name="Timer" type="Timer" parent="Player" unique_id=10195831]
@@ -614,6 +656,12 @@ script = ExtResource("31_kmb1v")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=1722974427]
 current = true
+
+[node name="FootstepsManager" type="Node2D" parent="Player" unique_id=1445877256 node_paths=PackedStringArray("icon")]
+script = ExtResource("27_5q0nq")
+length = 0.167
+streams = Array[AudioStreamWAV]([ExtResource("28_nvyfr"), ExtResource("29_ty1g6"), ExtResource("30_j2jfr"), ExtResource("31_bjg73"), ExtResource("32_bu4jf"), ExtResource("33_o7ddy"), ExtResource("34_0loja"), ExtResource("35_ids8r"), ExtResource("36_dnhof"), ExtResource("37_1v6qk"), ExtResource("38_augu2"), ExtResource("39_tm6hj"), ExtResource("40_kf5aa"), ExtResource("41_t5ykj"), ExtResource("42_e755i")])
+icon = NodePath("../Sprite2D")
 
 [node name="GameManager" type="Node" parent="." unique_id=1195878992]
 script = ExtResource("20_gqmmt")
@@ -650,5 +698,4 @@ control_parent = NodePath("../UI/Window")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Dialog/GridContainer" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
-[connection signal="item_selected" from="UI/Window/Dialog/OptionButton" to="UI/Window/Dialog" method="_on_option_button_item_selected"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

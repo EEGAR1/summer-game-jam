@@ -8,6 +8,7 @@ func _check_action(delta : float) -> void:
 		set_action()
 
 func _while_acting(delta : float) -> void:
+	parent.current_state = parent.STATE.WORKING
 	if randi_range(0,1) == 0:
 		var amp = 250/((parent.stress/4)+1)
 		parent.set_movement_target(parent.global_position + Vector2(randf_range(-amp,amp), randf_range(-amp,amp)))
