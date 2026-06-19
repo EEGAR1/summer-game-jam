@@ -29,8 +29,8 @@ func _while_acting(delta : float) -> void: # Plays while acting
 			print("person of id ", person.id, " (", person, ") did it!")
 			for emotion in EmotionManager.EMOTION_TYPE.values():
 				emotion_manager.set_emotion(person.id, emotion, emotion_manager.get_emotion(person.id, emotion) - (emotion_manager.get_emotion(seen_bodies.back().owner_id, emotion) - 50.0) * 2.0) 
-			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST) * 0.5) 
-			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE) * 0.5)
+			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST) - (100.0 - emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.TRUST)) / 3.0) 
+			emotion_manager.set_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE, emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE) - (100.0 - emotion_manager.get_emotion(person.id, EmotionManager.EMOTION_TYPE.LOVE)) / 3.0)
 			emotion_manager.show_emotion_frame(1)
 			remove_action()
 			parent.action_manager.get_children().filter(func(x): return x is IdleAction)[0].set_action()

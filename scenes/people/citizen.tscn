@@ -36,6 +36,7 @@ script = ExtResource("2_kd2ci")
 [node name="IdleAction" parent="ActionManager" index="1" unique_id=230576655 instance=ExtResource("9_e2i7i")]
 
 [node name="KillAction" parent="ActionManager" index="2" unique_id=1662293383 instance=ExtResource("15_jbnel")]
+max_love_to_kill = 20.0
 
 [node name="WitnessAction" parent="ActionManager" index="3" unique_id=1896438407 instance=ExtResource("16_caxg1")]
 

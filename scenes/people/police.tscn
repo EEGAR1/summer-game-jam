@@ -27,5 +27,6 @@ script = ExtResource("7_xy44m")
 freq = 20
 
 [node name="GunKillAction" parent="ActionManager" index="1" unique_id=1662293383 instance=ExtResource("9_fxn7k")]
+max_love_to_kill = 30.0
 
 [node name="WitnessAction" parent="ActionManager" index="2" unique_id=1896438407 instance=ExtResource("11_rfyy3")]

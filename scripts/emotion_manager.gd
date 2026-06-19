@@ -55,7 +55,7 @@ func _ready() -> void:
 			i = i as Person
 			if i.type == parent.type:
 				for em in EmotionManager.EMOTION_TYPE.values():
-					parent.emotion_manager.set_emotion(i.id, em, randf_range(35.0, 90.0))
+					parent.emotion_manager.set_emotion(i.id, em, randf_range(40.0, 90.0))
 			else:
 				for em in EmotionManager.EMOTION_TYPE.values():
-					parent.emotion_manager.set_emotion(i.id, em, randf_range(30.0, 65.0))
+					parent.emotion_manager.set_emotion(i.id, em, randf_range(32.0, 65.0))
