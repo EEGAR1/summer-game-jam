@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
 
-@export var speed := 60.0
+@export var speed := 70.0
 @export var handling := 20.0
 
 const dust = preload("res://effects/dust.tscn")

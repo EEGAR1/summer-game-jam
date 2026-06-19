@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c4mkku5pbwkf6" path="res://ui/line.png" id="6_47c11"]
 [ext_resource type="Texture2D" uid="uid://ceedtgajotoqp" path="res://ui/arrow right.png" id="6_de4b7"]
 [ext_resource type="Texture2D" uid="uid://d0jivncj1e8n6" path="res://ui/arrow left.png" id="7_yipae"]
+[ext_resource type="Texture2D" uid="uid://dmwkp2plan6w4" path="res://ui/bg.png" id="12_qijjd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6lx7k"]
 
@@ -20,6 +21,17 @@ texture = ExtResource("6_47c11")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mo6nk"]
 texture = ExtResource("6_47c11")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qijjd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yipae"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_de4b7"]
+texture = ExtResource("12_qijjd")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
 [resource]
 default_font = ExtResource("1_rqugq")
 default_font_size = 32
@@ -27,7 +39,8 @@ Button/colors/font_color = Color(0.15, 0.0465, 0.15, 1)
 Button/colors/font_hover_color = Color(0.23921569, 0, 0.23921569, 1)
 Button/colors/font_hover_pressed_color = Color(0.23921569, 0, 0.23921569, 1)
 Button/colors/font_pressed_color = Color(0.53333336, 0.49019608, 0.5529412, 1)
-Button/font_sizes/font_size = 48
+Button/colors/icon_normal_color = Color(0.14901961, 0.047058824, 0.14901961, 1)
+Button/font_sizes/font_size = 32
 Button/styles/disabled = SubResource("StyleBoxTexture_6lx7k")
 Button/styles/hover = ExtResource("1_mo6nk")
 Button/styles/normal = ExtResource("2_qijjd")
@@ -54,4 +67,26 @@ HSlider/icons/grabber_highlight = ExtResource("5_rtqkv")
 HSlider/icons/tick = ExtResource("6_47c11")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_2j8s8")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_mo6nk")
+Label/styles/focus = SubResource("StyleBoxEmpty_qijjd")
+Label/styles/normal = SubResource("StyleBoxTexture_yipae")
 LineEdit/font_sizes/font_size = 22
+OptionButton/icons/arrow = ExtResource("4_mo6nk")
+OptionButton/styles/disabled = ExtResource("3_de4b7")
+OptionButton/styles/disabled_mirrored = ExtResource("3_de4b7")
+OptionButton/styles/focus = ExtResource("1_mo6nk")
+OptionButton/styles/hover = ExtResource("1_mo6nk")
+OptionButton/styles/hover_mirrored = ExtResource("1_mo6nk")
+OptionButton/styles/hover_pressed = ExtResource("3_de4b7")
+OptionButton/styles/hover_pressed_mirrored = ExtResource("3_de4b7")
+OptionButton/styles/normal = ExtResource("2_qijjd")
+OptionButton/styles/normal_mirrored = ExtResource("2_qijjd")
+OptionButton/styles/pressed = ExtResource("3_de4b7")
+OptionButton/styles/pressed_mirrored = ExtResource("3_de4b7")
+Panel/styles/panel = SubResource("StyleBoxTexture_de4b7")
+PopupMenu/colors/font_color = Color(0.23921569, 0, 0.23921569, 1)
+PopupMenu/colors/font_hover_color = Color(0.8627451, 0.85490197, 0.7882353, 1)
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = ExtResource("5_rtqkv")
+PopupMenu/icons/radio_unchecked = ExtResource("4_y5ki2")
+PopupMenu/styles/panel = ExtResource("2_qijjd")
+TextEdit/font_sizes/font_size = 16

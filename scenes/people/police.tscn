@@ -17,7 +17,6 @@ type = 1
 [node name="Icon" parent="." index="0" unique_id=1980460130]
 sprite_frames = ExtResource("3_xeymi")
 animation = &"dead"
-frame_progress = 0.0
 options = Array[SpriteFrames]([ExtResource("3_xeymi"), ExtResource("4_fthx4"), ExtResource("5_mqn08"), ExtResource("6_12oyb"), ExtResource("7_gqruw")])
 genders = Array[int]([0, 1, 0, 0, 0])
 
