@@ -88,7 +88,12 @@ func _while_acting(delta : float) -> void: # Plays while acting
 		match talk_state:
 			TALK_TYPE.BUILDQUEST:
 				choice = no_duplicates(Globals.complement_buildings).pick_random()
-				point = Globals.building_points[Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id).pick_random()]
+				var pts = Globals.building_points.filter(func(x): return x.forwhat == choice).map(func(x): return x.id)
+				if len(pts) == 0:
+					remove_action()
+					return 
+				
+				point = Globals.building_points[pts.pick_random()]
 				pos = point.global_position
 				point.queue_free.call_deferred()
 				texture = choice.instantiate().get_children().filter(func(x): return x is Sprite2D)[0].texture
@@ -102,7 +107,9 @@ func _while_acting(delta : float) -> void: # Plays while acting
 						max = abs(50.0 - i)
 						what_index = ind
 				to = Globals.other_people[int(round(parent.emotion_manager.emotions.keys()[what_index]))]
-				if not is_instance_valid(to): return
+				if not is_instance_valid(to): 
+					remove_action()
+					return 
 				texture = to.icon.sprite_frames.get_frame_texture("idle", 0)
 		Globals.dialog.show_dialog(parent.name, body_text.get(talk_state), choices.get(talk_state), callables.get(talk_state), texture)
 	
