@@ -13,6 +13,7 @@ config_version=5
 config/name="summer game jam"
 run/main_scene="uid://88jh5lp24f7u"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://dvhq6h01i4wpa"
 config/icon="res://icon.svg"
 
 [autoload]

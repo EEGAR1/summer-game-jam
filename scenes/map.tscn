@@ -6384,13 +6384,13 @@ position = Vector2(712, -207)
 position = Vector2(1039, -338)
 
 [node name="IdlePOI10" parent="idle_pois" unique_id=257186841 instance=ExtResource("41_qcc5i")]
-position = Vector2(951, -338)
+position = Vector2(230, -658)
 
 [node name="IdlePOI11" parent="idle_pois" unique_id=1842740362 instance=ExtResource("41_qcc5i")]
-position = Vector2(987, -531)
+position = Vector2(105, -336)
 
 [node name="IdlePOI12" parent="idle_pois" unique_id=207840438 instance=ExtResource("41_qcc5i")]
-position = Vector2(919, -528)
+position = Vector2(65, -635)
 
 [node name="IdlePOI13" parent="idle_pois" unique_id=781442276 instance=ExtResource("41_qcc5i")]
 position = Vector2(734, -595)
@@ -6402,7 +6402,7 @@ position = Vector2(734, -554)
 position = Vector2(771, -533)
 
 [node name="IdlePOI16" parent="idle_pois" unique_id=506773018 instance=ExtResource("41_qcc5i")]
-position = Vector2(789, -922)
+position = Vector2(712, -521)
 
 [node name="IdlePOI17" parent="idle_pois" unique_id=578597919 instance=ExtResource("41_qcc5i")]
 position = Vector2(837, -922)
@@ -6414,16 +6414,16 @@ position = Vector2(645, -925)
 position = Vector2(693, -926)
 
 [node name="IdlePOI20" parent="idle_pois" unique_id=87054238 instance=ExtResource("41_qcc5i")]
-position = Vector2(109, -1016)
+position = Vector2(89, -615)
 
 [node name="IdlePOI21" parent="idle_pois" unique_id=1565667568 instance=ExtResource("41_qcc5i")]
-position = Vector2(179, -1016)
+position = Vector2(211, -635)
 
 [node name="IdlePOI22" parent="idle_pois" unique_id=666024529 instance=ExtResource("41_qcc5i")]
 position = Vector2(-230, -869)
 
 [node name="IdlePOI23" parent="idle_pois" unique_id=2083598239 instance=ExtResource("41_qcc5i")]
-position = Vector2(-402, -854)
+position = Vector2(59, -676)
 
 [node name="IdlePOI24" parent="idle_pois" unique_id=659610420 instance=ExtResource("41_qcc5i")]
 position = Vector2(-503, -590)
@@ -6432,19 +6432,19 @@ position = Vector2(-503, -590)
 position = Vector2(-494, -517)
 
 [node name="IdlePOI26" parent="idle_pois" unique_id=1303509940 instance=ExtResource("41_qcc5i")]
-position = Vector2(-387, -587)
+position = Vector2(140, -615)
 
 [node name="IdlePOI27" parent="idle_pois" unique_id=426072848 instance=ExtResource("41_qcc5i")]
 position = Vector2(-299, -521)
 
 [node name="IdlePOI28" parent="idle_pois" unique_id=1223895264 instance=ExtResource("41_qcc5i")]
-position = Vector2(-580, -411)
+position = Vector2(-373, -605)
 
 [node name="IdlePOI29" parent="idle_pois" unique_id=273894140 instance=ExtResource("41_qcc5i")]
-position = Vector2(-585, -340)
+position = Vector2(-343, -595)
 
 [node name="IdlePOI30" parent="idle_pois" unique_id=735234682 instance=ExtResource("41_qcc5i")]
-position = Vector2(-585, -288)
+position = Vector2(-411, -584)
 
 [node name="IdlePOI31" parent="idle_pois" unique_id=1294567307 instance=ExtResource("41_qcc5i")]
 position = Vector2(-74, -289)
