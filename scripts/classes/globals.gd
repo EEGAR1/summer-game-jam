@@ -1,5 +1,28 @@
 extends Node2D
 
+# Score
+var time := 0.0
+var timing := true
+
+func _ready():
+	get_tree().connect("scene_changed", Callable(self, "_on_scene_changed"))
+
+func _on_scene_changed():
+	reset()
+
+func reset():
+	time = 0.0
+
+func _process(delta: float) -> void:
+	if timing: time += delta
+	
+	if paused:
+		Engine.time_scale = lerp(Engine.time_scale, 0.05, delta * 5)
+		AudioServer.playback_speed_scale = lerp(AudioServer.playback_speed_scale, 0.05, delta * 5)
+	else:
+		Engine.time_scale = lerp(Engine.time_scale, 1.0, delta * 5)
+		AudioServer.playback_speed_scale = lerp(AudioServer.playback_speed_scale, 1.0, delta * 5)
+
 # General
 var player : Node
 var mouse : Area2D
@@ -12,6 +35,7 @@ var control_item_panel : Control
 var control_item_label : Control
 var dialog : Dialog
 var quest_manager : QuestManager
+var paused := false
 
 # Globals for building
 var hover_target

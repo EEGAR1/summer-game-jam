@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://88jh5lp24f7u"]
 
 [ext_resource type="Theme" uid="uid://dx6u58owewcb8" path="res://ui/theme.tres" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://mbspbigngnrj" path="res://scripts/button_change_scene.gd" id="2_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://c3x4ue5sv4goh" path="res://ui/logo2_outline_downscaled.png" id="2_vjb58"]
+[ext_resource type="PackedScene" uid="uid://skwgyslh57ba" path="res://scenes/main.tscn" id="3_con2f"]
+[ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_g3eks"]
+[ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="6_v86rl"]
 
 [sub_resource type="Animation" id="Animation_vjb58"]
 length = 8.0
@@ -40,6 +44,31 @@ _data = {
 &"logo wobble": SubResource("Animation_con2f")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_13sgg"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("6_v86rl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("6_v86rl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6lef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Menu" type="Control" unique_id=1336331863]
 layout_mode = 3
 anchors_preset = 8
@@ -65,6 +94,8 @@ offset_bottom = 33.49726
 grow_horizontal = 2
 grow_vertical = 2
 text = "PLAY"
+script = ExtResource("2_mhnvy")
+next_scene = "uid://skwgyslh57ba"
 
 [node name="Logo2OutlineDownscaled" type="Sprite2D" parent="." unique_id=1103655569]
 position = Vector2(0, -184.50275)
@@ -74,3 +105,23 @@ texture = ExtResource("2_vjb58")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Logo2OutlineDownscaled" unique_id=1550282723]
 libraries/ = SubResource("AnimationLibrary_mhnvy")
 autoplay = &"RESET"
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1242672566]
+resources = [PackedStringArray("main"), [ExtResource("3_con2f")]]
+
+[node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1663504393]
+process_mode = 3
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Mouse" type="Area2D" parent="MouseLayer" unique_id=732915382]
+process_mode = 3
+input_pickable = false
+script = ExtResource("5_g3eks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseLayer/Mouse" unique_id=1852174099]
+shape = SubResource("CircleShape2D_13sgg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MouseLayer/Mouse" unique_id=335894922]
+sprite_frames = SubResource("SpriteFrames_i6lef")
+offset = Vector2(-4, 4)

@@ -6,10 +6,12 @@
 [ext_resource type="Script" uid="uid://by1ivnn4xx2on" path="res://scripts/camera.gd" id="2_tipki"]
 [ext_resource type="Script" uid="uid://ci44xjqb0n1e" path="res://scripts/control_item_label.gd" id="3_og1vs"]
 [ext_resource type="Script" uid="uid://btahd0w4pgoqa" path="res://scripts/selection_area.gd" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://d2c0ikgwlh3iy" path="res://scripts/time_panel.gd" id="3_vchkt"]
 [ext_resource type="Script" uid="uid://b3dt00h7p3v3u" path="res://scripts/h_box_container.gd" id="4_a8y0u"]
 [ext_resource type="Script" uid="uid://cqn63i022vfcq" path="res://scripts/mouse.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://caet6q8mstv22" path="res://scripts/dialog.gd" id="7_2wyq8"]
 [ext_resource type="Script" uid="uid://def3uoeey2wqk" path="res://scripts/player.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://mbspbigngnrj" path="res://scripts/button_change_scene.gd" id="7_txyw0"]
 [ext_resource type="Script" uid="uid://dywrxyfs38mlo" path="res://scripts/foldable_container.gd" id="8_dgi5k"]
 [ext_resource type="Texture2D" uid="uid://bq7eb0qibadev" path="res://ui/mouse.png" id="8_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://d3nujmbyie2x6" path="res://scenes/classes/get_building_button.tscn" id="9_5q0nq"]
@@ -306,6 +308,22 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 2
 
+[node name="TimePanel" type="Panel" parent="UI/Window/ItemHolder/VBoxContainer" unique_id=2104175880]
+custom_minimum_size = Vector2(0, 26.85)
+layout_mode = 2
+script = ExtResource("3_vchkt")
+
+[node name="Label" type="Label" parent="UI/Window/ItemHolder/VBoxContainer/TimePanel" unique_id=73541084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Panel" type="Panel" parent="UI/Window/ItemHolder/VBoxContainer" unique_id=330755262]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
@@ -335,7 +353,7 @@ script = ExtResource("3_og1vs")
 
 [node name="Victory!" type="Panel" parent="UI/Window" unique_id=1256992699]
 visible = false
-custom_minimum_size = Vector2(138.32, 30.715)
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -361,9 +379,52 @@ text = "YOU WIN!!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TimePanel" type="Panel" parent="UI/Window/Victory!" unique_id=1679331923]
+custom_minimum_size = Vector2(0, 26.85)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_vchkt")
+
+[node name="Label" type="Label" parent="UI/Window/Victory!/TimePanel" unique_id=1979077531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="VBoxContainer" parent="UI/Window/Victory!" unique_id=940459777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Main Menu" type="Button" parent="UI/Window/Victory!/Control" unique_id=232890010]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("7_txyw0")
+next_scene = "uid://88jh5lp24f7u"
+
+[node name="Restart" type="Button" parent="UI/Window/Victory!/Control" unique_id=539047690]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("7_txyw0")
+next_scene = "uid://skwgyslh57ba"
+
 [node name="Defeat!" type="Panel" parent="UI/Window" unique_id=765790872]
 visible = false
-custom_minimum_size = Vector2(159.83, 0)
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -388,6 +449,27 @@ grow_horizontal = 2
 text = "YOU LOSE ):"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" type="VBoxContainer" parent="UI/Window/Defeat!" unique_id=1396205662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Main Menu" type="Button" parent="UI/Window/Defeat!/Control" unique_id=421531412]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("7_txyw0")
+next_scene = "uid://88jh5lp24f7u"
+
+[node name="Restart" type="Button" parent="UI/Window/Defeat!/Control" unique_id=314086356]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("7_txyw0")
+next_scene = "uid://skwgyslh57ba"
 
 [node name="Tooltip" type="Control" parent="UI/Window" unique_id=715801127]
 anchors_preset = 0

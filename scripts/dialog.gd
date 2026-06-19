@@ -13,7 +13,7 @@ func _ready() -> void:
 @onready var option_button: CustomGridContainer = $GridContainer
 
 func _process(delta: float) -> void:
-	custom_minimum_size.y = title.size.y + text.size.y + 20.0
+	custom_minimum_size.y = title.size.y + text.size.y + option_button.size.y + 30.0
 
 class DialogData:
 	var title_text : String
@@ -53,6 +53,7 @@ func _on_option_button_item_selected(index: int) -> void:
 	animation_player.play("close")
 	if len(callbacks) == 0:	return
 	if callbacks.back() == null: return
+	# BUG: If someone dies while talking to you, this breaks
 	callbacks.back().call(index)
 	callbacks.pop_back()
 	dialogs.pop_back()

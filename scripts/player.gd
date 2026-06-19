@@ -26,9 +26,25 @@ var awake := false :
 		awake = value
 
 func _on_wake():
-	Globals.dialog.show_dialog("Note Inside Shoe", "Alright, you're in. Get past this guard by whatever means. Do nice things for people so they build dangerous buildings for you or just stab them. I don't care how it gets done. Signed: P.S.Y.O.P. & Killing Co.", ["Got it. (Close)"], func(x): return x)
+	Globals.dialog.show_dialog("Note Inside Shoe", "You’ve finally been elected leader of this colony! Now, your mission is to kill everyone on board, and don’t feel bad if your orders have some lies mixed in. Test your powers out on this guard, and remember, don’t get caught. Signed P.S.Y.O.P & Killing Co.", ["Got it. (Close)", "...what? (Also Close)"], func(x): return x)
 
-var dead := false
+var dead := false :
+	set(value):
+		if dead != value:
+			var bb = BLOOD_BIG.instantiate() as CPUParticles2D
+			var bs = BLOOD_SPLASH.instantiate() as CPUParticles2D
+			
+			get_parent().add_child(bb)
+			bb.global_position = global_position
+			bb.emitting = true
+			
+			get_parent().add_child(bs)
+			bs.global_position = global_position
+			bs.emitting = true
+		dead = value
+
+const BLOOD_BIG = preload("uid://dewsrgbxekfjk")
+const BLOOD_SPLASH = preload("uid://iixrltb01wlu")
 func _process(delta: float) -> void:
 	if velocity.length() > 0.25:
 		awake = true
@@ -36,6 +52,7 @@ func _process(delta: float) -> void:
 	sprite_2d.play(sprite_2d.animation)
 	if dead:
 		sprite_2d.play("dead")
+		
 	elif awake:
 		sprite_2d.animation = "idle" if velocity.length() < 10 else "run"
 		if velocity.x != 0:	sprite_2d.flip_h = velocity.x < 0
@@ -66,12 +83,6 @@ func _physics_process(delta: float) -> void:
 					a.global_position.y = $".".global_position.y+9
 					
 	move_and_slide()
-
-	
-
-	
-	
-
 
 func _on_timer_timeout() -> void:
 	can_spawn_footstep = true

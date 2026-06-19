@@ -28,16 +28,8 @@ func _check_active(delta : float) -> bool:
 var window_open := false
 var label_showing := false
 var target : Person
-var paused := false
 
 func _always(delta : float) -> void:
-	if paused:
-		Engine.time_scale = lerp(Engine.time_scale, 0.05, delta * 5)
-		AudioServer.playback_speed_scale = lerp(AudioServer.playback_speed_scale, 0.05, delta * 5)
-	else:
-		Engine.time_scale = lerp(Engine.time_scale, 1.0, delta * 5)
-		AudioServer.playback_speed_scale = lerp(AudioServer.playback_speed_scale, 1.0, delta * 5)
-	
 	control_item_panel.visible = window_open
 	control_item_label.visible = label_showing
 
@@ -47,7 +39,7 @@ func _while_active(delta : float) -> void:
 		target = ovrlp[0]
 	
 	if window_open:
-		paused = true
+		Globals.paused = true
 		
 		if Input.is_action_just_pressed("esc"):
 			exit_control_item_panel()
@@ -91,16 +83,16 @@ func _while_active(delta : float) -> void:
 			exit_control_item_label()
 
 func exit_control_item_panel():
-	paused = false
+	Globals.paused = false
 	window_open = false
 
 func open_control_item_label():
-	paused = true
+	Globals.paused = true
 	label_showing = true
 	
 const EYEBALL = preload("uid://65on2f00kbh0")
 func exit_control_item_label():
-	paused = false
+	Globals.paused = false
 	label_showing = false
 	var e = EYEBALL.instantiate()
 	get_tree().current_scene.add_child(e)
