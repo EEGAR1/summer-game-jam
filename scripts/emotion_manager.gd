@@ -58,4 +58,4 @@ func _ready() -> void:
 					parent.emotion_manager.set_emotion(i.id, em, randf_range(35.0, 90.0))
 			else:
 				for em in EmotionManager.EMOTION_TYPE.values():
-					parent.emotion_manager.set_emotion(i.id, em, randf_range(20.0, 65.0))
+					parent.emotion_manager.set_emotion(i.id, em, randf_range(30.0, 65.0))

@@ -107,7 +107,7 @@ func _while_acting(delta : float) -> void: # Plays while acting
 						max = abs(50.0 - i)
 						what_index = ind
 				to = Globals.other_people[int(round(parent.emotion_manager.emotions.keys()[what_index]))]
-				if not is_instance_valid(to): 
+				if not is_instance_valid(to) or to == Globals.player: 
 					remove_action()
 					return 
 				texture = to.icon.sprite_frames.get_frame_texture("idle", 0)
