@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d3nujmbyie2x6" path="res://scenes/classes/get_building_button.tscn" id="9_5q0nq"]
 [ext_resource type="SpriteFrames" uid="uid://bphy573855qul" path="res://art/people/player.tres" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://ysjk7x1ndl35" path="res://scenes/buildings/bed.tscn" id="12_dgi5k"]
+[ext_resource type="Theme" uid="uid://dx6u58owewcb8" path="res://ui/theme.tres" id="12_fuf3a"]
 [ext_resource type="Script" uid="uid://7mfn1wk30sl3" path="res://scripts/victory.gd" id="13_dp3eg"]
 [ext_resource type="Script" uid="uid://chcoro0otf857" path="res://scripts/items_manager.gd" id="13_muem4"]
 [ext_resource type="Script" uid="uid://yena36rmjeot" path="res://scripts/possess_item.gd" id="13_trceg"]
@@ -221,6 +222,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("12_fuf3a")
 metadata/_edit_use_anchors_ = true
 
 [node name="ControlItemPanel" type="Panel" parent="UI/Window" unique_id=2011631829]
@@ -386,6 +388,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("12_fuf3a")
 text = "Hello this is a test"
 autowrap_mode = 3
 
@@ -471,6 +474,7 @@ mouse_filter = 2
 [node name="FoldableContainer" type="FoldableContainer" parent="UI/Window/HBoxContainer/VBoxContainer" unique_id=226681381]
 custom_minimum_size = Vector2(600, 300)
 layout_mode = 2
+theme = ExtResource("12_fuf3a")
 folded = true
 title = "Buildings"
 title_alignment = 1
