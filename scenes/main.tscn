@@ -778,41 +778,53 @@ control_parent = NodePath("../UI/Window")
 position = Vector2(1650, -278)
 control_parent = NodePath("../UI/Window")
 
-[node name="Engineer9" parent="." unique_id=1840287890 instance=ExtResource("47_nvyfr")]
+[node name="Engineer9" parent="." unique_id=1840287890 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
 position = Vector2(2205, 158)
+control_parent = NodePath("../UI/Window")
 
-[node name="Engineer10" parent="." unique_id=1990921634 instance=ExtResource("47_nvyfr")]
+[node name="Engineer10" parent="." unique_id=1990921634 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
 position = Vector2(2172, 218)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen3" parent="." unique_id=988135414 instance=ExtResource("1_tbgi4")]
+[node name="Citizen3" parent="." unique_id=988135414 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1927, 370)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen4" parent="." unique_id=1702038454 instance=ExtResource("1_tbgi4")]
+[node name="Citizen4" parent="." unique_id=1702038454 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1829, 371)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen5" parent="." unique_id=329623130 instance=ExtResource("1_tbgi4")]
+[node name="Citizen5" parent="." unique_id=329623130 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1808, 545)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen6" parent="." unique_id=1660233879 instance=ExtResource("1_tbgi4")]
+[node name="Citizen6" parent="." unique_id=1660233879 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1943, 544)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen7" parent="." unique_id=1568533202 instance=ExtResource("1_tbgi4")]
+[node name="Citizen7" parent="." unique_id=1568533202 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(2048, 546)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen8" parent="." unique_id=207460723 instance=ExtResource("1_tbgi4")]
+[node name="Citizen8" parent="." unique_id=207460723 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(2065, 371)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen9" parent="." unique_id=2108250655 instance=ExtResource("1_tbgi4")]
+[node name="Citizen9" parent="." unique_id=2108250655 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(2181, 547)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen10" parent="." unique_id=1343936751 instance=ExtResource("1_tbgi4")]
+[node name="Citizen10" parent="." unique_id=1343936751 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(2184, 455)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen11" parent="." unique_id=420276546 instance=ExtResource("1_tbgi4")]
+[node name="Citizen11" parent="." unique_id=420276546 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1558, 476)
+control_parent = NodePath("../UI/Window")
 
-[node name="Citizen12" parent="." unique_id=1478214215 instance=ExtResource("1_tbgi4")]
+[node name="Citizen12" parent="." unique_id=1478214215 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
 position = Vector2(1399, 495)
+control_parent = NodePath("../UI/Window")
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Control/Dialog/GridContainer" to="UI/Window/Control/Dialog" method="_on_option_button_item_selected"]
