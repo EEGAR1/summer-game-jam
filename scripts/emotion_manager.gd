@@ -47,7 +47,10 @@ func _ready() -> void:
 	
 	for i in Globals.other_people:
 		for emotion in EMOTION_TYPE.values():
-			emotions.set(float(i.id) + 0.1*float(emotion), 50.0)
+			if i.id == null:
+				pass
+			else:
+				emotions.set(float(i.id) + 0.1*float(emotion), 50.0)
 	
 	if care:
 		for i in Globals.other_people:
