@@ -6126,127 +6126,64 @@ max_distance = 150.0
 position = Vector2(1473, 751)
 
 [node name="IdlePOI" parent="idle_pois" unique_id=1156854468 instance=ExtResource("41_qcc5i")]
-position = Vector2(401, -537)
+position = Vector2(92, -326)
 
-[node name="IdlePOI2" parent="idle_pois" unique_id=1622767254 instance=ExtResource("41_qcc5i")]
-position = Vector2(89, -292)
+[node name="IdlePOI2" parent="idle_pois" unique_id=2082343045 instance=ExtResource("41_qcc5i")]
+position = Vector2(-75, -276)
 
-[node name="IdlePOI4" parent="idle_pois" unique_id=1897862111 instance=ExtResource("41_qcc5i")]
-position = Vector2(-584, -245)
+[node name="IdlePOI3" parent="idle_pois" unique_id=282863774 instance=ExtResource("41_qcc5i")]
+position = Vector2(-391, -593)
 
-[node name="IdlePOI6" parent="idle_pois" unique_id=1990534794 instance=ExtResource("41_qcc5i")]
-position = Vector2(113, -647)
+[node name="IdlePOI4" parent="idle_pois" unique_id=1070035019 instance=ExtResource("41_qcc5i")]
+position = Vector2(229, -654)
 
-[node name="IdlePOI7" parent="idle_pois" unique_id=1393357162 instance=ExtResource("41_qcc5i")]
-position = Vector2(496, -529)
+[node name="IdlePOI5" parent="idle_pois" unique_id=605169135 instance=ExtResource("41_qcc5i")]
+position = Vector2(82, -636)
 
-[node name="IdlePOI8" parent="idle_pois" unique_id=1453562727 instance=ExtResource("41_qcc5i")]
-position = Vector2(-353, -347)
+[node name="IdlePOI6" parent="idle_pois" unique_id=1261414770 instance=ExtResource("41_qcc5i")]
+position = Vector2(511, -570)
 
-[node name="IdlePOI9" parent="idle_pois" unique_id=1162196764 instance=ExtResource("41_qcc5i")]
-position = Vector2(-543, -248)
-
-[node name="IdlePOI10" parent="idle_pois" unique_id=257186841 instance=ExtResource("41_qcc5i")]
-position = Vector2(230, -658)
-
-[node name="IdlePOI11" parent="idle_pois" unique_id=1842740362 instance=ExtResource("41_qcc5i")]
-position = Vector2(105, -336)
-
-[node name="IdlePOI12" parent="idle_pois" unique_id=207840438 instance=ExtResource("41_qcc5i")]
-position = Vector2(65, -635)
-
-[node name="IdlePOI14" parent="idle_pois" unique_id=1441873539 instance=ExtResource("41_qcc5i")]
-position = Vector2(-151, -559)
-
-[node name="IdlePOI20" parent="idle_pois" unique_id=87054238 instance=ExtResource("41_qcc5i")]
-position = Vector2(89, -615)
-
-[node name="IdlePOI21" parent="idle_pois" unique_id=1565667568 instance=ExtResource("41_qcc5i")]
-position = Vector2(225, -627)
-
-[node name="IdlePOI23" parent="idle_pois" unique_id=2083598239 instance=ExtResource("41_qcc5i")]
-position = Vector2(59, -676)
-
-[node name="IdlePOI24" parent="idle_pois" unique_id=659610420 instance=ExtResource("41_qcc5i")]
-position = Vector2(-503, -590)
-
-[node name="IdlePOI25" parent="idle_pois" unique_id=604252800 instance=ExtResource("41_qcc5i")]
-position = Vector2(-471, -514)
-
-[node name="IdlePOI37" parent="idle_pois" unique_id=363550551 instance=ExtResource("41_qcc5i")]
-position = Vector2(-262, -589)
-
-[node name="IdlePOI26" parent="idle_pois" unique_id=1303509940 instance=ExtResource("41_qcc5i")]
-position = Vector2(159, -522)
-
-[node name="IdlePOI35" parent="idle_pois" unique_id=772519238 instance=ExtResource("41_qcc5i")]
-position = Vector2(150, -598)
-
-[node name="IdlePOI36" parent="idle_pois" unique_id=1025031978 instance=ExtResource("41_qcc5i")]
-position = Vector2(203, -289)
-
-[node name="IdlePOI27" parent="idle_pois" unique_id=426072848 instance=ExtResource("41_qcc5i")]
-position = Vector2(-366, -572)
-
-[node name="IdlePOI28" parent="idle_pois" unique_id=1223895264 instance=ExtResource("41_qcc5i")]
-position = Vector2(-373, -605)
-
-[node name="IdlePOI29" parent="idle_pois" unique_id=273894140 instance=ExtResource("41_qcc5i")]
-position = Vector2(-343, -595)
-
-[node name="IdlePOI30" parent="idle_pois" unique_id=735234682 instance=ExtResource("41_qcc5i")]
-position = Vector2(-411, -584)
-
-[node name="IdlePOI39" parent="idle_pois" unique_id=925100637 instance=ExtResource("41_qcc5i")]
-position = Vector2(537, -520)
-
-[node name="IdlePOI40" parent="idle_pois" unique_id=1602617034 instance=ExtResource("41_qcc5i")]
-position = Vector2(488, -489)
-
-[node name="IdlePOI43" parent="idle_pois" unique_id=869086038 instance=ExtResource("41_qcc5i")]
-position = Vector2(147, -718)
-
-[node name="IdlePOI31" parent="idle_pois" unique_id=1294567307 instance=ExtResource("41_qcc5i")]
-position = Vector2(-74, -287)
-
-[node name="IdlePOI32" parent="idle_pois" unique_id=1382020998 instance=ExtResource("41_qcc5i")]
-position = Vector2(-72, -255)
-
-[node name="IdlePOI33" parent="idle_pois" unique_id=982225996 instance=ExtResource("41_qcc5i")]
-position = Vector2(-58, -589)
-
-[node name="IdlePOI38" parent="idle_pois" unique_id=33423660 instance=ExtResource("41_qcc5i")]
-position = Vector2(-381, -348)
-
-[node name="IdlePOI34" parent="idle_pois" unique_id=352985777 instance=ExtResource("41_qcc5i")]
-position = Vector2(227, -311)
+[node name="IdlePOI7" parent="idle_pois" unique_id=1791965082 instance=ExtResource("41_qcc5i")]
+position = Vector2(-473, -652)
 
 [node name="building_targets" type="Node2D" parent="." unique_id=341030484]
 
-[node name="BuildingPoint5" parent="building_targets" unique_id=368215620 instance=ExtResource("42_vqsqp")]
-position = Vector2(1454, 406)
+[node name="BuildingPoint5" parent="building_targets" unique_id=120138806 instance=ExtResource("42_vqsqp")]
+position = Vector2(848, 504)
 forwhat = ExtResource("43_la2vj")
 
-[node name="BuildingPoint6" parent="building_targets" unique_id=1008740220 instance=ExtResource("42_vqsqp")]
-position = Vector2(1984, 173)
+[node name="BuildingPoint6" parent="building_targets" unique_id=1087032953 instance=ExtResource("42_vqsqp")]
+position = Vector2(880, 504)
 forwhat = ExtResource("43_la2vj")
 
-[node name="BuildingPoint7" parent="building_targets" unique_id=2089285473 instance=ExtResource("42_vqsqp")]
-position = Vector2(1424, 406)
+[node name="BuildingPoint7" parent="building_targets" unique_id=1846867078 instance=ExtResource("42_vqsqp")]
+position = Vector2(912, 504)
 forwhat = ExtResource("43_la2vj")
 
-[node name="BuildingPoint10" parent="building_targets" unique_id=202113797 instance=ExtResource("42_vqsqp")]
-position = Vector2(1669, 442)
+[node name="BuildingPoint8" parent="building_targets" unique_id=1636040321 instance=ExtResource("42_vqsqp")]
+position = Vector2(1576, 496)
 forwhat = ExtResource("44_5cjpp")
 
-[node name="BuildingPoint13" parent="building_targets" unique_id=1664683985 instance=ExtResource("42_vqsqp")]
-position = Vector2(889, 432)
+[node name="BuildingPoint9" parent="building_targets" unique_id=504575236 instance=ExtResource("42_vqsqp")]
+position = Vector2(1544, 496)
 forwhat = ExtResource("44_5cjpp")
 
-[node name="BuildingPoint16" parent="building_targets" unique_id=989919139 instance=ExtResource("42_vqsqp")]
-position = Vector2(2338, 549)
+[node name="BuildingPoint10" parent="building_targets" unique_id=360296803 instance=ExtResource("42_vqsqp")]
+position = Vector2(1544, 448)
 forwhat = ExtResource("44_5cjpp")
 
-[node name="BuildingPoint18" parent="building_targets" unique_id=1449683814 instance=ExtResource("42_vqsqp")]
-position = Vector2(1674, 113)
+[node name="BuildingPoint11" parent="building_targets" unique_id=1567563644 instance=ExtResource("42_vqsqp")]
+position = Vector2(1576, 448)
 forwhat = ExtResource("44_5cjpp")
+
+[node name="BuildingPoint2" parent="building_targets" unique_id=980648988 instance=ExtResource("42_vqsqp")]
+position = Vector2(1368, 144)
+
+[node name="BuildingPoint3" parent="building_targets" unique_id=1836468956 instance=ExtResource("42_vqsqp")]
+position = Vector2(1416, 144)
+
+[node name="BuildingPoint4" parent="building_targets" unique_id=134290770 instance=ExtResource("42_vqsqp")]
+position = Vector2(1464, 144)
+
+[node name="BuildingPoint" parent="building_targets" unique_id=1458158082 instance=ExtResource("42_vqsqp")]
+position = Vector2(1784, 448)

@@ -1,6 +1,6 @@
 class_name Building extends POI
 
-@export var work_needed := 20.0
+@export var work_needed := 7.5
 var current_work := 0.0
 
 enum STATE {

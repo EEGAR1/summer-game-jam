@@ -12,9 +12,15 @@ func _on_scene_changed():
 
 func reset():
 	time = 0.0
+	paused = false
+
 	
 const LAST_STAND = preload("uid://bsdeycddsuxsb")
 var last_stand := false
+var people_remaining : int :
+	get():
+		return len(other_people.filter(func(x): return is_instance_valid(x)))
+
 func _process(delta: float) -> void:
 	if timing: time += delta
 	
@@ -25,7 +31,7 @@ func _process(delta: float) -> void:
 		Engine.time_scale = lerp(Engine.time_scale, 1.0, delta * 5)
 		AudioServer.playback_speed_scale = lerp(AudioServer.playback_speed_scale, 1.0, delta * 5)
 	
-	if len(other_people.filter(func(x): return is_instance_valid(x))) != 0 and len(other_people.filter(func(x): return is_instance_valid(x))) < 5 and !last_stand:
+	if people_remaining != 0 and people_remaining < 5 and !last_stand:
 		play_sound_global(LAST_STAND)
 		last_stand = true
 

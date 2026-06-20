@@ -15,7 +15,7 @@ func _while_acting(delta : float) -> void:
 		var points = Globals.idle_pois.filter(func(x): return x != null).filter(func(x): return x.global_position.distance_to(parent.global_position) < 300.0 and x.global_position.distance_to(parent.global_position) > 25.0)
 		if points == null:	random_walk(); return
 		if len(points) == 0:	random_walk(); return
-		parent.set_movement_target(points.pick_random().global_position)
+		parent.set_movement_target(points.pick_random().global_position + Vector2(randf_range(-55.0,55.0), randf_range(-55.0,55.0)))
 	
 	remove_action()
 
