@@ -48,6 +48,7 @@
 [ext_resource type="AudioStream" uid="uid://cmr366pfr4pqc" path="res://sound/footstep npc/Footsteps_Rock_Walk_09.wav" id="38_bu4jf"]
 [ext_resource type="PackedScene" uid="uid://d08xir1bcev4p" path="res://scenes/people/special/police_stander.tscn" id="43_chjal"]
 [ext_resource type="PackedScene" uid="uid://dm5ieuyu7ohio" path="res://scenes/people/engineer.tscn" id="47_nvyfr"]
+[ext_resource type="Script" uid="uid://fnur5nbss84f" path="res://scripts/building_tut_prompt.gd" id="49_ty1g6"]
 
 [sub_resource type="Animation" id="Animation_og1vs"]
 length = 0.001
@@ -227,6 +228,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2jfr"]
+size = Vector2(67, 20)
 
 [node name="Node2D" type="Node2D" unique_id=343001479]
 y_sort_enabled = true
@@ -796,6 +800,18 @@ position = Vector2(1618, 33)
 [node name="Officer4" parent="." unique_id=1179532527 instance=ExtResource("36_fuf3a")]
 position = Vector2(2026, 236)
 
+[node name="Area2D" type="Area2D" parent="." unique_id=936330374]
+position = Vector2(1201, 477)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("49_ty1g6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1900328426]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_j2jfr")
+
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Control/Dialog/GridContainer" to="UI/Window/Control/Dialog" method="_on_option_button_item_selected"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
