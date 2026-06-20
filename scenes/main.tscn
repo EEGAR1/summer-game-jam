@@ -727,99 +727,131 @@ position = Vector2(1328, 728)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen" parent="." unique_id=1228245065 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1191, 571)
+position = Vector2(1221, 140)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen2" parent="." unique_id=221124025 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1204, 499)
+position = Vector2(1638, 58)
 control_parent = NodePath("../UI/Window")
 
-[node name="Officer2" parent="." unique_id=1969541906 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1200, 400)
-control_parent = NodePath("../UI/Window")
-
-[node name="Engineer" parent="." unique_id=714034631 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(2440, 225)
+[node name="Citizen13" parent="." unique_id=1875509051 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
+position = Vector2(1050, 183)
 control_parent = NodePath("../UI/Window")
 
 [node name="Engineer2" parent="." unique_id=691378461 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(2462, 410)
+position = Vector2(1610, 146)
 control_parent = NodePath("../UI/Window")
 
-[node name="Engineer3" parent="." unique_id=1101418258 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(2339, 224)
+[node name="Engineer8" parent="." unique_id=1585103112 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(983, 233)
 control_parent = NodePath("../UI/Window")
 
-[node name="Engineer4" parent="." unique_id=1772773774 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(2488, 411)
-control_parent = NodePath("../UI/Window")
-
-[node name="Engineer5" parent="." unique_id=740698881 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(2394, -127)
+[node name="Engineer11" parent="." unique_id=263390365 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(1102, 156)
 control_parent = NodePath("../UI/Window")
 
 [node name="Engineer6" parent="." unique_id=1638296943 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(1188, -75)
+position = Vector2(1558, 428)
 control_parent = NodePath("../UI/Window")
 
 [node name="Officer3" parent="." unique_id=578923087 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1622, 179)
+position = Vector2(1192, 163)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer5" parent="." unique_id=1534232449 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1040, 108)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer11" parent="." unique_id=271572218 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1086, 162)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer8" parent="." unique_id=1178924184 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1095, 400)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer10" parent="." unique_id=8157785 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1481, 160)
 control_parent = NodePath("../UI/Window")
 
 [node name="Officer4" parent="." unique_id=891316956 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1326, -103)
+position = Vector2(874, 505)
 control_parent = NodePath("../UI/Window")
 
-[node name="Officer5" parent="." unique_id=1105623729 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1021, 562)
+[node name="Officer12" parent="." unique_id=167370293 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(979, 159)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer16" parent="." unique_id=112038080 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1156, 103)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer17" parent="." unique_id=1926837489 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1650, 133)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer7" parent="." unique_id=1460964044 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1563, 120)
+control_parent = NodePath("../UI/Window")
+
+[node name="Officer9" parent="." unique_id=941286442 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
+position = Vector2(1788, 464)
 control_parent = NodePath("../UI/Window")
 
 [node name="Officer6" parent="." unique_id=931152714 node_paths=PackedStringArray("control_parent") instance=ExtResource("36_fuf3a")]
-position = Vector2(1650, -278)
+position = Vector2(1152, 233)
 control_parent = NodePath("../UI/Window")
 
-[node name="Engineer9" parent="." unique_id=1840287890 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(2205, 158)
+[node name="Engineer13" parent="." unique_id=1779919986 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(1545, 463)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer14" parent="." unique_id=1536420589 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(1323, 173)
 control_parent = NodePath("../UI/Window")
 
 [node name="Engineer10" parent="." unique_id=1990921634 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
-position = Vector2(2172, 218)
+position = Vector2(1110, 169)
+control_parent = NodePath("../UI/Window")
+
+[node name="Engineer12" parent="." unique_id=1479128686 node_paths=PackedStringArray("control_parent") instance=ExtResource("47_nvyfr")]
+position = Vector2(1004, 102)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen3" parent="." unique_id=988135414 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1927, 370)
+position = Vector2(1961, 231)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen4" parent="." unique_id=1702038454 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1829, 371)
+position = Vector2(1631, -256)
+control_parent = NodePath("../UI/Window")
+
+[node name="Citizen7" parent="." unique_id=497804932 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
+position = Vector2(1209, 686)
+control_parent = NodePath("../UI/Window")
+
+[node name="Citizen11" parent="." unique_id=1331655012 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
+position = Vector2(920, 509)
+control_parent = NodePath("../UI/Window")
+
+[node name="Citizen9" parent="." unique_id=1459491684 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
+position = Vector2(1193, 643)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen5" parent="." unique_id=329623130 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1808, 545)
+position = Vector2(1575, 405)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen6" parent="." unique_id=1660233879 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1943, 544)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen7" parent="." unique_id=1568533202 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(2048, 546)
+position = Vector2(1581, 473)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen8" parent="." unique_id=207460723 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(2065, 371)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen9" parent="." unique_id=2108250655 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(2181, 547)
+position = Vector2(1672, 78)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen10" parent="." unique_id=1343936751 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(2184, 455)
-control_parent = NodePath("../UI/Window")
-
-[node name="Citizen11" parent="." unique_id=420276546 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
-position = Vector2(1558, 476)
+position = Vector2(1515, 423)
 control_parent = NodePath("../UI/Window")
 
 [node name="Citizen12" parent="." unique_id=1478214215 node_paths=PackedStringArray("control_parent") instance=ExtResource("1_tbgi4")]
