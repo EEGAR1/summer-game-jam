@@ -758,32 +758,17 @@ position = Vector2(1525, 404)
 [node name="Citizen4" parent="." unique_id=474924345 instance=ExtResource("1_tbgi4")]
 position = Vector2(1590, 406)
 
-[node name="Citizen5" parent="." unique_id=1526733473 instance=ExtResource("1_tbgi4")]
-position = Vector2(1561, 421)
-
 [node name="Citizen6" parent="." unique_id=493185338 instance=ExtResource("1_tbgi4")]
 position = Vector2(1057, 152)
 
 [node name="Citizen7" parent="." unique_id=395579558 instance=ExtResource("1_tbgi4")]
 position = Vector2(1132, 144)
 
-[node name="Citizen8" parent="." unique_id=1077725049 instance=ExtResource("1_tbgi4")]
-position = Vector2(1087, 176)
-
 [node name="Citizen9" parent="." unique_id=1952064278 instance=ExtResource("1_tbgi4")]
 position = Vector2(1142, 172)
 
 [node name="Officer2" parent="." unique_id=1011392805 instance=ExtResource("36_fuf3a")]
 position = Vector2(1101, 151)
-
-[node name="Engineer" parent="." unique_id=1441170046 instance=ExtResource("47_nvyfr")]
-position = Vector2(1972, 167)
-
-[node name="Engineer2" parent="." unique_id=9097164 instance=ExtResource("47_nvyfr")]
-position = Vector2(1994, 205)
-
-[node name="Engineer3" parent="." unique_id=2078014299 instance=ExtResource("47_nvyfr")]
-position = Vector2(1859, 471)
 
 [node name="Citizen10" parent="." unique_id=1994473205 instance=ExtResource("1_tbgi4")]
 position = Vector2(1689, 95)
@@ -797,9 +782,6 @@ position = Vector2(1618, 191)
 [node name="Officer3" parent="." unique_id=312692855 instance=ExtResource("36_fuf3a")]
 position = Vector2(1618, 33)
 
-[node name="Officer4" parent="." unique_id=1179532527 instance=ExtResource("36_fuf3a")]
-position = Vector2(2026, 236)
-
 [node name="Area2D" type="Area2D" parent="." unique_id=936330374]
 position = Vector2(1201, 477)
 collision_layer = 7
@@ -809,6 +791,12 @@ script = ExtResource("49_ty1g6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1900328426]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_j2jfr")
+
+[node name="Engineer" parent="." unique_id=1242135097 instance=ExtResource("47_nvyfr")]
+position = Vector2(1083, 176)
+
+[node name="Engineer2" parent="." unique_id=428221838 instance=ExtResource("47_nvyfr")]
+position = Vector2(1560, 423)
 
 [connection signal="item_selected" from="UI/Window/ControlItemPanel/VBoxContainer/OptionButton" to="Player/ItemsManager/PossessItem" method="_on_option_button_item_selected"]
 [connection signal="_on_option_button_item_selected" from="UI/Window/Control/Dialog/GridContainer" to="UI/Window/Control/Dialog" method="_on_option_button_item_selected"]

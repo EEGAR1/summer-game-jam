@@ -6134,15 +6134,6 @@ position = Vector2(-75, -276)
 [node name="IdlePOI3" parent="idle_pois" unique_id=282863774 instance=ExtResource("41_qcc5i")]
 position = Vector2(-391, -593)
 
-[node name="IdlePOI4" parent="idle_pois" unique_id=1070035019 instance=ExtResource("41_qcc5i")]
-position = Vector2(229, -654)
-
-[node name="IdlePOI5" parent="idle_pois" unique_id=605169135 instance=ExtResource("41_qcc5i")]
-position = Vector2(82, -636)
-
-[node name="IdlePOI6" parent="idle_pois" unique_id=1261414770 instance=ExtResource("41_qcc5i")]
-position = Vector2(511, -570)
-
 [node name="IdlePOI7" parent="idle_pois" unique_id=1791965082 instance=ExtResource("41_qcc5i")]
 position = Vector2(-473, -652)
 
